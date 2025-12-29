@@ -1,1 +1,32 @@
+// backend/package.json
+{
+  "name": "cicada-backend",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "migrate": "node src/database/migrate.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "nodemailer": "^6.9.7",
+    "twilio": "^4.20.0",
+    "speakeasy": "^2.0.0",
+    "qrcode": "^1.5.3",
+    "multer": "^1.4.5-lts.1",
+    "stripe": "^14.10.0",
+    "node-cron": "^3.0.3",
+    "winston": "^3.11.0",
+    "redis": "^4.6.12"
+  }
+}
 
