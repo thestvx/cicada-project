@@ -1,0 +1,83 @@
+// frontend/src/locales/fr.json
+{
+  "common": {
+    "app_name": "Cicada",
+    "welcome": "Bienvenue",
+    "login": "Connexion",
+    "register": "S'inscrire",
+    "logout": "Déconnexion",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "loading": "Chargement...",
+    "error": "Erreur survenue",
+    "success": "Succès"
+  },
+  "auth": {
+    "email": "Adresse Email",
+    "password": "Mot de passe",
+    "confirm_password": "Confirmer le mot de passe",
+    "full_name": "Nom complet",
+    "phone": "Numéro de téléphone",
+    "referral_code": "Code de parrainage (optionnel)",
+    "login_title": "Connectez-vous à votre compte",
+    "register_title": "Créer un nouveau compte",
+    "forgot_password": "Mot de passe oublié?",
+    "no_account": "Vous n'avez pas de compte?",
+    "have_account": "Vous avez déjà un compte?",
+    "sign_in": "Se connecter",
+    "sign_up": "S'inscrire"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "total_balance": "Solde total",
+    "today_earnings": "Gains d'aujourd'hui",
+    "active_tasks": "Tâches actives",
+    "total_earnings": "Gains totaux",
+    "quick_actions": "Actions rapides",
+    "deposit_funds": "Déposer des fonds",
+    "withdraw": "Retirer",
+    "view_tasks": "Voir les tâches",
+    "recent_activity": "Activité récente"
+  },
+  "tasks": {
+    "title": "Tâches disponibles",
+    "my_tasks": "Mes tâches",
+    "completed": "Terminé",
+    "in_progress": "En cours",
+    "pending_verification": "En attente de vérification",
+    "difficulty": "Difficulté",
+    "reward": "Récompense",
+    "start_task": "Commencer la tâche",
+    "submit_proof": "Soumettre une preuve",
+    "easy": "Facile",
+    "medium": "Moyen",
+    "hard": "Difficile"
+  },
+  "investment": {
+    "title": "Plans d'investissement",
+    "invest_now": "Investir maintenant",
+    "daily_profit": "Profit quotidien",
+    "min_amount": "Montant minimum",
+    "duration": "Durée",
+    "days": "jours",
+    "my_investments": "Mes investissements",
+    "active": "Actif",
+    "completed": "Terminé"
+  },
+  "transactions": {
+    "title": "Historique des transactions",
+    "type": "Type",
+    "amount": "Montant",
+    "status": "Statut",
+    "date": "Date",
+    "deposit": "Dépôt",
+    "withdrawal": "Retrait",
+    "earning": "Gain",
+    "pending": "En attente",
+    "completed": "Terminé",
+    "failed": "Échoué"
+  }
+}
