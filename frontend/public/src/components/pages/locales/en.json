@@ -1,0 +1,83 @@
+// frontend/src/locales/en.json
+{
+  "common": {
+    "app_name": "Cicada",
+    "welcome": "Welcome",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "loading": "Loading...",
+    "error": "Error occurred",
+    "success": "Success"
+  },
+  "auth": {
+    "email": "Email Address",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "full_name": "Full Name",
+    "phone": "Phone Number",
+    "referral_code": "Referral Code (Optional)",
+    "login_title": "Sign In to Your Account",
+    "register_title": "Create New Account",
+    "forgot_password": "Forgot Password?",
+    "no_account": "Don't have an account?",
+    "have_account": "Already have an account?",
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "total_balance": "Total Balance",
+    "today_earnings": "Today's Earnings",
+    "active_tasks": "Active Tasks",
+    "total_earnings": "Total Earnings",
+    "quick_actions": "Quick Actions",
+    "deposit_funds": "Deposit Funds",
+    "withdraw": "Withdraw",
+    "view_tasks": "View Tasks",
+    "recent_activity": "Recent Activity"
+  },
+  "tasks": {
+    "title": "Available Tasks",
+    "my_tasks": "My Tasks",
+    "completed": "Completed",
+    "in_progress": "In Progress",
+    "pending_verification": "Pending Verification",
+    "difficulty": "Difficulty",
+    "reward": "Reward",
+    "start_task": "Start Task",
+    "submit_proof": "Submit Proof",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard"
+  },
+  "investment": {
+    "title": "Investment Plans",
+    "invest_now": "Invest Now",
+    "daily_profit": "Daily Profit",
+    "min_amount": "Minimum Amount",
+    "duration": "Duration",
+    "days": "days",
+    "my_investments": "My Investments",
+    "active": "Active",
+    "completed": "Completed"
+  },
+  "transactions": {
+    "title": "Transaction History",
+    "type": "Type",
+    "amount": "Amount",
+    "status": "Status",
+    "date": "Date",
+    "deposit": "Deposit",
+    "withdrawal": "Withdrawal",
+    "earning": "Earning",
+    "pending": "Pending",
+    "completed": "Completed",
+    "failed": "Failed"
+  }
+}
