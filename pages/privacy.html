@@ -1,1 +1,697 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية - Cicada</title>
+    <meta name="description" content="سياسة الخصوصية وحماية البيانات في منصة Cicada. نحن ملتزمون بحماية معلوماتك الشخصية وخصوصيتك.">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+
+    <style>
+        .legal-page {
+            padding: 4rem 0;
+            background: var(--light-color);
+        }
+        .legal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        .legal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .legal-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .legal-last-updated {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        .legal-toc {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .legal-toc h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .legal-toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .legal-toc li {
+            margin-bottom: 0.5rem;
+        }
+        .legal-toc a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .legal-toc a:hover {
+            color: var(--primary-color);
+            padding-right: 0.5rem;
+        }
+        .legal-section {
+            margin-bottom: 3rem;
+        }
+        .legal-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .legal-section h3 {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+        }
+        .legal-section p {
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .legal-section ul, .legal-section ol {
+            margin: 1rem 0;
+            padding-right: 1.5rem;
+        }
+        .legal-section li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+        .legal-highlight {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 1.5rem;
+            border-right: 4px solid var(--primary-color);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .legal-warning {
+            background: rgba(231, 76, 60, 0.1);
+            padding: 1.5rem;
+            border-right: 4px solid var(--danger-color);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .privacy-icon-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--light-color);
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .privacy-icon-box i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            min-width: 40px;
+        }
+        .legal-contact-box {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .legal-contact-box h3 {
+            margin-bottom: 1rem;
+        }
+        .legal-contact-box a {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="ar">العربية</button>
+        <button class="lang-btn" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="fr">Français</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../assets/images/logo.png" alt="Cicada Logo" class="logo" onerror="this.style.display='none'">
+                <span class="brand-name">Cicada</span>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html#home" class="nav-link">الرئيسية</a></li>
+                <li><a href="../index.html#features" class="nav-link">المميزات</a></li>
+                <li><a href="../index.html#plans" class="nav-link">الخطط</a></li>
+                <li><a href="about.html" class="nav-link">من نحن</a></li>
+                <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                <li><a href="login.html" class="btn-secondary">تسجيل الدخول</a></li>
+                <li><a href="register.html" class="btn-primary">إنشاء حساب</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>سياسة الخصوصية</h1>
+            <p>نحن ملتزمون بحماية خصوصيتك وبياناتك الشخصية</p>
+            <div class="breadcrumb">
+                <a href="../index.html">الرئيسية</a>
+                <i class="fas fa-chevron-left"></i>
+                <span>سياسة الخصوصية</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Content -->
+    <section class="legal-page">
+        <div class="container">
+            <div class="legal-container">
+                <div class="legal-header">
+                    <h1>سياسة الخصوصية وحماية البيانات</h1>
+                    <p class="legal-last-updated">
+                        <i class="fas fa-calendar-alt"></i>
+                        آخر تحديث: 30 ديسمبر 2025
+                    </p>
+                </div>
+
+                <!-- Introduction -->
+                <div class="legal-section">
+                    <p>
+                        في <strong>Cicada</strong>، نحن نقدر ثقتك ونلتزم بحماية خصوصيتك. توضح سياسة الخصوصية هذه كيفية جمع واستخدام وحماية ومشاركة معلوماتك الشخصية عند استخدامك لمنصتنا.
+                    </p>
+                    <p>
+                        باستخدامك لخدماتنا، فإنك توافق على الممارسات الموضحة في هذه السياسة. إذا كنت لا توافق على أي جزء من هذه السياسة، يُرجى عدم استخدام منصتنا.
+                    </p>
+
+                    <div class="legal-highlight">
+                        <p><strong><i class="fas fa-shield-alt"></i> التزامنا:</strong> نحن ملتزمون بحماية بياناتك الشخصية وفقاً لأعلى معايير الأمان والخصوصية الدولية، بما في ذلك GDPR واللوائح المحلية.</p>
+                    </div>
+                </div>
+
+                <!-- Table of Contents -->
+                <div class="legal-toc">
+                    <h3><i class="fas fa-list"></i> جدول المحتويات</h3>
+                    <ul>
+                        <li><a href="#collection">1. المعلومات التي نجمعها</a></li>
+                        <li><a href="#usage">2. كيف نستخدم معلوماتك</a></li>
+                        <li><a href="#sharing">3. مشاركة المعلومات</a></li>
+                        <li><a href="#cookies">4. ملفات تعريف الارتباط (Cookies)</a></li>
+                        <li><a href="#security">5. أمان البيانات</a></li>
+                        <li><a href="#rights">6. حقوقك</a></li>
+                        <li><a href="#retention">7. الاحتفاظ بالبيانات</a></li>
+                        <li><a href="#children">8. خصوصية الأطفال</a></li>
+                        <li><a href="#international">9. النقل الدولي للبيانات</a></li>
+                        <li><a href="#changes">10. التعديلات على السياسة</a></li>
+                        <li><a href="#contact-privacy">11. اتصل بنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section 1: Data Collection -->
+                <div class="legal-section" id="collection">
+                    <h2>1. المعلومات التي نجمعها</h2>
+                    
+                    <h3>1.1 المعلومات التي تقدمها لنا مباشرة</h3>
+                    <div class="privacy-icon-box">
+                        <i class="fas fa-user-edit"></i>
+                        <div>
+                            <h4>معلومات الحساب</h4>
+                            <ul>
+                                <li>الاسم الكامل</li>
+                                <li>عنوان البريد الإلكتروني</li>
+                                <li>رقم الهاتف</li>
+                                <li>تاريخ الميلاد</li>
+                                <li>كلمة المرور المشفرة</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="privacy-icon-box">
+                        <i class="fas fa-id-card"></i>
+                        <div>
+                            <h4>معلومات التحقق (KYC)</h4>
+                            <ul>
+                                <li>وثائق الهوية (بطاقة وطنية أو جواز سفر)</li>
+                                <li>إثبات العنوان (فاتورة خدمات)</li>
+                                <li>صورة شخصية للتحقق</li>
+                                <li>معلومات إضافية للامتثال القانوني</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="privacy-icon-box">
+                        <i class="fas fa-credit-card"></i>
+                        <div>
+                            <h4>معلومات مالية</h4>
+                            <ul>
+                                <li>تفاصيل طرق الدفع</li>
+                                <li>عناوين المحافظ الرقمية</li>
+                                <li>تاريخ المعاملات</li>
+                                <li>معلومات الإيداعات والسحوبات</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>1.2 المعلومات التي نجمعها تلقائياً</h3>
+                    <div class="privacy-icon-box">
+                        <i class="fas fa-laptop"></i>
+                        <div>
+                            <h4>معلومات الجهاز والاستخدام</h4>
+                            <ul>
+                                <li>عنوان IP</li>
+                                <li>نوع المتصفح ونظام التشغيل</li>
+                                <li>الصفحات التي تزورها وتاريخ الزيارة</li>
+                                <li>معرف الجهاز الفريد</li>
+                                <li>بيانات الموقع الجغرافي التقريبي</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>1.3 معلومات من مصادر خارجية</h3>
+                    <p>قد نتلقى معلومات عنك من:</p>
+                    <ul>
+                        <li>معالجات الدفع الخارجية</li>
+                        <li>خدمات التحقق من الهوية</li>
+                        <li>قواعد بيانات مكافحة الاحتيال</li>
+                        <li>وسائل التواصل الاجتماعي (إذا قمت بربط حسابك)</li>
+                    </ul>
+                </div>
+
+                <!-- Section 2: Usage -->
+                <div class="legal-section" id="usage">
+                    <h2>2. كيف نستخدم معلوماتك</h2>
+                    
+                    <p>نستخدم المعلومات التي نجمعها للأغراض التالية:</p>
+
+                    <h3>2.1 تقديم الخدمات</h3>
+                    <ul>
+                        <li>إنشاء وإدارة حسابك</li>
+                        <li>معالجة المعاملات المالية</li>
+                        <li>توفير خدمات الاستثمار والمهام</li>
+                        <li>حساب وتوزيع الأرباح</li>
+                        <li>معالجة طلبات السحب والإيداع</li>
+                    </ul>
+
+                    <h3>2.2 الأمان والامتثال</h3>
+                    <ul>
+                        <li>التحقق من هويتك (KYC)</li>
+                        <li>منع الاحتيال وغسل الأموال</li>
+                        <li>حماية حسابك من الوصول غير المصرح به</li>
+                        <li>الامتثال للمتطلبات القانونية والتنظيمية</li>
+                        <li>الرد على طلبات الجهات القانونية</li>
+                    </ul>
+
+                    <h3>2.3 التحسين والتطوير</h3>
+                    <ul>
+                        <li>تحليل أداء المنصة وتحسينها</li>
+                        <li>تطوير ميزات وخدمات جديدة</li>
+                        <li>إجراء أبحاث وتحليلات إحصائية</li>
+                        <li>اختبار وصيانة النظام</li>
+                    </ul>
+
+                    <h3>2.4 التواصل معك</h3>
+                    <ul>
+                        <li>إرسال إشعارات بشأن حسابك ومعاملاتك</li>
+                        <li>الرد على استفساراتك ودعمك</li>
+                        <li>إرسال تحديثات مهمة عن الخدمة</li>
+                        <li>إرسال عروض ترويجية (بموافقتك)</li>
+                    </ul>
+                </div>
+
+                <!-- Section 3: Sharing -->
+                <div class="legal-section" id="sharing">
+                    <h2>3. مشاركة المعلومات</h2>
+                    
+                    <p>نحن لا نبيع أو نؤجر معلوماتك الشخصية لأطراف ثالثة. قد نشارك معلوماتك في الحالات التالية فقط:</p>
+
+                    <h3>3.1 مقدمو الخدمات</h3>
+                    <p>نشارك معلوماتك مع مقدمي خدمات موثوقين يساعدوننا في تشغيل المنصة:</p>
+                    <ul>
+                        <li>معالجات الدفع (لمعالجة المعاملات)</li>
+                        <li>خدمات التخزين السحابي (لتخزين البيانات)</li>
+                        <li>خدمات التحقق من الهوية (KYC)</li>
+                        <li>خدمات التسويق عبر البريد الإلكتروني</li>
+                        <li>أدوات التحليل والإحصاء</li>
+                    </ul>
+                    <p><strong>ملاحظة:</strong> جميع مقدمي الخدمات ملزمون باتفاقيات سرية وأمان صارمة.</p>
+
+                    <h3>3.2 الامتثال القانوني</h3>
+                    <p>قد نكشف عن معلوماتك إذا كان ذلك مطلوباً قانونياً:</p>
+                    <ul>
+                        <li>الامتثال لأوامر المحاكم أو الاستدعاءات القانونية</li>
+                        <li>الحماية من الاحتيال أو الأنشطة غير القانونية</li>
+                        <li>التعاون مع جهات إنفاذ القانون</li>
+                        <li>حماية حقوقنا وممتلكاتنا</li>
+                    </ul>
+
+                    <h3>3.3 نقل الأعمال</h3>
+                    <p>
+                        في حالة اندماج أو استحواذ أو بيع أصول الشركة، قد يتم نقل معلوماتك إلى الكيان الجديد، مع الحفاظ على نفس مستوى الحماية.
+                    </p>
+
+                    <h3>3.4 بموافقتك</h3>
+                    <p>
+                        قد نشارك معلوماتك في حالات أخرى بموافقتك الصريحة.
+                    </p>
+                </div>
+
+                <!-- Section 4: Cookies -->
+                <div class="legal-section" id="cookies">
+                    <h2>4. ملفات تعريف الارتباط (Cookies)</h2>
+                    
+                    <h3>4.1 ما هي Cookies؟</h3>
+                    <p>
+                        Cookies هي ملفات نصية صغيرة يتم تخزينها على جهازك عند زيارة موقعنا. تساعدنا في توفير تجربة أفضل وتذكر تفضيلاتك.
+                    </p>
+
+                    <h3>4.2 أنواع Cookies التي نستخدمها</h3>
+                    
+                    <table style="width:100%; border-collapse:collapse; margin:1.5rem 0;">
+                        <thead>
+                            <tr style="background:var(--light-color);">
+                                <th style="padding:1rem; text-align:right; border:1px solid var(--border-color);">النوع</th>
+                                <th style="padding:1rem; text-align:right; border:1px solid var(--border-color);">الغرض</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);"><strong>Cookies ضرورية</strong></td>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">لتشغيل الموقع والحفاظ على جلستك</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);"><strong>Cookies وظيفية</strong></td>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">لتذكر تفضيلاتك واللغة</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);"><strong>Cookies تحليلية</strong></td>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">لفهم كيفية استخدامك للموقع وتحسين الأداء</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);"><strong>Cookies تسويقية</strong></td>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">لعرض إعلانات ملائمة (بموافقتك)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>4.3 إدارة Cookies</h3>
+                    <p>يمكنك التحكم في Cookies من خلال إعدادات متصفحك:</p>
+                    <ul>
+                        <li>حظر جميع Cookies</li>
+                        <li>حذف Cookies الموجودة</li>
+                        <li>قبول Cookies من مواقع معينة فقط</li>
+                        <li>تلقي إشعار قبل قبول Cookies</li>
+                    </ul>
+                    <p><strong>ملاحظة:</strong> حظر Cookies قد يؤثر على وظائف بعض أجزاء الموقع.</p>
+                </div>
+
+                <!-- Section 5: Security -->
+                <div class="legal-section" id="security">
+                    <h2>5. أمان البيانات</h2>
+                    
+                    <p>
+                        نحن نأخذ أمان بياناتك على محمل الجد ونستخدم إجراءات حماية متعددة الطبقات:
+                    </p>
+
+                    <div class="privacy-icon-box">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <h4>التشفير</h4>
+                            <p>نستخدم تشفير SSL/TLS 256-bit لحماية جميع البيانات المنقولة بين جهازك وخوادمنا.</p>
+                        </div>
+                    </div>
+
+                    <div class="privacy-icon-box">
+                        <i class="fas fa-server"></i>
+                        <div>
+                            <h4>تخزين آمن</h4>
+                            <p>تُخزن بياناتك على خوادم آمنة محمية بجدران نار متقدمة ومراقبة مستمرة.</p>
+                        </div>
+                    </div>
+
+                    <div class="privacy-icon-box">
+                        <i class="fas fa-user-shield"></i>
+                        <div>
+                            <h4>الوصول المحدود</h4>
+                            <p>فقط الموظفون المصرح لهم يمكنهم الوصول إلى بياناتك الشخصية، وفقط عند الحاجة.</p>
+                        </div>
+                    </div>
+
+                    <div class="privacy-icon-box">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>المصادقة الثنائية (2FA)</h4>
+                            <p>نوفر خيار المصادقة الثنائية لحماية إضافية لحسابك.</p>
+                        </div>
+                    </div>
+
+                    <div class="privacy-icon-box">
+                        <i class="fas fa-eye"></i>
+                        <div>
+                            <h4>المراقبة المستمرة</h4>
+                            <p>نراقب أنظمتنا على مدار الساعة للكشف عن أي أنشطة مشبوهة.</p>
+                        </div>
+                    </div>
+
+                    <div class="legal-warning">
+                        <p><strong><i class="fas fa-exclamation-triangle"></i> مسؤوليتك:</strong> مع أننا نتخذ جميع الإجراءات اللازمة، لا يمكن ضمان الأمان بنسبة 100%. يجب عليك:</p>
+                        <ul>
+                            <li>استخدام كلمة مرور قوية وفريدة</li>
+                            <li>عدم مشاركة معلومات تسجيل الدخول مع أي شخص</li>
+                            <li>تفعيل المصادقة الثنائية</li>
+                            <li>تسجيل الخروج من الأجهزة المشتركة</li>
+                            <li>إبلاغنا فوراً عن أي نشاط مشبوه</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Section 6: Rights -->
+                <div class="legal-section" id="rights">
+                    <h2>6. حقوقك</h2>
+                    
+                    <p>لديك الحقوق التالية فيما يتعلق ببياناتك الشخصية:</p>
+
+                    <h3>6.1 حق الوصول</h3>
+                    <p>يمكنك طلب نسخة من جميع البيانات الشخصية التي نحتفظ بها عنك.</p>
+
+                    <h3>6.2 حق التصحيح</h3>
+                    <p>يمكنك طلب تصحيح أي معلومات غير دقيقة أو غير كاملة.</p>
+
+                    <h3>6.3 حق الحذف</h3>
+                    <p>يمكنك طلب حذف بياناتك الشخصية في ظروف معينة (مع مراعاة الالتزامات القانونية).</p>
+
+                    <h3>6.4 حق التقييد</h3>
+                    <p>يمكنك طلب تقييد معالجة بياناتك الشخصية في حالات معينة.</p>
+
+                    <h3>6.5 حق نقل البيانات</h3>
+                    <p>يمكنك طلب نقل بياناتك إلى مقدم خدمة آخر بصيغة قابلة للقراءة آلياً.</p>
+
+                    <h3>6.6 حق الاعتراض</h3>
+                    <p>يمكنك الاعتراض على معالجة بياناتك لأغراض معينة مثل التسويق المباشر.</p>
+
+                    <h3>6.7 حق سحب الموافقة</h3>
+                    <p>يمكنك سحب موافقتك في أي وقت عندما نعتمد على الموافقة لمعالجة بياناتك.</p>
+
+                    <div class="legal-highlight">
+                        <p><strong><i class="fas fa-envelope"></i> كيفية ممارسة حقوقك:</strong> لممارسة أي من هذه الحقوق، يُرجى التواصل معنا عبر البريد الإلكتروني: <a href="mailto:privacy@cicada.com">privacy@cicada.com</a> أو من خلال إعدادات حسابك.</p>
+                    </div>
+                </div>
+
+                <!-- Section 7: Retention -->
+                <div class="legal-section" id="retention">
+                    <h2>7. الاحتفاظ بالبيانات</h2>
+                    
+                    <p>
+                        نحتفظ بمعلوماتك الشخصية طالما كان حسابك نشطاً أو حسب الحاجة لتقديم خدماتنا.
+                    </p>
+
+                    <h3>7.1 فترات الاحتفاظ</h3>
+                    <ul>
+                        <li><strong>بيانات الحساب:</strong> طوال فترة نشاط الحساب + 5 سنوات بعد الإغلاق</li>
+                        <li><strong>سجل المعاملات:</strong> 10 سنوات (لأغراض الامتثال الضريبي)</li>
+                        <li><strong>وثائق KYC:</strong> 5 سنوات بعد إنهاء العلاقة التجارية</li>
+                        <li><strong>سجلات الدعم:</strong> 3 سنوات</li>
+                        <li><strong>البيانات التسويقية:</strong> حتى تطلب إلغاء الاشتراك</li>
+                    </ul>
+
+                    <p>
+                        بعد انتهاء فترة الاحتفاظ، نقوم بحذف بياناتك بشكل آمن أو إخفاء هويتها بحيث لا يمكن التعرف عليك.
+                    </p>
+                </div>
+
+                <!-- Section 8: Children -->
+                <div class="legal-section" id="children">
+                    <h2>8. خصوصية الأطفال</h2>
+                    
+                    <p>
+                        خدماتنا غير موجهة للأطفال دون سن 18 عاماً. لا نجمع عن قصد معلومات شخصية من الأطفال.
+                    </p>
+                    
+                    <div class="legal-warning">
+                        <p><strong><i class="fas fa-child"></i> إذا كنت والداً أو وصياً:</strong> إذا اكتشفت أن طفلك قدم معلومات شخصية دون موافقتك، يُرجى الاتصال بنا فوراً وسنتخذ الإجراءات اللازمة لحذف هذه المعلومات.</p>
+                    </div>
+                </div>
+
+                <!-- Section 9: International -->
+                <div class="legal-section" id="international">
+                    <h2>9. النقل الدولي للبيانات</h2>
+                    
+                    <p>
+                        نحن نعمل على مستوى عالمي، وقد يتم نقل بياناتك ومعالجتها في دول أخرى غير بلدك. نضمن أن أي نقل دولي للبيانات يتم وفقاً للمعايير التالية:
+                    </p>
+
+                    <ul>
+                        <li>الامتثال للوائح حماية البيانات المعمول بها</li>
+                        <li>استخدام آليات نقل معتمدة (مثل البنود التعاقدية القياسية)</li>
+                        <li>ضمان نفس مستوى الحماية في البلد الوجهة</li>
+                        <li>التعامل فقط مع شركاء موثوقين معتمدين</li>
+                    </ul>
+                </div>
+
+                <!-- Section 10: Changes -->
+                <div class="legal-section" id="changes">
+                    <h2>10. التعديلات على السياسة</h2>
+                    
+                    <p>
+                        قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر لتعكس التغييرات في ممارساتنا أو القوانين المعمول بها.
+                    </p>
+
+                    <h3>10.1 كيف سنخطرك</h3>
+                    <ul>
+                        <li>نشر السياسة المحدثة على هذه الصفحة</li>
+                        <li>إرسال إشعار عبر البريد الإلكتروني للتغييرات الجوهرية</li>
+                        <li>عرض إشعار بارز على المنصة</li>
+                        <li>تحديث تاريخ "آخر تحديث" في أعلى الصفحة</li>
+                    </ul>
+
+                    <p>
+                        <strong>ننصحك بمراجعة هذه السياسة بشكل دوري للبقاء على اطلاع بممارساتنا.</strong>
+                    </p>
+                </div>
+
+                <!-- Section 11: Contact -->
+                <div class="legal-section" id="contact-privacy">
+                    <h2>11. اتصل بنا</h2>
+                    
+                    <p>
+                        إذا كانت لديك أي أسئلة أو مخاوف بشأن سياسة الخصوصية هذه أو ممارساتنا، يُرجى الاتصال بنا:
+                    </p>
+
+                    <div class="privacy-icon-box">
+                        <i class="fas fa-user-shield"></i>
+                        <div>
+                            <h4>مسؤول حماية البيانات</h4>
+                            <p><strong>البريد الإلكتروني:</strong> <a href="mailto:privacy@cicada.com">privacy@cicada.com</a></p>
+                            <p><strong>الهاتف:</strong> <a href="tel:+213555123456">+213 555 123 456</a></p>
+                        </div>
+                    </div>
+
+                    <div class="privacy-icon-box">
+                        <i class="fas fa-building"></i>
+                        <div>
+                            <h4>عنوان البريد</h4>
+                            <p>
+                                Cicada Investment Platform<br>
+                                قسم الخصوصية وحماية البيانات<br>
+                                شارع الاستقلال، حي النور<br>
+                                الوادي 39000، الجزائر
+                            </p>
+                        </div>
+                    </div>
+
+                    <p style="margin-top:1.5rem;">
+                        <strong>وقت الاستجابة:</strong> نسعى للرد على جميع استفسارات الخصوصية خلال 72 ساعة عمل.
+                    </p>
+                </div>
+
+                <!-- Contact Box -->
+                <div class="legal-contact-box">
+                    <h3><i class="fas fa-shield-alt"></i> حماية خصوصيتك أولويتنا</h3>
+                    <p>إذا كانت لديك أي استفسارات أو مخاوف، لا تتردد في التواصل معنا</p>
+                    <a href="contact.html" class="btn-secondary btn-lg" style="margin-top:1rem; background:white; color:var(--primary-color);">
+                        <i class="fas fa-envelope"></i> اتصل بفريق الخصوصية
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Cicada</h3>
+                    <p>منصة الاستثمار والمهام الرائدة في العالم العربي.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="../index.html#features">المميزات</a></li>
+                        <li><a href="../index.html#plans">الخطط</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>قانوني</h4>
+                    <ul>
+                        <li><a href="terms.html">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="support.html">الدعم الفني</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>النشرة الإخبارية</h4>
+                    <p>اشترك ليصلك كل جديد</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cicada. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
