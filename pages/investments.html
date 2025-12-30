@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاستثمارات - Cicada</title>
+    <meta name="description" content="إدارة خطط الاستثمار الخاصة بك في منصة Cicada، ومتابعة الأرباح اليومية ورأس المال.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="Cicada Logo" class="sidebar-logo" onerror="this.style.display='none'">
+                <h2 class="sidebar-brand">Cicada</h2>
+            </div>
+
+            <nav class="sidebar-menu">
+                <div class="menu-category">الرئيسية</div>
+                <a href="dashboard.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>لوحة التحكم</span>
+                </a>
+                <a href="tasks.html" class="menu-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>المهام</span>
+                </a>
+                <a href="investments.html" class="menu-item active">
+                    <i class="fas fa-chart-line"></i>
+                    <span>الاستثمارات</span>
+                </a>
+
+                <div class="menu-category">المعاملات</div>
+                <a href="deposits.html" class="menu-item">
+                    <i class="fas fa-arrow-down"></i>
+                    <span>الإيداعات</span>
+                </a>
+                <a href="withdrawals.html" class="menu-item">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>السحوبات</span>
+                </a>
+                <a href="transactions.html" class="menu-item">
+                    <i class="fas fa-receipt"></i>
+                    <span>سجل المعاملات</span>
+                </a>
+
+                <div class="menu-category">الحساب</div>
+                <a href="profile.html" class="menu-item">
+                    <i class="fas fa-user"></i>
+                    <span>الملف الشخصي</span>
+                </a>
+                <a href="referrals.html" class="menu-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>الإحالات</span>
+                </a>
+                <a href="kyc.html" class="menu-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>التحقق (KYC)</span>
+                </a>
+
+                <div class="menu-category">الدعم والقانوني</div>
+                <a href="support.html" class="menu-item">
+                    <i class="fas fa-headset"></i>
+                    <span>الدعم الفني</span>
+                </a>
+                <a href="terms.html" class="menu-item">
+                    <i class="fas fa-file-contract"></i>
+                    <span>الشروط والأحكام</span>
+                </a>
+                <a href="privacy.html" class="menu-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>سياسة الخصوصية</span>
+                </a>
+                <a href="blog.html" class="menu-item">
+                    <i class="fas fa-blog"></i>
+                    <span>المدونة</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-mini-profile">
+                    <img src="../assets/images/avatar-placeholder.png" alt="User" class="user-avatar-sm" onerror="this.style.display='none'">
+                    <div class="user-info-sm">
+                        <h4 data-user="name">مستخدم</h4>
+                        <p data-user="email">user@email.com</p>
+                    </div>
+                </div>
+                <button class="menu-item" data-logout="true" style="margin-top:1rem; width:100%; justify-content:flex-start;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="dashboard-title">
+                    <button class="toggle-sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1>الاستثمارات</h1>
+                        <p>تابع خططك الاستثمارية وأرباحك اليومية</p>
+                    </div>
+                </div>
+                <div class="topbar-actions">
+                    <button class="action-btn" title="إشعارات">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="action-btn" title="الملف الشخصي" onclick="window.location.href='profile.html'">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Summary Stats -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon investment">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>إجمالي رأس المال المستثمر</h3>
+                        <div class="stat-value" data-stat="invested-capital">$0.00</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon wallet">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>إجمالي أرباح الاستثمار</h3>
+                        <div class="stat-value" data-stat="investment-profit">$0.00</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon tasks">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>أرباح اليوم من الاستثمار</h3>
+                        <div class="stat-value" data-stat="investment-daily-profit">$0.00</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon referral">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>عدد الخطط النشطة</h3>
+                        <div class="stat-value" data-stat="active-plans">0</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Active Plans -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>الخطط الاستثمارية النشطة</h3>
+                    <a href="../index.html#plans" class="btn-secondary" style="padding:6px 12px; font-size:0.85rem;">
+                        عرض جميع الخطط
+                    </a>
+                </div>
+
+                <div id="activePlansContainer">
+                    <!-- يتم تعبئتها عبر JavaScript -->
+                </div>
+            </section>
+
+            <!-- Investment History Table -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>سجل الاستثمارات</h3>
+                    <span style="color:var(--text-light); font-size:0.9rem;">جميع استثماراتك السابقة والحالية</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>التاريخ</th>
+                                <th>الخطة</th>
+                                <th>المبلغ</th>
+                                <th>الربح اليومي</th>
+                                <th>المدة</th>
+                                <th>الحالة</th>
+                            </tr>
+                        </thead>
+                        <tbody id="investmentsTableBody">
+                            <!-- يتم تعبئتها عبر JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/auth.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+    <script>
+        // بيانات استثمار تجريبية مشابهة لما تقدمه قوالب داشبورد الاستثمار (رأس مال، ربح يومي، مدة، حالة).[web:116][web:120]
+        const demoInvestments = [
+            {
+                date: '2025-12-20',
+                plan: 'الخطة الأساسية',
+                amount: 300,
+                dailyRate: 1.5,
+                durationDays: 30,
+                status: 'active'
+            },
+            {
+                date: '2025-12-10',
+                plan: 'الخطة الاحترافية',
+                amount: 1000,
+                dailyRate: 2.5,
+                durationDays: 60,
+                status: 'active'
+            },
+            {
+                date: '2025-10-01',
+                plan: 'خطة المؤسسات',
+                amount: 5000,
+                dailyRate: 3.5,
+                durationDays: 90,
+                status: 'completed'
+            }
+        ];
+
+        function renderActivePlans() {
+            const container = document.getElementById('activePlansContainer');
+            if (!container) return;
+
+            const active = demoInvestments.filter(inv => inv.status === 'active');
+
+            if (active.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align:center; padding:2rem; color:var(--text-light);">
+                        لا توجد خطط استثمارية نشطة حالياً.
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = active.map(inv => {
+                const dailyProfit = inv.amount * (inv.dailyRate / 100);
+                return `
+                    <div class="plan-card" style="margin-bottom:1rem;">
+                        <div class="plan-badge">${inv.plan === 'الخطة الأساسية' ? 'للمبتدئين' : inv.plan === 'الخطة الاحترافية' ? 'الأكثر شعبية' : 'للمحترفين'}</div>
+                        <h3 class="plan-name">${inv.plan}</h3>
+                        <div class="plan-price">
+                            <span class="price-amount">${inv.dailyRate}%</span>
+                            <span class="price-period">ربح يومي</span>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> المبلغ المستثمر: $${inv.amount.toFixed(2)}</li>
+                            <li><i class="fas fa-check"></i> الربح اليومي التقريبي: $${dailyProfit.toFixed(2)}</li>
+                            <li><i class="fas fa-check"></i> مدة الخطة: ${inv.durationDays} يوم</li>
+                            <li><i class="fas fa-check"></i> تاريخ البدء: ${inv.date}</li>
+                            <li><i class="fas fa-check"></i> الحالة: نشطة</li>
+                        </ul>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderInvestmentsTable() {
+            const tbody = document.getElementById('investmentsTableBody');
+            if (!tbody) return;
+
+            if (demoInvestments.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align:center; color:var(--text-light); padding:1.5rem;">
+                            لا توجد استثمارات مسجلة حتى الآن.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = demoInvestments.map(inv => `
+                <tr>
+                    <td>${inv.date}</td>
+                    <td>${inv.plan}</td>
+                    <td>$${inv.amount.toFixed(2)}</td>
+                    <td>${inv.dailyRate}%</td>
+                    <td>${inv.durationDays} يوم</td>
+                    <td>
+                        <span class="status-badge ${
+                            inv.status === 'active' ? 'success' : inv.status === 'completed' ? 'pending' : 'failed'
+                        }">
+                            ${inv.status === 'active' ? 'نشط' : inv.status === 'completed' ? 'مكتمل' : 'موقوف'}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function updateInvestmentStats() {
+            const totalCapital = demoInvestments.reduce((sum, inv) => sum + inv.amount, 0);
+            const activePlans = demoInvestments.filter(inv => inv.status === 'active');
+            const activeCapital = activePlans.reduce((sum, inv) => sum + inv.amount, 0);
+
+            // ربح يوم واحد تقريبي من جميع الاستثمارات النشطة
+            const dailyProfit = activePlans.reduce((sum, inv) => {
+                return sum + inv.amount * (inv.dailyRate / 100);
+            }, 0);
+
+            // ربح تقريبي إجمالي (هنا نفترض 10 أيام لكل استثمار نشط فقط كمثال)
+            const totalProfit = activePlans.reduce((sum, inv) => {
+                return sum + (inv.amount * (inv.dailyRate / 100) * 10);
+            }, 0);
+
+            const capEl = document.querySelector('[data-stat="invested-capital"]');
+            const profitEl = document.querySelector('[data-stat="investment-profit"]');
+            const dailyEl = document.querySelector('[data-stat="investment-daily-profit"]');
+            const activeCountEl = document.querySelector('[data-stat="active-plans"]');
+
+            if (capEl) capEl.textContent = `$${activeCapital.toFixed(2)}`;
+            if (profitEl) profitEl.textContent = `$${totalProfit.toFixed(2)}`;
+            if (dailyEl) dailyEl.textContent = `$${dailyProfit.toFixed(2)}`;
+            if (activeCountEl) activeCountEl.textContent = activePlans.length.toString();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // حماية وتهيئة عامة
+            if (window.CicadaAuth && window.CicadaAuth.protectPage) {
+                window.CicadaAuth.protectPage();
+            }
+            if (typeof loadUserInfo === 'function') loadUserInfo();
+            if (typeof initSidebarToggle === 'function') initSidebarToggle();
+            if (typeof highlightActiveMenu === 'function') highlightActiveMenu();
+
+            renderActivePlans();
+            renderInvestmentsTable();
+            updateInvestmentStats();
+        });
+    </script>
+</body>
+</html>
