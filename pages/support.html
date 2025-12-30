@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدعم الفني - Cicada</title>
+    <meta name="description" content="احصل على المساعدة الفورية من فريق دعم Cicada، أرسل استفساراتك وتابع حالة التذاكر في أي وقت.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="Cicada Logo" class="sidebar-logo" onerror="this.style.display='none'">
+                <h2 class="sidebar-brand">Cicada</h2>
+            </div>
+
+            <nav class="sidebar-menu">
+                <div class="menu-category">الرئيسية</div>
+                <a href="dashboard.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>لوحة التحكم</span>
+                </a>
+                <a href="tasks.html" class="menu-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>المهام</span>
+                </a>
+                <a href="investments.html" class="menu-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>الاستثمارات</span>
+                </a>
+
+                <div class="menu-category">المعاملات</div>
+                <a href="deposits.html" class="menu-item">
+                    <i class="fas fa-arrow-down"></i>
+                    <span>الإيداعات</span>
+                </a>
+                <a href="withdrawals.html" class="menu-item">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>السحوبات</span>
+                </a>
+                <a href="transactions.html" class="menu-item">
+                    <i class="fas fa-receipt"></i>
+                    <span>سجل المعاملات</span>
+                </a>
+
+                <div class="menu-category">الحساب</div>
+                <a href="profile.html" class="menu-item">
+                    <i class="fas fa-user"></i>
+                    <span>الملف الشخصي</span>
+                </a>
+                <a href="referrals.html" class="menu-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>الإحالات</span>
+                </a>
+                <a href="kyc.html" class="menu-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>التحقق (KYC)</span>
+                </a>
+
+                <div class="menu-category">الدعم والقانوني</div>
+                <a href="support.html" class="menu-item active">
+                    <i class="fas fa-headset"></i>
+                    <span>الدعم الفني</span>
+                </a>
+                <a href="terms.html" class="menu-item">
+                    <i class="fas fa-file-contract"></i>
+                    <span>الشروط والأحكام</span>
+                </a>
+                <a href="privacy.html" class="menu-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>سياسة الخصوصية</span>
+                </a>
+                <a href="blog.html" class="menu-item">
+                    <i class="fas fa-blog"></i>
+                    <span>المدونة</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-mini-profile">
+                    <img src="../assets/images/avatar-placeholder.png" alt="User" class="user-avatar-sm" onerror="this.style.display='none'">
+                    <div class="user-info-sm">
+                        <h4 data-user="name">مستخدم</h4>
+                        <p data-user="email">user@email.com</p>
+                    </div>
+                </div>
+                <button class="menu-item" data-logout="true" style="margin-top:1rem; width:100%; justify-content:flex-start;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="dashboard-title">
+                    <button class="toggle-sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1>الدعم الفني</h1>
+                        <p>نحن هنا لمساعدتك على مدار الساعة</p>
+                    </div>
+                </div>
+                <div class="topbar-actions">
+                    <button class="action-btn" title="إشعارات">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="action-btn" title="الملف الشخصي" onclick="window.location.href='profile.html'">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Support Stats -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon tasks">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>إجمالي التذاكر</h3>
+                        <div class="stat-value" data-stat="total-tickets">0</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon investment">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>تذاكر قيد المعالجة</h3>
+                        <div class="stat-value" data-stat="pending-tickets">0</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon wallet">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>تذاكر محلولة</h3>
+                        <div class="stat-value" data-stat="resolved-tickets">0</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon referral">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>متوسط وقت الاستجابة</h3>
+                        <div class="stat-value">2.5 ساعة</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Contact Options -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>طرق التواصل السريع</h3>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1rem;">
+                    <div class="quick-action-btn" onclick="window.open('https://wa.me/213555123456', '_blank')">
+                        <i class="fab fa-whatsapp" style="color:#25D366; font-size:2rem; margin-bottom:0.5rem;"></i>
+                        <span>محادثة عبر واتساب</span>
+                        <small style="color:var(--text-light); margin-top:0.3rem;">رد فوري خلال دقائق</small>
+                    </div>
+                    <div class="quick-action-btn" onclick="window.open('https://t.me/cicada_support', '_blank')">
+                        <i class="fab fa-telegram" style="color:#0088CC; font-size:2rem; margin-bottom:0.5rem;"></i>
+                        <span>محادثة عبر تيليجرام</span>
+                        <small style="color:var(--text-light); margin-top:0.3rem;">دعم سريع على مدار الساعة</small>
+                    </div>
+                    <div class="quick-action-btn" onclick="window.location.href='mailto:support@cicada.com'">
+                        <i class="fas fa-envelope" style="color:var(--secondary-color); font-size:2rem; margin-bottom:0.5rem;"></i>
+                        <span>البريد الإلكتروني</span>
+                        <small style="color:var(--text-light); margin-top:0.3rem;">support@cicada.com</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Ticket Form -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>فتح تذكرة دعم جديدة</h3>
+                </div>
+                <form id="supportTicketForm">
+                    <div class="form-group">
+                        <label class="form-label" for="ticketSubject">عنوان المشكلة</label>
+                        <input 
+                            type="text" 
+                            id="ticketSubject" 
+                            name="subject" 
+                            class="form-input" 
+                            placeholder="مثال: مشكلة في سحب الأموال"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="ticketCategory">نوع المشكلة</label>
+                        <select id="ticketCategory" name="category" class="form-input" required>
+                            <option value="">اختر نوع المشكلة</option>
+                            <option value="deposit">مشكلة في الإيداع</option>
+                            <option value="withdrawal">مشكلة في السحب</option>
+                            <option value="investment">استفسار عن الاستثمار</option>
+                            <option value="tasks">مشكلة في المهام</option>
+                            <option value="kyc">التحقق من الهوية</option>
+                            <option value="referral">برنامج الإحالة</option>
+                            <option value="technical">مشكلة تقنية</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="ticketPriority">الأولوية</label>
+                        <select id="ticketPriority" name="priority" class="form-input" required>
+                            <option value="low">منخفضة</option>
+                            <option value="medium" selected>متوسطة</option>
+                            <option value="high">عالية</option>
+                            <option value="urgent">عاجلة</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="ticketMessage">وصف المشكلة بالتفصيل</label>
+                        <textarea 
+                            id="ticketMessage" 
+                            name="message" 
+                            class="form-input" 
+                            rows="6"
+                            placeholder="اشرح المشكلة التي تواجهها بالتفصيل..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="ticketAttachment">إرفاق ملف (اختياري)</label>
+                        <input 
+                            type="file" 
+                            id="ticketAttachment" 
+                            name="attachment" 
+                            class="form-input" 
+                            accept="image/*,.pdf,.doc,.docx"
+                        >
+                        <small style="color:var(--text-light);">الملفات المقبولة: JPG, PNG, PDF, DOC (الحد الأقصى 5MB)</small>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> إرسال التذكرة
+                    </button>
+                </form>
+            </section>
+
+            <!-- Tickets History -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>تذاكر الدعم السابقة</h3>
+                    <span style="color:var(--text-light); font-size:0.9rem;" id="ticketsCountLabel">0 تذكرة</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>رقم التذكرة</th>
+                                <th>العنوان</th>
+                                <th>النوع</th>
+                                <th>الأولوية</th>
+                                <th>التاريخ</th>
+                                <th>الحالة</th>
+                                <th>إجراء</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ticketsTableBody">
+                            <!-- يتم تعبئتها عبر JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>الأسئلة الشائعة</h3>
+                </div>
+                <div class="faq-container" style="display:grid; gap:1rem;">
+                    <div class="faq-item" style="padding:1rem; background:var(--light-color); border-radius:8px;">
+                        <h4 style="margin:0 0 0.5rem;">كيف يمكنني سحب أرباحي؟</h4>
+                        <p style="margin:0; color:var(--text-light); font-size:0.9rem;">
+                            اذهب إلى صفحة السحوبات، اختر طريقة السحب، أدخل المبلغ والعنوان، ثم أرسل الطلب.
+                        </p>
+                    </div>
+                    <div class="faq-item" style="padding:1rem; background:var(--light-color); border-radius:8px;">
+                        <h4 style="margin:0 0 0.5rem;">ما هي مدة معالجة طلبات السحب؟</h4>
+                        <p style="margin:0; color:var(--text-light); font-size:0.9rem;">
+                            عادةً يتم معالجة طلبات السحب خلال 24-48 ساعة عمل.
+                        </p>
+                    </div>
+                    <div class="faq-item" style="padding:1rem; background:var(--light-color); border-radius:8px;">
+                        <h4 style="margin:0 0 0.5rem;">كيف يمكنني زيادة أرباحي؟</h4>
+                        <p style="margin:0; color:var(--text-light); font-size:0.9rem;">
+                            يمكنك إكمال المهام اليومية، دعوة أصدقائك عبر برنامج الإحالة، واختيار خطة استثمار بعائد أعلى.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/auth.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+    <script>
+        // بيانات تذاكر دعم تجريبية مستوحاة من صفحات ticketing systems.[web:156][web:157]
+        const demoTickets = [
+            {
+                id: 'TCK-1001',
+                subject: 'مشكلة في سحب الأموال',
+                category: 'withdrawal',
+                priority: 'high',
+                date: '2025-12-28',
+                status: 'pending'
+            },
+            {
+                id: 'TCK-1002',
+                subject: 'استفسار عن خطط الاستثمار',
+                category: 'investment',
+                priority: 'medium',
+                date: '2025-12-25',
+                status: 'resolved'
+            },
+            {
+                id: 'TCK-1003',
+                subject: 'لم أستلم أرباحي اليومية',
+                category: 'investment',
+                priority: 'high',
+                date: '2025-12-20',
+                status: 'resolved'
+            }
+        ];
+
+        function formatCategory(cat) {
+            const map = {
+                deposit: 'إيداع',
+                withdrawal: 'سحب',
+                investment: 'استثمار',
+                tasks: 'مهام',
+                kyc: 'KYC',
+                referral: 'إحالة',
+                technical: 'تقني',
+                other: 'أخرى'
+            };
+            return map[cat] || cat;
+        }
+
+        function formatPriority(pri) {
+            const map = {
+                low: 'منخفضة',
+                medium: 'متوسطة',
+                high: 'عالية',
+                urgent: 'عاجلة'
+            };
+            return map[pri] || pri;
+        }
+
+        function renderTickets() {
+            const tbody = document.getElementById('ticketsTableBody');
+            const label = document.getElementById('ticketsCountLabel');
+            if (!tbody) return;
+
+            if (!demoTickets.length) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" style="text-align:center; color:var(--text-light); padding:1.5rem;">
+                            لا توجد تذاكر دعم مسجلة حتى الآن.
+                        </td>
+                    </tr>
+                `;
+                if (label) label.textContent = '0 تذكرة';
+                return;
+            }
+
+            tbody.innerHTML = demoTickets.map(ticket => `
+                <tr>
+                    <td><strong>${ticket.id}</strong></td>
+                    <td>${ticket.subject}</td>
+                    <td>${formatCategory(ticket.category)}</td>
+                    <td>
+                        <span style="padding:4px 8px; border-radius:4px; font-size:0.85rem; background:${
+                            ticket.priority === 'urgent' || ticket.priority === 'high' ? 'rgba(231,76,60,0.1)' : 'rgba(52,152,219,0.1)'
+                        }; color:${ticket.priority === 'urgent' || ticket.priority === 'high' ? 'var(--danger-color)' : 'var(--secondary-color)'};">
+                            ${formatPriority(ticket.priority)}
+                        </span>
+                    </td>
+                    <td>${ticket.date}</td>
+                    <td>
+                        <span class="status-badge ${
+                            ticket.status === 'resolved' ? 'success' : ticket.status === 'pending' ? 'pending' : 'failed'
+                        }">
+                            ${ticket.status === 'resolved' ? 'محلول' : ticket.status === 'pending' ? 'قيد المعالجة' : 'مغلق'}
+                        </span>
+                    </td>
+                    <td>
+                        <button class="btn-secondary" style="padding:6px 12px; font-size:0.85rem;">
+                            <i class="fas fa-eye"></i> عرض
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+
+            if (label) label.textContent = demoTickets.length + ' تذكرة';
+        }
+
+        function updateTicketStats() {
+            const totalTickets = demoTickets.length;
+            const pendingTickets = demoTickets.filter(t => t.status === 'pending').length;
+            const resolvedTickets = demoTickets.filter(t => t.status === 'resolved').length;
+
+            const totalEl = document.querySelector('[data-stat="total-tickets"]');
+            const pendingEl = document.querySelector('[data-stat="pending-tickets"]');
+            const resolvedEl = document.querySelector('[data-stat="resolved-tickets"]');
+
+            if (totalEl) totalEl.textContent = totalTickets.toString();
+            if (pendingEl) pendingEl.textContent = pendingTickets.toString();
+            if (resolvedEl) resolvedEl.textContent = resolvedTickets.toString();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // حماية وتهيئة عامة
+            if (window.CicadaAuth && window.CicadaAuth.protectPage) {
+                window.CicadaAuth.protectPage();
+            }
+            if (typeof loadUserInfo === 'function') loadUserInfo();
+            if (typeof initSidebarToggle === 'function') initSidebarToggle();
+            if (typeof highlightActiveMenu === 'function') highlightActiveMenu();
+
+            renderTickets();
+            updateTicketStats();
+
+            const ticketForm = document.getElementById('supportTicketForm');
+            if (ticketForm) {
+                ticketForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const subject = document.getElementById('ticketSubject').value.trim();
+                    const category = document.getElementById('ticketCategory').value;
+                    const priority = document.getElementById('ticketPriority').value;
+                    const message = document.getElementById('ticketMessage').value.trim();
+
+                    if (!subject || !category || !message) {
+                        if (window.CicadaAuth && window.CicadaAuth.showAuthAlert) {
+                            window.CicadaAuth.showAuthAlert('warning', 'الرجاء إدخال جميع البيانات المطلوبة.');
+                        } else {
+                            alert('الرجاء إدخال جميع البيانات المطلوبة.');
+                        }
+                        return;
+                    }
+
+                    // إضافة التذكرة الجديدة
+                    const newTicket = {
+                        id: 'TCK-' + (1000 + demoTickets.length + 1),
+                        subject,
+                        category,
+                        priority,
+                        date: new Date().toISOString().slice(0, 10),
+                        status: 'pending'
+                    };
+
+                    demoTickets.unshift(newTicket);
+                    renderTickets();
+                    updateTicketStats();
+                    ticketForm.reset();
+
+                    if (window.CicadaAuth && window.CicadaAuth.showAuthAlert) {
+                        window.CicadaAuth.showAuthAlert('success', 'تم إرسال التذكرة بنجاح! سيتم الرد عليك خلال وقت قصير.');
+                    } else {
+                        alert('تم إرسال التذكرة بنجاح!');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
