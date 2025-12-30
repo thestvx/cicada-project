@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المهام اليومية - Cicada</title>
+    <meta name="description" content="أنجز المهام اليومية البسيطة واكسب مكافآت فورية تضاف لرصيدك">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="Cicada Logo" class="sidebar-logo" onerror="this.style.display='none'">
+                <h2 class="sidebar-brand">Cicada</h2>
+            </div>
+
+            <nav class="sidebar-menu">
+                <div class="menu-category">الرئيسية</div>
+                <a href="dashboard.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>لوحة التحكم</span>
+                </a>
+                <a href="tasks.html" class="menu-item active">
+                    <i class="fas fa-tasks"></i>
+                    <span>المهام</span>
+                </a>
+                <a href="investments.html" class="menu-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>الاستثمارات</span>
+                </a>
+
+                <div class="menu-category">المعاملات</div>
+                <a href="deposits.html" class="menu-item">
+                    <i class="fas fa-arrow-down"></i>
+                    <span>الإيداعات</span>
+                </a>
+                <a href="withdrawals.html" class="menu-item">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>السحوبات</span>
+                </a>
+                <a href="transactions.html" class="menu-item">
+                    <i class="fas fa-receipt"></i>
+                    <span>سجل المعاملات</span>
+                </a>
+
+                <div class="menu-category">الحساب</div>
+                <a href="profile.html" class="menu-item">
+                    <i class="fas fa-user"></i>
+                    <span>الملف الشخصي</span>
+                </a>
+                <a href="referrals.html" class="menu-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>الإحالات</span>
+                </a>
+                <a href="kyc.html" class="menu-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>التحقق (KYC)</span>
+                </a>
+
+                <div class="menu-category">الدعم والقانوني</div>
+                <a href="support.html" class="menu-item">
+                    <i class="fas fa-headset"></i>
+                    <span>الدعم الفني</span>
+                </a>
+                <a href="terms.html" class="menu-item">
+                    <i class="fas fa-file-contract"></i>
+                    <span>الشروط والأحكام</span>
+                </a>
+                <a href="privacy.html" class="menu-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>سياسة الخصوصية</span>
+                </a>
+                <a href="blog.html" class="menu-item">
+                    <i class="fas fa-blog"></i>
+                    <span>المدونة</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-mini-profile">
+                    <img src="../assets/images/avatar-placeholder.png" alt="User" class="user-avatar-sm" onerror="this.style.display='none'">
+                    <div class="user-info-sm">
+                        <h4 data-user="name">مستخدم</h4>
+                        <p data-user="email">user@email.com</p>
+                    </div>
+                </div>
+                <button class="menu-item" data-logout="true" style="margin-top:1rem; width:100%; justify-content:flex-start;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="dashboard-title">
+                    <button class="toggle-sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1>المهام اليومية</h1>
+                        <p>أنجز المهام واكسب المكافآت الفورية</p>
+                    </div>
+                </div>
+                <div class="topbar-actions">
+                    <button class="action-btn" title="إشعارات">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="action-btn" title="الملف الشخصي" onclick="window.location.href='profile.html'">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Stats Summary -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon tasks">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>المهام المتاحة</h3>
+                        <div class="stat-value" data-stat="available-tasks">15</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon wallet">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>أرباح المهام اليومية</h3>
+                        <div class="stat-value" data-stat="daily-task-earnings">$0.00</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon investment">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>إجمالي أرباح المهام</h3>
+                        <div class="stat-value" data-stat="total-task-earnings">$0.00</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon referral">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>المهام المكتملة</h3>
+                        <div class="stat-value" data-stat="completed-tasks">0</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filter & Search -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>تصفية المهام</h3>
+                </div>
+                <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
+                    <select id="taskFilter" class="form-input" style="flex:1; min-width:150px;">
+                        <option value="all">جميع المهام</option>
+                        <option value="video">مشاهدة فيديو</option>
+                        <option value="survey">استبيانات</option>
+                        <option value="social">وسائل التواصل</option>
+                        <option value="download">تحميل تطبيق</option>
+                        <option value="review">تقييم منتج</option>
+                    </select>
+                    <select id="difficultyFilter" class="form-input" style="flex:1; min-width:150px;">
+                        <option value="all">جميع المستويات</option>
+                        <option value="easy">سهل</option>
+                        <option value="medium">متوسط</option>
+                        <option value="hard">صعب</option>
+                    </select>
+                    <button class="btn-primary" onclick="filterTasks()">
+                        <i class="fas fa-filter"></i> تصفية
+                    </button>
+                </div>
+            </section>
+
+            <!-- Tasks List -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>قائمة المهام</h3>
+                    <span style="color:var(--text-light); font-size:0.9rem;">15 مهمة متاحة</span>
+                </div>
+
+                <div class="tasks-list" id="tasksList">
+                    <!-- يتم تعبئتها عبر JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/auth.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+    <script src="../scripts/tasks.js"></script>
+</body>
+</html>
