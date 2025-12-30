@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cicada - سيكادا | منصة الاستثمار والمهام اليومية</title>
-    <meta name="description" content="منصة استثمار وإنجاز مهام يومية لتحقيق أرباح مضمونة تصل إلى 3.5% يومياً">
-    <meta name="keywords" content="استثمار, أرباح يومية, مهام, cicada, سيكادا">
-    <meta name="author" content="Cicada Platform">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Cicada - منصة الاستثمار والمهام">
-    <meta property="og:description" content="استثمر بذكاء واربح يومياً مع منصة Cicada">
+    <title>Cicada - منصة الاستثمار والمهام الرائدة</title>
+    <meta name="description" content="منصة Cicada للاستثمار الذكي والمهام اليومية. احصل على أرباح يومية تصل إلى 3.5% واكسب من المهام البسيطة. انضم لأكثر من 50,000 مستثمر ناجح.">
+    <meta name="keywords" content="استثمار, أرباح يومية, مهام, عملات رقمية, Cicada">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cicada - منصة الاستثمار والمهام الرائدة">
+    <meta property="og:description" content="احصل على أرباح يومية تصل إلى 3.5% واكسب من المهام البسيطة">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cicada-project.pages.dev">
-    
-    <!-- CSS Files -->
+    <meta property="og:url" content="https://cicada-platform.com">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
 </head>
@@ -30,14 +30,14 @@
         <button class="lang-btn" data-lang="fr">Français</button>
     </div>
 
-    <!-- Navigation Bar -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
                 <img src="assets/images/logo.png" alt="Cicada Logo" class="logo" onerror="this.style.display='none'">
-                <h2 class="brand-name">Cicada - سيكادا</h2>
+                <span class="brand-name">Cicada</span>
             </div>
-            
+
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -46,9 +46,9 @@
                 <li><a href="#home" class="nav-link active">الرئيسية</a></li>
                 <li><a href="#features" class="nav-link">المميزات</a></li>
                 <li><a href="#how-it-works" class="nav-link">كيف يعمل</a></li>
-                <li><a href="#plans" class="nav-link">خطط الاستثمار</a></li>
+                <li><a href="#plans" class="nav-link">الخطط</a></li>
                 <li><a href="#tasks" class="nav-link">المهام</a></li>
-                <li><a href="#about" class="nav-link">من نحن</a></li>
+                <li><a href="#testimonials" class="nav-link">الشهادات</a></li>
                 <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
                 <li><a href="pages/login.html" class="btn-secondary">تسجيل الدخول</a></li>
                 <li><a href="pages/register.html" class="btn-primary">إنشاء حساب</a></li>
@@ -57,197 +57,151 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-background"></div>
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">
-                        استثمر بذكاء
-                        <span class="highlight">واربح يومياً</span>
-                    </h1>
+                    <h1 class="hero-title">استثمر بذكاء واربح يومياً مع <span class="gradient-text">Cicada</span></h1>
                     <p class="hero-description">
-                        منصة Cicada توفر لك فرصة الاستثمار الآمن مع أرباح يومية مضمونة تصل إلى 3.5%، بالإضافة إلى إنجاز مهام بسيطة لزيادة دخلك
+                        منصة استثمارية موثوقة تقدم لك أرباحاً يومية تصل إلى 3.5% من رأس مالك، بالإضافة إلى مهام بسيطة تزيد دخلك الشهري. انضم الآن إلى أكثر من 50,000 مستثمر ناجح.
                     </p>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <h3 class="stat-number" data-target="50000">0</h3>
-                            <p class="stat-label">مستخدم نشط</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3 class="stat-number" data-target="2500000">$0</h3>
-                            <p class="stat-label">إجمالي الأرباح الموزعة</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3 class="stat-number" data-target="3.5">0%</h3>
-                            <p class="stat-label">ربح يومي حتى</p>
-                        </div>
-                    </div>
                     <div class="hero-buttons">
-                        <a href="pages/register.html" class="btn-large btn-primary">
+                        <a href="pages/register.html" class="btn-primary btn-lg">
                             <i class="fas fa-rocket"></i> ابدأ الآن مجاناً
                         </a>
-                        <a href="#how-it-works" class="btn-large btn-outline">
+                        <a href="#how-it-works" class="btn-secondary btn-lg">
                             <i class="fas fa-play-circle"></i> كيف يعمل
                         </a>
                     </div>
-                    <p class="hero-note">
-                        <i class="fas fa-shield-alt"></i> آمن ومضمون 100% | لا حاجة لبطاقة ائتمان
-                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="50000">0</div>
+                            <div class="stat-label">مستخدم نشط</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="5200000">$0</div>
+                            <div class="stat-label">إجمالي الأرباح الموزعة</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="3.5">0%</div>
+                            <div class="stat-label">أرباح يومية</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="hero-image">
-                    <div class="floating-card card-1">
-                        <i class="fas fa-chart-line"></i>
-                        <p>+$1,250</p>
-                        <span>أرباح هذا الشهر</span>
-                    </div>
-                    <div class="floating-card card-2">
-                        <i class="fas fa-tasks"></i>
-                        <p>15 مهمة</p>
-                        <span>متاحة اليوم</span>
-                    </div>
-                    <div class="floating-card card-3">
-                        <i class="fas fa-users"></i>
-                        <p>+320</p>
-                        <span>انضم اليوم</span>
-                    </div>
-                    <div class="hero-mockup">
-                        <i class="fas fa-laptop-code fa-10x"></i>
-                    </div>
+                    <img src="assets/images/hero-illustration.png" alt="Investment Illustration" onerror="this.style.display='none'">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features">
+    <section class="features" id="features">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">لماذا تختار Cicada؟</h2>
-                <p class="section-subtitle">نوفر لك أفضل تجربة استثمار مع مزايا لا مثيل لها</p>
+                <p class="section-subtitle">نقدم لك أفضل تجربة استثمارية بميزات لا مثيل لها</p>
             </div>
-
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-piggy-bank"></i>
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">آمن ومضمون 100%</h3>
+                    <p class="feature-description">نستخدم أحدث تقنيات التشفير لحماية أموالك وبياناتك الشخصية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
                     <h3 class="feature-title">أرباح يومية مضمونة</h3>
-                    <p class="feature-description">
-                        احصل على أرباح يومية تصل إلى 3.5% من قيمة استثمارك بشكل تلقائي
-                    </p>
+                    <p class="feature-description">احصل على أرباح يومية تصل إلى 3.5% من رأس مالك المستثمر</p>
                 </div>
-
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-tasks"></i>
                     </div>
                     <h3 class="feature-title">مهام بسيطة ومربحة</h3>
-                    <p class="feature-description">
-                        أنجز مهام يومية سهلة واحصل على مكافآت فورية تضاف لرصيدك
-                    </p>
+                    <p class="feature-description">أكمل مهام يومية بسيطة واحصل على مكافآت إضافية</p>
                 </div>
-
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-wallet"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <h3 class="feature-title">سحب سريع وآمن</h3>
-                    <p class="feature-description">
-                        اسحب أرباحك في أي وقت بسهولة وأمان عبر طرق دفع متعددة
-                    </p>
+                    <h3 class="feature-title">سحب سريع خلال 24 ساعة</h3>
+                    <p class="feature-description">اسحب أرباحك في أي وقت بدون قيود أو شروط معقدة</p>
                 </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="feature-title">حماية متقدمة</h3>
-                    <p class="feature-description">
-                        نظام أمان متطور مع تشفير SSL والمصادقة الثنائية لحماية حسابك
-                    </p>
-                </div>
-
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-user-friends"></i>
                     </div>
-                    <h3 class="feature-title">برنامج الإحالة</h3>
-                    <p class="feature-description">
-                        احصل على عمولة 5% من أرباح كل صديق تدعوه للمنصة
-                    </p>
+                    <h3 class="feature-title">برنامج إحالة مربح</h3>
+                    <p class="feature-description">احصل على 5% من أرباح كل صديق تدعوه للمنصة</p>
                 </div>
-
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3 class="feature-title">دعم 24/7</h3>
-                    <p class="feature-description">
-                        فريق دعم محترف متاح على مدار الساعة للإجابة على استفساراتك
-                    </p>
+                    <h3 class="feature-title">دعم فني 24/7</h3>
+                    <p class="feature-description">فريق دعم متاح على مدار الساعة لحل جميع مشاكلك</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How It Works Section -->
-    <section id="how-it-works" class="how-it-works">
+    <section class="steps" id="how-it-works">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">كيف يعمل؟</h2>
-                <p class="section-subtitle">ابدأ رحلتك الاستثمارية في 4 خطوات بسيطة</p>
+                <h2 class="section-title">كيف تبدأ في 4 خطوات بسيطة</h2>
+                <p class="section-subtitle">ابدأ رحلتك الاستثمارية في أقل من 5 دقائق</p>
             </div>
-
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
                     <div class="step-icon">
                         <i class="fas fa-user-plus"></i>
                     </div>
-                    <h3 class="step-title">إنشاء حساب</h3>
-                    <p class="step-description">سجل مجاناً في أقل من دقيقة باستخدام بريدك الإلكتروني</p>
+                    <h3 class="step-title">إنشاء حساب مجاني</h3>
+                    <p class="step-description">سجل حسابك خلال ثوانٍ باستخدام بريدك الإلكتروني</p>
                 </div>
-
                 <div class="step-card">
                     <div class="step-number">2</div>
                     <div class="step-icon">
-                        <i class="fas fa-id-card"></i>
+                        <i class="fas fa-wallet"></i>
                     </div>
-                    <h3 class="step-title">التحقق من الهوية</h3>
-                    <p class="step-description">أكمل عملية التحقق السريعة لضمان أمان حسابك</p>
+                    <h3 class="step-title">قم بالإيداع</h3>
+                    <p class="step-description">أودع المبلغ الذي تريد استثماره بطرق دفع متعددة</p>
                 </div>
-
                 <div class="step-card">
                     <div class="step-number">3</div>
                     <div class="step-icon">
-                        <i class="fas fa-dollar-sign"></i>
+                        <i class="fas fa-chart-pie"></i>
                     </div>
-                    <h3 class="step-title">إيداع الأموال</h3>
-                    <p class="step-description">اختر خطة الاستثمار المناسبة وابدأ بإيداع مبلغك</p>
+                    <h3 class="step-title">اختر خطتك</h3>
+                    <p class="step-description">اختر الخطة الاستثمارية المناسبة لك وأهدافك</p>
                 </div>
-
                 <div class="step-card">
                     <div class="step-number">4</div>
                     <div class="step-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-dollar-sign"></i>
                     </div>
-                    <h3 class="step-title">ابدأ الربح</h3>
-                    <p class="step-description">شاهد أرباحك تنمو يومياً وأنجز المهام لزيادة دخلك</p>
+                    <h3 class="step-title">اربح يومياً</h3>
+                    <p class="step-description">راقب أرباحك اليومية واسحبها في أي وقت تشاء</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Investment Plans Section -->
-    <section id="plans" class="plans">
+    <!-- Plans Section -->
+    <section class="plans" id="plans">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">خطط الاستثمار</h2>
-                <p class="section-subtitle">اختر الخطة المناسبة لك وابدأ في تحقيق الأرباح</p>
+                <h2 class="section-title">خطط استثمارية تناسب الجميع</h2>
+                <p class="section-subtitle">اختر الخطة التي تناسب رأس مالك وأهدافك الاستثمارية</p>
             </div>
-
             <div class="plans-grid">
+                <!-- Basic Plan -->
                 <div class="plan-card">
                     <div class="plan-badge">للمبتدئين</div>
                     <h3 class="plan-name">الخطة الأساسية</h3>
@@ -256,35 +210,35 @@
                         <span class="price-period">ربح يومي</span>
                     </div>
                     <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> حد أدنى للإيداع: $50</li>
-                        <li><i class="fas fa-check"></i> حد أقصى: $500</li>
-                        <li><i class="fas fa-check"></i> مدة الاستثمار: 30 يوم</li>
+                        <li><i class="fas fa-check"></i> الحد الأدنى: $50</li>
+                        <li><i class="fas fa-check"></i> الحد الأقصى: $999</li>
+                        <li><i class="fas fa-check"></i> مدة العقد: 30 يوم</li>
                         <li><i class="fas fa-check"></i> سحب يومي</li>
-                        <li><i class="fas fa-check"></i> دعم 24/7</li>
-                        <li><i class="fas fa-check"></i> مهام يومية</li>
+                        <li><i class="fas fa-check"></i> دعم فني</li>
                     </ul>
-                    <a href="pages/register.html" class="btn-plan">ابدأ الآن</a>
+                    <a href="pages/register.html" class="btn-secondary btn-block">ابدأ الآن</a>
                 </div>
 
+                <!-- Pro Plan (Featured) -->
                 <div class="plan-card featured">
-                    <div class="plan-badge popular">الأكثر شعبية</div>
+                    <div class="plan-badge">الأكثر شعبية</div>
                     <h3 class="plan-name">الخطة الاحترافية</h3>
                     <div class="plan-price">
                         <span class="price-amount">2.5%</span>
                         <span class="price-period">ربح يومي</span>
                     </div>
                     <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> حد أدنى للإيداع: $500</li>
-                        <li><i class="fas fa-check"></i> حد أقصى: $5,000</li>
-                        <li><i class="fas fa-check"></i> مدة الاستثمار: 60 يوم</li>
-                        <li><i class="fas fa-check"></i> سحب فوري</li>
-                        <li><i class="fas fa-check"></i> دعم VIP</li>
+                        <li><i class="fas fa-check"></i> الحد الأدنى: $1,000</li>
+                        <li><i class="fas fa-check"></i> الحد الأقصى: $9,999</li>
+                        <li><i class="fas fa-check"></i> مدة العقد: 60 يوم</li>
+                        <li><i class="fas fa-check"></i> سحب يومي</li>
+                        <li><i class="fas fa-check"></i> دعم فني VIP</li>
                         <li><i class="fas fa-check"></i> مهام حصرية</li>
-                        <li><i class="fas fa-check"></i> عمولة إحالة مضاعفة</li>
                     </ul>
-                    <a href="pages/register.html" class="btn-plan">ابدأ الآن</a>
+                    <a href="pages/register.html" class="btn-primary btn-block">ابدأ الآن</a>
                 </div>
 
+                <!-- Enterprise Plan -->
                 <div class="plan-card">
                     <div class="plan-badge">للمحترفين</div>
                     <h3 class="plan-name">خطة المؤسسات</h3>
@@ -293,85 +247,68 @@
                         <span class="price-period">ربح يومي</span>
                     </div>
                     <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> حد أدنى للإيداع: $5,000</li>
-                        <li><i class="fas fa-check"></i> حد أقصى: غير محدود</li>
-                        <li><i class="fas fa-check"></i> مدة الاستثمار: 90 يوم</li>
-                        <li><i class="fas fa-check"></i> سحب فوري</li>
-                        <li><i class="fas fa-check"></i> مدير حساب خاص</li>
-                        <li><i class="fas fa-check"></i> حلول مخصصة</li>
-                        <li><i class="fas fa-check"></i> تقارير تفصيلية</li>
-                        <li><i class="fas fa-check"></i> أولوية في كل شيء</li>
+                        <li><i class="fas fa-check"></i> الحد الأدنى: $10,000</li>
+                        <li><i class="fas fa-check"></i> بدون حد أقصى</li>
+                        <li><i class="fas fa-check"></i> مدة العقد: 90 يوم</li>
+                        <li><i class="fas fa-check"></i> سحب يومي</li>
+                        <li><i class="fas fa-check"></i> مدير حساب شخصي</li>
+                        <li><i class="fas fa-check"></i> استشارات استثمارية</li>
+                        <li><i class="fas fa-check"></i> أولوية في السحب</li>
                     </ul>
-                    <a href="pages/register.html" class="btn-plan">ابدأ الآن</a>
+                    <a href="pages/register.html" class="btn-secondary btn-block">ابدأ الآن</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tasks Preview Section -->
-    <section id="tasks" class="tasks-preview">
+    <!-- Tasks Section -->
+    <section class="tasks-section" id="tasks">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">المهام اليومية</h2>
-                <p class="section-subtitle">أنجز مهام بسيطة واحصل على أرباح إضافية</p>
+                <h2 class="section-title">مهام بسيطة، أرباح إضافية</h2>
+                <p class="section-subtitle">أكمل مهاماً يومية سهلة وزد دخلك الشهري</p>
             </div>
-
             <div class="tasks-grid">
                 <div class="task-card">
-                    <div class="task-icon video">
+                    <div class="task-icon">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h3 class="task-title">مشاهدة فيديو</h3>
-                    <p class="task-description">شاهد فيديو ترويجي لمدة دقيقتين</p>
-                    <div class="task-footer">
-                        <span class="task-reward">$2.50</span>
-                        <span class="task-difficulty easy">سهل</span>
-                    </div>
+                    <h3>مشاهدة فيديو</h3>
+                    <p>شاهد فيديوهات قصيرة واربح $2-5 لكل فيديو</p>
+                    <span class="task-reward">$2.50</span>
                 </div>
-
                 <div class="task-card">
-                    <div class="task-icon survey">
+                    <div class="task-icon">
                         <i class="fas fa-clipboard-list"></i>
                     </div>
-                    <h3 class="task-title">إكمال استبيان</h3>
-                    <p class="task-description">شارك رأيك في استبيان بسيط</p>
-                    <div class="task-footer">
-                        <span class="task-reward">$5.00</span>
-                        <span class="task-difficulty medium">متوسط</span>
-                    </div>
+                    <h3>إكمال استبيان</h3>
+                    <p>شارك رأيك في استبيانات بسيطة واربح حتى $8</p>
+                    <span class="task-reward">$4.00</span>
                 </div>
-
                 <div class="task-card">
-                    <div class="task-icon social">
+                    <div class="task-icon">
                         <i class="fas fa-share-alt"></i>
                     </div>
-                    <h3 class="task-title">متابعة على وسائل التواصل</h3>
-                    <p class="task-description">تابع حساباتنا على منصات التواصل</p>
-                    <div class="task-footer">
-                        <span class="task-reward">$3.00</span>
-                        <span class="task-difficulty easy">سهل</span>
-                    </div>
+                    <h3>مشاركة منشور</h3>
+                    <p>شارك منشوراتنا على وسائل التواصل واربح</p>
+                    <span class="task-reward">$3.00</span>
                 </div>
-            </div>
-
-            <div class="text-center">
-                <a href="pages/register.html" class="btn-large btn-primary">
-                    عرض جميع المهام
-                </a>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials">
+    <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">ماذا يقول عملاؤنا</h2>
-                <p class="section-subtitle">آراء حقيقية من مستخدمين راضين</p>
+                <p class="section-subtitle">آلاف المستثمرين يثقون بنا يومياً</p>
             </div>
-
             <div class="testimonials-grid">
                 <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="assets/images/avatar1.jpg" alt="Ahmed" onerror="this.src='assets/images/avatar-placeholder.png'">
+                    </div>
                     <div class="testimonial-rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -379,21 +316,14 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">
-                        "منصة رائعة! حققت أرباح ممتازة من الاستثمار والمهام اليومية. التعامل سهل والدعم ممتاز."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4 class="author-name">أحمد محمد</h4>
-                            <p class="author-location">الجزائر</p>
-                        </div>
-                    </div>
+                    <p class="testimonial-text">"منصة رائعة وموثوقة، أحصل على أرباحي يومياً بدون أي مشاكل. ننصح الجميع بتجربتها!"</p>
+                    <h4 class="testimonial-name">أحمد محمد</h4>
+                    <span class="testimonial-role">مستثمر منذ 8 أشهر</span>
                 </div>
-
                 <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="assets/images/avatar2.jpg" alt="Sara" onerror="this.src='assets/images/avatar-placeholder.png'">
+                    </div>
                     <div class="testimonial-rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -401,21 +331,14 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">
-                        "أفضل منصة استثمار جربتها. الأرباح اليومية حقيقية والسحب سريع جداً. أنصح الجميع بها."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4 class="author-name">سارة العلي</h4>
-                            <p class="author-location">الإمارات</p>
-                        </div>
-                    </div>
+                    <p class="testimonial-text">"بفضل Cicada استطعت تحقيق دخل إضافي ثابت. الدعم الفني ممتاز والأرباح مضمونة."</p>
+                    <h4 class="testimonial-name">سارة العلي</h4>
+                    <span class="testimonial-role">مستثمرة منذ 6 أشهر</span>
                 </div>
-
                 <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="assets/images/avatar3.jpg" alt="Karim" onerror="this.src='assets/images/avatar-placeholder.png'">
+                    </div>
                     <div class="testimonial-rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -423,260 +346,93 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">
-                        "استثمرت من 3 أشهر وحققت أرباح رائعة. المهام سهلة والعوائد مضمونة. شكراً Cicada!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4 class="author-name">خالد السعيد</h4>
-                            <p class="author-location">السعودية</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">من نحن</h2>
-                    <p>
-                        Cicada - سيكادا هي منصة استثمار وإنجاز مهام رائدة تهدف إلى توفير فرص استثمارية آمنة ومربحة للجميع. نحن نؤمن بأن الاستثمار يجب أن يكون متاحاً للجميع وليس حكراً على الأثرياء.
-                    </p>
-                    <p>
-                        منذ إطلاقنا، ساعدنا أكثر من 50,000 مستخدم في تحقيق أهدافهم المالية من خلال استثمارات ذكية وأرباح يومية مضمونة. نحن نستخدم أحدث التقنيات لضمان أمان أموالك وخصوصية بياناتك.
-                    </p>
-                    <div class="about-features">
-                        <div class="about-feature">
-                            <i class="fas fa-certificate"></i>
-                            <span>مرخصة ومنظمة</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-lock"></i>
-                            <span>آمنة 100%</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-award"></i>
-                            <span>حائزة على جوائز</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <i class="fas fa-building fa-10x"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">تواصل معنا</h2>
-                <p class="section-subtitle">نحن هنا للإجابة على جميع استفساراتك</p>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>البريد الإلكتروني</h4>
-                            <p>support@cicada-platform.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>الهاتف</h4>
-                            <p>+213 555 123 456</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>العنوان</h4>
-                            <p>الجزائر العاصمة، الجزائر</p>
-                        </div>
-                    </div>
-                    <div class="contact-social">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="الاسم الكامل" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="البريد الإلكتروني" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="الموضوع" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea rows="5" placeholder="الرسالة" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary btn-large">
-                        <i class="fas fa-paper-plane"></i> إرسال الرسالة
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">الأسئلة الشائعة</h2>
-                <p class="section-subtitle">إجابات على الأسئلة الأكثر شيوعاً</p>
-            </div>
-
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>كيف أبدأ الاستثمار في Cicada؟</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>ببساطة قم بإنشاء حساب، أكمل التحقق من الهوية، اختر خطة الاستثمار المناسبة، ثم قم بإيداع المبلغ الذي ترغب في استثماره.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>ما هو الحد الأدنى للإيداع؟</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>الحد الأدنى للإيداع هو $50 للخطة الأساسية، $500 للخطة الاحترافية، و$5,000 لخطة المؤسسات.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>متى يمكنني سحب أرباحي؟</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>يمكنك سحب أرباحك في أي وقت. طلبات السحب تتم معالجتها خلال 24-48 ساعة.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>هل الاستثمار آمن؟</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>نعم، نستخدم أحدث تقنيات الأمان بما في ذلك تشفير SSL والمصادقة الثنائية. جميع الأموال محمية ومؤمنة.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>كيف أحصل على عمولة الإحالة؟</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>شارك رمز الإحالة الخاص بك مع أصدقائك. عندما يسجلون ويستثمرون، ستحصل على 5% عمولة من أرباحهم.</p>
-                    </div>
+                    <p class="testimonial-text">"أفضل منصة استثمار جربتها! السحوبات سريعة والأرباح مستمرة. شكراً Cicada!"</p>
+                    <h4 class="testimonial-name">كريم حسن</h4>
+                    <span class="testimonial-role">مستثمر منذ سنة</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta">
+    <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">ابدأ رحلتك الاستثمارية اليوم</h2>
-                <p class="cta-text">انضم إلى آلاف المستثمرين الذين يحققون أرباحاً يومية معنا</p>
-                <a href="pages/register.html" class="btn-large btn-white">
-                    <i class="fas fa-user-plus"></i> إنشاء حساب مجاني
-                </a>
+                <h2>هل أنت مستعد لبدء رحلتك الاستثمارية؟</h2>
+                <p>انضم الآن إلى آلاف المستثمرين الناجحين واحصل على أرباح يومية مضمونة</p>
+                <div class="cta-buttons">
+                    <a href="pages/register.html" class="btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i> ابدأ الآن مجاناً
+                    </a>
+                    <a href="pages/login.html" class="btn-secondary btn-lg">
+                        <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title">Cicada - سيكادا</h3>
-                    <p class="footer-description">
-                        منصة الاستثمار والمهام الرائدة في العالم العربي. نساعدك على تحقيق أهدافك المالية بطريقة آمنة ومضمونة.
-                    </p>
+                <div class="footer-about">
+                    <h3>Cicada</h3>
+                    <p>منصة الاستثمار والمهام الرائدة في العالم العربي. نوفر لك فرصة تحقيق أرباح يومية مضمونة وآمنة.</p>
                     <div class="footer-social">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-
-                <div class="footer-section">
-                    <h4 class="footer-heading">روابط سريعة</h4>
-                    <ul class="footer-links">
-                        <li><a href="#home">الرئيسية</a></li>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
                         <li><a href="#features">المميزات</a></li>
-                        <li><a href="#plans">خطط الاستثمار</a></li>
-                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#how-it-works">كيف يعمل</a></li>
+                        <li><a href="#plans">الخطط</a></li>
+                        <li><a href="#tasks">المهام</a></li>
                         <li><a href="pages/blog.html">المدونة</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-section">
-                    <h4 class="footer-heading">الدعم</h4>
-                    <ul class="footer-links">
-                        <li><a href="#faq">الأسئلة الشائعة</a></li>
+                <div class="footer-links">
+                    <h4>قانوني</h4>
+                    <ul>
                         <li><a href="pages/terms.html">الشروط والأحكام</a></li>
                         <li><a href="pages/privacy.html">سياسة الخصوصية</a></li>
-                        <li><a href="#contact">اتصل بنا</a></li>
-                        <li><a href="pages/support.html">مركز المساعدة</a></li>
+                        <li><a href="pages/support.html">الدعم الفني</a></li>
+                        <li><a href="pages/kyc.html">التحقق من الهوية</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-section">
-                    <h4 class="footer-heading">اشترك في النشرة</h4>
-                    <p>احصل على آخر الأخبار والعروض</p>
+                <div class="footer-newsletter">
+                    <h4>النشرة الإخبارية</h4>
+                    <p>اشترك ليصلك كل جديد من عروض وتحديثات</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="بريدك الإلكتروني">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2025 Cicada - سيكادا. جميع الحقوق محفوظة.</p>
+                <p>&copy; 2025 Cicada. جميع الحقوق محفوظة.</p>
                 <div class="payment-methods">
                     <i class="fab fa-cc-visa"></i>
                     <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-paypal"></i>
                     <i class="fab fa-bitcoin"></i>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
+    <!-- Scroll to Top -->
     <button class="scroll-to-top" id="scrollToTop">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- JavaScript -->
+    <!-- Scripts -->
     <script src="scripts/main.js"></script>
 </body>
 </html>
