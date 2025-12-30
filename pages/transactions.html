@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سجل المعاملات - Cicada</title>
+    <meta name="description" content="عرض جميع معاملات الإيداع، السحب، والأرباح في حسابك على منصة Cicada.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="Cicada Logo" class="sidebar-logo" onerror="this.style.display='none'">
+                <h2 class="sidebar-brand">Cicada</h2>
+            </div>
+
+            <nav class="sidebar-menu">
+                <div class="menu-category">الرئيسية</div>
+                <a href="dashboard.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>لوحة التحكم</span>
+                </a>
+                <a href="tasks.html" class="menu-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>المهام</span>
+                </a>
+                <a href="investments.html" class="menu-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>الاستثمارات</span>
+                </a>
+
+                <div class="menu-category">المعاملات</div>
+                <a href="deposits.html" class="menu-item">
+                    <i class="fas fa-arrow-down"></i>
+                    <span>الإيداعات</span>
+                </a>
+                <a href="withdrawals.html" class="menu-item">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>السحوبات</span>
+                </a>
+                <a href="transactions.html" class="menu-item active">
+                    <i class="fas fa-receipt"></i>
+                    <span>سجل المعاملات</span>
+                </a>
+
+                <div class="menu-category">الحساب</div>
+                <a href="profile.html" class="menu-item">
+                    <i class="fas fa-user"></i>
+                    <span>الملف الشخصي</span>
+                </a>
+                <a href="referrals.html" class="menu-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>الإحالات</span>
+                </a>
+                <a href="kyc.html" class="menu-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>التحقق (KYC)</span>
+                </a>
+
+                <div class="menu-category">الدعم والقانوني</div>
+                <a href="support.html" class="menu-item">
+                    <i class="fas fa-headset"></i>
+                    <span>الدعم الفني</span>
+                </a>
+                <a href="terms.html" class="menu-item">
+                    <i class="fas fa-file-contract"></i>
+                    <span>الشروط والأحكام</span>
+                </a>
+                <a href="privacy.html" class="menu-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>سياسة الخصوصية</span>
+                </a>
+                <a href="blog.html" class="menu-item">
+                    <i class="fas fa-blog"></i>
+                    <span>المدونة</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-mini-profile">
+                    <img src="../assets/images/avatar-placeholder.png" alt="User" class="user-avatar-sm" onerror="this.style.display='none'">
+                    <div class="user-info-sm">
+                        <h4 data-user="name">مستخدم</h4>
+                        <p data-user="email">user@email.com</p>
+                    </div>
+                </div>
+                <button class="menu-item" data-logout="true" style="margin-top:1rem; width:100%; justify-content:flex-start;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="dashboard-title">
+                    <button class="toggle-sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1>سجل المعاملات</h1>
+                        <p>عرض جميع حركات الحساب في مكان واحد</p>
+                    </div>
+                </div>
+                <div class="topbar-actions">
+                    <button class="action-btn" title="إشعارات">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="action-btn" title="الملف الشخصي" onclick="window.location.href='profile.html'">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Filters -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>تصفية المعاملات</h3>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+                    <select id="txTypeFilter" class="form-input" style="flex:1; min-width:160px;">
+                        <option value="all">كل الأنواع</option>
+                        <option value="deposit">إيداعات</option>
+                        <option value="withdrawal">سحوبات</option>
+                        <option value="earning">أرباح يومية</option>
+                        <option value="task">أرباح مهام</option>
+                        <option value="referral">أرباح إحالات</option>
+                    </select>
+
+                    <select id="txStatusFilter" class="form-input" style="flex:1; min-width:160px;">
+                        <option value="all">كل الحالات</option>
+                        <option value="success">مكتملة</option>
+                        <option value="pending">قيد المعالجة</option>
+                        <option value="failed">مرفوضة</option>
+                    </select>
+
+                    <input 
+                        type="date" 
+                        id="txFromDate" 
+                        class="form-input" 
+                        style="flex:1; min-width:160px;"
+                    >
+                    <input 
+                        type="date" 
+                        id="txToDate" 
+                        class="form-input" 
+                        style="flex:1; min-width:160px;"
+                    >
+
+                    <button class="btn-primary" onclick="applyTxFilters()">
+                        <i class="fas fa-filter"></i> تطبيق التصفية
+                    </button>
+                </div>
+            </section>
+
+            <!-- Transactions Table -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>قائمة المعاملات</h3>
+                    <span style="color:var(--text-light); font-size:0.9rem;" id="txCountLabel">0 معاملة</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>التاريخ</th>
+                                <th>النوع</th>
+                                <th>الوصف</th>
+                                <th>المبلغ</th>
+                                <th>الرصيد بعد العملية</th>
+                                <th>الحالة</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsTableBody">
+                            <!-- يتم تعبئتها عبر JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/auth.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+    <script>
+        // بيانات معاملات تجريبية مستوحاة من صفحات wallet/transactions في قوالب المحافظ.[web:131][web:132]
+        const demoTransactions = [
+            {
+                date: '2025-12-25',
+                type: 'deposit',
+                description: 'إيداع عبر بطاقة بنكية',
+                amount: 250,
+                balanceAfter: 1250.75,
+                status: 'success'
+            },
+            {
+                date: '2025-12-25',
+                type: 'earning',
+                description: 'أرباح يومية على الخطة الاحترافية',
+                amount: 25.5,
+                balanceAfter: 1276.25,
+                status: 'success'
+            },
+            {
+                date: '2025-12-24',
+                type: 'withdrawal',
+                description: 'طلب سحب إلى PayPal',
+                amount: -120,
+                balanceAfter: 1150.75,
+                status: 'pending'
+            },
+            {
+                date: '2025-12-24',
+                type: 'task',
+                description: 'مهمة: مشاهدة فيديو ترويجي',
+                amount: 2.5,
+                balanceAfter: 1271.75,
+                status: 'success'
+            },
+            {
+                date: '2025-12-23',
+                type: 'referral',
+                description: 'عمولة إحالة عن المستخدم Ahmed',
+                amount: 12.5,
+                balanceAfter: 1269.25,
+                status: 'success'
+            },
+            {
+                date: '2025-12-22',
+                type: 'deposit',
+                description: 'إيداع عبر USDT',
+                amount: 500,
+                balanceAfter: 1256.75,
+                status: 'success'
+            },
+            {
+                date: '2025-12-20',
+                type: 'withdrawal',
+                description: 'سحب إلى محفظة عملات رقمية',
+                amount: -80,
+                balanceAfter: 756.75,
+                status: 'success'
+            },
+            {
+                date: '2025-12-18',
+                type: 'earning',
+                description: 'أرباح يومية على الخطة الأساسية',
+                amount: 10.2,
+                balanceAfter: 836.75,
+                status: 'success'
+            },
+            {
+                date: '2025-12-15',
+                type: 'deposit',
+                description: 'إيداع عبر حوالة بنكية',
+                amount: 300,
+                balanceAfter: 826.55,
+                status: 'success'
+            }
+        ];
+
+        let filteredTransactions = [...demoTransactions];
+
+        function formatTxType(type) {
+            switch (type) {
+                case 'deposit': return 'إيداع';
+                case 'withdrawal': return 'سحب';
+                case 'earning': return 'أرباح يومية';
+                case 'task': return 'أرباح مهام';
+                case 'referral': return 'أرباح إحالات';
+                default: return 'أخرى';
+            }
+        }
+
+        function renderTransactions() {
+            const tbody = document.getElementById('transactionsTableBody');
+            const countLabel = document.getElementById('txCountLabel');
+            if (!tbody) return;
+
+            if (!filteredTransactions.length) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align:center; color:var(--text-light); padding:1.5rem;">
+                            لا توجد معاملات مطابقة لخيارات التصفية الحالية.
+                        </td>
+                    </tr>
+                `;
+                if (countLabel) countLabel.textContent = '0 معاملة';
+                return;
+            }
+
+            tbody.innerHTML = filteredTransactions.map(tx => `
+                <tr>
+                    <td>${tx.date}</td>
+                    <td>${formatTxType(tx.type)}</td>
+                    <td>${tx.description}</td>
+                    <td style="color:${tx.amount < 0 ? 'var(--danger-color)' : 'var(--success-color)'};">
+                        ${tx.amount < 0 ? '-' : '+'}$${Math.abs(tx.amount).toFixed(2)}
+                    </td>
+                    <td>$${tx.balanceAfter.toFixed(2)}</td>
+                    <td>
+                        <span class="status-badge ${
+                            tx.status === 'success' ? 'success' : tx.status === 'pending' ? 'pending' : 'failed'
+                        }">
+                            ${tx.status === 'success' ? 'مكتملة' : tx.status === 'pending' ? 'قيد المعالجة' : 'مرفوضة'}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+
+            if (countLabel) countLabel.textContent = `${filteredTransactions.length} معاملة`;
+        }
+
+        function applyTxFilters() {
+            const typeFilter = document.getElementById('txTypeFilter').value;
+            const statusFilter = document.getElementById('txStatusFilter').value;
+            const fromDate = document.getElementById('txFromDate').value;
+            const toDate = document.getElementById('txToDate').value;
+
+            filteredTransactions = demoTransactions.filter(tx => {
+                let valid = true;
+
+                if (typeFilter !== 'all' && tx.type !== typeFilter) valid = false;
+                if (statusFilter !== 'all' && tx.status !== statusFilter) valid = false;
+
+                if (fromDate && tx.date < fromDate) valid = false;
+                if (toDate && tx.date > toDate) valid = false;
+
+                return valid;
+            });
+
+            renderTransactions();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // حماية وتهيئة عامة
+            if (window.CicadaAuth && window.CicadaAuth.protectPage) {
+                window.CicadaAuth.protectPage();
+            }
+            if (typeof loadUserInfo === 'function') loadUserInfo();
+            if (typeof initSidebarToggle === 'function') initSidebarToggle();
+            if (typeof highlightActiveMenu === 'function') highlightActiveMenu();
+
+            renderTransactions();
+        });
+    </script>
+</body>
+</html>
