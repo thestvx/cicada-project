@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السحوبات - Cicada</title>
+    <meta name="description" content="اطلب سحب أرباحك من منصة Cicada بسهولة وأمان، وتابع حالة طلبات السحب السابقة.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="Cicada Logo" class="sidebar-logo" onerror="this.style.display='none'">
+                <h2 class="sidebar-brand">Cicada</h2>
+            </div>
+
+            <nav class="sidebar-menu">
+                <div class="menu-category">الرئيسية</div>
+                <a href="dashboard.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>لوحة التحكم</span>
+                </a>
+                <a href="tasks.html" class="menu-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>المهام</span>
+                </a>
+                <a href="investments.html" class="menu-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>الاستثمارات</span>
+                </a>
+
+                <div class="menu-category">المعاملات</div>
+                <a href="deposits.html" class="menu-item">
+                    <i class="fas fa-arrow-down"></i>
+                    <span>الإيداعات</span>
+                </a>
+                <a href="withdrawals.html" class="menu-item active">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>السحوبات</span>
+                </a>
+                <a href="transactions.html" class="menu-item">
+                    <i class="fas fa-receipt"></i>
+                    <span>سجل المعاملات</span>
+                </a>
+
+                <div class="menu-category">الحساب</div>
+                <a href="profile.html" class="menu-item">
+                    <i class="fas fa-user"></i>
+                    <span>الملف الشخصي</span>
+                </a>
+                <a href="referrals.html" class="menu-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>الإحالات</span>
+                </a>
+                <a href="kyc.html" class="menu-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>التحقق (KYC)</span>
+                </a>
+
+                <div class="menu-category">الدعم والقانوني</div>
+                <a href="support.html" class="menu-item">
+                    <i class="fas fa-headset"></i>
+                    <span>الدعم الفني</span>
+                </a>
+                <a href="terms.html" class="menu-item">
+                    <i class="fas fa-file-contract"></i>
+                    <span>الشروط والأحكام</span>
+                </a>
+                <a href="privacy.html" class="menu-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>سياسة الخصوصية</span>
+                </a>
+                <a href="blog.html" class="menu-item">
+                    <i class="fas fa-blog"></i>
+                    <span>المدونة</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-mini-profile">
+                    <img src="../assets/images/avatar-placeholder.png" alt="User" class="user-avatar-sm" onerror="this.style.display='none'">
+                    <div class="user-info-sm">
+                        <h4 data-user="name">مستخدم</h4>
+                        <p data-user="email">user@email.com</p>
+                    </div>
+                </div>
+                <button class="menu-item" data-logout="true" style="margin-top:1rem; width:100%; justify-content:flex-start;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="dashboard-title">
+                    <button class="toggle-sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1>السحوبات</h1>
+                        <p>اطلب سحب أرباحك بسهولة وأمان</p>
+                    </div>
+                </div>
+                <div class="topbar-actions">
+                    <button class="action-btn" title="إشعارات">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="action-btn" title="الملف الشخصي" onclick="window.location.href='profile.html'">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Stats -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon wallet">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>إجمالي السحوبات</h3>
+                        <div class="stat-value" data-stat="total-withdrawals">$0.00</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon investment">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>آخر سحب</h3>
+                        <div class="stat-value" data-stat="last-withdrawal">$0.00</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon tasks">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>سحوبات قيد المعالجة</h3>
+                        <div class="stat-value" data-stat="pending-withdrawals">0</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon referral">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>متوسط قيمة السحب</h3>
+                        <div class="stat-value" data-stat="avg-withdrawal">$0.00</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Withdrawal Form -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>طلب سحب جديد</h3>
+                </div>
+                <form id="withdrawalForm">
+                    <div class="form-group">
+                        <label class="form-label" for="withdrawalAmount">مبلغ السحب (بالدولار)</label>
+                        <input 
+                            type="number" 
+                            id="withdrawalAmount" 
+                            name="amount" 
+                            class="form-input" 
+                            placeholder="مثال: 50" 
+                            min="10" 
+                            step="0.01"
+                            required
+                        >
+                        <small style="color:var(--text-light);">الحد الأدنى للسحب: $10</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="withdrawalMethod">طريقة السحب</label>
+                        <select id="withdrawalMethod" name="method" class="form-input" required>
+                            <option value="">اختر طريقة السحب</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="crypto">عملة رقمية (USDT / BTC)</option>
+                            <option value="bank">حوالة بنكية</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="withdrawalAddress">عنوان السحب</label>
+                        <input 
+                            type="text" 
+                            id="withdrawalAddress" 
+                            name="address" 
+                            class="form-input" 
+                            placeholder="عنوان PayPal أو المحفظة الرقمية أو رقم الحساب البنكي"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="withdrawalNote">ملاحظات (اختياري)</label>
+                        <textarea 
+                            id="withdrawalNote" 
+                            name="note" 
+                            class="form-input" 
+                            rows="3" 
+                            placeholder="أي ملاحظات إضافية عن السحب (اختياري)"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="margin-top:1rem;">
+                        <i class="fas fa-arrow-up"></i> تأكيد طلب السحب
+                    </button>
+                </form>
+            </section>
+
+            <!-- Withdrawals History -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>سجل السحوبات</h3>
+                    <span style="color:var(--text-light); font-size:0.9rem;">آخر السحوبات من حسابك</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>التاريخ</th>
+                                <th>المبلغ</th>
+                                <th>الطريقة</th>
+                                <th>الحالة</th>
+                            </tr>
+                        </thead>
+                        <tbody id="withdrawalsTableBody">
+                            <!-- يتم تعبئتها عبر JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/auth.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+    <script>
+        // بيانات تجريبية للسحوبات
+        const demoWithdrawals = [
+            { date: '2025-12-25', amount: 120, method: 'PayPal', status: 'success' },
+            { date: '2025-12-24', amount: 200, method: 'USDT', status: 'pending' },
+            { date: '2025-12-20', amount: 80, method: 'PayPal', status: 'success' }
+        ];
+
+        function renderWithdrawalsTable() {
+            const tbody = document.getElementById('withdrawalsTableBody');
+            if (!tbody) return;
+
+            if (demoWithdrawals.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="4" style="text-align:center; color:var(--text-light); padding:1.5rem;">
+                            لا توجد سحوبات مسجلة حتى الآن.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = demoWithdrawals.map(wd => `
+                <tr>
+                    <td>${wd.date}</td>
+                    <td>$${wd.amount.toFixed(2)}</td>
+                    <td>${wd.method}</td>
+                    <td>
+                        <span class="status-badge ${
+                            wd.status === 'success' ? 'success' : wd.status === 'pending' ? 'pending' : 'failed'
+                        }">
+                            ${wd.status === 'success' ? 'مكتمل' : wd.status === 'pending' ? 'قيد المعالجة' : 'مرفوض'}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function updateWithdrawalStats() {
+            const total = demoWithdrawals.reduce((sum, w) => sum + w.amount, 0);
+            const pendingCount = demoWithdrawals.filter(w => w.status === 'pending').length;
+            const last = demoWithdrawals[0]?.amount || 0;
+            const avg = demoWithdrawals.length ? total / demoWithdrawals.length : 0;
+
+            const totalEl = document.querySelector('[data-stat="total-withdrawals"]');
+            const pendingEl = document.querySelector('[data-stat="pending-withdrawals"]');
+            const lastEl = document.querySelector('[data-stat="last-withdrawal"]');
+            const avgEl = document.querySelector('[data-stat="avg-withdrawal"]');
+
+            if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+            if (pendingEl) pendingEl.textContent = pendingCount.toString();
+            if (lastEl) lastEl.textContent = `$${last.toFixed(2)}`;
+            if (avgEl) avgEl.textContent = `$${avg.toFixed(2)}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // حماية الصفحة + تهيئة الـ sidebar واليوزر
+            if (window.CicadaAuth && window.CicadaAuth.protectPage) {
+                window.CicadaAuth.protectPage();
+            }
+            if (typeof loadUserInfo === 'function') loadUserInfo();
+            if (typeof initSidebarToggle === 'function') initSidebarToggle();
+            if (typeof highlightActiveMenu === 'function') highlightActiveMenu();
+
+            renderWithdrawalsTable();
+            updateWithdrawalStats();
+
+            const withdrawalForm = document.getElementById('withdrawalForm');
+            if (withdrawalForm) {
+                withdrawalForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const amount = parseFloat(document.getElementById('withdrawalAmount').value || '0');
+                    const method = document.getElementById('withdrawalMethod').value;
+                    const address = document.getElementById('withdrawalAddress').value;
+
+                    if (!amount || amount < 10 || !method || !address) {
+                        if (window.CicadaAuth && window.CicadaAuth.showAuthAlert) {
+                            window.CicadaAuth.showAuthAlert('warning', 'الرجاء إدخال جميع بيانات السحب بشكل صحيح (الحد الأدنى 10$).');
+                        } else {
+                            alert('الرجاء إدخال جميع بيانات السحب بشكل صحيح (الحد الأدنى 10$).');
+                        }
+                        return;
+                    }
+
+                    // محاكاة إضافة سحب جديد
+                    demoWithdrawals.unshift({
+                        date: new Date().toISOString().slice(0, 10),
+                        amount,
+                        method,
+                        status: 'pending'
+                    });
+
+                    renderWithdrawalsTable();
+                    updateWithdrawalStats();
+                    withdrawalForm.reset();
+
+                    if (window.CicadaAuth && window.CicadaAuth.showAuthAlert) {
+                        window.CicadaAuth.showAuthAlert('success', 'تم استلام طلب السحب بنجاح! سيتم مراجعته خلال 24-48 ساعة.');
+                    } else {
+                        alert('تم استلام طلب السحب بنجاح!');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
