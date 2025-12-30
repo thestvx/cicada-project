@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المدونة - Cicada</title>
+    <meta name="description" content="اقرأ آخر الأخبار والمقالات حول الاستثمار، العملات الرقمية، ونصائح مالية من خبراء Cicada.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+
+    <style>
+        .blog-section {
+            padding: 4rem 0;
+            background: var(--light-color);
+        }
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .blog-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+        .blog-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: var(--light-color);
+        }
+        .blog-content {
+            padding: 1.5rem;
+        }
+        .blog-category {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .blog-title {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+        .blog-excerpt {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .author-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .blog-sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+        .blog-sidebar h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        .search-box {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 2.5rem 0.8rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
+        }
+        .search-box button {
+            position: absolute;
+            left: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        .popular-posts {
+            list-style: none;
+            padding: 0;
+        }
+        .popular-post-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .popular-post-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .popular-post-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .popular-post-content h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        .popular-post-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tag {
+            padding: 0.5rem 1rem;
+            background: var(--light-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .tag:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+        .page-btn {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="ar">العربية</button>
+        <button class="lang-btn" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="fr">Français</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../assets/images/logo.png" alt="Cicada Logo" class="logo" onerror="this.style.display='none'">
+                <span class="brand-name">Cicada</span>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html#home" class="nav-link">الرئيسية</a></li>
+                <li><a href="../index.html#features" class="nav-link">المميزات</a></li>
+                <li><a href="../index.html#plans" class="nav-link">الخطط</a></li>
+                <li><a href="about.html" class="nav-link">من نحن</a></li>
+                <li><a href="blog.html" class="nav-link active">المدونة</a></li>
+                <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                <li><a href="login.html" class="btn-secondary">تسجيل الدخول</a></li>
+                <li><a href="register.html" class="btn-primary">إنشاء حساب</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>المدونة</h1>
+            <p>آخر الأخبار والمقالات حول الاستثمار والعملات الرقمية</p>
+            <div class="breadcrumb">
+                <a href="../index.html">الرئيسية</a>
+                <i class="fas fa-chevron-left"></i>
+                <span>المدونة</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <!-- Search and Filters -->
+            <div class="blog-header">
+                <div class="search-box" style="max-width:600px; margin:0 auto 2rem;">
+                    <input type="text" id="blogSearch" placeholder="ابحث عن مقال...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="blog-filters">
+                    <button class="filter-btn active" data-category="all">الكل</button>
+                    <button class="filter-btn" data-category="investment">استثمار</button>
+                    <button class="filter-btn" data-category="crypto">عملات رقمية</button>
+                    <button class="filter-btn" data-category="tips">نصائح مالية</button>
+                    <button class="filter-btn" data-category="news">أخبار</button>
+                    <button class="filter-btn" data-category="guides">دلائل إرشادية</button>
+                </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 350px; gap:2rem;">
+                <!-- Blog Posts -->
+                <div>
+                    <div class="blog-grid" id="blogGrid">
+                        <!-- Blog Post 1 -->
+                        <div class="blog-card" data-category="investment">
+                            <img src="../assets/images/blog1.jpg" alt="Blog Post" class="blog-image" onerror="this.style.display='none'">
+                            <div class="blog-content">
+                                <span class="blog-category">استثمار</span>
+                                <h3 class="blog-title">كيف تبدأ رحلتك الاستثمارية في 2025</h3>
+                                <p class="blog-excerpt">
+                                    دليل شامل للمبتدئين حول كيفية البدء في الاستثمار وتحقيق أرباح مستدامة. تعرف على أفضل الاستراتيجيات والخطط المناسبة لك.
+                                </p>
+                                <div class="blog-meta">
+                                    <div class="blog-author">
+                                        <img src="../assets/images/avatar1.jpg" alt="Author" class="author-avatar" onerror="this.style.display='none'">
+                                        <span>أحمد محمد</span>
+                                    </div>
+                                    <span><i class="fas fa-calendar"></i> 25 ديسمبر 2025</span>
+                                    <span><i class="fas fa-clock"></i> 5 دقائق</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 2 -->
+                        <div class="blog-card" data-category="crypto">
+                            <img src="../assets/images/blog2.jpg" alt="Blog Post" class="blog-image" onerror="this.style.display='none'">
+                            <div class="blog-content">
+                                <span class="blog-category">عملات رقمية</span>
+                                <h3 class="blog-title">Bitcoin تتجاوز $100,000: ماذا يعني ذلك للمستثمرين</h3>
+                                <p class="blog-excerpt">
+                                    تحليل شامل لارتفاع Bitcoin التاريخي وتأثيره على سوق العملات الرقمية. ما هي الفرص والمخاطر القادمة؟
+                                </p>
+                                <div class="blog-meta">
+                                    <div class="blog-author">
+                                        <img src="../assets/images/avatar2.jpg" alt="Author" class="author-avatar" onerror="this.style.display='none'">
+                                        <span>سارة العلي</span>
+                                    </div>
+                                    <span><i class="fas fa-calendar"></i> 23 ديسمبر 2025</span>
+                                    <span><i class="fas fa-clock"></i> 8 دقائق</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 3 -->
+                        <div class="blog-card" data-category="tips">
+                            <img src="../assets/images/blog3.jpg" alt="Blog Post" class="blog-image" onerror="this.style.display='none'">
+                            <div class="blog-content">
+                                <span class="blog-category">نصائح مالية</span>
+                                <h3 class="blog-title">10 أخطاء يجب تجنبها في الاستثمار عبر الإنترنت</h3>
+                                <p class="blog-excerpt">
+                                    تعرف على الأخطاء الشائعة التي يقع فيها المستثمرون المبتدئون وكيف تتجنبها لحماية أموالك وتحقيق أرباح أفضل.
+                                </p>
+                                <div class="blog-meta">
+                                    <div class="blog-author">
+                                        <img src="../assets/images/avatar3.jpg" alt="Author" class="author-avatar" onerror="this.style.display='none'">
+                                        <span>كريم حسن</span>
+                                    </div>
+                                    <span><i class="fas fa-calendar"></i> 20 ديسمبر 2025</span>
+                                    <span><i class="fas fa-clock"></i> 6 دقائق</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 4 -->
+                        <div class="blog-card" data-category="news">
+                            <img src="../assets/images/blog4.jpg" alt="Blog Post" class="blog-image" onerror="this.style.display='none'">
+                            <div class="blog-content">
+                                <span class="blog-category">أخبار</span>
+                                <h3 class="blog-title">Cicada تطلق خطة استثمارية جديدة بعائد 4%</h3>
+                                <p class="blog-excerpt">
+                                    نعلن عن إطلاق خطة استثمارية جديدة تقدم عائدات يومية تصل إلى 4% للمستثمرين الكبار. تعرف على التفاصيل والشروط.
+                                </p>
+                                <div class="blog-meta">
+                                    <div class="blog-author">
+                                        <img src="../assets/images/avatar1.jpg" alt="Author" class="author-avatar" onerror="this.style.display='none'">
+                                        <span>فريق Cicada</span>
+                                    </div>
+                                    <span><i class="fas fa-calendar"></i> 18 ديسمبر 2025</span>
+                                    <span><i class="fas fa-clock"></i> 4 دقائق</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 5 -->
+                        <div class="blog-card" data-category="guides">
+                            <img src="../assets/images/blog5.jpg" alt="Blog Post" class="blog-image" onerror="this.style.display='none'">
+                            <div class="blog-content">
+                                <span class="blog-category">دلائل إرشادية</span>
+                                <h3 class="blog-title">دليل شامل لعملية التحقق من الهوية (KYC)</h3>
+                                <p class="blog-excerpt">
+                                    خطوات بسيطة لإتمام عملية التحقق من الهوية بنجاح. ما هي المستندات المطلوبة وكيف تضمن قبول طلبك من المرة الأولى؟
+                                </p>
+                                <div class="blog-meta">
+                                    <div class="blog-author">
+                                        <img src="../assets/images/avatar2.jpg" alt="Author" class="author-avatar" onerror="this.style.display='none'">
+                                        <span>نور الدين</span>
+                                    </div>
+                                    <span><i class="fas fa-calendar"></i> 15 ديسمبر 2025</span>
+                                    <span><i class="fas fa-clock"></i> 7 دقائق</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post 6 -->
+                        <div class="blog-card" data-category="investment">
+                            <img src="../assets/images/blog6.jpg" alt="Blog Post" class="blog-image" onerror="this.style.display='none'">
+                            <div class="blog-content">
+                                <span class="blog-category">استثمار</span>
+                                <h3 class="blog-title">الاستثمار طويل الأجل vs قصير الأجل: أيهما أفضل؟</h3>
+                                <p class="blog-excerpt">
+                                    مقارنة شاملة بين استراتيجيات الاستثمار المختلفة ومتى يجب استخدام كل منها. اكتشف الاستراتيجية المناسبة لأهدافك المالية.
+                                </p>
+                                <div class="blog-meta">
+                                    <div class="blog-author">
+                                        <img src="../assets/images/avatar3.jpg" alt="Author" class="author-avatar" onerror="this.style.display='none'">
+                                        <span>ياسين محمود</span>
+                                    </div>
+                                    <span><i class="fas fa-calendar"></i> 12 ديسمبر 2025</span>
+                                    <span><i class="fas fa-clock"></i> 9 دقائق</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">4</button>
+                        <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside>
+                    <!-- Popular Posts -->
+                    <div class="blog-sidebar">
+                        <h3><i class="fas fa-fire"></i> المقالات الأكثر قراءة</h3>
+                        <ul class="popular-posts">
+                            <li class="popular-post-item">
+                                <img src="../assets/images/blog-thumb1.jpg" alt="Post" class="popular-post-img" onerror="this.style.display='none'">
+                                <div class="popular-post-content">
+                                    <h4>كيف تحقق دخل سلبي من الاستثمار</h4>
+                                    <span class="popular-post-date">28 ديسمبر 2025</span>
+                                </div>
+                            </li>
+                            <li class="popular-post-item">
+                                <img src="../assets/images/blog-thumb2.jpg" alt="Post" class="popular-post-img" onerror="this.style.display='none'">
+                                <div class="popular-post-content">
+                                    <h4>أفضل العملات الرقمية للاستثمار في 2025</h4>
+                                    <span class="popular-post-date">26 ديسمبر 2025</span>
+                                </div>
+                            </li>
+                            <li class="popular-post-item">
+                                <img src="../assets/images/blog-thumb3.jpg" alt="Post" class="popular-post-img" onerror="this.style.display='none'">
+                                <div class="popular-post-content">
+                                    <h4>نصائح للمبتدئين في عالم الاستثمار</h4>
+                                    <span class="popular-post-date">24 ديسمبر 2025</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="blog-sidebar">
+                        <h3><i class="fas fa-folder"></i> التصنيفات</h3>
+                        <ul style="list-style:none; padding:0;">
+                            <li style="margin-bottom:0.8rem; display:flex; justify-content:space-between;">
+                                <a href="#" style="color:var(--text-color);">استثمار</a>
+                                <span style="color:var(--text-light);">(24)</span>
+                            </li>
+                            <li style="margin-bottom:0.8rem; display:flex; justify-content:space-between;">
+                                <a href="#" style="color:var(--text-color);">عملات رقمية</a>
+                                <span style="color:var(--text-light);">(18)</span>
+                            </li>
+                            <li style="margin-bottom:0.8rem; display:flex; justify-content:space-between;">
+                                <a href="#" style="color:var(--text-color);">نصائح مالية</a>
+                                <span style="color:var(--text-light);">(32)</span>
+                            </li>
+                            <li style="margin-bottom:0.8rem; display:flex; justify-content:space-between;">
+                                <a href="#" style="color:var(--text-color);">أخبار</a>
+                                <span style="color:var(--text-light);">(15)</span>
+                            </li>
+                            <li style="margin-bottom:0.8rem; display:flex; justify-content:space-between;">
+                                <a href="#" style="color:var(--text-color);">دلائل إرشادية</a>
+                                <span style="color:var(--text-light);">(21)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="blog-sidebar">
+                        <h3><i class="fas fa-tags"></i> الوسوم</h3>
+                        <div class="tag-cloud">
+                            <span class="tag">Bitcoin</span>
+                            <span class="tag">استثمار</span>
+                            <span class="tag">تداول</span>
+                            <span class="tag">Ethereum</span>
+                            <span class="tag">ربح</span>
+                            <span class="tag">عملات</span>
+                            <span class="tag">مال</span>
+                            <span class="tag">DeFi</span>
+                            <span class="tag">NFT</span>
+                            <span class="tag">بلوكشين</span>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="blog-sidebar" style="background:var(--primary-gradient); color:white;">
+                        <h3 style="color:white;"><i class="fas fa-envelope"></i> اشترك في النشرة</h3>
+                        <p style="margin-bottom:1rem;">احصل على آخر المقالات والأخبار مباشرة في بريدك</p>
+                        <form class="newsletter-form" style="margin:0;">
+                            <input type="email" placeholder="بريدك الإلكتروني" required style="width:100%; margin-bottom:0.8rem;">
+                            <button type="submit" class="btn-secondary btn-block" style="background:white; color:var(--primary-color);">
+                                اشترك الآن
+                            </button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>ابدأ رحلتك الاستثمارية اليوم</h2>
+                <p>انضم إلى آلاف المستثمرين الناجحين واحصل على أرباح يومية مضمونة</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i> إنشاء حساب مجاني
+                    </a>
+                    <a href="login.html" class="btn-secondary btn-lg">
+                        <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Cicada</h3>
+                    <p>منصة الاستثمار والمهام الرائدة في العالم العربي.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="../index.html#features">المميزات</a></li>
+                        <li><a href="../index.html#plans">الخطط</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>قانوني</h4>
+                    <ul>
+                        <li><a href="terms.html">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="support.html">الدعم الفني</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>النشرة الإخبارية</h4>
+                    <p>اشترك ليصلك كل جديد</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cicada. جميع الحقوق محفوظة.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-paypal"></i>
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script>
+        // Blog Filtering
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const category = btn.getAttribute('data-category');
+
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Filter cards
+                    blogCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (category === 'all' || cardCategory === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('blogSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    
+                    blogCards.forEach(card => {
+                        const title = card.querySelector('.blog-title').textContent.toLowerCase();
+                        const excerpt = card.querySelector('.blog-excerpt').textContent.toLowerCase();
+                        
+                        if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
