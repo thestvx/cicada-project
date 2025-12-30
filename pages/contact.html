@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - Cicada</title>
+    <meta name="description" content="تواصل معنا في أي وقت. فريق دعم Cicada جاهز لمساعدتك على مدار الساعة عبر الهاتف، البريد الإلكتروني، أو الدردشة المباشرة.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="ar">العربية</button>
+        <button class="lang-btn" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="fr">Français</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../assets/images/logo.png" alt="Cicada Logo" class="logo" onerror="this.style.display='none'">
+                <span class="brand-name">Cicada</span>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html#home" class="nav-link">الرئيسية</a></li>
+                <li><a href="../index.html#features" class="nav-link">المميزات</a></li>
+                <li><a href="../index.html#how-it-works" class="nav-link">كيف يعمل</a></li>
+                <li><a href="../index.html#plans" class="nav-link">الخطط</a></li>
+                <li><a href="about.html" class="nav-link">من نحن</a></li>
+                <li><a href="contact.html" class="nav-link active">اتصل بنا</a></li>
+                <li><a href="login.html" class="btn-secondary">تسجيل الدخول</a></li>
+                <li><a href="register.html" class="btn-primary">إنشاء حساب</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>اتصل بنا</h1>
+            <p>نحن هنا لمساعدتك في أي وقت، تواصل معنا عبر القنوات التالية</p>
+            <div class="breadcrumb">
+                <a href="../index.html">الرئيسية</a>
+                <i class="fas fa-chevron-left"></i>
+                <span>اتصل بنا</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Cards -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-info-grid">
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>اتصل بنا</h3>
+                    <p>متاح 24/7</p>
+                    <a href="tel:+213555123456" class="contact-link">+213 555 123 456</a>
+                    <a href="tel:+213555654321" class="contact-link">+213 555 654 321</a>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>راسلنا عبر البريد</h3>
+                    <p>نرد خلال 24 ساعة</p>
+                    <a href="mailto:support@cicada.com" class="contact-link">support@cicada.com</a>
+                    <a href="mailto:info@cicada.com" class="contact-link">info@cicada.com</a>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>مقرنا الرئيسي</h3>
+                    <p>زرنا في أي وقت</p>
+                    <p class="contact-address">
+                        شارع الاستقلال، حي النور<br>
+                        الوادي 39000، الجزائر
+                    </p>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>الدردشة المباشرة</h3>
+                    <p>رد فوري خلال دقائق</p>
+                    <a href="https://wa.me/213555123456" class="contact-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i> واتساب
+                    </a>
+                    <a href="https://t.me/cicada_support" class="contact-link" target="_blank">
+                        <i class="fab fa-telegram"></i> تيليجرام
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2 class="section-title">أرسل لنا رسالة</h2>
+                    <p class="section-subtitle">املأ النموذج أدناه وسنرد عليك في أقرب وقت ممكن</p>
+                    
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="contactName">
+                                    <i class="fas fa-user"></i> الاسم الكامل
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="contactName" 
+                                    name="name" 
+                                    class="form-input" 
+                                    placeholder="أدخل اسمك الكامل"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="contactEmail">
+                                    <i class="fas fa-envelope"></i> البريد الإلكتروني
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="contactEmail" 
+                                    name="email" 
+                                    class="form-input" 
+                                    placeholder="example@email.com"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="contactPhone">
+                                    <i class="fas fa-phone"></i> رقم الهاتف
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    id="contactPhone" 
+                                    name="phone" 
+                                    class="form-input" 
+                                    placeholder="+213 555 123 456"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="contactSubject">
+                                    <i class="fas fa-tag"></i> الموضوع
+                                </label>
+                                <select id="contactSubject" name="subject" class="form-input" required>
+                                    <option value="">اختر الموضوع</option>
+                                    <option value="general">استفسار عام</option>
+                                    <option value="support">دعم فني</option>
+                                    <option value="investment">استفسار عن الاستثمار</option>
+                                    <option value="withdrawal">مشكلة في السحب</option>
+                                    <option value="deposit">مشكلة في الإيداع</option>
+                                    <option value="partnership">شراكة تجارية</option>
+                                    <option value="complaint">شكوى</option>
+                                    <option value="other">أخرى</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contactMessage">
+                                <i class="fas fa-comment-dots"></i> رسالتك
+                            </label>
+                            <textarea 
+                                id="contactMessage" 
+                                name="message" 
+                                class="form-input" 
+                                rows="6"
+                                placeholder="اكتب رسالتك هنا بالتفصيل..."
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contactAttachment">
+                                <i class="fas fa-paperclip"></i> إرفاق ملف (اختياري)
+                            </label>
+                            <input 
+                                type="file" 
+                                id="contactAttachment" 
+                                name="attachment" 
+                                class="form-input"
+                                accept="image/*,.pdf,.doc,.docx"
+                            >
+                            <small style="color:var(--text-light); display:block; margin-top:0.5rem;">
+                                الملفات المقبولة: JPG, PNG, PDF, DOC (الحد الأقصى 5MB)
+                            </small>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="contactConsent" name="consent" required>
+                            <label for="contactConsent">
+                                أوافق على <a href="privacy.html">سياسة الخصوصية</a> وأسمح بمعالجة بياناتي الشخصية
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-block btn-lg">
+                            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                        </button>
+
+                        <div id="contactFormMessage" style="margin-top:1rem; display:none;"></div>
+                    </form>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="contact-sidebar">
+                    <div class="sidebar-card">
+                        <h3>
+                            <i class="fas fa-clock"></i>
+                            ساعات العمل
+                        </h3>
+                        <ul class="info-list">
+                            <li>
+                                <strong>الدعم الفني:</strong> 24/7
+                            </li>
+                            <li>
+                                <strong>المكاتب الإدارية:</strong>
+                            </li>
+                            <li>الأحد - الخميس: 9:00 - 18:00</li>
+                            <li>الجمعة - السبت: مغلق</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>
+                            <i class="fas fa-question-circle"></i>
+                            الأسئلة الشائعة
+                        </h3>
+                        <p>لديك سؤال؟ تحقق من قسم الأسئلة الشائعة للحصول على إجابات سريعة</p>
+                        <a href="support.html" class="btn-secondary btn-block">
+                            <i class="fas fa-book-open"></i> الأسئلة الشائعة
+                        </a>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>
+                            <i class="fas fa-share-alt"></i>
+                            تابعنا على السوشيال ميديا
+                        </h3>
+                        <div class="social-links-large">
+                            <a href="#" class="social-link facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="#" class="social-link twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="social-link instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-link telegram">
+                                <i class="fab fa-telegram"></i>
+                                <span>Telegram</span>
+                            </a>
+                            <a href="#" class="social-link youtube">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align:center; margin-bottom:2rem;">موقعنا على الخريطة</h2>
+            <div class="map-container">
+                <!-- Google Maps Embed - استبدل الرابط بموقعك الفعلي -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106364.92149789374!2d6.792137!3d33.356673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x125ef7c987e44d89%3A0x3d6f296f3e8f1e0c!2sEl%20Oued%2C%20Algeria!5e0!3m2!1sen!2s!4v1735562000000!5m2!1sen!2s"
+                    width="100%" 
+                    height="450" 
+                    style="border:0; border-radius:12px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Cicada</h3>
+                    <p>منصة الاستثمار والمهام الرائدة في العالم العربي.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="../index.html#features">المميزات</a></li>
+                        <li><a href="../index.html#plans">الخطط</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="blog.html">المدونة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>قانوني</h4>
+                    <ul>
+                        <li><a href="terms.html">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="support.html">الدعم الفني</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>النشرة الإخبارية</h4>
+                    <p>اشترك ليصلك كل جديد</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cicada. جميع الحقوق محفوظة.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-paypal"></i>
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script>
+        // معالجة نموذج الاتصال
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('contactFormMessage');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const name = document.getElementById('contactName').value.trim();
+                    const email = document.getElementById('contactEmail').value.trim();
+                    const subject = document.getElementById('contactSubject').value;
+                    const message = document.getElementById('contactMessage').value.trim();
+                    const consent = document.getElementById('contactConsent').checked;
+
+                    if (!name || !email || !subject || !message) {
+                        showFormMessage('error', 'الرجاء ملء جميع الحقول المطلوبة.');
+                        return;
+                    }
+
+                    if (!consent) {
+                        showFormMessage('error', 'يجب الموافقة على سياسة الخصوصية للمتابعة.');
+                        return;
+                    }
+
+                    // محاكاة إرسال النموذج
+                    showFormMessage('success', 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.');
+                    contactForm.reset();
+
+                    // في التطبيق الحقيقي، ستقوم بإرسال البيانات إلى الخادم هنا
+                    // مثال: fetch('/api/contact', { method: 'POST', body: formData })
+                });
+            }
+
+            function showFormMessage(type, text) {
+                if (!formMessage) return;
+                
+                formMessage.textContent = text;
+                formMessage.style.display = 'block';
+                formMessage.style.padding = '1rem';
+                formMessage.style.borderRadius = '8px';
+                formMessage.style.textAlign = 'center';
+                
+                if (type === 'success') {
+                    formMessage.style.backgroundColor = 'rgba(39, 174, 96, 0.1)';
+                    formMessage.style.color = 'var(--success-color)';
+                    formMessage.style.border = '1px solid var(--success-color)';
+                } else {
+                    formMessage.style.backgroundColor = 'rgba(231, 76, 60, 0.1)';
+                    formMessage.style.color = 'var(--danger-color)';
+                    formMessage.style.border = '1px solid var(--danger-color)';
+                }
+
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
