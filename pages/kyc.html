@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التحقق من الهوية (KYC) - Cicada</title>
+    <meta name="description" content="أكمل عملية التحقق من الهوية (KYC) لرفع حدود حسابك وزيادة الأمان في منصة Cicada.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="Cicada Logo" class="sidebar-logo" onerror="this.style.display='none'">
+                <h2 class="sidebar-brand">Cicada</h2>
+            </div>
+
+            <nav class="sidebar-menu">
+                <div class="menu-category">الرئيسية</div>
+                <a href="dashboard.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>لوحة التحكم</span>
+                </a>
+                <a href="tasks.html" class="menu-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>المهام</span>
+                </a>
+                <a href="investments.html" class="menu-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>الاستثمارات</span>
+                </a>
+
+                <div class="menu-category">المعاملات</div>
+                <a href="deposits.html" class="menu-item">
+                    <i class="fas fa-arrow-down"></i>
+                    <span>الإيداعات</span>
+                </a>
+                <a href="withdrawals.html" class="menu-item">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>السحوبات</span>
+                </a>
+                <a href="transactions.html" class="menu-item">
+                    <i class="fas fa-receipt"></i>
+                    <span>سجل المعاملات</span>
+                </a>
+
+                <div class="menu-category">الحساب</div>
+                <a href="profile.html" class="menu-item">
+                    <i class="fas fa-user"></i>
+                    <span>الملف الشخصي</span>
+                </a>
+                <a href="referrals.html" class="menu-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>الإحالات</span>
+                </a>
+                <a href="kyc.html" class="menu-item active">
+                    <i class="fas fa-id-card"></i>
+                    <span>التحقق (KYC)</span>
+                </a>
+
+                <div class="menu-category">الدعم والقانوني</div>
+                <a href="support.html" class="menu-item">
+                    <i class="fas fa-headset"></i>
+                    <span>الدعم الفني</span>
+                </a>
+                <a href="terms.html" class="menu-item">
+                    <i class="fas fa-file-contract"></i>
+                    <span>الشروط والأحكام</span>
+                </a>
+                <a href="privacy.html" class="menu-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>سياسة الخصوصية</span>
+                </a>
+                <a href="blog.html" class="menu-item">
+                    <i class="fas fa-blog"></i>
+                    <span>المدونة</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-mini-profile">
+                    <img src="../assets/images/avatar-placeholder.png" alt="User" class="user-avatar-sm" onerror="this.style.display='none'">
+                    <div class="user-info-sm">
+                        <h4 data-user="name">مستخدم</h4>
+                        <p data-user="email">user@email.com</p>
+                    </div>
+                </div>
+                <button class="menu-item" data-logout="true" style="margin-top:1rem; width:100%; justify-content:flex-start;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="dashboard-title">
+                    <button class="toggle-sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1>التحقق من الهوية (KYC)</h1>
+                        <p>أكمل عملية التحقق لرفع حدود حسابك</p>
+                    </div>
+                </div>
+                <div class="topbar-actions">
+                    <button class="action-btn" title="إشعارات">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="action-btn" title="الملف الشخصي" onclick="window.location.href='profile.html'">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- KYC Status -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>حالة التحقق</h3>
+                </div>
+                <div style="display:flex; align-items:center; gap:1rem; padding:1rem; background:var(--light-color); border-radius:12px;">
+                    <i class="fas fa-shield-alt fa-2x" style="color:var(--primary-color);"></i>
+                    <div>
+                        <h4 id="kycStatusTitle">لم يتم التحقق بعد</h4>
+                        <p id="kycStatusDesc" style="color:var(--text-light); margin:0.5rem 0 0; font-size:0.9rem;">
+                            يرجى رفع المستندات المطلوبة لإكمال عملية التحقق.
+                        </p>
+                    </div>
+                    <span id="kycStatusBadge" class="status-badge pending" style="margin-right:auto;">
+                        قيد الانتظار
+                    </span>
+                </div>
+            </section>
+
+            <!-- Required Documents -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>المستندات المطلوبة</h3>
+                </div>
+                <div style="display:grid; gap:1.5rem;">
+                    <!-- Document 1: ID Card -->
+                    <div class="form-group">
+                        <label class="form-label" for="idCardFile">
+                            <i class="fas fa-id-card" style="margin-left:0.5rem;"></i>
+                            صورة البطاقة الوطنية أو جواز السفر (الوجه الأمامي والخلفي)
+                        </label>
+                        <input type="file" id="idCardFile" name="idCard" class="form-input" accept="image/*,.pdf" required>
+                        <small style="color:var(--text-light);">الملفات المقبولة: JPG, PNG, PDF (الحد الأقصى 5MB)</small>
+                        <div id="idCardPreview" style="margin-top:0.5rem; display:none;">
+                            <img src="" alt="ID Preview" style="max-width:200px; border-radius:8px; border:1px solid var(--border-color);">
+                        </div>
+                    </div>
+
+                    <!-- Document 2: Proof of Address -->
+                    <div class="form-group">
+                        <label class="form-label" for="addressProofFile">
+                            <i class="fas fa-file-alt" style="margin-left:0.5rem;"></i>
+                            إثبات عنوان السكن (فاتورة كهرباء، غاز، أو كشف حساب بنكي)
+                        </label>
+                        <input type="file" id="addressProofFile" name="addressProof" class="form-input" accept="image/*,.pdf" required>
+                        <small style="color:var(--text-light);">يجب أن يكون المستند صادراً خلال آخر 3 أشهر</small>
+                        <div id="addressProofPreview" style="margin-top:0.5rem; display:none;">
+                            <img src="" alt="Address Proof Preview" style="max-width:200px; border-radius:8px; border:1px solid var(--border-color);">
+                        </div>
+                    </div>
+
+                    <!-- Document 3: Selfie with ID -->
+                    <div class="form-group">
+                        <label class="form-label" for="selfieFile">
+                            <i class="fas fa-camera" style="margin-left:0.5rem;"></i>
+                            صورة شخصية مع البطاقة الوطنية (للتحقق من الهوية)
+                        </label>
+                        <input type="file" id="selfieFile" name="selfie" class="form-input" accept="image/*" required>
+                        <small style="color:var(--text-light);">تأكد من وضوح وجهك والبطاقة في الصورة</small>
+                        <div id="selfiePreview" style="margin-top:0.5rem; display:none;">
+                            <img src="" alt="Selfie Preview" style="max-width:200px; border-radius:8px; border:1px solid var(--border-color);">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Submit Button -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>إرسال المستندات</h3>
+                </div>
+                <form id="kycForm">
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="kycAgreement" name="agreement" required>
+                        <label for="kycAgreement">
+                            أقر بأن جميع المستندات المرفوعة صحيحة وحقيقية، وأوافق على سياسة الخصوصية وشروط التحقق.
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary" style="margin-top:1rem;">
+                        <i class="fas fa-upload"></i> إرسال المستندات للتحقق
+                    </button>
+                </form>
+            </section>
+
+            <!-- KYC History -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>سجل التحقق</h3>
+                    <span style="color:var(--text-light); font-size:0.9rem;">آخر محاولات التحقق</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>تاريخ التقديم</th>
+                                <th>المستندات</th>
+                                <th>الحالة</th>
+                                <th>ملاحظات المراجع</th>
+                            </tr>
+                        </thead>
+                        <tbody id="kycHistoryTableBody">
+                            <!-- يتم تعبئتها عبر JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/auth.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+    <script>
+        // بيانات KYC تجريبية
+        const demoKycHistory = [
+            {
+                date: '2025-12-25',
+                documents: 'بطاقة وطنية + فاتورة كهرباء + صورة شخصية',
+                status: 'pending',
+                notes: 'جاري المراجعة، سيتم إشعارك بالنتيجة خلال 24-48 ساعة.'
+            }
+        ];
+
+        function renderKycHistory() {
+            const tbody = document.getElementById('kycHistoryTableBody');
+            if (!tbody) return;
+
+            if (!demoKycHistory.length) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="4" style="text-align:center; color:var(--text-light); padding:1.5rem;">
+                            لم يتم تقديم أي محاولات تحقق حتى الآن.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = demoKycHistory.map(kyc => `
+                <tr>
+                    <td>${kyc.date}</td>
+                    <td>${kyc.documents}</td>
+                    <td>
+                        <span class="status-badge ${
+                            kyc.status === 'success' ? 'success' : kyc.status === 'pending' ? 'pending' : 'failed'
+                        }">
+                            ${kyc.status === 'success' ? 'مقبول' : kyc.status === 'pending' ? 'قيد المراجعة' : 'مرفوض'}
+                        </span>
+                    </td>
+                    <td>${kyc.notes}</td>
+                </tr>
+            `).join('');
+        }
+
+        function updateKycStatus() {
+            const statusTitle = document.getElementById('kycStatusTitle');
+            const statusDesc = document.getElementById('kycStatusDesc');
+            const statusBadge = document.getElementById('kycStatusBadge');
+
+            if (!demoKycHistory.length) {
+                if (statusTitle) statusTitle.textContent = 'لم يتم التحقق بعد';
+                if (statusDesc) statusDesc.textContent = 'يرجى رفع المستندات المطلوبة لإكمال عملية التحقق.';
+                if (statusBadge) {
+                    statusBadge.textContent = 'قيد الانتظار';
+                    statusBadge.className = 'status-badge pending';
+                }
+            } else {
+                const latest = demoKycHistory[0];
+                if (statusTitle) statusTitle.textContent = latest.status === 'success' ? 'تم التحقق' : latest.status === 'pending' ? 'قيد المراجعة' : 'مرفوض';
+                if (statusDesc) statusDesc.textContent = latest.notes;
+                if (statusBadge) {
+                    statusBadge.textContent = latest.status === 'success' ? 'مقبول' : latest.status === 'pending' ? 'قيد المراجعة' : 'مرفوض';
+                    statusBadge.className = 'status-badge ' + (latest.status === 'success' ? 'success' : latest.status === 'pending' ? 'pending' : 'failed');
+                }
+            }
+        }
+
+        function initFilePreviews() {
+            const fileInputs = [
+                { input: document.getElementById('idCardFile'), preview: document.getElementById('idCardPreview') },
+                { input: document.getElementById('addressProofFile'), preview: document.getElementById('addressProofPreview') },
+                { input: document.getElementById('selfieFile'), preview: document.getElementById('selfiePreview') }
+            ];
+
+            fileInputs.forEach(({ input, preview }) => {
+                if (!input || !preview) return;
+
+                input.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (!file) return;
+
+                    if (file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = (ev) => {
+                            const img = preview.querySelector('img');
+                            if (img) {
+                                img.src = ev.target.result;
+                                preview.style.display = 'block';
+                            }
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        preview.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // حماية وتهيئة عامة
+            if (window.CicadaAuth && window.CicadaAuth.protectPage) {
+                window.CicadaAuth.protectPage();
+            }
+            if (typeof loadUserInfo === 'function') loadUserInfo();
+            if (typeof initSidebarToggle === 'function') initSidebarToggle();
+            if (typeof highlightActiveMenu === 'function') highlightActiveMenu();
+
+            renderKycHistory();
+            updateKycStatus();
+            initFilePreviews();
+
+            const kycForm = document.getElementById('kycForm');
+            if (kycForm) {
+                kycForm
