@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشروط والأحكام - Cicada</title>
+    <meta name="description" content="اقرأ الشروط والأحكام الخاصة باستخدام منصة Cicada للاستثمار والمهام. تعرف على حقوقك والتزاماتك القانونية.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+
+    <style>
+        .legal-page {
+            padding: 4rem 0;
+            background: var(--light-color);
+        }
+        .legal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        .legal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .legal-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .legal-last-updated {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        .legal-toc {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .legal-toc h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .legal-toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .legal-toc li {
+            margin-bottom: 0.5rem;
+        }
+        .legal-toc a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .legal-toc a:hover {
+            color: var(--primary-color);
+            padding-right: 0.5rem;
+        }
+        .legal-section {
+            margin-bottom: 3rem;
+        }
+        .legal-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .legal-section h3 {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+        }
+        .legal-section p {
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .legal-section ul, .legal-section ol {
+            margin: 1rem 0;
+            padding-right: 1.5rem;
+        }
+        .legal-section li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+        .legal-highlight {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 1.5rem;
+            border-right: 4px solid var(--primary-color);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .legal-warning {
+            background: rgba(231, 76, 60, 0.1);
+            padding: 1.5rem;
+            border-right: 4px solid var(--danger-color);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .legal-contact-box {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .legal-contact-box h3 {
+            margin-bottom: 1rem;
+        }
+        .legal-contact-box a {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="ar">العربية</button>
+        <button class="lang-btn" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="fr">Français</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../assets/images/logo.png" alt="Cicada Logo" class="logo" onerror="this.style.display='none'">
+                <span class="brand-name">Cicada</span>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html#home" class="nav-link">الرئيسية</a></li>
+                <li><a href="../index.html#features" class="nav-link">المميزات</a></li>
+                <li><a href="../index.html#plans" class="nav-link">الخطط</a></li>
+                <li><a href="about.html" class="nav-link">من نحن</a></li>
+                <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                <li><a href="login.html" class="btn-secondary">تسجيل الدخول</a></li>
+                <li><a href="register.html" class="btn-primary">إنشاء حساب</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>الشروط والأحكام</h1>
+            <p>يرجى قراءة هذه الشروط والأحكام بعناية قبل استخدام منصة Cicada</p>
+            <div class="breadcrumb">
+                <a href="../index.html">الرئيسية</a>
+                <i class="fas fa-chevron-left"></i>
+                <span>الشروط والأحكام</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Content -->
+    <section class="legal-page">
+        <div class="container">
+            <div class="legal-container">
+                <div class="legal-header">
+                    <h1>الشروط والأحكام</h1>
+                    <p class="legal-last-updated">
+                        <i class="fas fa-calendar-alt"></i>
+                        آخر تحديث: 30 ديسمبر 2025
+                    </p>
+                </div>
+
+                <!-- Table of Contents -->
+                <div class="legal-toc">
+                    <h3><i class="fas fa-list"></i> جدول المحتويات</h3>
+                    <ul>
+                        <li><a href="#introduction">1. مقدمة وقبول الشروط</a></li>
+                        <li><a href="#definitions">2. التعريفات</a></li>
+                        <li><a href="#registration">3. التسجيل والحساب</a></li>
+                        <li><a href="#services">4. الخدمات المقدمة</a></li>
+                        <li><a href="#investments">5. الاستثمارات والأرباح</a></li>
+                        <li><a href="#deposits">6. الإيداعات</a></li>
+                        <li><a href="#withdrawals">7. السحوبات</a></li>
+                        <li><a href="#fees">8. الرسوم والعمولات</a></li>
+                        <li><a href="#kyc">9. التحقق من الهوية (KYC)</a></li>
+                        <li><a href="#prohibited">10. الأنشطة المحظورة</a></li>
+                        <li><a href="#liability">11. حدود المسؤولية</a></li>
+                        <li><a href="#termination">12. إنهاء الخدمة</a></li>
+                        <li><a href="#privacy">13. الخصوصية وحماية البيانات</a></li>
+                        <li><a href="#disputes">14. حل النزاعات</a></li>
+                        <li><a href="#changes">15. التعديلات على الشروط</a></li>
+                        <li><a href="#contact">16. معلومات الاتصال</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section 1 -->
+                <div class="legal-section" id="introduction">
+                    <h2>1. مقدمة وقبول الشروط</h2>
+                    <p>
+                        مرحباً بك في منصة <strong>Cicada</strong> للاستثمار والمهام. باستخدامك لهذه المنصة، فإنك توافق على الالتزام بهذه الشروط والأحكام والسياسات المرتبطة بها.
+                    </p>
+                    <p>
+                        تُشكل هذه الشروط والأحكام اتفاقاً قانونياً ملزماً بينك وبين شركة Cicada. إذا كنت لا توافق على أي جزء من هذه الشروط، يُرجى عدم استخدام خدماتنا.
+                    </p>
+                    <div class="legal-highlight">
+                        <p><strong><i class="fas fa-exclamation-circle"></i> مهم:</strong> باستخدامك للمنصة، فإنك تقر بأنك:</p>
+                        <ul>
+                            <li>بلغت السن القانوني (18 سنة أو أكثر)</li>
+                            <li>تمتلك الأهلية القانونية للدخول في عقود ملزمة</li>
+                            <li>قرأت وفهمت جميع الشروط والأحكام</li>
+                            <li>توافق على الالتزام بجميع القوانين المحلية والدولية المعمول بها</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="legal-section" id="definitions">
+                    <h2>2. التعريفات</h2>
+                    <p>في هذه الشروط والأحكام، تعني المصطلحات التالية:</p>
+                    <ul>
+                        <li><strong>"المنصة"</strong>: موقع وتطبيقات Cicada الإلكترونية وجميع الخدمات المرتبطة بها</li>
+                        <li><strong>"المستخدم"</strong>: أي شخص يستخدم المنصة أو يسجل حساباً عليها</li>
+                        <li><strong>"الخدمات"</strong>: جميع الخدمات المقدمة من Cicada بما في ذلك الاستثمار والمهام والإحالات</li>
+                        <li><strong>"الحساب"</strong>: حساب المستخدم المسجل على المنصة</li>
+                        <li><strong>"المحفظة"</strong>: المحفظة الإلكترونية التي تحتفظ بأرصدة المستخدم</li>
+                        <li><strong>"KYC"</strong>: إجراءات التحقق من هوية العميل (Know Your Customer)</li>
+                    </ul>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="legal-section" id="registration">
+                    <h2>3. التسجيل والحساب</h2>
+                    <h3>3.1 إنشاء الحساب</h3>
+                    <p>
+                        لاستخدام خدماتنا، يجب عليك إنشاء حساب من خلال تقديم معلومات دقيقة وكاملة. أنت مسؤول عن الحفاظ على سرية معلومات تسجيل الدخول الخاصة بك.
+                    </p>
+                    
+                    <h3>3.2 شروط التسجيل</h3>
+                    <ul>
+                        <li>يجب أن تكون بعمر 18 سنة أو أكثر</li>
+                        <li>تقديم معلومات صحيحة وحديثة</li>
+                        <li>استخدام عنوان بريد إلكتروني صالح</li>
+                        <li>إنشاء كلمة مرور قوية وآمنة</li>
+                        <li>عدم مشاركة حسابك مع أي شخص آخر</li>
+                    </ul>
+
+                    <h3>3.3 مسؤولية المستخدم</h3>
+                    <p>
+                        أنت مسؤول بالكامل عن جميع الأنشطة التي تحدث في حسابك. في حالة الاشتباه في اختراق أو استخدام غير مصرح به، يجب عليك إبلاغنا فوراً.
+                    </p>
+
+                    <div class="legal-warning">
+                        <p><strong><i class="fas fa-exclamation-triangle"></i> تحذير:</strong> التسجيل بمعلومات مزيفة أو انتحال شخصية أخرى قد يؤدي إلى إنهاء حسابك ومصادرة أرصدتك واتخاذ إجراءات قانونية.</p>
+                    </div>
+                </div>
+
+                <!-- Section 4 -->
+                <div class="legal-section" id="services">
+                    <h2>4. الخدمات المقدمة</h2>
+                    <p>تقدم منصة Cicada الخدمات التالية:</p>
+                    
+                    <h3>4.1 خدمات الاستثمار</h3>
+                    <ul>
+                        <li>خطط استثمارية متنوعة بعائدات يومية</li>
+                        <li>إدارة محفظة استثمارية آمنة</li>
+                        <li>تقارير أرباح يومية شفافة</li>
+                    </ul>
+
+                    <h3>4.2 خدمات المهام</h3>
+                    <ul>
+                        <li>مهام يومية بسيطة قابلة للإنجاز</li>
+                        <li>مكافآت على إتمام المهام</li>
+                        <li>تنوع في أنواع المهام المتاحة</li>
+                    </ul>
+
+                    <h3>4.3 برنامج الإحالة</h3>
+                    <ul>
+                        <li>عمولة 5% من أرباح الإحالات</li>
+                        <li>نظام تتبع شفاف للإحالات</li>
+                        <li>مكافآت إضافية للإحالات النشطة</li>
+                    </ul>
+                </div>
+
+                <!-- Section 5 -->
+                <div class="legal-section" id="investments">
+                    <h2>5. الاستثمارات والأرباح</h2>
+                    
+                    <h3>5.1 خطط الاستثمار</h3>
+                    <p>نوفر ثلاث خطط استثمارية رئيسية:</p>
+                    <ul>
+                        <li><strong>الخطة الأساسية:</strong> 1.5% عائد يومي، الحد الأدنى $50</li>
+                        <li><strong>الخطة الاحترافية:</strong> 2.5% عائد يومي، الحد الأدنى $1,000</li>
+                        <li><strong>خطة المؤسسات:</strong> 3.5% عائد يومي، الحد الأدنى $10,000</li>
+                    </ul>
+
+                    <h3>5.2 مخاطر الاستثمار</h3>
+                    <div class="legal-warning">
+                        <p><strong><i class="fas fa-exclamation-triangle"></i> إخلاء مسؤولية:</strong></p>
+                        <ul>
+                            <li>الاستثمار ينطوي على مخاطر قد تؤدي إلى خسارة رأس المال</li>
+                            <li>الأداء السابق لا يضمن نتائج مستقبلية</li>
+                            <li>يجب استثمار أموال يمكنك تحمل خسارتها</li>
+                            <li>لا نقدم ضمانات مطلقة على العوائد</li>
+                        </ul>
+                    </div>
+
+                    <h3>5.3 توزيع الأرباح</h3>
+                    <p>
+                        يتم حساب الأرباح يومياً وإضافتها إلى محفظتك تلقائياً. يمكنك سحب أرباحك في أي وقت وفقاً لسياسة السحب الخاصة بنا.
+                    </p>
+                </div>
+
+                <!-- Section 6 -->
+                <div class="legal-section" id="deposits">
+                    <h2>6. الإيداعات</h2>
+                    
+                    <h3>6.1 طرق الإيداع المقبولة</h3>
+                    <ul>
+                        <li>البطاقات الائتمانية (Visa, Mastercard)</li>
+                        <li>المحافظ الإلكترونية (PayPal, Skrill, Neteller)</li>
+                        <li>العملات الرقمية (Bitcoin, Ethereum, USDT)</li>
+                        <li>الحوالات البنكية</li>
+                    </ul>
+
+                    <h3>6.2 حدود الإيداع</h3>
+                    <ul>
+                        <li>الحد الأدنى للإيداع: $50</li>
+                        <li>الحد الأقصى للإيداع: غير محدود</li>
+                        <li>قد تختلف الحدود حسب طريقة الدفع</li>
+                    </ul>
+
+                    <h3>6.3 معالجة الإيداعات</h3>
+                    <p>
+                        يتم معالجة معظم الإيداعات فوراً. قد تستغرق الحوالات البنكية من 1-3 أيام عمل. رسوم المعاملات الخاصة بطريقة الدفع يتحملها المستخدم.
+                    </p>
+                </div>
+
+                <!-- Section 7 -->
+                <div class="legal-section" id="withdrawals">
+                    <h2>7. السحوبات</h2>
+                    
+                    <h3>7.1 شروط السحب</h3>
+                    <ul>
+                        <li>الحد الأدنى للسحب: $20</li>
+                        <li>إتمام التحقق من الهوية (KYC) بنجاح</li>
+                        <li>استخدام طريقة سحب مسجلة باسمك</li>
+                        <li>عدم وجود أنشطة مشبوهة على الحساب</li>
+                    </ul>
+
+                    <h3>7.2 وقت المعالجة</h3>
+                    <p>
+                        نعالج طلبات السحب خلال 24-48 ساعة عمل. قد يستغرق وصول الأموال إلى حسابك وقتاً إضافياً حسب طريقة السحب المختارة.
+                    </p>
+
+                    <h3>7.3 رسوم السحب</h3>
+                    <ul>
+                        <li>أول سحب شهري: مجاني</li>
+                        <li>السحوبات الإضافية: رسوم 2% من المبلغ</li>
+                        <li>الحد الأدنى للرسوم: $2</li>
+                    </ul>
+                </div>
+
+                <!-- Section 8 -->
+                <div class="legal-section" id="fees">
+                    <h2>8. الرسوم والعمولات</h2>
+                    <p>نحن ملتزمون بالشفافية التامة في جميع رسومنا:</p>
+                    
+                    <table style="width:100%; border-collapse:collapse; margin:1.5rem 0;">
+                        <thead>
+                            <tr style="background:var(--light-color);">
+                                <th style="padding:1rem; text-align:right; border:1px solid var(--border-color);">الخدمة</th>
+                                <th style="padding:1rem; text-align:right; border:1px solid var(--border-color);">الرسوم</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">فتح الحساب</td>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">مجاني</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">الإيداع</td>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">مجاني (قد تطبق رسوم معالج الدفع)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">أول سحب شهري</td>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">مجاني</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">السحوبات الإضافية</td>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">2% (حد أدنى $2)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">عمولة الإحالة</td>
+                                <td style="padding:0.8rem; border:1px solid var(--border-color);">5% من أرباح المحال</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Section 9 -->
+                <div class="legal-section" id="kyc">
+                    <h2>9. التحقق من الهوية (KYC)</h2>
+                    
+                    <p>
+                        نلتزم بمعايير مكافحة غسل الأموال (AML) الدولية، ولذلك يجب على جميع المستخدمين إتمام عملية التحقق من الهوية.
+                    </p>
+
+                    <h3>9.1 المستندات المطلوبة</h3>
+                    <ul>
+                        <li>وثيقة هوية سارية (بطاقة وطنية أو جواز سفر)</li>
+                        <li>إثبات عنوان السكن (فاتورة خدمات أو كشف حساب بنكي)</li>
+                        <li>صورة شخصية مع وثيقة الهوية</li>
+                    </ul>
+
+                    <h3>9.2 متى يكون KYC مطلوباً</h3>
+                    <ul>
+                        <li>قبل أول عملية سحب</li>
+                        <li>عند تجاوز حد معين من الإيداعات</li>
+                        <li>في حالة الاشتباه في نشاط غير عادي</li>
+                    </ul>
+
+                    <div class="legal-highlight">
+                        <p><strong><i class="fas fa-info-circle"></i> ملاحظة:</strong> عدم إتمام KYC قد يؤدي إلى تعليق حسابك وتجميد الأرصدة مؤقتاً حتى إتمام التحقق.</p>
+                    </div>
+                </div>
+
+                <!-- Section 10 -->
+                <div class="legal-section" id="prohibited">
+                    <h2>10. الأنشطة المحظورة</h2>
+                    
+                    <p>يُحظر استخدام المنصة للأنشطة التالية:</p>
+                    <ul>
+                        <li>غسل الأموال أو أي أنشطة مالية غير قانونية</li>
+                        <li>الاحتيال أو انتحال الشخصية</li>
+                        <li>استخدام حسابات متعددة لنفس الشخص</li>
+                        <li>التلاعب بالنظام أو محاولة اختراقه</li>
+                        <li>استخدام برامج آلية (bots) دون إذن</li>
+                        <li>نشر محتوى مسيء أو غير قانوني</li>
+                        <li>مشاركة معلومات تسجيل الدخول مع آخرين</li>
+                        <li>استخدام الخدمة لأغراض تجارية غير مصرح بها</li>
+                    </ul>
+
+                    <div class="legal-warning">
+                        <p><strong><i class="fas fa-ban"></i> عواقب الانتهاك:</strong> مخالفة هذه القواعد قد تؤدي إلى تعليق أو إنهاء حسابك، مصادرة الأرصدة، واتخاذ إجراءات قانونية.</p>
+                    </div>
+                </div>
+
+                <!-- Section 11 -->
+                <div class="legal-section" id="liability">
+                    <h2>11. حدود المسؤولية</h2>
+                    
+                    <h3>11.1 إخلاء المسؤولية</h3>
+                    <p>
+                        نوفر خدماتنا "كما هي" و"حسب التوفر". لا نضمن أن الخدمة ستكون متاحة دائماً أو خالية من الأخطاء.
+                    </p>
+
+                    <h3>11.2 القيود</h3>
+                    <p>
+                        لن نكون مسؤولين عن أي أضرار غير مباشرة أو عرضية أو تبعية ناتجة عن:
+                    </p>
+                    <ul>
+                        <li>فقدان الأرباح أو البيانات</li>
+                        <li>انقطاع الخدمة أو الأعطال الفنية</li>
+                        <li>الوصول غير المصرح به إلى حسابك</li>
+                        <li>أخطاء أو تأخيرات في معالجة المعاملات</li>
+                        <li>قرارات استثمارية تتخذها بناءً على معلوماتنا</li>
+                    </ul>
+
+                    <h3>11.3 القوة القاهرة</h3>
+                    <p>
+                        لن نكون مسؤولين عن أي فشل في الأداء بسبب ظروف خارجة عن سيطرتنا المعقولة مثل الكوارث الطبيعية، الحروب، الإضرابات، أو هجمات إلكترونية.
+                    </p>
+                </div>
+
+                <!-- Section 12 -->
+                <div class="legal-section" id="termination">
+                    <h2>12. إنهاء الخدمة</h2>
+                    
+                    <h3>12.1 إنهاء الحساب من قبل المستخدم</h3>
+                    <p>
+                        يمكنك إنهاء حسابك في أي وقت بالتواصل مع فريق الدعم. يجب سحب جميع أرصدتك قبل إغلاق الحساب.
+                    </p>
+
+                    <h3>12.2 إنهاء الحساب من قبل Cicada</h3>
+                    <p>
+                        نحتفظ بالحق في تعليق أو إنهاء حسابك في الحالات التالية:
+                    </p>
+                    <ul>
+                        <li>انتهاك هذه الشروط والأحكام</li>
+                        <li>نشاط احتيالي أو مشبوه</li>
+                        <li>عدم إتمام التحقق من الهوية</li>
+                        <li>تقديم معلومات كاذبة أو مضللة</li>
+                        <li>الخمول لفترة طويلة (أكثر من سنة)</li>
+                    </ul>
+
+                    <h3>12.3 التأثيرات بعد الإنهاء</h3>
+                    <p>
+                        عند إنهاء حسابك، ستفقد الوصول إلى جميع الخدمات والبيانات. الأرصدة المتبقية (إن وجدت) ستُعاد إليك بعد خصم أي رسوم معلقة.
+                    </p>
+                </div>
+
+                <!-- Section 13 -->
+                <div class="legal-section" id="privacy">
+                    <h2>13. الخصوصية وحماية البيانات</h2>
+                    <p>
+                        نحن ملتزمون بحماية خصوصيتك وبياناتك الشخصية. لمزيد من التفاصيل، يُرجى الاطلاع على 
+                        <a href="privacy.html" style="color:var(--primary-color); text-decoration:underline;">سياسة الخصوصية</a> الخاصة بنا.
+                    </p>
+                    
+                    <h3>13.1 جمع البيانات</h3>
+                    <p>نجمع البيانات الضرورية لتقديم خدماتنا، بما في ذلك:</p>
+                    <ul>
+                        <li>معلومات الحساب (الاسم، البريد، الهاتف)</li>
+                        <li>معلومات التحقق (وثائق الهوية)</li>
+                        <li>سجل المعاملات والأنشطة</li>
+                        <li>معلومات تقنية (عنوان IP، نوع المتصفح)</li>
+                    </ul>
+
+                    <h3>13.2 استخدام البيانات</h3>
+                    <p>نستخدم بياناتك للأغراض التالية:</p>
+                    <ul>
+                        <li>تقديم وتحسين خدماتنا</li>
+                        <li>التحقق من هويتك ومنع الاحتيال</li>
+                        <li>التواصل معك بشأن حسابك</li>
+                        <li>الامتثال للمتطلبات القانونية</li>
+                    </ul>
+
+                    <h3>13.3 حماية البيانات</h3>
+                    <p>
+                        نستخدم تقنيات تشفير متقدمة (SSL 256-bit) وإجراءات أمنية صارمة لحماية بياناتك من الوصول غير المصرح به.
+                    </p>
+                </div>
+
+                <!-- Section 14 -->
+                <div class="legal-section" id="disputes">
+                    <h2>14. حل النزاعات</h2>
+                    
+                    <h3>14.1 القانون الحاكم</h3>
+                    <p>
+                        تخضع هذه الشروط والأحكام لقوانين الجمهورية الجزائرية الديمقراطية الشعبية.
+                    </p>
+
+                    <h3>14.2 التحكيم</h3>
+                    <p>
+                        في حالة نشوء نزاع، نشجع على حله بشكل ودي أولاً. إذا لم يكن ذلك ممكناً، يتم اللجوء إلى التحكيم الملزم وفقاً لقواعد التحكيم المعمول بها في الجزائر.
+                    </p>
+
+                    <h3>14.3 الاختصاص القضائي</h3>
+                    <p>
+                        تكون المحاكم الجزائرية المختصة هي صاحبة الاختصاص الحصري في حل أي نزاعات لا يمكن حلها عبر التحكيم.
+                    </p>
+                </div>
+
+                <!-- Section 15 -->
+                <div class="legal-section" id="changes">
+                    <h2>15. التعديلات على الشروط</h2>
+                    
+                    <p>
+                        نحتفظ بالحق في تعديل هذه الشروط والأحكام في أي وقت. سيتم إخطارك بأي تغييرات جوهرية عبر البريد الإلكتروني أو إشعار على المنصة.
+                    </p>
+
+                    <div class="legal-highlight">
+                        <p><strong><i class="fas fa-bell"></i> إشعار:</strong> استمرارك في استخدام المنصة بعد إجراء التعديلات يعني قبولك للشروط المحدثة. إذا لم توافق على التغييرات، يجب عليك التوقف عن استخدام الخدمة.</p>
+                    </div>
+
+                    <p>
+                        سيتم دائماً عرض تاريخ آخر تحديث في أعلى هذه الصفحة.
+                    </p>
+                </div>
+
+                <!-- Section 16 -->
+                <div class="legal-section" id="contact">
+                    <h2>16. معلومات الاتصال</h2>
+                    
+                    <p>
+                        إذا كانت لديك أي أسئلة أو استفسارات بخصوص هذه الشروط والأحكام، يُرجى التواصل معنا:
+                    </p>
+
+                    <ul style="list-style:none; padding:0;">
+                        <li style="margin:0.8rem 0;"><i class="fas fa-building"></i> <strong>الشركة:</strong> Cicada Investment Platform</li>
+                        <li style="margin:0.8rem 0;"><i class="fas fa-map-marker-alt"></i> <strong>العنوان:</strong> شارع الاستقلال، حي النور، الوادي 39000، الجزائر</li>
+                        <li style="margin:0.8rem 0;"><i class="fas fa-envelope"></i> <strong>البريد الإلكتروني:</strong> <a href="mailto:legal@cicada.com">legal@cicada.com</a></li>
+                        <li style="margin:0.8rem 0;"><i class="fas fa-phone"></i> <strong>الهاتف:</strong> <a href="tel:+213555123456">+213 555 123 456</a></li>
+                        <li style="margin:0.8rem 0;"><i class="fas fa-globe"></i> <strong>الموقع:</strong> <a href="https://cicada-platform.com">www.cicada-platform.com</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Box -->
+                <div class="legal-contact-box">
+                    <h3><i class="fas fa-question-circle"></i> هل لديك أسئلة؟</h3>
+                    <p>فريق الدعم القانوني لدينا جاهز لمساعدتك</p>
+                    <a href="contact.html" class="btn-secondary btn-lg" style="margin-top:1rem; background:white; color:var(--primary-color);">
+                        <i class="fas fa-envelope"></i> اتصل بنا
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Cicada</h3>
+                    <p>منصة الاستثمار والمهام الرائدة في العالم العربي.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="../index.html#features">المميزات</a></li>
+                        <li><a href="../index.html#plans">الخطط</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>قانوني</h4>
+                    <ul>
+                        <li><a href="terms.html">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="support.html">الدعم الفني</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>النشرة الإخبارية</h4>
+                    <p>اشترك ليصلك كل جديد</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cicada. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
