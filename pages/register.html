@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب جديد - Cicada</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/auth.css">
+</head>
+<body class="auth-page">
+
+    <!-- Background Effects -->
+    <div class="auth-background">
+        <div class="auth-gradient"></div>
+        <div class="auth-grid"></div>
+    </div>
+
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <!-- Left Side - Branding -->
+        <div class="auth-branding">
+            <a href="../index.html" class="auth-logo">
+                <i class="fas fa-circle-notch"></i>
+                <span>CICADA</span>
+            </a>
+
+            <div class="branding-content">
+                <h1 class="branding-title">ابدأ رحلتك الاستثمارية</h1>
+                <p class="branding-description">
+                    انضم إلى آلاف المستثمرين الناجحين واحصل على عوائد يومية مضمونة
+                </p>
+
+                <div class="branding-stats">
+                    <div class="branding-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">5 دقائق</div>
+                            <div class="stat-label">للبدء</div>
+                        </div>
+                    </div>
+
+                    <div class="branding-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">$50</div>
+                            <div class="stat-label">حد أدنى</div>
+                        </div>
+                    </div>
+
+                    <div class="branding-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">3.5%</div>
+                            <div class="stat-label">عائد يومي</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="branding-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>تسجيل مجاني بدون رسوم</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>بونص ترحيبي للأعضاء الجدد</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>سحب الأرباح في أي وقت</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Register Form -->
+        <div class="auth-form-wrapper">
+            <div class="auth-form-container">
+                <!-- Back Button -->
+                <a href="../index.html" class="back-to-home">
+                    <i class="fas fa-arrow-right"></i>
+                    <span>العودة للرئيسية</span>
+                </a>
+
+                <!-- Form Header -->
+                <div class="form-header">
+                    <h2 class="form-title">إنشاء حساب جديد</h2>
+                    <p class="form-description">انضم إلينا الآن وابدأ الاستثمار</p>
+                </div>
+
+                <!-- Social Register -->
+                <div class="social-login">
+                    <button class="social-btn google">
+                        <i class="fab fa-google"></i>
+                        <span>التسجيل بـ Google</span>
+                    </button>
+                    <button class="social-btn facebook">
+                        <i class="fab fa-facebook"></i>
+                        <span>التسجيل بـ Facebook</span>
+                    </button>
+                </div>
+
+                <div class="divider">
+                    <span>أو املأ البيانات التالية</span>
+                </div>
+
+                <!-- Register Form -->
+                <form id="registerForm" class="auth-form">
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="fullname" class="form-label">
+                            <i class="fas fa-user"></i>
+                            الاسم الكامل
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="fullname" 
+                                name="fullname" 
+                                class="form-input" 
+                                placeholder="أدخل اسمك الكامل"
+                                required
+                            >
+                            <span class="input-icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            البريد الإلكتروني
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="form-input" 
+                                placeholder="example@email.com"
+                                required
+                            >
+                            <span class="input-icon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="phone" class="form-label">
+                            <i class="fas fa-phone"></i>
+                            رقم الهاتف
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                class="form-input" 
+                                placeholder="+966 5XXXXXXXX"
+                                required
+                            >
+                            <span class="input-icon">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="password" class="form-label">
+                            <i class="fas fa-lock"></i>
+                            كلمة المرور
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                class="form-input" 
+                                placeholder="••••••••"
+                                required
+                            >
+                            <span class="input-icon toggle-password" onclick="togglePassword('password')">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        <small class="input-hint">يجب أن تحتوي على 8 أحرف على الأقل</small>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+                        <label for="confirm_password" class="form-label">
+                            <i class="fas fa-lock"></i>
+                            تأكيد كلمة المرور
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="password" 
+                                id="confirm_password" 
+                                name="confirm_password" 
+                                class="form-input" 
+                                placeholder="••••••••"
+                                required
+                            >
+                            <span class="input-icon toggle-password" onclick="togglePassword('confirm_password')">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Referral Code (Optional) -->
+                    <div class="form-group">
+                        <label for="referral" class="form-label">
+                            <i class="fas fa-gift"></i>
+                            كود الإحالة (اختياري)
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="referral" 
+                                name="referral" 
+                                class="form-input" 
+                                placeholder="أدخل كود الإحالة إن وجد"
+                            >
+                            <span class="input-icon">
+                                <i class="fas fa-gift"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Terms & Conditions -->
+                    <div class="form-group">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" name="terms" required>
+                            <span class="checkbox-label">
+                                أوافق على 
+                                <a href="terms.html" class="inline-link">الشروط والأحكام</a>
+                                و
+                                <a href="privacy.html" class="inline-link">سياسة الخصوصية</a>
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-accent btn-block btn-lg">
+                        <i class="fas fa-rocket"></i>
+                        <span>إنشاء حساب جديد</span>
+                    </button>
+
+                    <!-- Login Link -->
+                    <div class="form-footer">
+                        <p>لديك حساب بالفعل؟</p>
+                        <a href="login.html" class="register-link">
+                            سجل دخول الآن
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </form>
+
+                <!-- Security Badge -->
+                <div class="security-badge">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>بياناتك محمية بالكامل</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script>
+        // Toggle Password Visibility
+        function togglePassword(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const icon = event.currentTarget.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Form Validation & Submission
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+            
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert('كلمات المرور غير متطابقة!');
+                return;
+            }
+            
+            // Check password strength
+            if (password.length < 8) {
+                alert('كلمة المرور يجب أن تكون 8 أحرف على الأقل!');
+                return;
+            }
+            
+            // Show loading
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalHTML = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري إنشاء الحساب...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Success - redirect to dashboard
+                alert('تم إنشاء الحساب بنجاح! مرحباً بك في Cicada');
+                window.location.href = 'dashboard.html';
+            }, 2000);
+        });
+
+        // Social Register
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('جاري تطوير التسجيل عبر وسائل التواصل الاجتماعي');
+            });
+        });
+    </script>
+</body>
+</html>
