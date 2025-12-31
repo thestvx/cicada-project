@@ -3,394 +3,512 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الإحالات - Cicada</title>
-    <meta name="description" content="شارك رابط إحالتك مع أصدقائك واربح عمولات مستمرة على أرباحهم في منصة Cicada.">
-
+    <title>برنامج الإحالة - Cicada</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- CSS -->
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
-    <link rel="stylesheet" href="../styles/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+    <link rel="stylesheet" href="../styles/referral.css">
 </head>
-<body>
-    <div class="dashboard-layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <img src="../assets/images/logo.png" alt="Cicada Logo" class="sidebar-logo" onerror="this.style.display='none'">
-                <h2 class="sidebar-brand">Cicada</h2>
-            </div>
+<body class="dashboard-page">
 
-            <nav class="sidebar-menu">
-                <div class="menu-category">الرئيسية</div>
-                <a href="dashboard.html" class="menu-item">
-                    <i class="fas fa-home"></i>
-                    <span>لوحة التحكم</span>
-                </a>
-                <a href="tasks.html" class="menu-item">
-                    <i class="fas fa-tasks"></i>
-                    <span>المهام</span>
-                </a>
-                <a href="investments.html" class="menu-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>الاستثمارات</span>
-                </a>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="sidebar-logo">
+                <i class="fas fa-circle-notch"></i>
+                <span>CICADA</span>
+            </a>
+        </div>
 
-                <div class="menu-category">المعاملات</div>
-                <a href="deposits.html" class="menu-item">
-                    <i class="fas fa-arrow-down"></i>
-                    <span>الإيداعات</span>
-                </a>
-                <a href="withdrawals.html" class="menu-item">
-                    <i class="fas fa-arrow-up"></i>
-                    <span>السحوبات</span>
-                </a>
-                <a href="transactions.html" class="menu-item">
-                    <i class="fas fa-receipt"></i>
-                    <span>سجل المعاملات</span>
-                </a>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="investments.html" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>استثماراتي</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>المهام اليومية</span>
+            </a>
+            <a href="transactions.html" class="nav-item">
+                <i class="fas fa-exchange-alt"></i>
+                <span>المعاملات</span>
+            </a>
+            <a href="referral.html" class="nav-item active">
+                <i class="fas fa-users"></i>
+                <span>برنامج الإحالة</span>
+            </a>
+            <a href="wallet.html" class="nav-item">
+                <i class="fas fa-wallet"></i>
+                <span>المحفظة</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>الملف الشخصي</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>الإعدادات</span>
+            </a>
+        </nav>
 
-                <div class="menu-category">الحساب</div>
-                <a href="profile.html" class="menu-item">
-                    <i class="fas fa-user"></i>
-                    <span>الملف الشخصي</span>
-                </a>
-                <a href="referrals.html" class="menu-item active">
-                    <i class="fas fa-user-friends"></i>
-                    <span>الإحالات</span>
-                </a>
-                <a href="kyc.html" class="menu-item">
-                    <i class="fas fa-id-card"></i>
-                    <span>التحقق (KYC)</span>
-                </a>
+        <div class="sidebar-footer">
+            <a href="support.html" class="nav-item">
+                <i class="fas fa-headset"></i>
+                <span>الدعم الفني</span>
+            </a>
+            <a href="../index.html" class="nav-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
 
-                <div class="menu-category">الدعم والقانوني</div>
-                <a href="support.html" class="menu-item">
-                    <i class="fas fa-headset"></i>
-                    <span>الدعم الفني</span>
-                </a>
-                <a href="terms.html" class="menu-item">
-                    <i class="fas fa-file-contract"></i>
-                    <span>الشروط والأحكام</span>
-                </a>
-                <a href="privacy.html" class="menu-item">
-                    <i class="fas fa-user-shield"></i>
-                    <span>سياسة الخصوصية</span>
-                </a>
-                <a href="blog.html" class="menu-item">
-                    <i class="fas fa-blog"></i>
-                    <span>المدونة</span>
-                </a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <div class="user-mini-profile">
-                    <img src="../assets/images/avatar-placeholder.png" alt="User" class="user-avatar-sm" onerror="this.style.display='none'">
-                    <div class="user-info-sm">
-                        <h4 data-user="name">مستخدم</h4>
-                        <p data-user="email">user@email.com</p>
-                    </div>
-                </div>
-                <button class="menu-item" data-logout="true" style="margin-top:1rem; width:100%; justify-content:flex-start;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>تسجيل الخروج</span>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
                 </button>
+                <h1 class="page-title">برنامج الإحالة</h1>
             </div>
-        </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Topbar -->
-            <header class="topbar">
-                <div class="dashboard-title">
-                    <button class="toggle-sidebar">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div>
-                        <h1>برنامج الإحالة</h1>
-                        <p>ادعُ أصدقاءك واربح عمولة على أرباحهم مدى الحياة</p>
-                    </div>
+            <div class="topbar-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="ابحث...">
                 </div>
-                <div class="topbar-actions">
-                    <button class="action-btn" title="إشعارات">
+
+                <div class="topbar-item">
+                    <button class="icon-btn">
                         <i class="fas fa-bell"></i>
                         <span class="notification-badge">3</span>
                     </button>
-                    <button class="action-btn" title="الملف الشخصي" onclick="window.location.href='profile.html'">
-                        <i class="fas fa-user-circle"></i>
+                </div>
+
+                <div class="topbar-item">
+                    <button class="user-menu-btn">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="User" class="user-avatar">
+                        <span class="user-name">أحمد محمد</span>
+                        <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
-            </header>
+            </div>
+        </header>
 
-            <!-- Referral Summary -->
-            <section class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon referral">
-                        <i class="fas fa-user-plus"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>عدد الإحالات الكلي</h3>
-                        <div class="stat-value" data-stat="total-referrals">0</div>
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon investment">
+        <!-- Referral Content -->
+        <div class="dashboard-content">
+            <!-- Referral Overview -->
+            <div class="referral-overview">
+                <div class="overview-card total">
+                    <div class="overview-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <div class="stat-info">
-                        <h3>الإحالات النشطة</h3>
-                        <div class="stat-value" data-stat="active-referrals">0</div>
+                    <div class="overview-details">
+                        <p class="overview-label">إجمالي الإحالات</p>
+                        <h3 class="overview-value">47</h3>
+                        <span class="overview-info">مستخدم مُحال</span>
                     </div>
                 </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon wallet">
-                        <i class="fas fa-coins"></i>
+                <div class="overview-card active">
+                    <div class="overview-icon">
+                        <i class="fas fa-user-check"></i>
                     </div>
-                    <div class="stat-info">
-                        <h3>إجمالي أرباح الإحالات</h3>
-                        <div class="stat-value" data-stat="referral-earnings">$0.00</div>
+                    <div class="overview-details">
+                        <p class="overview-label">مستخدمون نشطون</p>
+                        <h3 class="overview-value">38</h3>
+                        <span class="overview-info positive">80.9% معدل</span>
                     </div>
                 </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon tasks">
-                        <i class="fas fa-percentage"></i>
+                <div class="overview-card earnings">
+                    <div class="overview-icon">
+                        <i class="fas fa-dollar-sign"></i>
                     </div>
-                    <div class="stat-info">
-                        <h3>نسبة أرباح الإحالة</h3>
-                        <div class="stat-value">5%</div>
+                    <div class="overview-details">
+                        <p class="overview-label">إجمالي العمولات</p>
+                        <h3 class="overview-value">$2,145.50</h3>
+                        <span class="overview-info">من جميع الإحالات</span>
                     </div>
                 </div>
-            </section>
 
-            <!-- Referral Link & How it works -->
-            <section class="dashboard-grid">
-                <!-- Referral Link Card -->
-                <div class="card">
-                    <div class="card-header">
+                <div class="overview-card pending">
+                    <div class="overview-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="overview-details">
+                        <p class="overview-label">عمولات قيد الانتظار</p>
+                        <h3 class="overview-value">$134.50</h3>
+                        <span class="overview-info">5 عمليات</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Referral Link Card -->
+            <div class="referral-link-card">
+                <div class="referral-link-header">
+                    <div>
                         <h3>رابط الإحالة الخاص بك</h3>
+                        <p>شارك رابطك واحصل على عمولة من كل إحالة ناجحة</p>
                     </div>
-                    <p style="color:var(--text-light); margin-bottom:1rem;">
-                        شارك هذا الرابط مع أصدقائك، واحصل على عمولة من أرباحهم عند التسجيل عبره.
-                    </p>
-                    <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem;">
-                        <input 
-                            type="text" 
-                            id="referralLink" 
-                            class="form-input" 
-                            style="flex:1; min-width:200px; font-size:0.9rem;"
-                            readonly
-                        >
-                        <button class="btn-secondary" id="copyReferralBtn" style="white-space:nowrap;">
-                            <i class="fas fa-copy"></i> نسخ الرابط
-                        </button>
+                    <div class="referral-commission-badge">
+                        <i class="fas fa-percent"></i>
+                        <span>عمولة 10%</span>
                     </div>
-                    <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-                        <button class="btn-primary" id="shareWhatsapp">
-                            <i class="fab fa-whatsapp"></i> مشاركة عبر واتساب
-                        </button>
-                        <button class="btn-secondary" id="shareTelegram">
-                            <i class="fab fa-telegram"></i> مشاركة عبر تيليجرام
-                        </button>
-                        <button class="btn-secondary" id="shareFacebook">
-                            <i class="fab fa-facebook"></i> مشاركة عبر فيسبوك
-                        </button>
-                    </div>
-                    <p id="referralCopyMsg" style="margin-top:0.8rem; color:var(--success-color); display:none;">
-                        تم نسخ الرابط إلى الحافظة!
-                    </p>
                 </div>
 
-                <!-- How It Works Card -->
-                <div class="card">
-                    <div class="card-header">
-                        <h3>كيف يعمل برنامج الإحالة؟</h3>
+                <div class="referral-link-box">
+                    <div class="link-display">
+                        <i class="fas fa-link"></i>
+                        <input type="text" id="referralLink" value="https://cicada.com/ref/Ahmed2025" readonly>
                     </div>
-                    <ol style="padding-right:1.2rem; line-height:1.8; font-size:0.95rem;">
-                        <li>انسخ رابط الإحالة الخاص بك أعلاه.</li>
-                        <li>شارك الرابط مع أصدقائك على وسائل التواصل الاجتماعي أو المجموعات.</li>
-                        <li>عندما يقوم صديقك بالتسجيل عبر الرابط ويبدأ الاستثمار، يصبح "إحالة نشطة".</li>
-                        <li>تحصل على نسبة 5% من أرباح استثمارات أصدقائك بشكل مستمر.</li>
-                        <li>يمكنك سحب أرباح الإحالات في أي وقت من صفحة السحوبات.</li>
-                    </ol>
-                    <p style="margin-top:1rem; color:var(--text-light); font-size:0.9rem;">
-                        كلما زاد عدد الإحالات النشطة لديك، زادت أرباحك الشهرية دون أي مجهود إضافي.
-                    </p>
+                    <button class="btn btn-primary" onclick="copyReferralLink()">
+                        <i class="fas fa-copy"></i>
+                        نسخ الرابط
+                    </button>
                 </div>
-            </section>
+
+                <div class="share-buttons">
+                    <button class="share-btn whatsapp" onclick="shareToWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </button>
+                    <button class="share-btn telegram" onclick="shareToTelegram()">
+                        <i class="fab fa-telegram"></i>
+                        <span>Telegram</span>
+                    </button>
+                    <button class="share-btn twitter" onclick="shareToTwitter()">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </button>
+                    <button class="share-btn facebook" onclick="shareToFacebook()">
+                        <i class="fab fa-facebook"></i>
+                        <span>Facebook</span>
+                    </button>
+                    <button class="share-btn email" onclick="shareViaEmail()">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Commission Structure -->
+            <div class="commission-structure-section">
+                <div class="section-header">
+                    <h2 class="section-title">نظام العمولات</h2>
+                    <p class="section-description">احصل على عمولات من إحالاتك على مستويات متعددة</p>
+                </div>
+
+                <div class="commission-levels">
+                    <div class="commission-level level-1">
+                        <div class="level-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="level-details">
+                            <h4>المستوى الأول</h4>
+                            <p>الإحالات المباشرة</p>
+                        </div>
+                        <div class="level-commission">
+                            <span class="commission-rate">10%</span>
+                            <span class="commission-label">عمولة</span>
+                        </div>
+                    </div>
+
+                    <div class="commission-level level-2">
+                        <div class="level-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="level-details">
+                            <h4>المستوى الثاني</h4>
+                            <p>إحالات الإحالات</p>
+                        </div>
+                        <div class="level-commission">
+                            <span class="commission-rate">5%</span>
+                            <span class="commission-label">عمولة</span>
+                        </div>
+                    </div>
+
+                    <div class="commission-level level-3">
+                        <div class="level-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="level-details">
+                            <h4>المستوى الثالث</h4>
+                            <p>المستوى الثالث</p>
+                        </div>
+                        <div class="level-commission">
+                            <span class="commission-rate">2%</span>
+                            <span class="commission-label">عمولة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commission-info-box">
+                    <div class="info-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>تحصل على عمولة من كل عملية استثمار يقوم بها المُحال</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>العمولات يتم إضافتها تلقائياً إلى محفظتك</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>لا يوجد حد أقصى لعدد الإحالات أو العمولات</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Referral Statistics -->
+            <div class="referral-statistics">
+                <div class="stats-card">
+                    <h3 class="card-title">إحصائيات الإحالات</h3>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">تسجيلات هذا الشهر</span>
+                                <span class="stat-value">12</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">عمولات هذا الشهر</span>
+                                <span class="stat-value">$456.00</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">معدل التحويل</span>
+                                <span class="stat-value">68%</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">متوسط الاستثمار</span>
+                                <span class="stat-value">$850</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monthly-chart">
+                        <h4>أداء آخر 6 أشهر</h4>
+                        <div class="chart-bars">
+                            <div class="chart-bar" style="height: 45%">
+                                <span class="bar-value">$320</span>
+                                <div class="bar-fill"></div>
+                                <span class="bar-label">يوليو</span>
+                            </div>
+                            <div class="chart-bar" style="height: 60%">
+                                <span class="bar-value">$420</span>
+                                <div class="bar-fill"></div>
+                                <span class="bar-label">أغسطس</span>
+                            </div>
+                            <div class="chart-bar" style="height: 75%">
+                                <span class="bar-value">$530</span>
+                                <div class="bar-fill"></div>
+                                <span class="bar-label">سبتمبر</span>
+                            </div>
+                            <div class="chart-bar" style="height: 55%">
+                                <span class="bar-value">$380</span>
+                                <div class="bar-fill"></div>
+                                <span class="bar-label">أكتوبر</span>
+                            </div>
+                            <div class="chart-bar" style="height: 85%">
+                                <span class="bar-value">$610</span>
+                                <div class="bar-fill"></div>
+                                <span class="bar-label">نوفمبر</span>
+                            </div>
+                            <div class="chart-bar" style="height: 65%">
+                                <span class="bar-value">$456</span>
+                                <div class="bar-fill active"></div>
+                                <span class="bar-label">ديسمبر</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Referral List -->
-            <section class="card">
-                <div class="card-header">
-                    <h3>قائمة الإحالات</h3>
-                    <span style="color:var(--text-light); font-size:0.9rem;" id="referralCountLabel">0 إحالة</span>
+            <div class="referral-list-section">
+                <div class="section-header">
+                    <h3 class="section-title">قائمة الإحالات</h3>
+                    <select class="filter-select">
+                        <option>جميع الإحالات</option>
+                        <option>نشطة</option>
+                        <option>غير نشطة</option>
+                        <option>جديدة</option>
+                    </select>
                 </div>
-                <div class="table-responsive">
-                    <table class="custom-table">
+
+                <div class="referral-table-card">
+                    <table class="referral-table">
                         <thead>
                             <tr>
-                                <th>اسم المستخدم</th>
+                                <th>المستخدم</th>
                                 <th>تاريخ التسجيل</th>
-                                <th>حالة الإحالة</th>
-                                <th>إجمالي استثماره</th>
-                                <th>أرباحك منه</th>
+                                <th>الاستثمار</th>
+                                <th>العمولات</th>
+                                <th>الحالة</th>
                             </tr>
                         </thead>
-                        <tbody id="referralsTableBody">
-                            <!-- يتم تعبئتها عبر JavaScript -->
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://i.pravatar.cc/150?img=12" alt="User">
+                                        <div>
+                                            <span class="user-name">محمد أحمد</span>
+                                            <span class="user-level">مستوى 1</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date-cell">28 ديسمبر 2025</span>
+                                </td>
+                                <td>
+                                    <span class="amount-cell">$2,500.00</span>
+                                </td>
+                                <td>
+                                    <span class="commission-cell">$250.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">نشط</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://i.pravatar.cc/150?img=5" alt="User">
+                                        <div>
+                                            <span class="user-name">سارة علي</span>
+                                            <span class="user-level">مستوى 1</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date-cell">25 ديسمبر 2025</span>
+                                </td>
+                                <td>
+                                    <span class="amount-cell">$1,800.00</span>
+                                </td>
+                                <td>
+                                    <span class="commission-cell">$180.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">نشط</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://i.pravatar.cc/150?img=8" alt="User">
+                                        <div>
+                                            <span class="user-name">خالد محمود</span>
+                                            <span class="user-level">مستوى 2</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date-cell">20 ديسمبر 2025</span>
+                                </td>
+                                <td>
+                                    <span class="amount-cell">$3,200.00</span>
+                                </td>
+                                <td>
+                                    <span class="commission-cell">$160.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">نشط</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://i.pravatar.cc/150?img=15" alt="User">
+                                        <div>
+                                            <span class="user-name">فاطمة حسن</span>
+                                            <span class="user-level">مستوى 1</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date-cell">18 ديسمبر 2025</span>
+                                </td>
+                                <td>
+                                    <span class="amount-cell">$0.00</span>
+                                </td>
+                                <td>
+                                    <span class="commission-cell">$0.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge inactive">غير نشط</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://i.pravatar.cc/150?img=20" alt="User">
+                                        <div>
+                                            <span class="user-name">عمر يوسف</span>
+                                            <span class="user-level">مستوى 1</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date-cell">15 ديسمبر 2025</span>
+                                </td>
+                                <td>
+                                    <span class="amount-cell">$5,000.00</span>
+                                </td>
+                                <td>
+                                    <span class="commission-cell">$500.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge active">نشط</span>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </div>
+    </main>
 
     <!-- Scripts -->
     <script src="../scripts/main.js"></script>
-    <script src="../scripts/auth.js"></script>
-    <script src="../scripts/dashboard.js"></script>
-    <script>
-        // بيانات إحالات تجريبية مستوحاة من صفحات referral dashboards في قوالب جاهزة.[web:152][web:147]
-        const demoReferrals = [
-            {
-                username: 'ahmed123',
-                joinedAt: '2025-12-20',
-                status: 'active',
-                invested: 500,
-                yourEarnings: 35.5
-            },
-            {
-                username: 'sara_pro',
-                joinedAt: '2025-12-18',
-                status: 'active',
-                invested: 300,
-                yourEarnings: 18.75
-            },
-            {
-                username: 'user_test',
-                joinedAt: '2025-11-30',
-                status: 'inactive',
-                invested: 0,
-                yourEarnings: 0
-            }
-        ];
-
-        function renderReferralStats() {
-            const totalReferrals = demoReferrals.length;
-            const activeReferrals = demoReferrals.filter(r => r.status === 'active').length;
-            const totalEarnings = demoReferrals.reduce((sum, r) => sum + r.yourEarnings, 0);
-
-            const totalEl = document.querySelector('[data-stat="total-referrals"]');
-            const activeEl = document.querySelector('[data-stat="active-referrals"]');
-            const earnEl = document.querySelector('[data-stat="referral-earnings"]');
-
-            if (totalEl) totalEl.textContent = totalReferrals.toString();
-            if (activeEl) activeEl.textContent = activeReferrals.toString();
-            if (earnEl) earnEl.textContent = '$' + totalEarnings.toFixed(2);
-        }
-
-        function renderReferralsTable() {
-            const tbody = document.getElementById('referralsTableBody');
-            const label = document.getElementById('referralCountLabel');
-            if (!tbody) return;
-
-            if (!demoReferrals.length) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="5" style="text-align:center; color:var(--text-light); padding:1.5rem;">
-                            لا توجد إحالات مسجلة حتى الآن.
-                        </td>
-                    </tr>
-                `;
-                if (label) label.textContent = '0 إحالة';
-                return;
-            }
-
-            tbody.innerHTML = demoReferrals.map(ref => `
-                <tr>
-                    <td>${ref.username}</td>
-                    <td>${ref.joinedAt}</td>
-                    <td>
-                        <span class="status-badge ${ref.status === 'active' ? 'success' : 'pending'}">
-                            ${ref.status === 'active' ? 'نشطة' : 'غير نشطة'}
-                        </span>
-                    </td>
-                    <td>$${ref.invested.toFixed(2)}</td>
-                    <td>$${ref.yourEarnings.toFixed(2)}</td>
-                </tr>
-            `).join('');
-
-            if (label) label.textContent = demoReferrals.length + ' إحالة';
-        }
-
-        function initReferralLink() {
-            const input = document.getElementById('referralLink');
-            const copyBtn = document.getElementById('copyReferralBtn');
-            const msg = document.getElementById('referralCopyMsg');
-
-            const userData = JSON.parse(localStorage.getItem('cicada_user') || '{}');
-            const username = userData.name ? userData.name.replace(/\s+/g, '').toLowerCase() : 'user';
-            const baseUrl = window.location.origin.replace(/\/$/, '');
-            const link = baseUrl + '/?ref=' + encodeURIComponent(username);
-
-            if (input) input.value = link;
-
-            if (copyBtn && input) {
-                copyBtn.addEventListener('click', () => {
-                    input.select();
-                    input.setSelectionRange(0, 99999);
-                    document.execCommand('copy');
-                    if (msg) {
-                        msg.style.display = 'block';
-                        setTimeout(() => msg.style.display = 'none', 2500);
-                    }
-                });
-            }
-
-            // أزرار المشاركة السريعة
-            const encodedLink = encodeURIComponent(link);
-            const text = encodeURIComponent('انضم إلى منصة Cicada واحصل على أرباح يومية عبر رابط الإحالة الخاص بي: ');
-
-            const whatsappBtn = document.getElementById('shareWhatsapp');
-            const telegramBtn = document.getElementById('shareTelegram');
-            const facebookBtn = document.getElementById('shareFacebook');
-
-            if (whatsappBtn) {
-                whatsappBtn.addEventListener('click', () => {
-                    window.open('https://wa.me/?text=' + text + encodedLink, '_blank');
-                });
-            }
-            if (telegramBtn) {
-                telegramBtn.addEventListener('click', () => {
-                    window.open('https://t.me/share/url?url=' + encodedLink + '&text=' + text, '_blank');
-                });
-            }
-            if (facebookBtn) {
-                facebookBtn.addEventListener('click', () => {
-                    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodedLink, '_blank');
-                });
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // حماية وتهيئة عامة
-            if (window.CicadaAuth && window.CicadaAuth.protectPage) {
-                window.CicadaAuth.protectPage();
-            }
-            if (typeof loadUserInfo === 'function') loadUserInfo();
-            if (typeof initSidebarToggle === 'function') initSidebarToggle();
-            if (typeof highlightActiveMenu === 'function') highlightActiveMenu();
-
-            renderReferralStats();
-            renderReferralsTable();
-            initReferralLink();
-        });
-    </script>
+    <script src="../scripts/referral.js"></script>
 </body>
 </html>
