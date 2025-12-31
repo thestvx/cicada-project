@@ -7,8 +7,225 @@
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- CSS -->
-    <link rel="stylesheet" href="../styles/auth-modern.css">
+    
+    <style>
+        /* Modern Auth Styles - Cicada Platform */
+        :root {
+            --primary-gold: #F0B90B;
+            --primary-gold-hover: #D0A009;
+            --dark-bg: #0B0E11;
+            --card-bg: rgba(22, 26, 30, 0.65);
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-primary: #EAECEF;
+            --text-secondary: #848E9C;
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Background Animation */
+        .auth-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: floatOrb 10s infinite alternate ease-in-out;
+        }
+
+        .orb-1 { width: 400px; height: 400px; background: rgba(240, 185, 11, 0.15); top: -100px; left: -100px; }
+        .orb-2 { width: 300px; height: 300px; background: rgba(55, 114, 255, 0.1); bottom: -50px; right: -50px; animation-delay: -5s; }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 30px); }
+        }
+
+        /* Wrapper & Card */
+        .auth-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            box-shadow: var(--glass-shadow);
+            width: 100%;
+            max-width: 450px;
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-gold), transparent);
+        }
+
+        /* Header */
+        .auth-header { text-align: center; margin-bottom: 2rem; }
+        
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-icon { font-size: 2rem; color: var(--primary-gold); animation: spin 15s linear infinite; }
+        .logo-text { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); letter-spacing: 2px; }
+        
+        .auth-title { font-size: 1.5rem; font-weight: 700; margin: 0.5rem 0; color: #fff; }
+        .auth-subtitle { color: var(--text-secondary); font-size: 0.9rem; margin: 0; }
+
+        /* Form */
+        .form-group { margin-bottom: 1.25rem; }
+        .input-label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary); }
+        .input-container { position: relative; }
+
+        .form-input {
+            width: 100%;
+            padding: 0.9rem 1rem 0.9rem 2.8rem;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        .form-input:focus + .input-icon { color: var(--primary-gold); }
+
+        .toggle-password {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        /* Checkbox */
+        .checkbox-container { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary); cursor: pointer; }
+        .checkbox-container input { accent-color: var(--primary-gold); width: 16px; height: 16px; }
+
+        /* Buttons */
+        .btn-primary {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-gold);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-gold-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Divider & Social */
+        .divider { display: flex; align-items: center; margin: 1.5rem 0; color: var(--text-secondary); font-size: 0.85rem; }
+        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border-color); }
+        .divider span { padding: 0 1rem; }
+
+        .social-login { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .social-btn:hover { background: rgba(255, 255, 255, 0.1); }
+
+        /* Footer */
+        .auth-footer { text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-secondary); }
+        .auth-link { color: var(--primary-gold); text-decoration: none; font-weight: 600; margin-left: 5px; }
+        .auth-link:hover { text-decoration: underline; }
+        
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        /* Messages */
+        .auth-message { padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .auth-message.error { background: rgba(255, 77, 77, 0.1); color: #ff4d4d; border: 1px solid rgba(255, 77, 77, 0.2); }
+        .auth-message.success { background: rgba(14, 203, 129, 0.1); color: #0ecb81; border: 1px solid rgba(14, 203, 129, 0.2); }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            .auth-card { padding: 1.5rem; border: none; background: transparent; box-shadow: none; }
+            .auth-card::before { display: none; }
+            .social-login { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
@@ -30,7 +247,6 @@
             </div>
 
             <form id="registerForm">
-                
                 <div class="form-group">
                     <label class="input-label">الاسم الكامل</label>
                     <div class="input-container">
@@ -108,7 +324,6 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script type="module" src="../scripts/firebase-config.js"></script>
     <script type="module" src="../scripts/auth-register.js"></script>
 </body>
