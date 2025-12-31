@@ -25,6 +25,9 @@
                 <i class="fas fa-circle-notch"></i>
                 <span>CICADA</span>
             </a>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
 
         <nav class="sidebar-nav">
@@ -67,10 +70,10 @@
                 <i class="fas fa-headset"></i>
                 <span>الدعم الفني</span>
             </a>
-            <a href="../index.html" class="nav-item logout">
+            <button class="nav-item logout" style="background:none; border:none; width:100%; text-align:right; cursor:pointer; color:#848E9C;">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>تسجيل الخروج</span>
-            </a>
+            </button>
         </div>
     </aside>
 
@@ -100,8 +103,9 @@
 
                 <div class="topbar-item">
                     <button class="user-menu-btn">
-                        <img src="https://i.pravatar.cc/150?img=1" alt="User" class="user-avatar">
-                        <span class="user-name">أحمد محمد</span>
+                        <!-- صورة واسم المستخدم في التوب بار سيتم تحديثهما عبر JS -->
+                        <img src="https://ui-avatars.com/api/?name=User&background=F0B90B&color=fff" alt="User" class="user-avatar">
+                        <span class="user-name">جاري التحميل...</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
@@ -113,62 +117,55 @@
             <!-- Profile Header -->
             <div class="profile-header-card">
                 <div class="profile-cover">
-                    <button class="edit-cover-btn" onclick="editCover()">
-                        <i class="fas fa-camera"></i>
-                        تغيير الغلاف
-                    </button>
+                    <!-- Cover Photo -->
                 </div>
                 
                 <div class="profile-header-content">
                     <div class="profile-avatar-section">
                         <div class="profile-avatar">
-                            <img src="https://i.pravatar.cc/150?img=1" alt="User Avatar" id="avatarImg">
-                            <button class="edit-avatar-btn" onclick="editAvatar()">
+                            <!-- Default Placeholder Image -->
+                            <img src="https://ui-avatars.com/api/?name=User&background=333&color=fff" alt="User Avatar" id="avatarImg">
+                            <button class="edit-avatar-btn">
                                 <i class="fas fa-camera"></i>
                             </button>
                         </div>
                         
                         <div class="profile-info">
                             <div class="profile-name-section">
-                                <h2>أحمد محمد علي</h2>
-                                <span class="verified-badge">
-                                    <i class="fas fa-check-circle"></i>
-                                    موثق
+                                <h2 id="profileFullname">جاري التحميل...</h2>
+                                <span class="verified-badge" id="verifiedBadge" style="display:none">
+                                    <i class="fas fa-check-circle"></i> موثق
                                 </span>
                             </div>
-                            <p class="profile-username">@Ahmed2025</p>
-                            <p class="profile-bio">مستثمر | رائد أعمال | عضو منذ 2024</p>
+                            <p class="profile-username" id="profileUsername">@...</p>
+                            <p class="profile-bio" id="profileBio">...</p>
                         </div>
                     </div>
 
                     <div class="profile-actions">
-                        <button class="btn btn-primary" onclick="editProfile()">
+                        <button class="btn btn-primary" onclick="window.editProfile()">
                             <i class="fas fa-edit"></i>
                             تعديل الملف
-                        </button>
-                        <button class="btn btn-outline">
-                            <i class="fas fa-share-alt"></i>
-                            مشاركة
                         </button>
                     </div>
                 </div>
 
                 <div class="profile-stats">
                     <div class="stat-box">
-                        <span class="stat-value">47</span>
+                        <span class="stat-value" id="statReferrals">0</span>
                         <span class="stat-label">إحالات</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-value">$12,547</span>
-                        <span class="stat-label">إجمالي الأرباح</span>
+                        <span class="stat-value" id="statEarnings">$0.00</span>
+                        <span class="stat-label">أرباح</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-value">3</span>
                         <span class="stat-label">استثمارات نشطة</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-value">156</span>
-                        <span class="stat-label">مهام مكتملة</span>
+                        <span class="stat-value">Level 1</span>
+                        <span class="stat-label">المستوى</span>
                     </div>
                 </div>
             </div>
@@ -181,9 +178,6 @@
                     <div class="profile-section">
                         <div class="section-header">
                             <h3 class="section-title">المعلومات الشخصية</h3>
-                            <button class="btn-icon" onclick="editPersonalInfo()">
-                                <i class="fas fa-edit"></i>
-                            </button>
                         </div>
 
                         <div class="info-list">
@@ -193,7 +187,7 @@
                                 </div>
                                 <div class="info-details">
                                     <span class="info-label">البريد الإلكتروني</span>
-                                    <span class="info-value">ahmed.mohamed@email.com</span>
+                                    <span class="info-value" id="infoEmail">...</span>
                                 </div>
                             </div>
 
@@ -203,7 +197,7 @@
                                 </div>
                                 <div class="info-details">
                                     <span class="info-label">رقم الهاتف</span>
-                                    <span class="info-value">+966 55 1234 567</span>
+                                    <span class="info-value" id="infoPhone">...</span>
                                 </div>
                             </div>
 
@@ -213,7 +207,7 @@
                                 </div>
                                 <div class="info-details">
                                     <span class="info-label">الموقع</span>
-                                    <span class="info-value">الرياض، المملكة العربية السعودية</span>
+                                    <span class="info-value" id="infoLocation">...</span>
                                 </div>
                             </div>
 
@@ -223,7 +217,7 @@
                                 </div>
                                 <div class="info-details">
                                     <span class="info-label">تاريخ الانضمام</span>
-                                    <span class="info-value">15 يناير 2024</span>
+                                    <span class="info-value" id="infoJoinDate">...</span>
                                 </div>
                             </div>
 
@@ -232,268 +226,29 @@
                                     <i class="fas fa-id-card"></i>
                                 </div>
                                 <div class="info-details">
-                                    <span class="info-label">معرف المستخدم</span>
-                                    <span class="info-value">#USER-2024-001234</span>
+                                    <span class="info-label">معرف المستخدم (ID)</span>
+                                    <span class="info-value" id="infoUserId">...</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Account Status -->
-                    <div class="profile-section">
-                        <div class="section-header">
-                            <h3 class="section-title">حالة الحساب</h3>
-                        </div>
-
-                        <div class="status-list">
-                            <div class="status-item verified">
-                                <div class="status-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="status-details">
-                                    <span class="status-label">التحقق من الهوية</span>
-                                    <span class="status-value">مكتمل</span>
-                                </div>
-                            </div>
-
-                            <div class="status-item verified">
-                                <div class="status-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="status-details">
-                                    <span class="status-label">التحقق من البريد</span>
-                                    <span class="status-value">مفعّل</span>
-                                </div>
-                            </div>
-
-                            <div class="status-item verified">
-                                <div class="status-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="status-details">
-                                    <span class="status-label">التحقق من الهاتف</span>
-                                    <span class="status-value">مفعّل</span>
-                                </div>
-                            </div>
-
-                            <div class="status-item pending">
-                                <div class="status-icon">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <div class="status-details">
-                                    <span class="status-label">المصادقة الثنائية</span>
-                                    <span class="status-value">غير مفعّل</span>
-                                </div>
-                                <button class="btn btn-sm btn-primary" onclick="enable2FA()">تفعيل</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Security Settings -->
-                    <div class="profile-section">
-                        <div class="section-header">
-                            <h3 class="section-title">إعدادات الأمان</h3>
-                        </div>
-
-                        <div class="security-list">
-                            <div class="security-item">
-                                <div class="security-info">
-                                    <i class="fas fa-lock"></i>
-                                    <span>تغيير كلمة المرور</span>
-                                </div>
-                                <button class="btn btn-sm btn-outline" onclick="changePassword()">
-                                    تغيير
-                                </button>
-                            </div>
-
-                            <div class="security-item">
-                                <div class="security-info">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>سجل الدخول</span>
-                                </div>
-                                <button class="btn btn-sm btn-outline" onclick="viewLoginHistory()">
-                                    عرض
-                                </button>
-                            </div>
-
-                            <div class="security-item">
-                                <div class="security-info">
-                                    <i class="fas fa-devices"></i>
-                                    <span>الأجهزة المتصلة</span>
-                                </div>
-                                <button class="btn btn-sm btn-outline" onclick="manageDevices()">
-                                    إدارة
-                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Column -->
+                <!-- Right Column (Stats / Activity) -->
                 <div class="profile-right-column">
                     <!-- Account Level -->
                     <div class="profile-section account-level-section">
                         <div class="section-header">
-                            <h3 class="section-title">مستوى الحساب</h3>
+                            <h3 class="section-title">حالة الحساب</h3>
                         </div>
-
                         <div class="account-level-card">
-                            <div class="level-badge gold">
-                                <i class="fas fa-crown"></i>
-                                <span>مستوى ذهبي</span>
+                            <div class="level-badge basic">
+                                <i class="fas fa-star"></i>
+                                <span>مستوى أساسي</span>
                             </div>
-
-                            <div class="level-progress">
-                                <div class="progress-info">
-                                    <span>التقدم نحو البلاتيني</span>
-                                    <span>75%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 75%"></div>
-                                </div>
-                                <p class="progress-hint">استثمر $2,500 إضافية للوصول للمستوى البلاتيني</p>
-                            </div>
-
-                            <div class="level-benefits">
-                                <h4>مزايا المستوى الذهبي:</h4>
-                                <ul>
-                                    <li><i class="fas fa-check"></i> عمولة إحالة 10%</li>
-                                    <li><i class="fas fa-check"></i> أولوية في الدعم الفني</li>
-                                    <li><i class="fas fa-check"></i> سحب يومي بدون رسوم</li>
-                                    <li><i class="fas fa-check"></i> مدير حساب شخصي</li>
-                                    <li><i class="fas fa-check"></i> بونص شهري 5%</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Recent Activity -->
-                    <div class="profile-section">
-                        <div class="section-header">
-                            <h3 class="section-title">النشاط الأخير</h3>
-                            <a href="transactions.html" class="view-all-link">
-                                عرض الكل <i class="fas fa-arrow-left"></i>
-                            </a>
-                        </div>
-
-                        <div class="activity-timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-icon deposit">
-                                    <i class="fas fa-arrow-down"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h4>إيداع $500</h4>
-                                    <p>Bitcoin Wallet</p>
-                                    <span class="timeline-time">منذ ساعتين</span>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="timeline-icon profit">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h4>أرباح يومية $125</h4>
-                                    <p>الخطة الاحترافية</p>
-                                    <span class="timeline-time">اليوم 12:00 صباحاً</span>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="timeline-icon task">
-                                    <i class="fas fa-tasks"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h4>إكمال مهمة</h4>
-                                    <p>مشاهدة الإعلانات +$2.50</p>
-                                    <span class="timeline-time">أمس 08:30 مساءً</span>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="timeline-icon referral">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h4>إحالة جديدة</h4>
-                                    <p>محمد أحمد انضم +$45 عمولة</p>
-                                    <span class="timeline-time">أمس 11:20 صباحاً</span>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="timeline-icon withdraw">
-                                    <i class="fas fa-arrow-up"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h4>سحب $300</h4>
-                                    <p>Bank Transfer</p>
-                                    <span class="timeline-time">منذ 3 أيام</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Achievements -->
-                    <div class="profile-section">
-                        <div class="section-header">
-                            <h3 class="section-title">الإنجازات</h3>
-                        </div>
-
-                        <div class="achievements-grid">
-                            <div class="achievement-card earned">
-                                <div class="achievement-icon">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <h4>أول استثمار</h4>
-                                <p>قم بأول عملية استثمار</p>
-                            </div>
-
-                            <div class="achievement-card earned">
-                                <div class="achievement-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <h4>مُحيل ماهر</h4>
-                                <p>أحل 10 أصدقاء</p>
-                            </div>
-
-                            <div class="achievement-card earned">
-                                <div class="achievement-icon">
-                                    <i class="fas fa-fire"></i>
-                                </div>
-                                <h4>نشاط متواصل</h4>
-                                <p>15 يوم نشاط متواصل</p>
-                            </div>
-
-                            <div class="achievement-card">
-                                <div class="achievement-icon locked">
-                                    <i class="fas fa-lock"></i>
-                                </div>
-                                <h4>مستثمر VIP</h4>
-                                <p>استثمر $10,000 أو أكثر</p>
-                                <div class="achievement-progress">
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 85%"></div>
-                                    </div>
-                                    <span>$8,500 / $10,000</span>
-                                </div>
-                            </div>
-
-                            <div class="achievement-card">
-                                <div class="achievement-icon locked">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <h4>متصدر الإحالات</h4>
-                                <p>كن ضمن أفضل 10 محيلين</p>
-                            </div>
-
-                            <div class="achievement-card">
-                                <div class="achievement-icon locked">
-                                    <i class="fas fa-crown"></i>
-                                </div>
-                                <h4>المستوى البلاتيني</h4>
-                                <p>الوصول للمستوى البلاتيني</p>
-                            </div>
+                            <p style="margin-top: 15px; color: #888; font-size: 0.9rem;">
+                                قم بالترقية لزيادة نسبة أرباحك وعمولات الإحالة.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -506,7 +261,7 @@
         <div class="modal-content profile-modal">
             <div class="modal-header">
                 <h2>تعديل الملف الشخصي</h2>
-                <button class="modal-close" onclick="closeEditModal()">
+                <button class="modal-close" onclick="window.closeEditModal()">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -514,34 +269,34 @@
                 <form id="editProfileForm">
                     <div class="form-group">
                         <label class="form-label">الاسم الكامل</label>
-                        <input type="text" class="form-input" value="أحمد محمد علي">
+                        <input type="text" id="editFullname" class="form-input" placeholder="الاسم">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">اسم المستخدم</label>
                         <div class="input-wrapper">
                             <span class="input-prefix">@</span>
-                            <input type="text" class="form-input" value="Ahmed2025" style="padding-right: 2.5rem;">
+                            <input type="text" id="editUsername" class="form-input" placeholder="username" style="padding-right: 2.5rem;">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">نبذة عنك</label>
-                        <textarea class="form-input" rows="3" placeholder="اكتب نبذة مختصرة عنك...">مستثمر | رائد أعمال | عضو منذ 2024</textarea>
+                        <textarea id="editBio" class="form-input" rows="3" placeholder="اكتب نبذة..."></textarea>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">رقم الهاتف</label>
-                        <input type="tel" class="form-input" value="+966 55 1234 567">
+                        <input type="tel" id="editPhone" class="form-input" placeholder="رقم الهاتف">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">الموقع</label>
-                        <input type="text" class="form-input" value="الرياض، المملكة العربية السعودية">
+                        <input type="text" id="editLocation" class="form-input" placeholder="المدينة، الدولة">
                     </div>
 
                     <div class="modal-actions">
-                        <button type="button" class="btn btn-outline" onclick="closeEditModal()">إلغاء</button>
+                        <button type="button" class="btn btn-outline" onclick="window.closeEditModal()">إلغاء</button>
                         <button type="submit" class="btn btn-accent">حفظ التغييرات</button>
                     </div>
                 </form>
@@ -551,6 +306,10 @@
 
     <!-- Scripts -->
     <script src="../scripts/main.js"></script>
-    <script src="../scripts/profile.js"></script>
+    
+    <!-- Firebase Scripts (Modules) -->
+    <script type="module" src="../scripts/auth-guard.js"></script>
+    <script type="module" src="../scripts/common.js"></script>
+    <script type="module" src="../scripts/profile.js"></script>
 </body>
 </html>
