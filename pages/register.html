@@ -83,7 +83,7 @@
             box-shadow: var(--glass-shadow);
             width: 100%;
             max-width: 450px;
-            padding: 2.5rem 2rem;
+            padding: 3.5rem 2rem 2.5rem; /* Increased top padding for back button */
             position: relative;
             overflow: hidden;
         }
@@ -96,6 +96,26 @@
             width: 100%;
             height: 4px;
             background: linear-gradient(90deg, var(--primary-gold), transparent);
+        }
+
+        /* Back Button Style */
+        .back-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .back-btn:hover {
+            color: var(--primary-gold);
+            transform: translateX(-3px);
         }
 
         /* Header */
@@ -237,6 +257,12 @@
     <div class="auth-wrapper">
         <div class="auth-card">
             
+            <!-- زر العودة للرئيسية -->
+            <a href="../index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i>
+                <span>الرئيسية</span>
+            </a>
+
             <div class="auth-header">
                 <a href="../index.html" class="logo-container">
                     <i class="fas fa-circle-notch logo-icon"></i>
