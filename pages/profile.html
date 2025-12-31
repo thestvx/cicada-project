@@ -4,336 +4,553 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الملف الشخصي - Cicada</title>
-    <meta name="description" content="إدارة بياناتك الشخصية وإعدادات حسابك على منصة Cicada">
-
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- CSS -->
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
-    <link rel="stylesheet" href="../styles/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+    <link rel="stylesheet" href="../styles/profile.css">
 </head>
-<body>
-    <div class="dashboard-layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <img src="../assets/images/logo.png" alt="Cicada Logo" class="sidebar-logo" onerror="this.style.display='none'">
-                <h2 class="sidebar-brand">Cicada</h2>
-            </div>
+<body class="dashboard-page">
 
-            <nav class="sidebar-menu">
-                <div class="menu-category">الرئيسية</div>
-                <a href="dashboard.html" class="menu-item">
-                    <i class="fas fa-home"></i>
-                    <span>لوحة التحكم</span>
-                </a>
-                <a href="tasks.html" class="menu-item">
-                    <i class="fas fa-tasks"></i>
-                    <span>المهام</span>
-                </a>
-                <a href="investments.html" class="menu-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>الاستثمارات</span>
-                </a>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="sidebar-logo">
+                <i class="fas fa-circle-notch"></i>
+                <span>CICADA</span>
+            </a>
+        </div>
 
-                <div class="menu-category">المعاملات</div>
-                <a href="deposits.html" class="menu-item">
-                    <i class="fas fa-arrow-down"></i>
-                    <span>الإيداعات</span>
-                </a>
-                <a href="withdrawals.html" class="menu-item">
-                    <i class="fas fa-arrow-up"></i>
-                    <span>السحوبات</span>
-                </a>
-                <a href="transactions.html" class="menu-item">
-                    <i class="fas fa-receipt"></i>
-                    <span>سجل المعاملات</span>
-                </a>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="investments.html" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>استثماراتي</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>المهام اليومية</span>
+            </a>
+            <a href="transactions.html" class="nav-item">
+                <i class="fas fa-exchange-alt"></i>
+                <span>المعاملات</span>
+            </a>
+            <a href="referral.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>برنامج الإحالة</span>
+            </a>
+            <a href="wallet.html" class="nav-item">
+                <i class="fas fa-wallet"></i>
+                <span>المحفظة</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <i class="fas fa-user"></i>
+                <span>الملف الشخصي</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>الإعدادات</span>
+            </a>
+        </nav>
 
-                <div class="menu-category">الحساب</div>
-                <a href="profile.html" class="menu-item active">
-                    <i class="fas fa-user"></i>
-                    <span>الملف الشخصي</span>
-                </a>
-                <a href="referrals.html" class="menu-item">
-                    <i class="fas fa-user-friends"></i>
-                    <span>الإحالات</span>
-                </a>
-                <a href="kyc.html" class="menu-item">
-                    <i class="fas fa-id-card"></i>
-                    <span>التحقق (KYC)</span>
-                </a>
+        <div class="sidebar-footer">
+            <a href="support.html" class="nav-item">
+                <i class="fas fa-headset"></i>
+                <span>الدعم الفني</span>
+            </a>
+            <a href="../index.html" class="nav-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
 
-                <div class="menu-category">الدعم والقانوني</div>
-                <a href="support.html" class="menu-item">
-                    <i class="fas fa-headset"></i>
-                    <span>الدعم الفني</span>
-                </a>
-                <a href="terms.html" class="menu-item">
-                    <i class="fas fa-file-contract"></i>
-                    <span>الشروط والأحكام</span>
-                </a>
-                <a href="privacy.html" class="menu-item">
-                    <i class="fas fa-user-shield"></i>
-                    <span>سياسة الخصوصية</span>
-                </a>
-                <a href="blog.html" class="menu-item">
-                    <i class="fas fa-blog"></i>
-                    <span>المدونة</span>
-                </a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <div class="user-mini-profile">
-                    <img src="../assets/images/avatar-placeholder.png" alt="User" class="user-avatar-sm" onerror="this.style.display='none'">
-                    <div class="user-info-sm">
-                        <h4 data-user="name">مستخدم</h4>
-                        <p data-user="email">user@email.com</p>
-                    </div>
-                </div>
-                <button class="menu-item" data-logout="true" style="margin-top:1rem; width:100%; justify-content:flex-start;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>تسجيل الخروج</span>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
                 </button>
+                <h1 class="page-title">الملف الشخصي</h1>
             </div>
-        </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Topbar -->
-            <header class="topbar">
-                <div class="dashboard-title">
-                    <button class="toggle-sidebar">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div>
-                        <h1>الملف الشخصي</h1>
-                        <p>إدارة بياناتك الشخصية وإعدادات الحساب</p>
-                    </div>
+            <div class="topbar-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="ابحث...">
                 </div>
-                <div class="topbar-actions">
-                    <button class="action-btn" title="إشعارات">
+
+                <div class="topbar-item">
+                    <button class="icon-btn">
                         <i class="fas fa-bell"></i>
                         <span class="notification-badge">3</span>
                     </button>
-                    <button class="action-btn" title="الملف الشخصي" onclick="window.location.href='profile.html'">
-                        <i class="fas fa-user-circle"></i>
+                </div>
+
+                <div class="topbar-item">
+                    <button class="user-menu-btn">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="User" class="user-avatar">
+                        <span class="user-name">أحمد محمد</span>
+                        <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
-            </header>
+            </div>
+        </header>
 
-            <!-- Profile Overview -->
-            <section class="card">
-                <div class="card-header">
-                    <h3>نظرة عامة على الحساب</h3>
+        <!-- Profile Content -->
+        <div class="dashboard-content">
+            <!-- Profile Header -->
+            <div class="profile-header-card">
+                <div class="profile-cover">
+                    <button class="edit-cover-btn" onclick="editCover()">
+                        <i class="fas fa-camera"></i>
+                        تغيير الغلاف
+                    </button>
                 </div>
-                <div style="display:flex; align-items:center; gap:2rem; flex-wrap:wrap;">
-                    <div style="text-align:center;">
-                        <img src="../assets/images/avatar-placeholder.png" alt="User Avatar" class="user-avatar-lg" onerror="this.style.display='none'" style="width:120px; height:120px; border-radius:50%; border:4px solid var(--primary-color);">
-                        <button class="btn-secondary" style="margin-top:1rem; display:block; width:100%;">
-                            <i class="fas fa-camera"></i> تغيير الصورة
+                
+                <div class="profile-header-content">
+                    <div class="profile-avatar-section">
+                        <div class="profile-avatar">
+                            <img src="https://i.pravatar.cc/150?img=1" alt="User Avatar" id="avatarImg">
+                            <button class="edit-avatar-btn" onclick="editAvatar()">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="profile-info">
+                            <div class="profile-name-section">
+                                <h2>أحمد محمد علي</h2>
+                                <span class="verified-badge">
+                                    <i class="fas fa-check-circle"></i>
+                                    موثق
+                                </span>
+                            </div>
+                            <p class="profile-username">@Ahmed2025</p>
+                            <p class="profile-bio">مستثمر | رائد أعمال | عضو منذ 2024</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="btn btn-primary" onclick="editProfile()">
+                            <i class="fas fa-edit"></i>
+                            تعديل الملف
+                        </button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-share-alt"></i>
+                            مشاركة
                         </button>
                     </div>
-                    <div style="flex:1; min-width:250px;">
-                        <div style="display:grid; gap:1rem;">
-                            <div style="display:flex; justify-content:space-between; padding:0.8rem; background:var(--light-color); border-radius:8px;">
-                                <span style="font-weight:600;">اسم المستخدم:</span>
-                                <span data-user="name">مستخدم</span>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="stat-box">
+                        <span class="stat-value">47</span>
+                        <span class="stat-label">إحالات</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">$12,547</span>
+                        <span class="stat-label">إجمالي الأرباح</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">3</span>
+                        <span class="stat-label">استثمارات نشطة</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">156</span>
+                        <span class="stat-label">مهام مكتملة</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Content Grid -->
+            <div class="profile-content-grid">
+                <!-- Left Column -->
+                <div class="profile-left-column">
+                    <!-- Personal Information -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3 class="section-title">المعلومات الشخصية</h3>
+                            <button class="btn-icon" onclick="editPersonalInfo()">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+
+                        <div class="info-list">
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="info-details">
+                                    <span class="info-label">البريد الإلكتروني</span>
+                                    <span class="info-value">ahmed.mohamed@email.com</span>
+                                </div>
                             </div>
-                            <div style="display:flex; justify-content:space-between; padding:0.8rem; background:var(--light-color); border-radius:8px;">
-                                <span style="font-weight:600;">البريد الإلكتروني:</span>
-                                <span data-user="email">user@email.com</span>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="info-details">
+                                    <span class="info-label">رقم الهاتف</span>
+                                    <span class="info-value">+966 55 1234 567</span>
+                                </div>
                             </div>
-                            <div style="display:flex; justify-content:space-between; padding:0.8rem; background:var(--light-color); border-radius:8px;">
-                                <span style="font-weight:600;">رقم الهاتف:</span>
-                                <span data-user="phone">+213 555 123 456</span>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="info-details">
+                                    <span class="info-label">الموقع</span>
+                                    <span class="info-value">الرياض، المملكة العربية السعودية</span>
+                                </div>
                             </div>
-                            <div style="display:flex; justify-content:space-between; padding:0.8rem; background:var(--light-color); border-radius:8px;">
-                                <span style="font-weight:600;">تاريخ الانضمام:</span>
-                                <span>2025-12-01</span>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                <div class="info-details">
+                                    <span class="info-label">تاريخ الانضمام</span>
+                                    <span class="info-value">15 يناير 2024</span>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-id-card"></i>
+                                </div>
+                                <div class="info-details">
+                                    <span class="info-label">معرف المستخدم</span>
+                                    <span class="info-value">#USER-2024-001234</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Status -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3 class="section-title">حالة الحساب</h3>
+                        </div>
+
+                        <div class="status-list">
+                            <div class="status-item verified">
+                                <div class="status-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="status-details">
+                                    <span class="status-label">التحقق من الهوية</span>
+                                    <span class="status-value">مكتمل</span>
+                                </div>
+                            </div>
+
+                            <div class="status-item verified">
+                                <div class="status-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="status-details">
+                                    <span class="status-label">التحقق من البريد</span>
+                                    <span class="status-value">مفعّل</span>
+                                </div>
+                            </div>
+
+                            <div class="status-item verified">
+                                <div class="status-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="status-details">
+                                    <span class="status-label">التحقق من الهاتف</span>
+                                    <span class="status-value">مفعّل</span>
+                                </div>
+                            </div>
+
+                            <div class="status-item pending">
+                                <div class="status-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="status-details">
+                                    <span class="status-label">المصادقة الثنائية</span>
+                                    <span class="status-value">غير مفعّل</span>
+                                </div>
+                                <button class="btn btn-sm btn-primary" onclick="enable2FA()">تفعيل</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3 class="section-title">إعدادات الأمان</h3>
+                        </div>
+
+                        <div class="security-list">
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <i class="fas fa-lock"></i>
+                                    <span>تغيير كلمة المرور</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline" onclick="changePassword()">
+                                    تغيير
+                                </button>
+                            </div>
+
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>سجل الدخول</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline" onclick="viewLoginHistory()">
+                                    عرض
+                                </button>
+                            </div>
+
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <i class="fas fa-devices"></i>
+                                    <span>الأجهزة المتصلة</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline" onclick="manageDevices()">
+                                    إدارة
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- Edit Profile Form -->
-            <section class="card">
-                <div class="card-header">
-                    <h3>تعديل المعلومات الشخصية</h3>
+                <!-- Right Column -->
+                <div class="profile-right-column">
+                    <!-- Account Level -->
+                    <div class="profile-section account-level-section">
+                        <div class="section-header">
+                            <h3 class="section-title">مستوى الحساب</h3>
+                        </div>
+
+                        <div class="account-level-card">
+                            <div class="level-badge gold">
+                                <i class="fas fa-crown"></i>
+                                <span>مستوى ذهبي</span>
+                            </div>
+
+                            <div class="level-progress">
+                                <div class="progress-info">
+                                    <span>التقدم نحو البلاتيني</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                                <p class="progress-hint">استثمر $2,500 إضافية للوصول للمستوى البلاتيني</p>
+                            </div>
+
+                            <div class="level-benefits">
+                                <h4>مزايا المستوى الذهبي:</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> عمولة إحالة 10%</li>
+                                    <li><i class="fas fa-check"></i> أولوية في الدعم الفني</li>
+                                    <li><i class="fas fa-check"></i> سحب يومي بدون رسوم</li>
+                                    <li><i class="fas fa-check"></i> مدير حساب شخصي</li>
+                                    <li><i class="fas fa-check"></i> بونص شهري 5%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3 class="section-title">النشاط الأخير</h3>
+                            <a href="transactions.html" class="view-all-link">
+                                عرض الكل <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+
+                        <div class="activity-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-icon deposit">
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>إيداع $500</h4>
+                                    <p>Bitcoin Wallet</p>
+                                    <span class="timeline-time">منذ ساعتين</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon profit">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>أرباح يومية $125</h4>
+                                    <p>الخطة الاحترافية</p>
+                                    <span class="timeline-time">اليوم 12:00 صباحاً</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon task">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>إكمال مهمة</h4>
+                                    <p>مشاهدة الإعلانات +$2.50</p>
+                                    <span class="timeline-time">أمس 08:30 مساءً</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon referral">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>إحالة جديدة</h4>
+                                    <p>محمد أحمد انضم +$45 عمولة</p>
+                                    <span class="timeline-time">أمس 11:20 صباحاً</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon withdraw">
+                                    <i class="fas fa-arrow-up"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>سحب $300</h4>
+                                    <p>Bank Transfer</p>
+                                    <span class="timeline-time">منذ 3 أيام</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievements -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3 class="section-title">الإنجازات</h3>
+                        </div>
+
+                        <div class="achievements-grid">
+                            <div class="achievement-card earned">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>أول استثمار</h4>
+                                <p>قم بأول عملية استثمار</p>
+                            </div>
+
+                            <div class="achievement-card earned">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4>مُحيل ماهر</h4>
+                                <p>أحل 10 أصدقاء</p>
+                            </div>
+
+                            <div class="achievement-card earned">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <h4>نشاط متواصل</h4>
+                                <p>15 يوم نشاط متواصل</p>
+                            </div>
+
+                            <div class="achievement-card">
+                                <div class="achievement-icon locked">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <h4>مستثمر VIP</h4>
+                                <p>استثمر $10,000 أو أكثر</p>
+                                <div class="achievement-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 85%"></div>
+                                    </div>
+                                    <span>$8,500 / $10,000</span>
+                                </div>
+                            </div>
+
+                            <div class="achievement-card">
+                                <div class="achievement-icon locked">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h4>متصدر الإحالات</h4>
+                                <p>كن ضمن أفضل 10 محيلين</p>
+                            </div>
+
+                            <div class="achievement-card">
+                                <div class="achievement-icon locked">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <h4>المستوى البلاتيني</h4>
+                                <p>الوصول للمستوى البلاتيني</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <form id="profileForm">
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal-overlay" id="editProfileModal" style="display: none;">
+        <div class="modal-content profile-modal">
+            <div class="modal-header">
+                <h2>تعديل الملف الشخصي</h2>
+                <button class="modal-close" onclick="closeEditModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editProfileForm">
                     <div class="form-group">
-                        <label class="form-label" for="profileName">الاسم الكامل</label>
-                        <input type="text" id="profileName" name="name" class="form-input" data-user="name" required>
+                        <label class="form-label">الاسم الكامل</label>
+                        <input type="text" class="form-input" value="أحمد محمد علي">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="profileEmail">البريد الإلكتروني</label>
-                        <input type="email" id="profileEmail" name="email" class="form-input" data-user="email" required>
+                        <label class="form-label">اسم المستخدم</label>
+                        <div class="input-wrapper">
+                            <span class="input-prefix">@</span>
+                            <input type="text" class="form-input" value="Ahmed2025" style="padding-right: 2.5rem;">
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="profilePhone">رقم الهاتف</label>
-                        <input type="tel" id="profilePhone" name="phone" class="form-input" data-user="phone" required>
+                        <label class="form-label">نبذة عنك</label>
+                        <textarea class="form-input" rows="3" placeholder="اكتب نبذة مختصرة عنك...">مستثمر | رائد أعمال | عضو منذ 2024</textarea>
                     </div>
 
-                    <button type="submit" class="btn-primary">
-                        <i class="fas fa-save"></i> حفظ التغييرات
-                    </button>
+                    <div class="form-group">
+                        <label class="form-label">رقم الهاتف</label>
+                        <input type="tel" class="form-input" value="+966 55 1234 567">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">الموقع</label>
+                        <input type="text" class="form-input" value="الرياض، المملكة العربية السعودية">
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-outline" onclick="closeEditModal()">إلغاء</button>
+                        <button type="submit" class="btn btn-accent">حفظ التغييرات</button>
+                    </div>
                 </form>
-            </section>
-
-            <!-- Change Password -->
-            <section class="card">
-                <div class="card-header">
-                    <h3>تغيير كلمة المرور</h3>
-                </div>
-                <form id="passwordForm">
-                    <div class="form-group">
-                        <label class="form-label" for="currentPassword">كلمة المرور الحالية</label>
-                        <input type="password" id="currentPassword" name="currentPassword" class="form-input" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="newPassword">كلمة المرور الجديدة</label>
-                        <input type="password" id="newPassword" name="newPassword" class="form-input" required minlength="8">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="confirmNewPassword">تأكيد كلمة المرور الجديدة</label>
-                        <input type="password" id="confirmNewPassword" name="confirmNewPassword" class="form-input" required minlength="8">
-                    </div>
-
-                    <button type="submit" class="btn-primary">
-                        <i class="fas fa-key"></i> تغيير كلمة المرور
-                    </button>
-                </form>
-            </section>
-
-            <!-- Security Settings -->
-            <section class="card">
-                <div class="card-header">
-                    <h3>إعدادات الأمان</h3>
-                </div>
-                <div style="display:grid; gap:1rem;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; padding:1rem; background:var(--light-color); border-radius:8px;">
-                        <div>
-                            <strong>المصادقة الثنائية (2FA)</strong>
-                            <p style="margin:0; color:var(--text-light); font-size:0.9rem;">تفعيل طبقة إضافية من الحماية</p>
-                        </div>
-                        <button class="btn-secondary" style="padding:8px 16px; font-size:0.9rem;">
-                            تفعيل
-                        </button>
-                    </div>
-                    <div style="display:flex; justify-content:space-between; align-items:center; padding:1rem; background:var(--light-color); border-radius:8px;">
-                        <div>
-                            <strong>إشعارات البريد الإلكتروني</strong>
-                            <p style="margin:0; color:var(--text-light); font-size:0.9rem;">تلقي إشعارات على بريدك الإلكتروني</p>
-                        </div>
-                        <label class="form-checkbox" style="margin:0;">
-                            <input type="checkbox" checked>
-                            <span></span>
-                        </label>
-                    </div>
-                    <div style="display:flex; justify-content:space-between; align-items:center; padding:1rem; background:var(--light-color); border-radius:8px;">
-                        <div>
-                            <strong>إشعارات SMS</strong>
-                            <p style="margin:0; color:var(--text-light); font-size:0.9rem;">تلقي إشعارات على هاتفك</p>
-                        </div>
-                        <label class="form-checkbox" style="margin:0;">
-                            <input type="checkbox">
-                            <span></span>
-                        </label>
-                    </div>
-                </div>
-            </section>
-        </main>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
     <script src="../scripts/main.js"></script>
-    <script src="../scripts/auth.js"></script>
-    <script src="../scripts/dashboard.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // حماية وتهيئة عامة
-            if (window.CicadaAuth && window.CicadaAuth.protectPage) {
-                window.CicadaAuth.protectPage();
-            }
-            if (typeof loadUserInfo === 'function') loadUserInfo();
-            if (typeof initSidebarToggle === 'function') initSidebarToggle();
-            if (typeof highlightActiveMenu === 'function') highlightActiveMenu();
-
-            // تعبئة نموذج تعديل الملف الشخصي بالبيانات الحالية
-            const userJson = localStorage.getItem('cicada_user');
-            if (userJson) {
-                const user = JSON.parse(userJson);
-                document.getElementById('profileName').value = user.name || '';
-                document.getElementById('profileEmail').value = user.email || '';
-                document.getElementById('profilePhone').value = user.phone || '';
-            }
-
-            // معالجة نموذج تعديل الملف الشخصي
-            const profileForm = document.getElementById('profileForm');
-            if (profileForm) {
-                profileForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const name = document.getElementById('profileName').value.trim();
-                    const email = document.getElementById('profileEmail').value.trim();
-                    const phone = document.getElementById('profilePhone').value.trim();
-
-                    if (!name || !email || !phone) {
-                        if (window.CicadaAuth && window.CicadaAuth.showAuthAlert) {
-                            window.CicadaAuth.showAuthAlert('warning', 'الرجاء إدخال جميع البيانات المطلوبة.');
-                        } else {
-                            alert('الرجاء إدخال جميع البيانات المطلوبة.');
-                        }
-                        return;
-                    }
-
-                    // تحديث البيانات في localStorage
-                    const userData = JSON.parse(localStorage.getItem('cicada_user') || '{}');
-                    userData.name = name;
-                    userData.email = email;
-                    userData.phone = phone;
-                    localStorage.setItem('cicada_user', JSON.stringify(userData));
-
-                    // تحديث الواجهة
-                    if (typeof loadUserInfo === 'function') loadUserInfo();
-
-                    if (window.CicadaAuth && window.CicadaAuth.showAuthAlert) {
-                        window.CicadaAuth.showAuthAlert('success', 'تم تحديث الملف الشخصي بنجاح!');
-                    } else {
-                        alert('تم تحديث الملف الشخصي بنجاح!');
-                    }
-                });
-            }
-
-            // معالجة نموذج تغيير كلمة المرور
-            const passwordForm = document.getElementById('passwordForm');
-            if (passwordForm) {
-                passwordForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const currentPassword = document.getElementById('currentPassword').value;
-                    const newPassword = document.getElementById('newPassword').value;
-                    const confirmNewPassword = document.getElementById('confirmNewPassword').value;
-
-                    if (!currentPassword || !newPassword || !confirmNewPassword) {
-                        if (window.CicadaAuth && window.CicadaAuth.showAuthAlert) {
-                            window.CicadaAuth.showAuthAlert('warning', 'الرجاء إدخال جميع حقول كلمة المرور.');
-                        } else {
-                            alert('الرجاء إدخال جميع حقول كلمة المرور.');
-                        }
-                        return;
-                    }
-
-                    if (newPassword.length < 8) {
-                        if (window.CicadaAuth && window.CicadaAuth.showAuthAlert) {
-                            window.CicadaAuth.showAuthAlert('warning', 'كلمة المرور الجديدة يجب أن تكون 8 أحرف على الأقل.');
-                        } else {
-                            alert('كل
+    <script src="../scripts/profile.js"></script>
+</body>
+</html>
