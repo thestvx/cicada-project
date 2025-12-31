@@ -4,153 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لوحة التحكم - Cicada</title>
-    <meta name="description" content="لوحة التحكم في منصة Cicada لعرض الرصيد، الأرباح، المهام والمعاملات.">
-
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- CSS -->
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
-    <link rel="stylesheet" href="../styles/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
 </head>
-<body>
-    <div class="dashboard-layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <img src="../assets/images/logo.png" alt="Cicada Logo" class="sidebar-logo" onerror="this.style.display='none'">
-                <h2 class="sidebar-brand">Cicada</h2>
-            </div>
+<body class="dashboard-page">
 
-            <nav class="sidebar-menu">
-                <div class="menu-category">الرئيسية</div>
-                <a href="dashboard.html" class="menu-item active">
-                    <i class="fas fa-home"></i>
-                    <span>لوحة التحكم</span>
-                </a>
-                <a href="tasks.html" class="menu-item">
-                    <i class="fas fa-tasks"></i>
-                    <span>المهام</span>
-                </a>
-                <a href="investments.html" class="menu-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>الاستثمارات</span>
-                </a>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="sidebar-logo">
+                <i class="fas fa-circle-notch"></i>
+                <span>CICADA</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
 
-                <div class="menu-category">المعاملات</div>
-                <a href="deposits.html" class="menu-item">
-                    <i class="fas fa-arrow-down"></i>
-                    <span>الإيداعات</span>
-                </a>
-                <a href="withdrawals.html" class="menu-item">
-                    <i class="fas fa-arrow-up"></i>
-                    <span>السحوبات</span>
-                </a>
-                <a href="transactions.html" class="menu-item">
-                    <i class="fas fa-receipt"></i>
-                    <span>سجل المعاملات</span>
-                </a>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="investments.html" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>استثماراتي</span>
+                <span class="badge badge-primary">3</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>المهام اليومية</span>
+            </a>
+            <a href="transactions.html" class="nav-item">
+                <i class="fas fa-exchange-alt"></i>
+                <span>المعاملات</span>
+            </a>
+            <a href="referral.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>برنامج الإحالة</span>
+            </a>
+            <a href="wallet.html" class="nav-item">
+                <i class="fas fa-wallet"></i>
+                <span>المحفظة</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>الملف الشخصي</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>الإعدادات</span>
+            </a>
+        </nav>
 
-                <div class="menu-category">الحساب</div>
-                <a href="profile.html" class="menu-item">
-                    <i class="fas fa-user"></i>
-                    <span>الملف الشخصي</span>
-                </a>
-                <a href="referrals.html" class="menu-item">
-                    <i class="fas fa-user-friends"></i>
-                    <span>الإحالات</span>
-                </a>
-                <a href="kyc.html" class="menu-item">
-                    <i class="fas fa-id-card"></i>
-                    <span>التحقق (KYC)</span>
-                </a>
+        <div class="sidebar-footer">
+            <a href="support.html" class="nav-item">
+                <i class="fas fa-headset"></i>
+                <span>الدعم الفني</span>
+            </a>
+            <a href="../index.html" class="nav-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
 
-                <div class="menu-category">الدعم والقانوني</div>
-                <a href="support.html" class="menu-item">
-                    <i class="fas fa-headset"></i>
-                    <span>الدعم الفني</span>
-                </a>
-                <a href="terms.html" class="menu-item">
-                    <i class="fas fa-file-contract"></i>
-                    <span>الشروط والأحكام</span>
-                </a>
-                <a href="privacy.html" class="menu-item">
-                    <i class="fas fa-user-shield"></i>
-                    <span>سياسة الخصوصية</span>
-                </a>
-                <a href="blog.html" class="menu-item">
-                    <i class="fas fa-blog"></i>
-                    <span>المدونة</span>
-                </a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <div class="user-mini-profile">
-                    <img src="../assets/images/avatar-placeholder.png" alt="User" class="user-avatar-sm" onerror="this.style.display='none'">
-                    <div class="user-info-sm">
-                        <h4 data-user="name">مستخدم</h4>
-                        <p data-user="email">user@email.com</p>
-                    </div>
-                </div>
-                <button class="menu-item" data-logout="true" style="margin-top:1rem; width:100%; justify-content:flex-start;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>تسجيل الخروج</span>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
                 </button>
+                <h1 class="page-title">لوحة التحكم</h1>
             </div>
-        </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Topbar -->
-            <header class="topbar">
-                <div class="dashboard-title">
-                    <button class="toggle-sidebar">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div>
-                        <h1>لوحة التحكم</h1>
-                        <p>مرحباً، <span data-user="name">مستخدم</span> 👋</p>
-                    </div>
+            <div class="topbar-right">
+                <!-- Search -->
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="ابحث...">
                 </div>
-                <div class="topbar-actions">
-                    <button class="action-btn" title="إشعارات">
+
+                <!-- Notifications -->
+                <div class="topbar-item dropdown">
+                    <button class="icon-btn" id="notificationBtn">
                         <i class="fas fa-bell"></i>
                         <span class="notification-badge">3</span>
                     </button>
-                    <button class="action-btn" title="الملف الشخصي" onclick="window.location.href='profile.html'">
-                        <i class="fas fa-user-circle"></i>
-                    </button>
                 </div>
-            </header>
 
-            <!-- Balance Card -->
-            <section class="balance-card">
-                <span class="balance-label">إجمالي الرصيد الحالي</span>
-                <div class="balance-amount" data-stat="balance">$0.00</div>
-                <div class="balance-actions">
-                    <button class="balance-btn" data-action="go-deposit">
-                        <i class="fas fa-plus-circle"></i>
-                        إيداع جديد
-                    </button>
-                    <button class="balance-btn" data-action="go-withdraw">
-                        <i class="fas fa-minus-circle"></i>
-                        طلب سحب
+                <!-- User Menu -->
+                <div class="topbar-item dropdown">
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="User" class="user-avatar">
+                        <span class="user-name">أحمد محمد</span>
+                        <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
-            </section>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Welcome Banner -->
+            <div class="welcome-banner">
+                <div class="welcome-content">
+                    <h2>مرحباً بك، أحمد! 👋</h2>
+                    <p>إليك نظرة عامة على نشاطك الاستثماري اليوم</p>
+                </div>
+                <div class="welcome-actions">
+                    <a href="investments.html" class="btn btn-accent">
+                        <i class="fas fa-plus"></i>
+                        استثمار جديد
+                    </a>
+                </div>
+            </div>
 
             <!-- Stats Cards -->
-            <section class="stats-grid">
+            <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-icon wallet">
+                    <div class="stat-icon balance">
                         <i class="fas fa-wallet"></i>
                     </div>
-                    <div class="stat-info">
-                        <h3>أرباح اليوم</h3>
-                        <div class="stat-value" data-stat="daily-earnings">$0.00</div>
+                    <div class="stat-details">
+                        <p class="stat-label">الرصيد الكلي</p>
+                        <h3 class="stat-value">$12,547.89</h3>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> +12.5%
+                        </span>
                     </div>
                 </div>
 
@@ -158,89 +149,234 @@
                     <div class="stat-icon investment">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <div class="stat-info">
-                        <h3>إجمالي الأرباح</h3>
-                        <div class="stat-value" data-stat="total-earnings">$0.00</div>
+                    <div class="stat-details">
+                        <p class="stat-label">إجمالي الاستثمارات</p>
+                        <h3 class="stat-value">$8,500.00</h3>
+                        <span class="stat-change">
+                            <i class="fas fa-chart-pie"></i> 3 خطط نشطة
+                        </span>
                     </div>
                 </div>
 
                 <div class="stat-card">
-                    <div class="stat-icon tasks">
-                        <i class="fas fa-tasks"></i>
+                    <div class="stat-icon profit">
+                        <i class="fas fa-dollar-sign"></i>
                     </div>
-                    <div class="stat-info">
-                        <h3>عدد المهام المكتملة</h3>
-                        <div class="stat-value" data-stat="tasks-completed">0</div>
+                    <div class="stat-details">
+                        <p class="stat-label">الأرباح اليوم</p>
+                        <h3 class="stat-value">$215.40</h3>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> +5.2%
+                        </span>
                     </div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-icon referral">
-                        <i class="fas fa-user-friends"></i>
+                        <i class="fas fa-users"></i>
                     </div>
-                    <div class="stat-info">
-                        <h3>أرباح الإحالات</h3>
-                        <div class="stat-value">$120.00</div>
+                    <div class="stat-details">
+                        <p class="stat-label">عمولات الإحالة</p>
+                        <h3 class="stat-value">$1,247.89</h3>
+                        <span class="stat-change">
+                            <i class="fas fa-user-plus"></i> 12 إحالة
+                        </span>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <!-- Dashboard Grid (Charts + Tables) -->
-            <section class="dashboard-grid">
+            <!-- Charts & Activity -->
+            <div class="dashboard-grid">
+                <!-- Profit Chart -->
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <h3 class="card-title">إحصائيات الأرباح</h3>
+                        <div class="card-actions">
+                            <select class="period-select">
+                                <option>آخر 7 أيام</option>
+                                <option>آخر 30 يوم</option>
+                                <option>آخر 90 يوم</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="profitChart" height="300"></canvas>
+                    </div>
+                </div>
+
+                <!-- Active Investments -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">الاستثمارات النشطة</h3>
+                        <a href="investments.html" class="card-link">
+                            عرض الكل <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="investment-list">
+                            <div class="investment-item">
+                                <div class="investment-icon pro">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <div class="investment-info">
+                                    <h4>الخطة الاحترافية</h4>
+                                    <p>2.5% يومياً • 15 يوم متبقي</p>
+                                </div>
+                                <div class="investment-amount">
+                                    <span class="amount">$5,000</span>
+                                    <span class="profit positive">+$625</span>
+                                </div>
+                            </div>
+
+                            <div class="investment-item">
+                                <div class="investment-icon basic">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="investment-info">
+                                    <h4>الخطة الأساسية</h4>
+                                    <p>1.5% يومياً • 22 يوم متبقي</p>
+                                </div>
+                                <div class="investment-amount">
+                                    <span class="amount">$2,000</span>
+                                    <span class="profit positive">+$198</span>
+                                </div>
+                            </div>
+
+                            <div class="investment-item">
+                                <div class="investment-icon vip">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <div class="investment-info">
+                                    <h4>خطة المؤسسات</h4>
+                                    <p>3.5% يومياً • 8 أيام متبقية</p>
+                                </div>
+                                <div class="investment-amount">
+                                    <span class="amount">$1,500</span>
+                                    <span class="profit positive">+$147</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions & Quick Actions -->
+            <div class="dashboard-grid">
                 <!-- Recent Transactions -->
                 <div class="card">
                     <div class="card-header">
-                        <h3>آخر المعاملات</h3>
-                        <a href="transactions.html" class="btn-secondary" style="padding:6px 12px;font-size:0.85rem;">
-                            عرض الكل
+                        <h3 class="card-title">آخر المعاملات</h3>
+                        <a href="transactions.html" class="card-link">
+                            عرض الكل <i class="fas fa-arrow-left"></i>
                         </a>
                     </div>
-                    <div class="table-responsive">
-                        <table class="custom-table">
-                            <thead>
-                                <tr>
-                                    <th>النوع</th>
-                                    <th>التاريخ</th>
-                                    <th>المبلغ</th>
-                                    <th>الحالة</th>
-                                </tr>
-                            </thead>
-                            <tbody data-table="recent-transactions">
-                                <!-- يتم تعبئتها عبر dashboard.js -->
-                            </tbody>
-                        </table>
+                    <div class="card-body">
+                        <div class="transaction-list">
+                            <div class="transaction-item">
+                                <div class="transaction-icon deposit">
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                                <div class="transaction-info">
+                                    <h4>إيداع</h4>
+                                    <p>اليوم • 10:30 صباحاً</p>
+                                </div>
+                                <div class="transaction-amount positive">+$500.00</div>
+                            </div>
+
+                            <div class="transaction-item">
+                                <div class="transaction-icon profit">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="transaction-info">
+                                    <h4>أرباح يومية</h4>
+                                    <p>اليوم • 12:00 صباحاً</p>
+                                </div>
+                                <div class="transaction-amount positive">+$215.40</div>
+                            </div>
+
+                            <div class="transaction-item">
+                                <div class="transaction-icon withdraw">
+                                    <i class="fas fa-arrow-up"></i>
+                                </div>
+                                <div class="transaction-info">
+                                    <h4>سحب</h4>
+                                    <p>أمس • 03:45 مساءً</p>
+                                </div>
+                                <div class="transaction-amount negative">-$300.00</div>
+                            </div>
+
+                            <div class="transaction-item">
+                                <div class="transaction-icon referral">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="transaction-info">
+                                    <h4>عمولة إحالة</h4>
+                                    <p>أمس • 11:20 صباحاً</p>
+                                </div>
+                                <div class="transaction-amount positive">+$45.00</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Quick Tasks / Shortcuts -->
+                <!-- Quick Actions -->
                 <div class="card">
                     <div class="card-header">
-                        <h3>مهام سريعة</h3>
+                        <h3 class="card-title">إجراءات سريعة</h3>
                     </div>
-                    <div class="actions-grid" data-section="quick-tasks">
-                        <!-- يتم تعبئتها عبر dashboard.js -->
-                    </div>
-                </div>
-            </section>
+                    <div class="card-body">
+                        <div class="quick-actions">
+                            <a href="investments.html" class="quick-action-btn">
+                                <div class="action-icon invest">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <span>استثمار جديد</span>
+                            </a>
 
-            <!-- Simple Info Card -->
-            <section class="card">
-                <div class="card-header">
-                    <h3>نصائح لزيادة أرباحك</h3>
+                            <a href="wallet.html" class="quick-action-btn">
+                                <div class="action-icon deposit">
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                                <span>إيداع</span>
+                            </a>
+
+                            <a href="wallet.html" class="quick-action-btn">
+                                <div class="action-icon withdraw">
+                                    <i class="fas fa-arrow-up"></i>
+                                </div>
+                                <span>سحب</span>
+                            </a>
+
+                            <a href="referral.html" class="quick-action-btn">
+                                <div class="action-icon referral">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <span>دعوة صديق</span>
+                            </a>
+
+                            <a href="tasks.html" class="quick-action-btn">
+                                <div class="action-icon tasks">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <span>المهام اليومية</span>
+                            </a>
+
+                            <a href="support.html" class="quick-action-btn">
+                                <div class="action-icon support">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <span>الدعم</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <ul style="padding-right:1.2rem; line-height:1.8;">
-                    <li>أكمل جميع المهام اليومية المتاحة لزيادة أرباحك الإضافية.</li>
-                    <li>استخدم برنامج الإحالة لدعوة أصدقائك والحصول على عمولات مستمرة.</li>
-                    <li>اختر خطة الاستثمار المناسبة لرأس مالك لتحقق أفضل عائد ممكن.</li>
-                    <li>تابع صفحة المدونة للحصول على استراتيجيات واستشارات استثمارية.</li>
-                </ul>
-            </section>
-        </main>
-    </div>
+            </div>
+        </div>
+    </main>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
     <script src="../scripts/main.js"></script>
-    <script src="../scripts/auth.js"></script>
     <script src="../scripts/dashboard.js"></script>
 </body>
 </html>
