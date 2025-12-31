@@ -35,7 +35,7 @@
             <div class="branding-content">
                 <h1 class="branding-title">مرحباً بعودتك!</h1>
                 <p class="branding-description">
-                    استمر في رحلتك الاستثمارية وحقق أهدافك المالية معنا
+                    سجل دخولك الآن للوصول إلى استثماراتك ومتابعة أرباحك اليومية
                 </p>
 
                 <div class="branding-stats">
@@ -51,21 +51,21 @@
 
                     <div class="branding-stat">
                         <div class="stat-icon">
-                            <i class="fas fa-shield-halved"></i>
+                            <i class="fas fa-dollar-sign"></i>
                         </div>
                         <div class="stat-info">
-                            <div class="stat-value">100%</div>
-                            <div class="stat-label">أمان مضمون</div>
+                            <div class="stat-value">$5M+</div>
+                            <div class="stat-label">أرباح موزعة</div>
                         </div>
                     </div>
 
                     <div class="branding-stat">
                         <div class="stat-icon">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                         <div class="stat-info">
-                            <div class="stat-value">$2.4M+</div>
-                            <div class="stat-label">حجم التداول</div>
+                            <div class="stat-value">4.9/5</div>
+                            <div class="stat-label">تقييم المستخدمين</div>
                         </div>
                     </div>
                 </div>
@@ -73,15 +73,15 @@
                 <div class="branding-features">
                     <div class="feature-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>عوائد يومية مضمونة</span>
+                        <span>أرباح يومية مضمونة</span>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>سحب فوري للأرباح</span>
+                        <span>سحب فوري بدون قيود</span>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>دعم فني 24/7</span>
+                        <span>دعم فني متاح 24/7</span>
                     </div>
                 </div>
             </div>
@@ -106,21 +106,21 @@
                 <div class="social-login">
                     <button class="social-btn google">
                         <i class="fab fa-google"></i>
-                        <span>تسجيل الدخول بـ Google</span>
+                        <span>Google</span>
                     </button>
                     <button class="social-btn facebook">
                         <i class="fab fa-facebook"></i>
-                        <span>تسجيل الدخول بـ Facebook</span>
+                        <span>Facebook</span>
                     </button>
                 </div>
 
                 <div class="divider">
-                    <span>أو باستخدام البريد الإلكتروني</span>
+                    <span>أو</span>
                 </div>
 
                 <!-- Login Form -->
                 <form id="loginForm" class="auth-form">
-                    <!-- Email Input -->
+                    <!-- Email -->
                     <div class="form-group">
                         <label for="email" class="form-label">
                             <i class="fas fa-envelope"></i>
@@ -141,7 +141,7 @@
                         </div>
                     </div>
 
-                    <!-- Password Input -->
+                    <!-- Password -->
                     <div class="form-group">
                         <label for="password" class="form-label">
                             <i class="fas fa-lock"></i>
@@ -156,94 +156,43 @@
                                 placeholder="••••••••"
                                 required
                             >
-                            <span class="input-icon toggle-password" onclick="togglePassword()">
+                            <span class="input-icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <span class="toggle-password" id="togglePassword">
                                 <i class="fas fa-eye"></i>
                             </span>
                         </div>
                     </div>
 
                     <!-- Remember & Forgot -->
-                    <div class="form-options">
-                        <label class="checkbox-wrapper">
-                            <input type="checkbox" name="remember">
+                    <div class="form-group" style="flex-direction: row; justify-content: space-between; align-items: center;">
+                        <label class="checkbox-wrapper" style="margin: 0;">
+                            <input type="checkbox" id="remember">
                             <span class="checkbox-label">تذكرني</span>
                         </label>
-                        <a href="forgot-password.html" class="forgot-link">
-                            نسيت كلمة المرور؟
-                        </a>
+                        <div class="forgot-password" style="margin: 0;">
+                            <a href="#forgot-password">نسيت كلمة المرور؟</a>
+                        </div>
                     </div>
 
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-accent btn-block btn-lg">
                         <i class="fas fa-sign-in-alt"></i>
-                        <span>تسجيل الدخول</span>
+                        تسجيل الدخول
                     </button>
-
-                    <!-- Register Link -->
-                    <div class="form-footer">
-                        <p>ليس لديك حساب؟</p>
-                        <a href="register.html" class="register-link">
-                            سجل الآن مجاناً
-                            <i class="fas fa-arrow-left"></i>
-                        </a>
-                    </div>
                 </form>
 
-                <!-- Security Badge -->
-                <div class="security-badge">
-                    <i class="fas fa-shield-halved"></i>
-                    <span>محمي بتشفير SSL 256-bit</span>
+                <!-- Footer -->
+                <div class="auth-footer">
+                    <p>ليس لديك حساب؟ <a href="register.html">إنشاء حساب جديد</a></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="../scripts/main.js"></script>
-    <script>
-        // Toggle Password Visibility
-        function togglePassword() {
-            const passwordInput = document.getElementById('password');
-            const icon = event.currentTarget.querySelector('i');
-            
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                passwordInput.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            }
-        }
-
-        // Form Submission
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            // Show loading
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalHTML = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري تسجيل الدخول...';
-            submitBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                // Success - redirect to dashboard
-                window.location.href = 'dashboard.html';
-            }, 1500);
-        });
-
-        // Social Login
-        document.querySelectorAll('.social-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert('جاري تطوير تسجيل الدخول عبر وسائل التواصل الاجتماعي');
-            });
-        });
-    </script>
+    <!-- Firebase Scripts -->
+    <script type="module" src="../scripts/firebase-config.js"></script>
+    <script type="module" src="../scripts/auth-login.js"></script>
 </body>
 </html>
