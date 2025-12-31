@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المحفظة - Cicada</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/wallet.css">
+</head>
+<body class="dashboard-page">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="sidebar-logo">
+                <i class="fas fa-circle-notch"></i>
+                <span>CICADA</span>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="investments.html" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>استثماراتي</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>المهام اليومية</span>
+            </a>
+            <a href="transactions.html" class="nav-item">
+                <i class="fas fa-exchange-alt"></i>
+                <span>المعاملات</span>
+            </a>
+            <a href="referral.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>برنامج الإحالة</span>
+            </a>
+            <a href="wallet.html" class="nav-item active">
+                <i class="fas fa-wallet"></i>
+                <span>المحفظة</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>الملف الشخصي</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>الإعدادات</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="support.html" class="nav-item">
+                <i class="fas fa-headset"></i>
+                <span>الدعم الفني</span>
+            </a>
+            <a href="../index.html" class="nav-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">المحفظة</h1>
+            </div>
+
+            <div class="topbar-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="ابحث...">
+                </div>
+
+                <div class="topbar-item">
+                    <button class="icon-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+
+                <div class="topbar-item">
+                    <button class="user-menu-btn">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="User" class="user-avatar">
+                        <span class="user-name">أحمد محمد</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Wallet Content -->
+        <div class="dashboard-content">
+            <!-- Main Wallet Card -->
+            <div class="main-wallet-card">
+                <div class="wallet-background">
+                    <div class="wallet-pattern"></div>
+                </div>
+                <div class="wallet-content">
+                    <div class="wallet-header">
+                        <div class="wallet-label">
+                            <i class="fas fa-wallet"></i>
+                            <span>إجمالي الرصيد</span>
+                        </div>
+                        <button class="wallet-refresh" onclick="refreshBalance()">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    <div class="wallet-balance">
+                        <h2 class="balance-amount">$12,547.89</h2>
+                        <span class="balance-change positive">
+                            <i class="fas fa-arrow-up"></i> +5.2% هذا الأسبوع
+                        </span>
+                    </div>
+                    <div class="wallet-actions">
+                        <button class="wallet-action-btn deposit" onclick="openDepositModal()">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>إيداع</span>
+                        </button>
+                        <button class="wallet-action-btn withdraw" onclick="openWithdrawModal()">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>سحب</span>
+                        </button>
+                        <button class="wallet-action-btn transfer">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>تحويل</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallet Breakdown -->
+            <div class="wallet-breakdown">
+                <div class="breakdown-card available">
+                    <div class="breakdown-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="breakdown-details">
+                        <p class="breakdown-label">رصيد متاح</p>
+                        <h3 class="breakdown-value">$4,047.89</h3>
+                        <span class="breakdown-desc">جاهز للاستخدام</span>
+                    </div>
+                </div>
+
+                <div class="breakdown-card invested">
+                    <div class="breakdown-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="breakdown-details">
+                        <p class="breakdown-label">مستثمر</p>
+                        <h3 class="breakdown-value">$8,500.00</h3>
+                        <span class="breakdown-desc">في 3 خطط</span>
+                    </div>
+                </div>
+
+                <div class="breakdown-card pending">
+                    <div class="breakdown-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="breakdown-details">
+                        <p class="breakdown-label">قيد الانتظار</p>
+                        <h3 class="breakdown-value">$450.00</h3>
+                        <span class="breakdown-desc">3 معاملات</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Transfer -->
+            <div class="quick-transfer-section">
+                <div class="section-header">
+                    <h3 class="section-title">تحويل سريع</h3>
+                </div>
+                <div class="quick-transfer-card">
+                    <div class="transfer-users">
+                        <div class="transfer-user">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="User">
+                            <span>محمد</span>
+                        </div>
+                        <div class="transfer-user">
+                            <img src="https://i.pravatar.cc/150?img=5" alt="User">
+                            <span>سارة</span>
+                        </div>
+                        <div class="transfer-user">
+                            <img src="https://i.pravatar.cc/150?img=8" alt="User">
+                            <span>خالد</span>
+                        </div>
+                        <div class="transfer-user add-new">
+                            <div class="add-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <span>إضافة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-methods-section">
+                <div class="section-header">
+                    <h3 class="section-title">طرق الدفع</h3>
+                    <button class="btn btn-outline btn-sm" onclick="addPaymentMethod()">
+                        <i class="fas fa-plus"></i>
+                        إضافة طريقة دفع
+                    </button>
+                </div>
+
+                <div class="payment-methods-grid">
+                    <!-- Bank Card -->
+                    <div class="payment-method-card bank active">
+                        <div class="payment-method-header">
+                            <i class="fas fa-university"></i>
+                            <span class="default-badge">افتراضي</span>
+                        </div>
+                        <div class="payment-method-content">
+                            <h4>البنك الأهلي</h4>
+                            <p class="account-number">**** **** **** 4532</p>
+                            <p class="account-holder">أحمد محمد علي</p>
+                        </div>
+                        <div class="payment-method-actions">
+                            <button class="btn-icon">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bitcoin Wallet -->
+                    <div class="payment-method-card crypto">
+                        <div class="payment-method-header">
+                            <i class="fab fa-bitcoin"></i>
+                        </div>
+                        <div class="payment-method-content">
+                            <h4>Bitcoin Wallet</h4>
+                            <p class="account-number">bc1qxy2...fjhx0wlh</p>
+                            <p class="account-holder">محفظة BTC الرئيسية</p>
+                        </div>
+                        <div class="payment-method-actions">
+                            <button class="btn-icon">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- USDT Wallet -->
+                    <div class="payment-method-card crypto">
+                        <div class="payment-method-header">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="payment-method-content">
+                            <h4>USDT (TRC20)</h4>
+                            <p class="account-number">TWd8n3...8hd9sk2</p>
+                            <p class="account-holder">محفظة USDT</p>
+                        </div>
+                        <div class="payment-method-actions">
+                            <button class="btn-icon">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Add New -->
+                    <div class="payment-method-card add-new" onclick="addPaymentMethod()">
+                        <div class="add-method-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <p>إضافة طريقة دفع جديدة</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Wallet Activity -->
+            <div class="wallet-activity-section">
+                <div class="section-header">
+                    <h3 class="section-title">نشاط المحفظة الأخير</h3>
+                    <a href="transactions.html" class="view-all-link">
+                        عرض الكل <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-item">
+                        <div class="activity-icon deposit">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="activity-info">
+                            <h4>إيداع</h4>
+                            <p>Bitcoin Wallet • اليوم 10:30 صباحاً</p>
+                        </div>
+                        <div class="activity-amount positive">+$500.00</div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon profit">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="activity-info">
+                            <h4>أرباح يومية</h4>
+                            <p>الخطة الاحترافية • اليوم 12:00 صباحاً</p>
+                        </div>
+                        <div class="activity-amount positive">+$125.00</div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon withdraw">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="activity-info">
+                            <h4>سحب</h4>
+                            <p>Bank Transfer • أمس 03:45 مساءً</p>
+                        </div>
+                        <div class="activity-amount negative">-$300.00</div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon referral">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="activity-info">
+                            <h4>عمولة إحالة</h4>
+                            <p>من: محمد علي • أمس 11:20 صباحاً</p>
+                        </div>
+                        <div class="activity-amount positive">+$45.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Deposit Modal -->
+    <div class="modal-overlay" id="depositModal" style="display: none;">
+        <div class="modal-content wallet-modal">
+            <div class="modal-header">
+                <h2>إيداع رصيد</h2>
+                <button class="modal-close" onclick="closeDepositModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Payment Method Selection -->
+                <div class="form-group">
+                    <label class="form-label">اختر طريقة الدفع</label>
+                    <div class="payment-options">
+                        <div class="payment-option active" data-method="bank">
+                            <i class="fas fa-university"></i>
+                            <span>تحويل بنكي</span>
+                        </div>
+                        <div class="payment-option" data-method="btc">
+                            <i class="fab fa-bitcoin"></i>
+                            <span>Bitcoin</span>
+                        </div>
+                        <div class="payment-option" data-method="usdt">
+                            <i class="fas fa-coins"></i>
+                            <span>USDT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amount Input -->
+                <div class="form-group">
+                    <label class="form-label">المبلغ المراد إيداعه</label>
+                    <div class="input-wrapper">
+                        <input type="number" class="form-input" placeholder="0.00" id="depositAmount">
+                        <span class="input-currency">USD</span>
+                    </div>
+                    <small class="input-hint">الحد الأدنى: $10 • الحد الأقصى: $100,000</small>
+                </div>
+
+                <!-- Quick Amounts -->
+                <div class="quick-amounts">
+                    <button class="quick-amount-btn" onclick="setAmount(100)">$100</button>
+                    <button class="quick-amount-btn" onclick="setAmount(500)">$500</button>
+                    <button class="quick-amount-btn" onclick="setAmount(1000)">$1,000</button>
+                    <button class="quick-amount-btn" onclick="setAmount(5000)">$5,000</button>
+                </div>
+
+                <!-- Deposit Info -->
+                <div class="deposit-info">
+                    <div class="info-row">
+                        <span>المبلغ</span>
+                        <span id="depositAmountDisplay">$0.00</span>
+                    </div>
+                    <div class="info-row">
+                        <span>الرسوم</span>
+                        <span>$0.00</span>
+                    </div>
+                    <div class="info-row total">
+                        <span>الإجمالي</span>
+                        <span id="depositTotal">$0.00</span>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button class="btn btn-accent btn-block btn-lg" onclick="processDeposit()">
+                    <i class="fas fa-arrow-down"></i>
+                    تأكيد الإيداع
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Withdraw Modal -->
+    <div class="modal-overlay" id="withdrawModal" style="display: none;">
+        <div class="modal-content wallet-modal">
+            <div class="modal-header">
+                <h2>سحب رصيد</h2>
+                <button class="modal-close" onclick="closeWithdrawModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Available Balance -->
+                <div class="available-balance">
+                    <span>الرصيد المتاح</span>
+                    <h3>$4,047.89</h3>
+                </div>
+
+                <!-- Payment Method Selection -->
+                <div class="form-group">
+                    <label class="form-label">اختر طريقة الاستلام</label>
+                    <select class="form-input">
+                        <option>البنك الأهلي - **** 4532</option>
+                        <option>Bitcoin Wallet - bc1qxy2...fjhx0wlh</option>
+                        <option>USDT (TRC20) - TWd8n3...8hd9sk2</option>
+                    </select>
+                </div>
+
+                <!-- Amount Input -->
+                <div class="form-group">
+                    <label class="form-label">المبلغ المراد سحبه</label>
+                    <div class="input-wrapper">
+                        <input type="number" class="form-input" placeholder="0.00" id="withdrawAmount">
+                        <span class="input-currency">USD</span>
+                    </div>
+                    <small class="input-hint">الحد الأدنى: $10 • الحد الأقصى: $4,047.89</small>
+                </div>
+
+                <!-- Quick Amounts -->
+                <div class="quick-amounts">
+                    <button class="quick-amount-btn" onclick="setWithdrawAmount(100)">$100</button>
+                    <button class="quick-amount-btn" onclick="setWithdrawAmount(500)">$500</button>
+                    <button class="quick-amount-btn" onclick="setWithdrawAmount(1000)">$1,000</button>
+                    <button class="quick-amount-btn" onclick="setWithdrawAmount('all')">الكل</button>
+                </div>
+
+                <!-- Withdraw Info -->
+                <div class="deposit-info">
+                    <div class="info-row">
+                        <span>المبلغ</span>
+                        <span id="withdrawAmountDisplay">$0.00</span>
+                    </div>
+                    <div class="info-row">
+                        <span>الرسوم (2%)</span>
+                        <span id="withdrawFee">$0.00</span>
+                    </div>
+                    <div class="info-row total">
+                        <span>سيتم استلام</span>
+                        <span id="withdrawTotal">$0.00</span>
+                    </div>
+                </div>
+
+                <!-- Warning -->
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>يستغرق معالجة طلب السحب من 24 إلى 72 ساعة</p>
+                </div>
+
+                <!-- Submit Button -->
+                <button class="btn btn-secondary btn-block btn-lg" onclick="processWithdraw()">
+                    <i class="fas fa-arrow-up"></i>
+                    تأكيد السحب
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/wallet.js"></script>
+</body>
+</html>
