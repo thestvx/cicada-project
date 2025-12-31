@@ -1,4 +1,5 @@
-import { auth, db, doc, setDoc, serverTimestamp } from './firebase-config.js';
+import { auth, db, doc, setDoc } from './firebase-config.js'; 
+// لاحظ: أزلت serverTimestamp من الاستيراد لتجنب المشاكل
 
 const form = document.getElementById('onboardingForm');
 const finishBtn = document.getElementById('finishBtn');
@@ -8,68 +9,56 @@ auth.onAuthStateChanged((user) => {
     if (!user) window.location.replace('login.html');
 });
 
-// 2. معالجة النموذج عند الضغط على "إكمال"
+// 2. معالجة النموذج
 form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // منع تحديث الصفحة التقليدي
+    e.preventDefault();
     
-    console.log("🚀 زر الحفظ تم ضغطه!");
+    console.log("🚀 بدأنا عملية الحفظ...");
 
     const user = auth.currentUser;
     if (!user) {
-        alert("يبدو أنك لست مسجلاً للدخول!");
+        alert("يرجى تسجيل الدخول أولاً!");
         return;
     }
 
-    // تغيير شكل الزر للتحميل
+    // قفل الزر وتشغيل التحميل
     finishBtn.disabled = true;
     finishBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> جاري الحفظ...';
 
     try {
-        // جمع البيانات النصية فقط (آمن جداً)
-        // نستخدم القيم الافتراضية || '' لتجنب أي خطأ في القراءة
-        const address = document.getElementById('address')?.value || '';
-        const dob = document.getElementById('dob')?.value || '';
-        const investmentPlan = document.getElementById('investmentAmount')?.value || '50-500';
-        const experience = document.getElementById('experience')?.value || 'beginner';
-        const country = document.getElementById('country')?.value || 'SA';
-        
-        // التعامل الآمن مع الراديو (Radio Buttons)
-        const selectedDoc = document.querySelector('input[name="docType"]:checked');
-        const kycDocType = selectedDoc ? selectedDoc.value : 'passport';
-
-        console.log("📦 البيانات التي سيتم حفظها:", { address, country, kycDocType });
-
-        // تجهيز كائن البيانات
+        // جمع البيانات (مع حماية ضد الحقول الفارغة)
         const formData = {
-            address: address,
-            dob: dob,
-            investmentPlan: investmentPlan,
-            experience: experience,
-            country: country,
-            kycDocType: kycDocType,
+            address: document.getElementById('address')?.value || '',
+            dob: document.getElementById('dob')?.value || '',
+            investmentPlan: document.getElementById('investmentAmount')?.value || '50-500',
+            experience: document.getElementById('experience')?.value || 'beginner',
+            country: document.getElementById('country')?.value || 'SA',
+            kycDocType: document.querySelector('input[name="docType"]:checked')?.value || 'passport',
             
-            // المفاتيح المهمة للنظام
+            // المفاتيح الأساسية
             onboardingCompleted: true,
             kycStatus: 'pending',
-            updatedAt: serverTimestamp()
+            
+            // 🔥 التعديل المهم هنا: استخدام تاريخ الجافاسكريبت العادي بدلاً من Firebase
+            updatedAt: new Date().toISOString() 
         };
 
-        // الحفظ في قاعدة البيانات
-        // نستخدم merge: true لنحافظ على الإيميل والاسم الموجودين مسبقاً
+        console.log("📦 جاري إرسال البيانات لقاعدة البيانات:", formData);
+
+        // الحفظ في Firestore
         await setDoc(doc(db, "users", user.uid), formData, { merge: true });
         
-        console.log("✅ تم الحفظ بنجاح!");
+        console.log("✅ تم الحفظ! جاري الانتقال...");
         
-        alert('تم إكمال ملفك بنجاح! جاري توجيهك لصفحة البروفايل...');
-        
-        // التوجيه لصفحة البروفايل
+        // الانتقال للصفحة التالية
         window.location.replace('profile.html');
         
     } catch (error) {
-        console.error("❌ حدث خطأ أثناء الحفظ:", error);
-        alert("حدث خطأ غير متوقع: " + error.message);
+        // هذا الكود سيعمل فقط إذا حدثت مصيبة في الاتصال
+        console.error("❌ الخطأ بالتفصيل:", error);
+        alert("فشل الحفظ: " + error.message);
         
-        // إعادة الزر لوضعه الطبيعي عند الخطأ
+        // إعادة الزر للعمل
         finishBtn.disabled = false;
         finishBtn.innerHTML = 'إكمال وإرسال';
     }
