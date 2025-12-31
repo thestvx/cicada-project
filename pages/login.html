@@ -4,177 +4,246 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تسجيل الدخول - Cicada</title>
-    <meta name="description" content="سجل دخولك إلى حسابك في منصة Cicada وابدأ في تحقيق أرباحك اليومية">
     
-    <!-- CSS Files -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/auth.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
 </head>
-<body>
-    <div class="auth-page">
-        <div class="auth-container">
-            <!-- Left Side - Branding -->
-            <div class="auth-brand">
-                <div class="auth-brand-content">
-                    <div class="auth-logo">
-                        <i class="fas fa-coins"></i>
+<body class="auth-page">
+
+    <!-- Background Effects -->
+    <div class="auth-background">
+        <div class="auth-gradient"></div>
+        <div class="auth-grid"></div>
+    </div>
+
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <!-- Left Side - Branding -->
+        <div class="auth-branding">
+            <a href="../index.html" class="auth-logo">
+                <i class="fas fa-circle-notch"></i>
+                <span>CICADA</span>
+            </a>
+
+            <div class="branding-content">
+                <h1 class="branding-title">مرحباً بعودتك!</h1>
+                <p class="branding-description">
+                    استمر في رحلتك الاستثمارية وحقق أهدافك المالية معنا
+                </p>
+
+                <div class="branding-stats">
+                    <div class="branding-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">50K+</div>
+                            <div class="stat-label">مستثمر نشط</div>
+                        </div>
                     </div>
-                    <h1>Cicada - سيكادا</h1>
-                    <p>منصة الاستثمار والمهام الرائدة في العالم العربي</p>
-                    
-                    <div class="auth-brand-features">
-                        <div class="brand-feature">
-                            <i class="fas fa-shield-alt"></i>
-                            <div class="brand-feature-text">
-                                <h4>آمن ومضمون</h4>
-                                <p>حماية متقدمة لحسابك وأموالك</p>
-                            </div>
+
+                    <div class="branding-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-shield-halved"></i>
                         </div>
-                        <div class="brand-feature">
+                        <div class="stat-info">
+                            <div class="stat-value">100%</div>
+                            <div class="stat-label">أمان مضمون</div>
+                        </div>
+                    </div>
+
+                    <div class="branding-stat">
+                        <div class="stat-icon">
                             <i class="fas fa-chart-line"></i>
-                            <div class="brand-feature-text">
-                                <h4>أرباح يومية</h4>
-                                <p>حقق أرباح تصل إلى 3.5% يومياً</p>
-                            </div>
                         </div>
-                        <div class="brand-feature">
-                            <i class="fas fa-headset"></i>
-                            <div class="brand-feature-text">
-                                <h4>دعم 24/7</h4>
-                                <p>فريق دعم متاح دائماً لمساعدتك</p>
-                            </div>
+                        <div class="stat-info">
+                            <div class="stat-value">$2.4M+</div>
+                            <div class="stat-label">حجم التداول</div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Right Side - Login Form -->
+                <div class="branding-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>عوائد يومية مضمونة</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>سحب فوري للأرباح</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>دعم فني 24/7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="auth-form-wrapper">
             <div class="auth-form-container">
-                <a href="../index.html" class="auth-back-btn">
+                <!-- Back Button -->
+                <a href="../index.html" class="back-to-home">
                     <i class="fas fa-arrow-right"></i>
                     <span>العودة للرئيسية</span>
                 </a>
 
-                <div class="auth-header">
-                    <h2>مرحبا بعودتك!</h2>
-                    <p>سجل دخولك للوصول إلى حسابك</p>
+                <!-- Form Header -->
+                <div class="form-header">
+                    <h2 class="form-title">تسجيل الدخول</h2>
+                    <p class="form-description">أدخل بياناتك للوصول إلى حسابك</p>
                 </div>
 
-                <!-- Alert Messages -->
-                <div id="alertContainer"></div>
+                <!-- Social Login -->
+                <div class="social-login">
+                    <button class="social-btn google">
+                        <i class="fab fa-google"></i>
+                        <span>تسجيل الدخول بـ Google</span>
+                    </button>
+                    <button class="social-btn facebook">
+                        <i class="fab fa-facebook"></i>
+                        <span>تسجيل الدخول بـ Facebook</span>
+                    </button>
+                </div>
+
+                <div class="divider">
+                    <span>أو باستخدام البريد الإلكتروني</span>
+                </div>
 
                 <!-- Login Form -->
-                <form class="auth-form" id="loginForm">
-                    <!-- Email -->
+                <form id="loginForm" class="auth-form">
+                    <!-- Email Input -->
                     <div class="form-group">
-                        <label class="form-label" for="email">
-                            البريد الإلكتروني <span class="required">*</span>
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            البريد الإلكتروني
                         </label>
-                        <div class="form-input-wrapper">
+                        <div class="input-wrapper">
                             <input 
                                 type="email" 
                                 id="email" 
-                                name="email"
+                                name="email" 
                                 class="form-input" 
-                                placeholder="your@email.com"
+                                placeholder="example@email.com"
                                 required
-                                autocomplete="email"
                             >
-                            <i class="fas fa-envelope form-icon"></i>
+                            <span class="input-icon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
                         </div>
-                        <span class="form-error" id="emailError"></span>
                     </div>
 
-                    <!-- Password -->
+                    <!-- Password Input -->
                     <div class="form-group">
-                        <label class="form-label" for="password">
-                            كلمة المرور <span class="required">*</span>
+                        <label for="password" class="form-label">
+                            <i class="fas fa-lock"></i>
+                            كلمة المرور
                         </label>
-                        <div class="form-input-wrapper">
+                        <div class="input-wrapper">
                             <input 
                                 type="password" 
                                 id="password" 
-                                name="password"
+                                name="password" 
                                 class="form-input" 
                                 placeholder="••••••••"
                                 required
-                                autocomplete="current-password"
                             >
-                            <i class="fas fa-lock form-icon"></i>
-                            <button type="button" class="password-toggle" id="togglePassword">
+                            <span class="input-icon toggle-password" onclick="togglePassword()">
                                 <i class="fas fa-eye"></i>
-                            </button>
+                            </span>
                         </div>
-                        <span class="form-error" id="passwordError"></span>
                     </div>
 
-                    <!-- 2FA Code (Hidden by default) -->
-                    <div class="form-group" id="twoFactorGroup" style="display: none;">
-                        <label class="form-label" for="twoFactorCode">
-                            رمز التحقق الثنائي <span class="required">*</span>
+                    <!-- Remember & Forgot -->
+                    <div class="form-options">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" name="remember">
+                            <span class="checkbox-label">تذكرني</span>
                         </label>
-                        <div class="form-input-wrapper">
-                            <input 
-                                type="text" 
-                                id="twoFactorCode" 
-                                name="twoFactorCode"
-                                class="form-input" 
-                                placeholder="123456"
-                                maxlength="6"
-                                pattern="[0-9]{6}"
-                            >
-                            <i class="fas fa-shield-alt form-icon"></i>
-                        </div>
-                        <span class="form-error" id="twoFactorError"></span>
-                    </div>
-
-                    <!-- Remember Me & Forgot Password -->
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="rememberMe" name="rememberMe">
-                        <label for="rememberMe">تذكرني</label>
-                        <a href="forgot-password.html" style="margin-right: auto;">نسيت كلمة المرور؟</a>
+                        <a href="forgot-password.html" class="forgot-link">
+                            نسيت كلمة المرور؟
+                        </a>
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="btn-auth" id="loginBtn">
-                        <span class="btn-text">
-                            <i class="fas fa-sign-in-alt"></i>
-                            تسجيل الدخول
-                        </span>
-                        <div class="loading spinner"></div>
+                    <button type="submit" class="btn btn-accent btn-block btn-lg">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>تسجيل الدخول</span>
                     </button>
+
+                    <!-- Register Link -->
+                    <div class="form-footer">
+                        <p>ليس لديك حساب؟</p>
+                        <a href="register.html" class="register-link">
+                            سجل الآن مجاناً
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
                 </form>
 
-                <!-- Social Login -->
-                <div class="auth-divider">أو سجل دخولك عبر</div>
-                
-                <div class="social-login">
-                    <button class="btn-social google">
-                        <i class="fab fa-google"></i>
-                        Google
-                    </button>
-                    <button class="btn-social facebook">
-                        <i class="fab fa-facebook"></i>
-                        Facebook
-                    </button>
-                </div>
-
-                <!-- Footer -->
-                <div class="auth-footer">
-                    <p>ليس لديك حساب؟ <a href="register.html">إنشاء حساب جديد</a></p>
+                <!-- Security Badge -->
+                <div class="security-badge">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>محمي بتشفير SSL 256-bit</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript Files -->
+    <!-- Scripts -->
     <script src="../scripts/main.js"></script>
-    <script src="../scripts/auth.js"></script>
+    <script>
+        // Toggle Password Visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const icon = event.currentTarget.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Form Submission
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Show loading
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalHTML = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري تسجيل الدخول...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Success - redirect to dashboard
+                window.location.href = 'dashboard.html';
+            }, 1500);
+        });
+
+        // Social Login
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('جاري تطوير تسجيل الدخول عبر وسائل التواصل الاجتماعي');
+            });
+        });
+    </script>
 </body>
 </html>
-
