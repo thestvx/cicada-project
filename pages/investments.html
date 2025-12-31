@@ -3,481 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>استثماراتي - Cicada</title>
-    
-    <!-- Fonts -->
+    <title>الاستثمارات - Cicada</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
-    <link rel="stylesheet" href="../styles/investments.css">
+    <style>
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .plan-card { background: #1E2329; border: 1px solid #2B3139; padding: 20px; border-radius: 12px; transition: 0.3s; position: relative; overflow: hidden; }
+        .plan-card:hover { transform: translateY(-5px); border-color: #F0B90B; }
+        .plan-name { font-size: 1.2rem; color: #fff; margin-bottom: 10px; }
+        .plan-roi { font-size: 2rem; color: #F0B90B; font-weight: bold; }
+        .plan-details { list-style: none; padding: 0; margin: 20px 0; color: #848E9C; }
+        .plan-details li { margin-bottom: 8px; display: flex; justify-content: space-between; }
+    </style>
 </head>
 <body class="dashboard-page">
 
-    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <a href="../index.html" class="sidebar-logo">
-                <i class="fas fa-circle-notch"></i>
-                <span>CICADA</span>
-            </a>
-        </div>
-
+        <!-- نفس القائمة الجانبية -->
+        <div class="sidebar-header"><a href="../index.html" class="sidebar-logo"><i class="fas fa-circle-notch"></i><span>CICADA</span></a></div>
         <nav class="sidebar-nav">
-            <a href="dashboard.html" class="nav-item">
-                <i class="fas fa-home"></i>
-                <span>الرئيسية</span>
-            </a>
-            <a href="investments.html" class="nav-item active">
-                <i class="fas fa-chart-pie"></i>
-                <span>استثماراتي</span>
-                <span class="badge badge-primary">3</span>
-            </a>
-            <a href="tasks.html" class="nav-item">
-                <i class="fas fa-tasks"></i>
-                <span>المهام اليومية</span>
-            </a>
-            <a href="transactions.html" class="nav-item">
-                <i class="fas fa-exchange-alt"></i>
-                <span>المعاملات</span>
-            </a>
-            <a href="referral.html" class="nav-item">
-                <i class="fas fa-users"></i>
-                <span>برنامج الإحالة</span>
-            </a>
-            <a href="wallet.html" class="nav-item">
-                <i class="fas fa-wallet"></i>
-                <span>المحفظة</span>
-            </a>
-            <a href="profile.html" class="nav-item">
-                <i class="fas fa-user"></i>
-                <span>الملف الشخصي</span>
-            </a>
-            <a href="settings.html" class="nav-item">
-                <i class="fas fa-cog"></i>
-                <span>الإعدادات</span>
-            </a>
+            <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+            <a href="investments.html" class="nav-item active"><i class="fas fa-chart-pie"></i><span>استثماراتي</span></a>
+            <a href="wallet.html" class="nav-item"><i class="fas fa-wallet"></i><span>المحفظة</span></a>
+            <a href="profile.html" class="nav-item"><i class="fas fa-user"></i><span>الملف الشخصي</span></a>
         </nav>
-
         <div class="sidebar-footer">
-            <a href="support.html" class="nav-item">
-                <i class="fas fa-headset"></i>
-                <span>الدعم الفني</span>
-            </a>
-            <a href="../index.html" class="nav-item logout">
-                <i class="fas fa-sign-out-alt"></i>
-                <span>تسجيل الخروج</span>
-            </a>
+            <button class="nav-item logout" style="background:none; border:none; width:100%; text-align:right; cursor:pointer; color:#848E9C;">
+                <i class="fas fa-sign-out-alt"></i><span>تسجيل الخروج</span>
+            </button>
         </div>
     </aside>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Topbar -->
         <header class="topbar">
-            <div class="topbar-left">
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <h1 class="page-title">استثماراتي</h1>
-            </div>
-
-            <div class="topbar-right">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="ابحث...">
-                </div>
-
-                <div class="topbar-item">
-                    <button class="icon-btn" id="notificationBtn">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-badge">3</span>
-                    </button>
-                </div>
-
-                <div class="topbar-item">
-                    <button class="user-menu-btn">
-                        <img src="https://i.pravatar.cc/150?img=1" alt="User" class="user-avatar">
-                        <span class="user-name">أحمد محمد</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            <h1 class="page-title">الاستثمارات</h1>
         </header>
 
-        <!-- Investment Content -->
         <div class="dashboard-content">
-            <!-- Investment Overview -->
-            <div class="investment-overview">
-                <div class="overview-card total">
-                    <div class="overview-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <div class="overview-details">
-                        <p class="overview-label">إجمالي الاستثمارات</p>
-                        <h3 class="overview-value">$8,500.00</h3>
-                        <span class="overview-info">3 خطط نشطة</span>
-                    </div>
-                </div>
-
-                <div class="overview-card profit">
-                    <div class="overview-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <div class="overview-details">
-                        <p class="overview-label">إجمالي الأرباح</p>
-                        <h3 class="overview-value">$970.00</h3>
-                        <span class="overview-info positive">+11.4% ROI</span>
-                    </div>
-                </div>
-
-                <div class="overview-card daily">
-                    <div class="overview-icon">
-                        <i class="fas fa-calendar-day"></i>
-                    </div>
-                    <div class="overview-details">
-                        <p class="overview-label">أرباح اليوم</p>
-                        <h3 class="overview-value">$215.40</h3>
-                        <span class="overview-info">من جميع الخطط</span>
-                    </div>
-                </div>
-
-                <div class="overview-card available">
-                    <div class="overview-icon">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <div class="overview-details">
-                        <p class="overview-label">الرصيد المتاح</p>
-                        <h3 class="overview-value">$4,047.89</h3>
-                        <span class="overview-info">جاهز للاستثمار</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Investment Plans Section -->
-            <div class="section-header">
-                <h2 class="section-title">خطط الاستثمار المتاحة</h2>
-                <p class="section-description">اختر الخطة المناسبة لك وابدأ الاستثمار</p>
-            </div>
-
+            <h2 style="margin-bottom: 20px; color: #fff;">اختر خطة استثمارية</h2>
+            
             <div class="plans-grid">
-                <!-- Basic Plan -->
-                <div class="investment-plan-card basic">
-                    <div class="plan-badge">شائع</div>
-                    <div class="plan-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
+                <!-- Plan 1 -->
+                <div class="plan-card">
                     <h3 class="plan-name">الخطة الأساسية</h3>
-                    <div class="plan-return">
-                        <span class="return-percent">1.5%</span>
-                        <span class="return-period">يومياً</span>
-                    </div>
-                    <div class="plan-range">
-                        <span class="range-label">المدى</span>
-                        <span class="range-value">$50 - $999</span>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> عائد يومي 1.5%</li>
-                        <li><i class="fas fa-check"></i> مدة 30 يوم</li>
-                        <li><i class="fas fa-check"></i> سحب يومي</li>
-                        <li><i class="fas fa-check"></i> دعم فني 24/7</li>
+                    <div class="plan-roi">1.5% <small style="font-size:1rem; color:#888">يومياً</small></div>
+                    <ul class="plan-details">
+                        <li><span>المدة:</span> <span>30 يوم</span></li>
+                        <li><span>الحد الأدنى:</span> <span>$50</span></li>
+                        <li><span>إجمالي العائد:</span> <span>145%</span></li>
                     </ul>
-                    <button class="btn btn-primary btn-block" onclick="openInvestModal('basic', 1.5, 50, 999)">
-                        <i class="fas fa-plus"></i>
-                        استثمر الآن
-                    </button>
+                    <button class="btn btn-accent btn-block invest-btn" data-plan="basic" data-price="50">استثمار الآن ($50)</button>
                 </div>
 
-                <!-- Professional Plan -->
-                <div class="investment-plan-card pro featured">
-                    <div class="plan-badge featured">الأكثر شعبية</div>
-                    <div class="plan-icon">
-                        <i class="fas fa-gem"></i>
-                    </div>
-                    <h3 class="plan-name">الخطة الاحترافية</h3>
-                    <div class="plan-return">
-                        <span class="return-percent">2.5%</span>
-                        <span class="return-period">يومياً</span>
-                    </div>
-                    <div class="plan-range">
-                        <span class="range-label">المدى</span>
-                        <span class="range-value">$1,000 - $9,999</span>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> عائد يومي 2.5%</li>
-                        <li><i class="fas fa-check"></i> مدة 30 يوم</li>
-                        <li><i class="fas fa-check"></i> سحب يومي</li>
-                        <li><i class="fas fa-check"></i> مدير حساب شخصي</li>
-                        <li><i class="fas fa-check"></i> أولوية في الدعم</li>
+                <!-- Plan 2 -->
+                <div class="plan-card">
+                    <h3 class="plan-name">الخطة الذهبية</h3>
+                    <div class="plan-roi">2.5% <small style="font-size:1rem; color:#888">يومياً</small></div>
+                    <ul class="plan-details">
+                        <li><span>المدة:</span> <span>30 يوم</span></li>
+                        <li><span>الحد الأدنى:</span> <span>$500</span></li>
+                        <li><span>إجمالي العائد:</span> <span>175%</span></li>
                     </ul>
-                    <button class="btn btn-accent btn-block" onclick="openInvestModal('pro', 2.5, 1000, 9999)">
-                        <i class="fas fa-rocket"></i>
-                        استثمر الآن
-                    </button>
-                </div>
-
-                <!-- VIP Plan -->
-                <div class="investment-plan-card vip">
-                    <div class="plan-badge premium">VIP</div>
-                    <div class="plan-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h3 class="plan-name">خطة المؤسسات</h3>
-                    <div class="plan-return">
-                        <span class="return-percent">3.5%</span>
-                        <span class="return-period">يومياً</span>
-                    </div>
-                    <div class="plan-range">
-                        <span class="range-label">المدى</span>
-                        <span class="range-value">$10,000+</span>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> عائد يومي 3.5%</li>
-                        <li><i class="fas fa-check"></i> مدة 30 يوم</li>
-                        <li><i class="fas fa-check"></i> سحب فوري</li>
-                        <li><i class="fas fa-check"></i> مدير حساب مخصص</li>
-                        <li><i class="fas fa-check"></i> استشارات مالية</li>
-                        <li><i class="fas fa-check"></i> دعم VIP</li>
-                    </ul>
-                    <button class="btn btn-outline btn-block" onclick="openInvestModal('vip', 3.5, 10000, 999999)">
-                        <i class="fas fa-plus"></i>
-                        استثمر الآن
-                    </button>
-                </div>
-            </div>
-
-            <!-- Active Investments -->
-            <div class="section-header" style="margin-top: 3rem;">
-                <h2 class="section-title">استثماراتي النشطة</h2>
-            </div>
-
-            <div class="active-investments-grid">
-                <!-- Investment 1 -->
-                <div class="active-investment-card pro">
-                    <div class="investment-header">
-                        <div class="investment-badge pro">
-                            <i class="fas fa-gem"></i>
-                            احترافية
-                        </div>
-                        <div class="investment-status active">
-                            <i class="fas fa-circle"></i>
-                            نشط
-                        </div>
-                    </div>
-
-                    <div class="investment-amount-section">
-                        <p class="amount-label">المبلغ المستثمر</p>
-                        <h3 class="amount-value">$5,000.00</h3>
-                    </div>
-
-                    <div class="investment-progress">
-                        <div class="progress-info">
-                            <span>التقدم</span>
-                            <span>15 / 30 يوم</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 50%"></div>
-                        </div>
-                    </div>
-
-                    <div class="investment-stats">
-                        <div class="stat-item">
-                            <span class="stat-label">العائد اليومي</span>
-                            <span class="stat-value success">$125.00</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">إجمالي الأرباح</span>
-                            <span class="stat-value success">$625.00</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">تاريخ البدء</span>
-                            <span class="stat-value">15 ديسمبر 2025</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">تاريخ الانتهاء</span>
-                            <span class="stat-value">14 يناير 2026</span>
-                        </div>
-                    </div>
-
-                    <div class="investment-actions">
-                        <button class="btn btn-outline btn-sm" onclick="viewInvestmentDetails(1)">
-                            <i class="fas fa-eye"></i>
-                            التفاصيل
-                        </button>
-                        <button class="btn btn-primary btn-sm">
-                            <i class="fas fa-dollar-sign"></i>
-                            سحب الأرباح
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Investment 2 -->
-                <div class="active-investment-card basic">
-                    <div class="investment-header">
-                        <div class="investment-badge basic">
-                            <i class="fas fa-star"></i>
-                            أساسية
-                        </div>
-                        <div class="investment-status active">
-                            <i class="fas fa-circle"></i>
-                            نشط
-                        </div>
-                    </div>
-
-                    <div class="investment-amount-section">
-                        <p class="amount-label">المبلغ المستثمر</p>
-                        <h3 class="amount-value">$2,000.00</h3>
-                    </div>
-
-                    <div class="investment-progress">
-                        <div class="progress-info">
-                            <span>التقدم</span>
-                            <span>8 / 30 يوم</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 27%"></div>
-                        </div>
-                    </div>
-
-                    <div class="investment-stats">
-                        <div class="stat-item">
-                            <span class="stat-label">العائد اليومي</span>
-                            <span class="stat-value success">$30.00</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">إجمالي الأرباح</span>
-                            <span class="stat-value success">$198.00</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">تاريخ البدء</span>
-                            <span class="stat-value">22 ديسمبر 2025</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">تاريخ الانتهاء</span>
-                            <span class="stat-value">21 يناير 2026</span>
-                        </div>
-                    </div>
-
-                    <div class="investment-actions">
-                        <button class="btn btn-outline btn-sm" onclick="viewInvestmentDetails(2)">
-                            <i class="fas fa-eye"></i>
-                            التفاصيل
-                        </button>
-                        <button class="btn btn-primary btn-sm">
-                            <i class="fas fa-dollar-sign"></i>
-                            سحب الأرباح
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Investment 3 -->
-                <div class="active-investment-card vip">
-                    <div class="investment-header">
-                        <div class="investment-badge vip">
-                            <i class="fas fa-crown"></i>
-                            VIP
-                        </div>
-                        <div class="investment-status active">
-                            <i class="fas fa-circle"></i>
-                            نشط
-                        </div>
-                    </div>
-
-                    <div class="investment-amount-section">
-                        <p class="amount-label">المبلغ المستثمر</p>
-                        <h3 class="amount-value">$1,500.00</h3>
-                    </div>
-
-                    <div class="investment-progress">
-                        <div class="progress-info">
-                            <span>التقدم</span>
-                            <span>22 / 30 يوم</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 73%"></div>
-                        </div>
-                    </div>
-
-                    <div class="investment-stats">
-                        <div class="stat-item">
-                            <span class="stat-label">العائد اليومي</span>
-                            <span class="stat-value success">$52.50</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">إجمالي الأرباح</span>
-                            <span class="stat-value success">$147.00</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">تاريخ البدء</span>
-                            <span class="stat-value">8 ديسمبر 2025</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">تاريخ الانتهاء</span>
-                            <span class="stat-value">7 يناير 2026</span>
-                        </div>
-                    </div>
-
-                    <div class="investment-actions">
-                        <button class="btn btn-outline btn-sm" onclick="viewInvestmentDetails(3)">
-                            <i class="fas fa-eye"></i>
-                            التفاصيل
-                        </button>
-                        <button class="btn btn-primary btn-sm">
-                            <i class="fas fa-dollar-sign"></i>
-                            سحب الأرباح
-                        </button>
-                    </div>
+                    <button class="btn btn-accent btn-block invest-btn" data-plan="gold" data-price="500">استثمار الآن ($500)</button>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Investment Modal -->
-    <div class="modal-overlay" id="investModal" style="display: none;">
-        <div class="modal-content investment-modal">
-            <div class="modal-header">
-                <h2>استثمار جديد</h2>
-                <button class="modal-close" onclick="closeInvestModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="plan-info-box" id="planInfoBox"></div>
-
-                <form id="investForm">
-                    <div class="form-group">
-                        <label class="form-label">المبلغ المراد استثماره</label>
-                        <div class="input-wrapper">
-                            <input type="number" id="investAmount" class="form-input" placeholder="أدخل المبلغ" required>
-                            <span class="input-currency">USD</span>
-                        </div>
-                        <small class="input-hint" id="amountHint"></small>
-                    </div>
-
-                    <div class="calculation-box" id="calculationBox"></div>
-
-                    <div class="form-group">
-                        <label class="checkbox-wrapper">
-                            <input type="checkbox" required>
-                            <span class="checkbox-label">أوافق على الشروط والأحكام</span>
-                        </label>
-                    </div>
-
-                    <button type="submit" class="btn btn-accent btn-block btn-lg">
-                        <i class="fas fa-check"></i>
-                        تأكيد الاستثمار
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <!-- Scripts -->
-    <script src="../scripts/main.js"></script>
-    <script src="../scripts/investments.js"></script>
+    <script type="module" src="../scripts/auth-guard.js"></script>
+    <script type="module" src="../scripts/common.js"></script>
+    <script type="module" src="../scripts/investments.js"></script>
 </body>
 </html>
