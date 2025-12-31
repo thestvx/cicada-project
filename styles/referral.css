@@ -1,0 +1,544 @@
+/**
+ * Referral Page Styles
+ */
+
+/* ============================================
+   REFERRAL OVERVIEW
+============================================ */
+
+.referral-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.overview-card.active .overview-icon {
+    background: linear-gradient(135deg, rgba(55, 114, 255, 0.15), rgba(55, 114, 255, 0.05));
+    color: var(--secondary);
+}
+
+.overview-card.earnings .overview-icon {
+    background: linear-gradient(135deg, rgba(14, 203, 129, 0.15), rgba(14, 203, 129, 0.05));
+    color: var(--success);
+}
+
+/* ============================================
+   REFERRAL LINK CARD
+============================================ */
+
+.referral-link-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.referral-link-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.referral-link-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.referral-link-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.referral-commission-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: var(--radius-full);
+    color: white;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.referral-link-box {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.link-display {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+}
+
+.link-display i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.link-display input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+}
+
+.link-display input:focus {
+    outline: none;
+}
+
+.share-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.25rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.share-btn.whatsapp:hover {
+    background: #25D366;
+    border-color: #25D366;
+    color: white;
+}
+
+.share-btn.telegram:hover {
+    background: #0088cc;
+    border-color: #0088cc;
+    color: white;
+}
+
+.share-btn.twitter:hover {
+    background: #1DA1F2;
+    border-color: #1DA1F2;
+    color: white;
+}
+
+.share-btn.facebook:hover {
+    background: #1877F2;
+    border-color: #1877F2;
+    color: white;
+}
+
+.share-btn.email:hover {
+    background: var(--danger);
+    border-color: var(--danger);
+    color: white;
+}
+
+/* ============================================
+   COMMISSION STRUCTURE
+============================================ */
+
+.commission-structure-section {
+    margin-bottom: 2rem;
+}
+
+.commission-levels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.commission-level {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.commission-level:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.commission-level.level-1 {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(240, 185, 11, 0.05), transparent);
+}
+
+.commission-level.level-2 {
+    border-color: var(--secondary);
+    background: linear-gradient(135deg, rgba(55, 114, 255, 0.05), transparent);
+}
+
+.commission-level.level-3 {
+    border-color: var(--accent-purple);
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), transparent);
+}
+
+.level-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.commission-level.level-2 .level-icon {
+    background: linear-gradient(135deg, var(--secondary), var(--accent-purple));
+}
+
+.commission-level.level-3 .level-icon {
+    background: linear-gradient(135deg, var(--accent-purple), #9333ea);
+}
+
+.level-details h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.level-details p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.level-commission {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.commission-rate {
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.commission-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.commission-info-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--success);
+    flex-shrink: 0;
+}
+
+.info-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ============================================
+   REFERRAL STATISTICS
+============================================ */
+
+.referral-statistics {
+    margin-bottom: 2rem;
+}
+
+.stats-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(240, 185, 11, 0.15), rgba(240, 185, 11, 0.05));
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+}
+
+/* Monthly Chart */
+.monthly-chart {
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.monthly-chart h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 200px;
+}
+
+.chart-bar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.bar-value {
+    position: absolute;
+    top: -25px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.bar-fill {
+    width: 100%;
+    background: linear-gradient(to top, rgba(240, 185, 11, 0.3), rgba(240, 185, 11, 0.6));
+    border: 1px solid rgba(240, 185, 11, 0.5);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    transition: all 0.3s ease;
+}
+
+.bar-fill.active {
+    background: linear-gradient(to top, var(--primary), var(--secondary));
+    border-color: var(--primary);
+}
+
+.chart-bar:hover .bar-fill {
+    background: linear-gradient(to top, var(--primary), var(--secondary));
+}
+
+.bar-label {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   REFERRAL TABLE
+============================================ */
+
+.referral-list-section {
+    margin-bottom: 2rem;
+}
+
+.referral-table-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.referral-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.referral-table thead {
+    background: var(--bg-secondary);
+}
+
+.referral-table th {
+    padding: 1rem 1.5rem;
+    text-align: right;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.referral-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.referral-table tbody tr:hover {
+    background: var(--bg-secondary);
+}
+
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-cell img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+}
+
+.user-name {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.user-level {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    background: rgba(240, 185, 11, 0.1);
+    border: 1px solid rgba(240, 185, 11, 0.3);
+    border-radius: var(--radius-sm);
+    font-size: 0.7rem;
+    color: var(--primary);
+}
+
+.date-cell {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.amount-cell,
+.commission-cell {
+    font-weight: 600;
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+}
+
+.commission-cell {
+    color: var(--success);
+}
+
+.status-badge.active {
+    background: rgba(14, 203, 129, 0.1);
+    color: var(--success);
+    border: 1px solid rgba(14, 203, 129, 0.3);
+}
+
+.status-badge.inactive {
+    background: rgba(160, 160, 160, 0.1);
+    color: var(--text-muted);
+    border: 1px solid rgba(160, 160, 160, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 768px) {
+    .referral-link-header {
+        flex-direction: column;
+    }
+    
+    .referral-link-box {
+        flex-direction: column;
+    }
+    
+    .share-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .commission-levels {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-bars {
+        height: 150px;
+    }
+}
