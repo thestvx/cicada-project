@@ -3,362 +3,571 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سجل المعاملات - Cicada</title>
-    <meta name="description" content="عرض جميع معاملات الإيداع، السحب، والأرباح في حسابك على منصة Cicada.">
-
+    <title>المعاملات - Cicada</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- CSS -->
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
-    <link rel="stylesheet" href="../styles/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+    <link rel="stylesheet" href="../styles/transactions.css">
 </head>
-<body>
-    <div class="dashboard-layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <img src="../assets/images/logo.png" alt="Cicada Logo" class="sidebar-logo" onerror="this.style.display='none'">
-                <h2 class="sidebar-brand">Cicada</h2>
-            </div>
+<body class="dashboard-page">
 
-            <nav class="sidebar-menu">
-                <div class="menu-category">الرئيسية</div>
-                <a href="dashboard.html" class="menu-item">
-                    <i class="fas fa-home"></i>
-                    <span>لوحة التحكم</span>
-                </a>
-                <a href="tasks.html" class="menu-item">
-                    <i class="fas fa-tasks"></i>
-                    <span>المهام</span>
-                </a>
-                <a href="investments.html" class="menu-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>الاستثمارات</span>
-                </a>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="sidebar-logo">
+                <i class="fas fa-circle-notch"></i>
+                <span>CICADA</span>
+            </a>
+        </div>
 
-                <div class="menu-category">المعاملات</div>
-                <a href="deposits.html" class="menu-item">
-                    <i class="fas fa-arrow-down"></i>
-                    <span>الإيداعات</span>
-                </a>
-                <a href="withdrawals.html" class="menu-item">
-                    <i class="fas fa-arrow-up"></i>
-                    <span>السحوبات</span>
-                </a>
-                <a href="transactions.html" class="menu-item active">
-                    <i class="fas fa-receipt"></i>
-                    <span>سجل المعاملات</span>
-                </a>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="investments.html" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>استثماراتي</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>المهام اليومية</span>
+            </a>
+            <a href="transactions.html" class="nav-item active">
+                <i class="fas fa-exchange-alt"></i>
+                <span>المعاملات</span>
+            </a>
+            <a href="referral.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>برنامج الإحالة</span>
+            </a>
+            <a href="wallet.html" class="nav-item">
+                <i class="fas fa-wallet"></i>
+                <span>المحفظة</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>الملف الشخصي</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>الإعدادات</span>
+            </a>
+        </nav>
 
-                <div class="menu-category">الحساب</div>
-                <a href="profile.html" class="menu-item">
-                    <i class="fas fa-user"></i>
-                    <span>الملف الشخصي</span>
-                </a>
-                <a href="referrals.html" class="menu-item">
-                    <i class="fas fa-user-friends"></i>
-                    <span>الإحالات</span>
-                </a>
-                <a href="kyc.html" class="menu-item">
-                    <i class="fas fa-id-card"></i>
-                    <span>التحقق (KYC)</span>
-                </a>
+        <div class="sidebar-footer">
+            <a href="support.html" class="nav-item">
+                <i class="fas fa-headset"></i>
+                <span>الدعم الفني</span>
+            </a>
+            <a href="../index.html" class="nav-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
 
-                <div class="menu-category">الدعم والقانوني</div>
-                <a href="support.html" class="menu-item">
-                    <i class="fas fa-headset"></i>
-                    <span>الدعم الفني</span>
-                </a>
-                <a href="terms.html" class="menu-item">
-                    <i class="fas fa-file-contract"></i>
-                    <span>الشروط والأحكام</span>
-                </a>
-                <a href="privacy.html" class="menu-item">
-                    <i class="fas fa-user-shield"></i>
-                    <span>سياسة الخصوصية</span>
-                </a>
-                <a href="blog.html" class="menu-item">
-                    <i class="fas fa-blog"></i>
-                    <span>المدونة</span>
-                </a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <div class="user-mini-profile">
-                    <img src="../assets/images/avatar-placeholder.png" alt="User" class="user-avatar-sm" onerror="this.style.display='none'">
-                    <div class="user-info-sm">
-                        <h4 data-user="name">مستخدم</h4>
-                        <p data-user="email">user@email.com</p>
-                    </div>
-                </div>
-                <button class="menu-item" data-logout="true" style="margin-top:1rem; width:100%; justify-content:flex-start;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>تسجيل الخروج</span>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
                 </button>
+                <h1 class="page-title">المعاملات</h1>
             </div>
-        </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Topbar -->
-            <header class="topbar">
-                <div class="dashboard-title">
-                    <button class="toggle-sidebar">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div>
-                        <h1>سجل المعاملات</h1>
-                        <p>عرض جميع حركات الحساب في مكان واحد</p>
-                    </div>
+            <div class="topbar-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="ابحث في المعاملات...">
                 </div>
-                <div class="topbar-actions">
-                    <button class="action-btn" title="إشعارات">
+
+                <div class="topbar-item">
+                    <button class="icon-btn">
                         <i class="fas fa-bell"></i>
                         <span class="notification-badge">3</span>
                     </button>
-                    <button class="action-btn" title="الملف الشخصي" onclick="window.location.href='profile.html'">
-                        <i class="fas fa-user-circle"></i>
+                </div>
+
+                <div class="topbar-item">
+                    <button class="user-menu-btn">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="User" class="user-avatar">
+                        <span class="user-name">أحمد محمد</span>
+                        <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
-            </header>
+            </div>
+        </header>
 
-            <!-- Filters -->
-            <section class="card">
-                <div class="card-header">
-                    <h3>تصفية المعاملات</h3>
+        <!-- Transactions Content -->
+        <div class="dashboard-content">
+            <!-- Transactions Overview -->
+            <div class="transactions-overview">
+                <div class="overview-card deposits">
+                    <div class="overview-icon">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <div class="overview-details">
+                        <p class="overview-label">إجمالي الإيداعات</p>
+                        <h3 class="overview-value">$15,500.00</h3>
+                        <span class="overview-info">24 عملية</span>
+                    </div>
                 </div>
-                <div style="display:flex; flex-wrap:wrap; gap:1rem;">
-                    <select id="txTypeFilter" class="form-input" style="flex:1; min-width:160px;">
-                        <option value="all">كل الأنواع</option>
-                        <option value="deposit">إيداعات</option>
-                        <option value="withdrawal">سحوبات</option>
-                        <option value="earning">أرباح يومية</option>
-                        <option value="task">أرباح مهام</option>
-                        <option value="referral">أرباح إحالات</option>
+
+                <div class="overview-card withdrawals">
+                    <div class="overview-icon">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <div class="overview-details">
+                        <p class="overview-label">إجمالي السحوبات</p>
+                        <h3 class="overview-value">$6,750.00</h3>
+                        <span class="overview-info">18 عملية</span>
+                    </div>
+                </div>
+
+                <div class="overview-card profits">
+                    <div class="overview-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="overview-details">
+                        <p class="overview-label">أرباح مستلمة</p>
+                        <h3 class="overview-value">$3,245.89</h3>
+                        <span class="overview-info positive">+145 عملية</span>
+                    </div>
+                </div>
+
+                <div class="overview-card pending">
+                    <div class="overview-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="overview-details">
+                        <p class="overview-label">معاملات قيد الانتظار</p>
+                        <h3 class="overview-value">3</h3>
+                        <span class="overview-info">$450.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters & Actions -->
+            <div class="transactions-toolbar">
+                <div class="filters-group">
+                    <select class="filter-select" id="typeFilter">
+                        <option value="all">جميع الأنواع</option>
+                        <option value="deposit">إيداع</option>
+                        <option value="withdraw">سحب</option>
+                        <option value="profit">أرباح</option>
+                        <option value="referral">عمولة إحالة</option>
+                        <option value="bonus">بونص</option>
                     </select>
 
-                    <select id="txStatusFilter" class="form-input" style="flex:1; min-width:160px;">
-                        <option value="all">كل الحالات</option>
-                        <option value="success">مكتملة</option>
-                        <option value="pending">قيد المعالجة</option>
-                        <option value="failed">مرفوضة</option>
+                    <select class="filter-select" id="statusFilter">
+                        <option value="all">جميع الحالات</option>
+                        <option value="completed">مكتملة</option>
+                        <option value="pending">قيد الانتظار</option>
+                        <option value="failed">فاشلة</option>
                     </select>
 
-                    <input 
-                        type="date" 
-                        id="txFromDate" 
-                        class="form-input" 
-                        style="flex:1; min-width:160px;"
-                    >
-                    <input 
-                        type="date" 
-                        id="txToDate" 
-                        class="form-input" 
-                        style="flex:1; min-width:160px;"
-                    >
+                    <select class="filter-select" id="periodFilter">
+                        <option value="all">كل الفترات</option>
+                        <option value="today">اليوم</option>
+                        <option value="week">آخر 7 أيام</option>
+                        <option value="month">آخر 30 يوم</option>
+                        <option value="year">آخر سنة</option>
+                    </select>
+                </div>
 
-                    <button class="btn-primary" onclick="applyTxFilters()">
-                        <i class="fas fa-filter"></i> تطبيق التصفية
+                <div class="actions-group">
+                    <button class="btn btn-outline btn-sm" onclick="exportTransactions()">
+                        <i class="fas fa-download"></i>
+                        تصدير
+                    </button>
+                    <button class="btn btn-primary btn-sm" onclick="location.href='wallet.html'">
+                        <i class="fas fa-plus"></i>
+                        عملية جديدة
                     </button>
                 </div>
-            </section>
+            </div>
 
             <!-- Transactions Table -->
-            <section class="card">
+            <div class="transactions-card">
                 <div class="card-header">
-                    <h3>قائمة المعاملات</h3>
-                    <span style="color:var(--text-light); font-size:0.9rem;" id="txCountLabel">0 معاملة</span>
+                    <h3 class="card-title">سجل المعاملات</h3>
+                    <span class="transactions-count">عرض 1-20 من 187 معاملة</span>
                 </div>
-                <div class="table-responsive">
-                    <table class="custom-table">
+
+                <div class="transactions-table-wrapper">
+                    <table class="transactions-table">
                         <thead>
                             <tr>
-                                <th>التاريخ</th>
+                                <th>المعاملة</th>
                                 <th>النوع</th>
-                                <th>الوصف</th>
                                 <th>المبلغ</th>
-                                <th>الرصيد بعد العملية</th>
                                 <th>الحالة</th>
+                                <th>التاريخ</th>
+                                <th>الإجراءات</th>
                             </tr>
                         </thead>
-                        <tbody id="transactionsTableBody">
-                            <!-- يتم تعبئتها عبر JavaScript -->
+                        <tbody>
+                            <!-- Transaction 1 -->
+                            <tr>
+                                <td>
+                                    <div class="transaction-info">
+                                        <div class="transaction-icon deposit">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-id">#TXN-2025-001234</span>
+                                            <span class="transaction-method">Bitcoin Wallet</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="transaction-type deposit">
+                                        <i class="fas fa-arrow-down"></i>
+                                        إيداع
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-amount positive">+$500.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge completed">
+                                        <i class="fas fa-check-circle"></i>
+                                        مكتملة
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-date">31 ديسمبر 2025</span>
+                                    <span class="transaction-time">10:30 صباحاً</span>
+                                </td>
+                                <td>
+                                    <button class="btn-icon" onclick="viewTransaction(1)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Transaction 2 -->
+                            <tr>
+                                <td>
+                                    <div class="transaction-info">
+                                        <div class="transaction-icon profit">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-id">#TXN-2025-001233</span>
+                                            <span class="transaction-method">أرباح يومية - الخطة الاحترافية</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="transaction-type profit">
+                                        <i class="fas fa-chart-line"></i>
+                                        أرباح
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-amount positive">+$125.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge completed">
+                                        <i class="fas fa-check-circle"></i>
+                                        مكتملة
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-date">31 ديسمبر 2025</span>
+                                    <span class="transaction-time">12:00 صباحاً</span>
+                                </td>
+                                <td>
+                                    <button class="btn-icon" onclick="viewTransaction(2)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Transaction 3 -->
+                            <tr>
+                                <td>
+                                    <div class="transaction-info">
+                                        <div class="transaction-icon withdraw">
+                                            <i class="fas fa-arrow-up"></i>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-id">#TXN-2025-001232</span>
+                                            <span class="transaction-method">Bank Transfer - IBAN</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="transaction-type withdraw">
+                                        <i class="fas fa-arrow-up"></i>
+                                        سحب
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-amount negative">-$300.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge pending">
+                                        <i class="fas fa-clock"></i>
+                                        قيد المعالجة
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-date">30 ديسمبر 2025</span>
+                                    <span class="transaction-time">03:45 مساءً</span>
+                                </td>
+                                <td>
+                                    <button class="btn-icon" onclick="viewTransaction(3)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Transaction 4 -->
+                            <tr>
+                                <td>
+                                    <div class="transaction-info">
+                                        <div class="transaction-icon referral">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-id">#TXN-2025-001231</span>
+                                            <span class="transaction-method">عمولة من: محمد علي</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="transaction-type referral">
+                                        <i class="fas fa-users"></i>
+                                        عمولة إحالة
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-amount positive">+$45.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge completed">
+                                        <i class="fas fa-check-circle"></i>
+                                        مكتملة
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-date">30 ديسمبر 2025</span>
+                                    <span class="transaction-time">11:20 صباحاً</span>
+                                </td>
+                                <td>
+                                    <button class="btn-icon" onclick="viewTransaction(4)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Transaction 5 -->
+                            <tr>
+                                <td>
+                                    <div class="transaction-info">
+                                        <div class="transaction-icon bonus">
+                                            <i class="fas fa-gift"></i>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-id">#TXN-2025-001230</span>
+                                            <span class="transaction-method">بونص ترحيبي</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="transaction-type bonus">
+                                        <i class="fas fa-gift"></i>
+                                        بونص
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-amount positive">+$50.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge completed">
+                                        <i class="fas fa-check-circle"></i>
+                                        مكتملة
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-date">29 ديسمبر 2025</span>
+                                    <span class="transaction-time">09:15 صباحاً</span>
+                                </td>
+                                <td>
+                                    <button class="btn-icon" onclick="viewTransaction(5)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Transaction 6 -->
+                            <tr>
+                                <td>
+                                    <div class="transaction-info">
+                                        <div class="transaction-icon profit">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-id">#TXN-2025-001229</span>
+                                            <span class="transaction-method">أرباح يومية - الخطة الأساسية</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="transaction-type profit">
+                                        <i class="fas fa-chart-line"></i>
+                                        أرباح
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-amount positive">+$30.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge completed">
+                                        <i class="fas fa-check-circle"></i>
+                                        مكتملة
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-date">29 ديسمبر 2025</span>
+                                    <span class="transaction-time">12:00 صباحاً</span>
+                                </td>
+                                <td>
+                                    <button class="btn-icon" onclick="viewTransaction(6)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Transaction 7 -->
+                            <tr>
+                                <td>
+                                    <div class="transaction-info">
+                                        <div class="transaction-icon deposit">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-id">#TXN-2025-001228</span>
+                                            <span class="transaction-method">USDT (TRC20)</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="transaction-type deposit">
+                                        <i class="fas fa-arrow-down"></i>
+                                        إيداع
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-amount positive">+$1,000.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge completed">
+                                        <i class="fas fa-check-circle"></i>
+                                        مكتملة
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-date">28 ديسمبر 2025</span>
+                                    <span class="transaction-time">02:30 مساءً</span>
+                                </td>
+                                <td>
+                                    <button class="btn-icon" onclick="viewTransaction(7)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Transaction 8 -->
+                            <tr>
+                                <td>
+                                    <div class="transaction-info">
+                                        <div class="transaction-icon withdraw">
+                                            <i class="fas fa-arrow-up"></i>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-id">#TXN-2025-001227</span>
+                                            <span class="transaction-method">Bitcoin Wallet</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="transaction-type withdraw">
+                                        <i class="fas fa-arrow-up"></i>
+                                        سحب
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-amount negative">-$150.00</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge failed">
+                                        <i class="fas fa-times-circle"></i>
+                                        فاشلة
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="transaction-date">27 ديسمبر 2025</span>
+                                    <span class="transaction-time">08:15 مساءً</span>
+                                </td>
+                                <td>
+                                    <button class="btn-icon" onclick="viewTransaction(8)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
-            </section>
-        </main>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="pagination-btn" disabled>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">4</button>
+                    <span class="pagination-dots">...</span>
+                    <button class="pagination-btn">10</button>
+                    <button class="pagination-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Transaction Details Modal -->
+    <div class="modal-overlay" id="transactionModal" style="display: none;">
+        <div class="modal-content transaction-modal">
+            <div class="modal-header">
+                <h2>تفاصيل المعاملة</h2>
+                <button class="modal-close" onclick="closeTransactionModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="transactionDetails">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
     <script src="../scripts/main.js"></script>
-    <script src="../scripts/auth.js"></script>
-    <script src="../scripts/dashboard.js"></script>
-    <script>
-        // بيانات معاملات تجريبية مستوحاة من صفحات wallet/transactions في قوالب المحافظ.[web:131][web:132]
-        const demoTransactions = [
-            {
-                date: '2025-12-25',
-                type: 'deposit',
-                description: 'إيداع عبر بطاقة بنكية',
-                amount: 250,
-                balanceAfter: 1250.75,
-                status: 'success'
-            },
-            {
-                date: '2025-12-25',
-                type: 'earning',
-                description: 'أرباح يومية على الخطة الاحترافية',
-                amount: 25.5,
-                balanceAfter: 1276.25,
-                status: 'success'
-            },
-            {
-                date: '2025-12-24',
-                type: 'withdrawal',
-                description: 'طلب سحب إلى PayPal',
-                amount: -120,
-                balanceAfter: 1150.75,
-                status: 'pending'
-            },
-            {
-                date: '2025-12-24',
-                type: 'task',
-                description: 'مهمة: مشاهدة فيديو ترويجي',
-                amount: 2.5,
-                balanceAfter: 1271.75,
-                status: 'success'
-            },
-            {
-                date: '2025-12-23',
-                type: 'referral',
-                description: 'عمولة إحالة عن المستخدم Ahmed',
-                amount: 12.5,
-                balanceAfter: 1269.25,
-                status: 'success'
-            },
-            {
-                date: '2025-12-22',
-                type: 'deposit',
-                description: 'إيداع عبر USDT',
-                amount: 500,
-                balanceAfter: 1256.75,
-                status: 'success'
-            },
-            {
-                date: '2025-12-20',
-                type: 'withdrawal',
-                description: 'سحب إلى محفظة عملات رقمية',
-                amount: -80,
-                balanceAfter: 756.75,
-                status: 'success'
-            },
-            {
-                date: '2025-12-18',
-                type: 'earning',
-                description: 'أرباح يومية على الخطة الأساسية',
-                amount: 10.2,
-                balanceAfter: 836.75,
-                status: 'success'
-            },
-            {
-                date: '2025-12-15',
-                type: 'deposit',
-                description: 'إيداع عبر حوالة بنكية',
-                amount: 300,
-                balanceAfter: 826.55,
-                status: 'success'
-            }
-        ];
-
-        let filteredTransactions = [...demoTransactions];
-
-        function formatTxType(type) {
-            switch (type) {
-                case 'deposit': return 'إيداع';
-                case 'withdrawal': return 'سحب';
-                case 'earning': return 'أرباح يومية';
-                case 'task': return 'أرباح مهام';
-                case 'referral': return 'أرباح إحالات';
-                default: return 'أخرى';
-            }
-        }
-
-        function renderTransactions() {
-            const tbody = document.getElementById('transactionsTableBody');
-            const countLabel = document.getElementById('txCountLabel');
-            if (!tbody) return;
-
-            if (!filteredTransactions.length) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="6" style="text-align:center; color:var(--text-light); padding:1.5rem;">
-                            لا توجد معاملات مطابقة لخيارات التصفية الحالية.
-                        </td>
-                    </tr>
-                `;
-                if (countLabel) countLabel.textContent = '0 معاملة';
-                return;
-            }
-
-            tbody.innerHTML = filteredTransactions.map(tx => `
-                <tr>
-                    <td>${tx.date}</td>
-                    <td>${formatTxType(tx.type)}</td>
-                    <td>${tx.description}</td>
-                    <td style="color:${tx.amount < 0 ? 'var(--danger-color)' : 'var(--success-color)'};">
-                        ${tx.amount < 0 ? '-' : '+'}$${Math.abs(tx.amount).toFixed(2)}
-                    </td>
-                    <td>$${tx.balanceAfter.toFixed(2)}</td>
-                    <td>
-                        <span class="status-badge ${
-                            tx.status === 'success' ? 'success' : tx.status === 'pending' ? 'pending' : 'failed'
-                        }">
-                            ${tx.status === 'success' ? 'مكتملة' : tx.status === 'pending' ? 'قيد المعالجة' : 'مرفوضة'}
-                        </span>
-                    </td>
-                </tr>
-            `).join('');
-
-            if (countLabel) countLabel.textContent = `${filteredTransactions.length} معاملة`;
-        }
-
-        function applyTxFilters() {
-            const typeFilter = document.getElementById('txTypeFilter').value;
-            const statusFilter = document.getElementById('txStatusFilter').value;
-            const fromDate = document.getElementById('txFromDate').value;
-            const toDate = document.getElementById('txToDate').value;
-
-            filteredTransactions = demoTransactions.filter(tx => {
-                let valid = true;
-
-                if (typeFilter !== 'all' && tx.type !== typeFilter) valid = false;
-                if (statusFilter !== 'all' && tx.status !== statusFilter) valid = false;
-
-                if (fromDate && tx.date < fromDate) valid = false;
-                if (toDate && tx.date > toDate) valid = false;
-
-                return valid;
-            });
-
-            renderTransactions();
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // حماية وتهيئة عامة
-            if (window.CicadaAuth && window.CicadaAuth.protectPage) {
-                window.CicadaAuth.protectPage();
-            }
-            if (typeof loadUserInfo === 'function') loadUserInfo();
-            if (typeof initSidebarToggle === 'function') initSidebarToggle();
-            if (typeof highlightActiveMenu === 'function') highlightActiveMenu();
-
-            renderTransactions();
-        });
-    </script>
+    <script src="../scripts/transactions.js"></script>
 </body>
 </html>
