@@ -70,10 +70,11 @@
                 <i class="fas fa-headset"></i>
                 <span>الدعم الفني</span>
             </a>
-            <a href="../index.html" class="nav-item logout">
+            <!-- Logout Button with ID for JS -->
+            <button class="nav-item logout" id="logoutBtn" style="border: none; background: none; width: 100%; text-align: right; cursor: pointer;">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>تسجيل الخروج</span>
-            </a>
+            </button>
         </div>
     </aside>
 
@@ -106,8 +107,9 @@
                 <!-- User Menu -->
                 <div class="topbar-item dropdown">
                     <button class="user-menu-btn" id="userMenuBtn">
-                        <img src="https://i.pravatar.cc/150?img=1" alt="User" class="user-avatar">
-                        <span class="user-name">أحمد محمد</span>
+                        <!-- User Info will be loaded from Firebase -->
+                        <img src="https://ui-avatars.com/api/?name=User&background=F0B90B&color=fff" alt="User" class="user-avatar" id="headerUserAvatar">
+                        <span class="user-name" id="headerUserName">جاري التحميل...</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
@@ -119,7 +121,7 @@
             <!-- Welcome Banner -->
             <div class="welcome-banner">
                 <div class="welcome-content">
-                    <h2>مرحباً بك، أحمد! 👋</h2>
+                    <h2 id="welcomeMsg">مرحباً بك! 👋</h2>
                     <p>إليك نظرة عامة على نشاطك الاستثماري اليوم</p>
                 </div>
                 <div class="welcome-actions">
@@ -138,9 +140,9 @@
                     </div>
                     <div class="stat-details">
                         <p class="stat-label">الرصيد الكلي</p>
-                        <h3 class="stat-value">$12,547.89</h3>
+                        <h3 class="stat-value" id="totalBalance">$0.00</h3>
                         <span class="stat-change positive">
-                            <i class="fas fa-arrow-up"></i> +12.5%
+                            <i class="fas fa-arrow-up"></i> +0.0%
                         </span>
                     </div>
                 </div>
@@ -151,9 +153,9 @@
                     </div>
                     <div class="stat-details">
                         <p class="stat-label">إجمالي الاستثمارات</p>
-                        <h3 class="stat-value">$8,500.00</h3>
+                        <h3 class="stat-value" id="totalInvested">$0.00</h3>
                         <span class="stat-change">
-                            <i class="fas fa-chart-pie"></i> 3 خطط نشطة
+                            <i class="fas fa-chart-pie"></i> 0 خطط نشطة
                         </span>
                     </div>
                 </div>
@@ -164,9 +166,9 @@
                     </div>
                     <div class="stat-details">
                         <p class="stat-label">الأرباح اليوم</p>
-                        <h3 class="stat-value">$215.40</h3>
+                        <h3 class="stat-value" id="todayProfit">$0.00</h3>
                         <span class="stat-change positive">
-                            <i class="fas fa-arrow-up"></i> +5.2%
+                            <i class="fas fa-arrow-up"></i> +0.0%
                         </span>
                     </div>
                 </div>
@@ -177,9 +179,9 @@
                     </div>
                     <div class="stat-details">
                         <p class="stat-label">عمولات الإحالة</p>
-                        <h3 class="stat-value">$1,247.89</h3>
+                        <h3 class="stat-value" id="referralEarnings">$0.00</h3>
                         <span class="stat-change">
-                            <i class="fas fa-user-plus"></i> 12 إحالة
+                            <i class="fas fa-user-plus"></i> 0 إحالة
                         </span>
                     </div>
                 </div>
@@ -214,46 +216,10 @@
                     </div>
                     <div class="card-body">
                         <div class="investment-list">
-                            <div class="investment-item">
-                                <div class="investment-icon pro">
-                                    <i class="fas fa-gem"></i>
-                                </div>
-                                <div class="investment-info">
-                                    <h4>الخطة الاحترافية</h4>
-                                    <p>2.5% يومياً • 15 يوم متبقي</p>
-                                </div>
-                                <div class="investment-amount">
-                                    <span class="amount">$5,000</span>
-                                    <span class="profit positive">+$625</span>
-                                </div>
-                            </div>
-
-                            <div class="investment-item">
-                                <div class="investment-icon basic">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <div class="investment-info">
-                                    <h4>الخطة الأساسية</h4>
-                                    <p>1.5% يومياً • 22 يوم متبقي</p>
-                                </div>
-                                <div class="investment-amount">
-                                    <span class="amount">$2,000</span>
-                                    <span class="profit positive">+$198</span>
-                                </div>
-                            </div>
-
-                            <div class="investment-item">
-                                <div class="investment-icon vip">
-                                    <i class="fas fa-crown"></i>
-                                </div>
-                                <div class="investment-info">
-                                    <h4>خطة المؤسسات</h4>
-                                    <p>3.5% يومياً • 8 أيام متبقية</p>
-                                </div>
-                                <div class="investment-amount">
-                                    <span class="amount">$1,500</span>
-                                    <span class="profit positive">+$147</span>
-                                </div>
+                            <!-- سيتم ملء هذا القسم ديناميكياً لاحقاً -->
+                            <div class="empty-state" style="text-align: center; padding: 20px; color: #888;">
+                                <i class="fas fa-box-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                                <p>لا توجد استثمارات نشطة حالياً</p>
                             </div>
                         </div>
                     </div>
@@ -272,48 +238,9 @@
                     </div>
                     <div class="card-body">
                         <div class="transaction-list">
-                            <div class="transaction-item">
-                                <div class="transaction-icon deposit">
-                                    <i class="fas fa-arrow-down"></i>
-                                </div>
-                                <div class="transaction-info">
-                                    <h4>إيداع</h4>
-                                    <p>اليوم • 10:30 صباحاً</p>
-                                </div>
-                                <div class="transaction-amount positive">+$500.00</div>
-                            </div>
-
-                            <div class="transaction-item">
-                                <div class="transaction-icon profit">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="transaction-info">
-                                    <h4>أرباح يومية</h4>
-                                    <p>اليوم • 12:00 صباحاً</p>
-                                </div>
-                                <div class="transaction-amount positive">+$215.40</div>
-                            </div>
-
-                            <div class="transaction-item">
-                                <div class="transaction-icon withdraw">
-                                    <i class="fas fa-arrow-up"></i>
-                                </div>
-                                <div class="transaction-info">
-                                    <h4>سحب</h4>
-                                    <p>أمس • 03:45 مساءً</p>
-                                </div>
-                                <div class="transaction-amount negative">-$300.00</div>
-                            </div>
-
-                            <div class="transaction-item">
-                                <div class="transaction-icon referral">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div class="transaction-info">
-                                    <h4>عمولة إحالة</h4>
-                                    <p>أمس • 11:20 صباحاً</p>
-                                </div>
-                                <div class="transaction-amount positive">+$45.00</div>
+                             <!-- سيتم ملء هذا القسم ديناميكياً لاحقاً -->
+                             <div class="empty-state" style="text-align: center; padding: 20px; color: #888;">
+                                <p>لا توجد معاملات حديثة</p>
                             </div>
                         </div>
                     </div>
@@ -375,8 +302,88 @@
     </main>
 
     <!-- Scripts -->
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+    
+    <!-- Main UI Scripts -->
     <script src="../scripts/main.js"></script>
-    <script src="../scripts/dashboard.js"></script>
+    
+    <!-- Firebase Auth Guard (Important: Must be type="module") -->
+    <script type="module" src="../scripts/auth-guard.js"></script>
+    
+    <!-- Dashboard Logic -->
+    <script type="module">
+        import { auth, db, doc, getDoc, signOut } from '../scripts/firebase-config.js';
+
+        // Load User Data
+        auth.onAuthStateChanged(async (user) => {
+            if (user) {
+                // Get user data from Firestore
+                const userDoc = await getDoc(doc(db, "users", user.uid));
+                
+                if (userDoc.exists()) {
+                    const data = userDoc.data();
+                    
+                    // Update UI with user data
+                    document.getElementById('headerUserName').textContent = data.fullname || user.email;
+                    document.getElementById('welcomeMsg').textContent = `مرحباً بك، ${data.fullname ? data.fullname.split(' ')[0] : 'عزيزي'}! 👋`;
+                    
+                    // Update Stats (if available in DB)
+                    if(data.balance) document.getElementById('totalBalance').textContent = `$${data.balance.toFixed(2)}`;
+                    if(data.invested) document.getElementById('totalInvested').textContent = `$${data.invested.toFixed(2)}`;
+                    if(data.totalEarnings) document.getElementById('todayProfit').textContent = `$${data.totalEarnings.toFixed(2)}`;
+                    
+                    // Avatar
+                    if(data.photoURL) {
+                         document.getElementById('headerUserAvatar').src = data.photoURL;
+                    } else {
+                         document.getElementById('headerUserAvatar').src = `https://ui-avatars.com/api/?name=${data.fullname || 'User'}&background=F0B90B&color=fff`;
+                    }
+                }
+            }
+        });
+
+        // Logout Handler
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+                window.location.href = 'login.html';
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+        });
+
+        // Initialize Charts (Static for now, can be dynamic later)
+        const ctx = document.getElementById('profitChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة'],
+                datasets: [{
+                    label: 'الأرباح',
+                    data: [0, 0, 0, 0, 0, 0, 0], // Placeholder data
+                    borderColor: '#F0B90B',
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(240, 185, 11, 0.1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
