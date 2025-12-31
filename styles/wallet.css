@@ -1,0 +1,648 @@
+/**
+ * Wallet Page Styles
+ */
+
+/* ============================================
+   MAIN WALLET CARD
+============================================ */
+
+.main-wallet-card {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(240, 185, 11, 0.3);
+}
+
+.wallet-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+}
+
+.wallet-pattern {
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 20px);
+}
+
+.wallet-content {
+    position: relative;
+    z-index: 1;
+}
+
+.wallet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.wallet-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+.wallet-refresh {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wallet-refresh:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(180deg);
+}
+
+.wallet-balance {
+    margin-bottom: 2rem;
+}
+
+.balance-amount {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.balance-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.wallet-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.wallet-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wallet-action-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px);
+}
+
+.wallet-action-btn i {
+    font-size: 1.5rem;
+}
+
+/* ============================================
+   WALLET BREAKDOWN
+============================================ */
+
+.wallet-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.breakdown-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.breakdown-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.breakdown-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.breakdown-card.available .breakdown-icon {
+    background: linear-gradient(135deg, rgba(14, 203, 129, 0.15), rgba(14, 203, 129, 0.05));
+    color: var(--success);
+}
+
+.breakdown-card.invested .breakdown-icon {
+    background: linear-gradient(135deg, rgba(240, 185, 11, 0.15), rgba(240, 185, 11, 0.05));
+    color: var(--primary);
+}
+
+.breakdown-card.pending .breakdown-icon {
+    background: linear-gradient(135deg, rgba(252, 213, 53, 0.15), rgba(252, 213, 53, 0.05));
+    color: var(--warning);
+}
+
+.breakdown-details {
+    flex: 1;
+}
+
+.breakdown-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.breakdown-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.breakdown-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   QUICK TRANSFER
+============================================ */
+
+.quick-transfer-section {
+    margin-bottom: 2rem;
+}
+
+.quick-transfer-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.transfer-users {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+}
+
+.transfer-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 80px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.transfer-user:hover {
+    transform: translateY(-4px);
+}
+
+.transfer-user img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    transition: border-color 0.3s ease;
+}
+
+.transfer-user:hover img {
+    border-color: var(--primary);
+}
+
+.transfer-user span {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.transfer-user.add-new .add-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+}
+
+.transfer-user.add-new:hover .add-icon {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(240, 185, 11, 0.1);
+}
+
+/* ============================================
+   PAYMENT METHODS
+============================================ */
+
+.payment-methods-section {
+    margin-bottom: 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.payment-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.payment-method-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.payment-method-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.payment-method-card.active {
+    border: 2px solid var(--primary);
+    background: linear-gradient(135deg, rgba(240, 185, 11, 0.05), transparent);
+}
+
+.payment-method-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.payment-method-header i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.default-badge {
+    padding: 0.25rem 0.75rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.payment-method-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.account-number {
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.account-holder {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.payment-method-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.payment-method-card.add-new {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 180px;
+    border: 2px dashed var(--border-color);
+    cursor: pointer;
+}
+
+.add-method-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--bg-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--text-muted);
+}
+
+.payment-method-card.add-new:hover {
+    border-color: var(--primary);
+}
+
+.payment-method-card.add-new:hover .add-method-icon {
+    background: rgba(240, 185, 11, 0.1);
+    color: var(--primary);
+}
+
+/* ============================================
+   WALLET ACTIVITY
+============================================ */
+
+.wallet-activity-section {
+    margin-bottom: 2rem;
+}
+
+.view-all-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: gap 0.3s ease;
+}
+
+.view-all-link:hover {
+    gap: 0.75rem;
+}
+
+.activity-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-icon.deposit {
+    background: rgba(14, 203, 129, 0.15);
+    color: var(--success);
+}
+
+.activity-icon.withdraw {
+    background: rgba(246, 70, 93, 0.15);
+    color: var(--danger);
+}
+
+.activity-icon.profit {
+    background: rgba(240, 185, 11, 0.15);
+    color: var(--primary);
+}
+
+.activity-icon.referral {
+    background: rgba(55, 114, 255, 0.15);
+    color: var(--secondary);
+}
+
+.activity-info {
+    flex: 1;
+}
+
+.activity-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.activity-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.activity-amount {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+}
+
+.activity-amount.positive {
+    color: var(--success);
+}
+
+.activity-amount.negative {
+    color: var(--danger);
+}
+
+/* ============================================
+   WALLET MODALS
+============================================ */
+
+.wallet-modal {
+    max-width: 500px;
+}
+
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.payment-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-option:hover {
+    border-color: var(--primary);
+}
+
+.payment-option.active {
+    background: linear-gradient(135deg, rgba(240, 185, 11, 0.15), rgba(240, 185, 11, 0.05));
+    border-color: var(--primary);
+}
+
+.payment-option i {
+    font-size: 2rem;
+    color: var(--text-muted);
+}
+
+.payment-option.active i {
+    color: var(--primary);
+}
+
+.payment-option span {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.quick-amounts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.quick-amount-btn {
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-amount-btn:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.deposit-info {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+}
+
+.info-row.total {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.available-balance {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(240, 185, 11, 0.15), rgba(240, 185, 11, 0.05));
+    border: 1px solid rgba(240, 185, 11, 0.3);
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.5rem;
+}
+
+.available-balance span {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.available-balance h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--primary);
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 768px) {
+    .balance-amount {
+        font-size: 2rem;
+    }
+    
+    .wallet-breakdown {
+        grid-template-columns: 1fr;
+    }
+    
+    .payment-methods-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .payment-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-amounts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
