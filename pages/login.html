@@ -3,195 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول - Cicada</title>
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome -->
+    <title>تسجيل الدخول - CICADA</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <!-- CSS -->
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/auth.css">
+    <link rel="stylesheet" href="../styles/auth-modern.css">
 </head>
-<body class="auth-page">
+<body>
 
-    <!-- Background Effects -->
+    <!-- Background Elements -->
     <div class="auth-background">
-        <div class="auth-gradient"></div>
-        <div class="auth-grid"></div>
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
     </div>
 
-    <!-- Auth Container -->
-    <div class="auth-container">
-        <!-- Left Side - Branding -->
-        <div class="auth-branding">
-            <a href="../index.html" class="auth-logo">
-                <i class="fas fa-circle-notch"></i>
-                <span>CICADA</span>
-            </a>
-
-            <div class="branding-content">
-                <h1 class="branding-title">مرحباً بعودتك!</h1>
-                <p class="branding-description">
-                    سجل دخولك الآن للوصول إلى استثماراتك ومتابعة أرباحك اليومية
-                </p>
-
-                <div class="branding-stats">
-                    <div class="branding-stat">
-                        <div class="stat-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="stat-info">
-                            <div class="stat-value">50K+</div>
-                            <div class="stat-label">مستثمر نشط</div>
-                        </div>
-                    </div>
-
-                    <div class="branding-stat">
-                        <div class="stat-icon">
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
-                        <div class="stat-info">
-                            <div class="stat-value">$5M+</div>
-                            <div class="stat-label">أرباح موزعة</div>
-                        </div>
-                    </div>
-
-                    <div class="branding-stat">
-                        <div class="stat-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="stat-info">
-                            <div class="stat-value">4.9/5</div>
-                            <div class="stat-label">تقييم المستخدمين</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="branding-features">
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>أرباح يومية مضمونة</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>سحب فوري بدون قيود</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>دعم فني متاح 24/7</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right Side - Login Form -->
-        <div class="auth-form-wrapper">
-            <div class="auth-form-container">
-                <!-- Back Button -->
-                <a href="../index.html" class="back-to-home">
-                    <i class="fas fa-arrow-right"></i>
-                    <span>العودة للرئيسية</span>
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            
+            <div class="auth-header">
+                <a href="../index.html" class="logo-container">
+                    <i class="fas fa-circle-notch logo-icon"></i>
+                    <span class="logo-text">CICADA</span>
                 </a>
+                <h1 class="auth-title">مرحباً بعودتك</h1>
+                <p class="auth-subtitle">سجل دخولك لمتابعة استثماراتك</p>
+            </div>
 
-                <!-- Form Header -->
-                <div class="form-header">
-                    <h2 class="form-title">تسجيل الدخول</h2>
-                    <p class="form-description">أدخل بياناتك للوصول إلى حسابك</p>
-                </div>
-
-                <!-- Social Login -->
-                <div class="social-login">
-                    <button class="social-btn google">
-                        <i class="fab fa-google"></i>
-                        <span>Google</span>
-                    </button>
-                    <button class="social-btn facebook">
-                        <i class="fab fa-facebook"></i>
-                        <span>Facebook</span>
-                    </button>
-                </div>
-
-                <div class="divider">
-                    <span>أو</span>
-                </div>
-
-                <!-- Login Form -->
-                <form id="loginForm" class="auth-form">
-                    <!-- Email -->
-                    <div class="form-group">
-                        <label for="email" class="form-label">
-                            <i class="fas fa-envelope"></i>
-                            البريد الإلكتروني
-                        </label>
-                        <div class="input-wrapper">
-                            <input 
-                                type="email" 
-                                id="email" 
-                                name="email" 
-                                class="form-input" 
-                                placeholder="example@email.com"
-                                required
-                            >
-                            <span class="input-icon">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                        </div>
+            <!-- Firebase Login Form -->
+            <form id="loginForm">
+                
+                <div class="form-group">
+                    <label class="input-label">البريد الإلكتروني</label>
+                    <div class="input-container">
+                        <input type="email" id="email" class="form-input" placeholder="name@example.com" required>
+                        <i class="fas fa-envelope input-icon"></i>
                     </div>
-
-                    <!-- Password -->
-                    <div class="form-group">
-                        <label for="password" class="form-label">
-                            <i class="fas fa-lock"></i>
-                            كلمة المرور
-                        </label>
-                        <div class="input-wrapper">
-                            <input 
-                                type="password" 
-                                id="password" 
-                                name="password" 
-                                class="form-input" 
-                                placeholder="••••••••"
-                                required
-                            >
-                            <span class="input-icon">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                            <span class="toggle-password" id="togglePassword">
-                                <i class="fas fa-eye"></i>
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Remember & Forgot -->
-                    <div class="form-group" style="flex-direction: row; justify-content: space-between; align-items: center;">
-                        <label class="checkbox-wrapper" style="margin: 0;">
-                            <input type="checkbox" id="remember">
-                            <span class="checkbox-label">تذكرني</span>
-                        </label>
-                        <div class="forgot-password" style="margin: 0;">
-                            <a href="#forgot-password">نسيت كلمة المرور؟</a>
-                        </div>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn btn-accent btn-block btn-lg">
-                        <i class="fas fa-sign-in-alt"></i>
-                        تسجيل الدخول
-                    </button>
-                </form>
-
-                <!-- Footer -->
-                <div class="auth-footer">
-                    <p>ليس لديك حساب؟ <a href="register.html">إنشاء حساب جديد</a></p>
                 </div>
+
+                <div class="form-group">
+                    <label class="input-label">كلمة المرور</label>
+                    <div class="input-container">
+                        <input type="password" id="password" class="form-input" placeholder="••••••••" required>
+                        <i class="fas fa-lock input-icon"></i>
+                        <span class="toggle-password" id="togglePassword">
+                            <i class="far fa-eye"></i>
+                        </span>
+                    </div>
+                    <a href="#" class="forgot-pass">نسيت كلمة المرور؟</a>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    <span>تسجيل الدخول</span>
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>أو المتابعة باستخدام</span>
+            </div>
+
+            <div class="social-login">
+                <button class="social-btn google">
+                    <i class="fab fa-google"></i>
+                    <span>Google</span>
+                </button>
+                <button class="social-btn facebook">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </button>
+            </div>
+
+            <div class="auth-footer">
+                <p>ليس لديك حساب؟ <a href="register.html" class="auth-link">إنشاء حساب جديد</a></p>
             </div>
         </div>
     </div>
 
-    <!-- Firebase Scripts -->
+    <!-- Scripts -->
     <script type="module" src="../scripts/firebase-config.js"></script>
     <script type="module" src="../scripts/auth-login.js"></script>
 </body>
