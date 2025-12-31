@@ -4,215 +4,522 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المهام اليومية - Cicada</title>
-    <meta name="description" content="أنجز المهام اليومية البسيطة واكسب مكافآت فورية تضاف لرصيدك">
-
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- CSS -->
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
-    <link rel="stylesheet" href="../styles/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+    <link rel="stylesheet" href="../styles/tasks.css">
 </head>
-<body>
-    <div class="dashboard-layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <img src="../assets/images/logo.png" alt="Cicada Logo" class="sidebar-logo" onerror="this.style.display='none'">
-                <h2 class="sidebar-brand">Cicada</h2>
-            </div>
+<body class="dashboard-page">
 
-            <nav class="sidebar-menu">
-                <div class="menu-category">الرئيسية</div>
-                <a href="dashboard.html" class="menu-item">
-                    <i class="fas fa-home"></i>
-                    <span>لوحة التحكم</span>
-                </a>
-                <a href="tasks.html" class="menu-item active">
-                    <i class="fas fa-tasks"></i>
-                    <span>المهام</span>
-                </a>
-                <a href="investments.html" class="menu-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>الاستثمارات</span>
-                </a>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="sidebar-logo">
+                <i class="fas fa-circle-notch"></i>
+                <span>CICADA</span>
+            </a>
+        </div>
 
-                <div class="menu-category">المعاملات</div>
-                <a href="deposits.html" class="menu-item">
-                    <i class="fas fa-arrow-down"></i>
-                    <span>الإيداعات</span>
-                </a>
-                <a href="withdrawals.html" class="menu-item">
-                    <i class="fas fa-arrow-up"></i>
-                    <span>السحوبات</span>
-                </a>
-                <a href="transactions.html" class="menu-item">
-                    <i class="fas fa-receipt"></i>
-                    <span>سجل المعاملات</span>
-                </a>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="investments.html" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>استثماراتي</span>
+            </a>
+            <a href="tasks.html" class="nav-item active">
+                <i class="fas fa-tasks"></i>
+                <span>المهام اليومية</span>
+            </a>
+            <a href="transactions.html" class="nav-item">
+                <i class="fas fa-exchange-alt"></i>
+                <span>المعاملات</span>
+            </a>
+            <a href="referral.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>برنامج الإحالة</span>
+            </a>
+            <a href="wallet.html" class="nav-item">
+                <i class="fas fa-wallet"></i>
+                <span>المحفظة</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>الملف الشخصي</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>الإعدادات</span>
+            </a>
+        </nav>
 
-                <div class="menu-category">الحساب</div>
-                <a href="profile.html" class="menu-item">
-                    <i class="fas fa-user"></i>
-                    <span>الملف الشخصي</span>
-                </a>
-                <a href="referrals.html" class="menu-item">
-                    <i class="fas fa-user-friends"></i>
-                    <span>الإحالات</span>
-                </a>
-                <a href="kyc.html" class="menu-item">
-                    <i class="fas fa-id-card"></i>
-                    <span>التحقق (KYC)</span>
-                </a>
+        <div class="sidebar-footer">
+            <a href="support.html" class="nav-item">
+                <i class="fas fa-headset"></i>
+                <span>الدعم الفني</span>
+            </a>
+            <a href="../index.html" class="nav-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
 
-                <div class="menu-category">الدعم والقانوني</div>
-                <a href="support.html" class="menu-item">
-                    <i class="fas fa-headset"></i>
-                    <span>الدعم الفني</span>
-                </a>
-                <a href="terms.html" class="menu-item">
-                    <i class="fas fa-file-contract"></i>
-                    <span>الشروط والأحكام</span>
-                </a>
-                <a href="privacy.html" class="menu-item">
-                    <i class="fas fa-user-shield"></i>
-                    <span>سياسة الخصوصية</span>
-                </a>
-                <a href="blog.html" class="menu-item">
-                    <i class="fas fa-blog"></i>
-                    <span>المدونة</span>
-                </a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <div class="user-mini-profile">
-                    <img src="../assets/images/avatar-placeholder.png" alt="User" class="user-avatar-sm" onerror="this.style.display='none'">
-                    <div class="user-info-sm">
-                        <h4 data-user="name">مستخدم</h4>
-                        <p data-user="email">user@email.com</p>
-                    </div>
-                </div>
-                <button class="menu-item" data-logout="true" style="margin-top:1rem; width:100%; justify-content:flex-start;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>تسجيل الخروج</span>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
                 </button>
+                <h1 class="page-title">المهام اليومية</h1>
             </div>
-        </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Topbar -->
-            <header class="topbar">
-                <div class="dashboard-title">
-                    <button class="toggle-sidebar">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div>
-                        <h1>المهام اليومية</h1>
-                        <p>أنجز المهام واكسب المكافآت الفورية</p>
-                    </div>
+            <div class="topbar-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="ابحث...">
                 </div>
-                <div class="topbar-actions">
-                    <button class="action-btn" title="إشعارات">
+
+                <div class="topbar-item">
+                    <button class="icon-btn">
                         <i class="fas fa-bell"></i>
                         <span class="notification-badge">3</span>
                     </button>
-                    <button class="action-btn" title="الملف الشخصي" onclick="window.location.href='profile.html'">
-                        <i class="fas fa-user-circle"></i>
+                </div>
+
+                <div class="topbar-item">
+                    <button class="user-menu-btn">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="User" class="user-avatar">
+                        <span class="user-name">أحمد محمد</span>
+                        <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
-            </header>
+            </div>
+        </header>
 
-            <!-- Stats Summary -->
-            <section class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon tasks">
+        <!-- Tasks Content -->
+        <div class="dashboard-content">
+            <!-- Tasks Overview -->
+            <div class="tasks-overview">
+                <div class="overview-card total">
+                    <div class="overview-icon">
                         <i class="fas fa-tasks"></i>
                     </div>
-                    <div class="stat-info">
-                        <h3>المهام المتاحة</h3>
-                        <div class="stat-value" data-stat="available-tasks">15</div>
+                    <div class="overview-details">
+                        <p class="overview-label">إجمالي المهام</p>
+                        <h3 class="overview-value">12</h3>
+                        <span class="overview-info">مهمة متاحة</span>
                     </div>
                 </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon wallet">
-                        <i class="fas fa-wallet"></i>
+                <div class="overview-card completed">
+                    <div class="overview-icon">
+                        <i class="fas fa-check-circle"></i>
                     </div>
-                    <div class="stat-info">
-                        <h3>أرباح المهام اليومية</h3>
-                        <div class="stat-value" data-stat="daily-task-earnings">$0.00</div>
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon investment">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>إجمالي أرباح المهام</h3>
-                        <div class="stat-value" data-stat="total-task-earnings">$0.00</div>
+                    <div class="overview-details">
+                        <p class="overview-label">مهام مكتملة</p>
+                        <h3 class="overview-value">8</h3>
+                        <span class="overview-info positive">اليوم</span>
                     </div>
                 </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon referral">
-                        <i class="fas fa-user-friends"></i>
+                <div class="overview-card rewards">
+                    <div class="overview-icon">
+                        <i class="fas fa-coins"></i>
                     </div>
-                    <div class="stat-info">
-                        <h3>المهام المكتملة</h3>
-                        <div class="stat-value" data-stat="completed-tasks">0</div>
+                    <div class="overview-details">
+                        <p class="overview-label">مكافآت اليوم</p>
+                        <h3 class="overview-value">$45.50</h3>
+                        <span class="overview-info positive">+$12.50</span>
                     </div>
                 </div>
-            </section>
 
-            <!-- Filter & Search -->
-            <section class="card">
-                <div class="card-header">
-                    <h3>تصفية المهام</h3>
+                <div class="overview-card streak">
+                    <div class="overview-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="overview-details">
+                        <p class="overview-label">سلسلة النشاط</p>
+                        <h3 class="overview-value">15 يوم</h3>
+                        <span class="overview-info">متواصلة</span>
+                    </div>
                 </div>
-                <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
-                    <select id="taskFilter" class="form-input" style="flex:1; min-width:150px;">
-                        <option value="all">جميع المهام</option>
-                        <option value="video">مشاهدة فيديو</option>
-                        <option value="survey">استبيانات</option>
-                        <option value="social">وسائل التواصل</option>
-                        <option value="download">تحميل تطبيق</option>
-                        <option value="review">تقييم منتج</option>
-                    </select>
-                    <select id="difficultyFilter" class="form-input" style="flex:1; min-width:150px;">
-                        <option value="all">جميع المستويات</option>
-                        <option value="easy">سهل</option>
-                        <option value="medium">متوسط</option>
-                        <option value="hard">صعب</option>
-                    </select>
-                    <button class="btn-primary" onclick="filterTasks()">
-                        <i class="fas fa-filter"></i> تصفية
-                    </button>
+            </div>
+
+            <!-- Daily Check-in -->
+            <div class="daily-checkin-card">
+                <div class="checkin-header">
+                    <div class="checkin-title">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>تسجيل الحضور اليومي</h3>
+                    </div>
+                    <div class="checkin-streak">
+                        <i class="fas fa-fire"></i>
+                        <span>15 يوم متواصل</span>
+                    </div>
                 </div>
-            </section>
+
+                <div class="checkin-grid">
+                    <div class="checkin-day completed">
+                        <div class="day-number">1</div>
+                        <div class="day-reward">$1</div>
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="checkin-day completed">
+                        <div class="day-number">2</div>
+                        <div class="day-reward">$1</div>
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="checkin-day completed">
+                        <div class="day-number">3</div>
+                        <div class="day-reward">$1.5</div>
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="checkin-day completed">
+                        <div class="day-number">4</div>
+                        <div class="day-reward">$1.5</div>
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="checkin-day completed">
+                        <div class="day-number">5</div>
+                        <div class="day-reward">$2</div>
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="checkin-day active">
+                        <div class="day-number">6</div>
+                        <div class="day-reward">$2</div>
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="checkin-day">
+                        <div class="day-number">7</div>
+                        <div class="day-reward bonus">$5</div>
+                        <i class="fas fa-crown"></i>
+                    </div>
+                </div>
+
+                <button class="btn btn-accent btn-block" onclick="dailyCheckIn()">
+                    <i class="fas fa-hand-pointer"></i>
+                    سجل حضورك اليوم واحصل على $2
+                </button>
+            </div>
+
+            <!-- Tasks Categories -->
+            <div class="tasks-categories">
+                <button class="category-tab active" data-category="all">
+                    <i class="fas fa-list"></i>
+                    جميع المهام
+                </button>
+                <button class="category-tab" data-category="daily">
+                    <i class="fas fa-calendar-day"></i>
+                    يومية
+                </button>
+                <button class="category-tab" data-category="social">
+                    <i class="fas fa-share-alt"></i>
+                    اجتماعية
+                </button>
+                <button class="category-tab" data-category="special">
+                    <i class="fas fa-star"></i>
+                    خاصة
+                </button>
+            </div>
 
             <!-- Tasks List -->
-            <section class="card">
-                <div class="card-header">
-                    <h3>قائمة المهام</h3>
-                    <span style="color:var(--text-light); font-size:0.9rem;">15 مهمة متاحة</span>
+            <div class="tasks-grid">
+                <!-- Daily Tasks -->
+                <div class="task-card daily completed">
+                    <div class="task-header">
+                        <div class="task-icon daily">
+                            <i class="fas fa-sign-in-alt"></i>
+                        </div>
+                        <span class="task-badge daily">يومية</span>
+                    </div>
+                    <div class="task-content">
+                        <h3 class="task-title">تسجيل الدخول اليومي</h3>
+                        <p class="task-description">سجل دخولك للمنصة واحصل على نقاط</p>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            <span>+$1.00</span>
+                        </div>
+                    </div>
+                    <div class="task-status completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>مكتملة</span>
+                    </div>
                 </div>
 
-                <div class="tasks-list" id="tasksList">
-                    <!-- يتم تعبئتها عبر JavaScript -->
+                <div class="task-card daily completed">
+                    <div class="task-header">
+                        <div class="task-icon daily">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <span class="task-badge daily">يومية</span>
+                    </div>
+                    <div class="task-content">
+                        <h3 class="task-title">مشاهدة الإعلانات</h3>
+                        <p class="task-description">شاهد 5 إعلانات قصيرة</p>
+                        <div class="task-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                            <span class="progress-text">5/5</span>
+                        </div>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            <span>+$2.50</span>
+                        </div>
+                    </div>
+                    <div class="task-status completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>مكتملة</span>
+                    </div>
                 </div>
-            </section>
-        </main>
-    </div>
+
+                <div class="task-card daily">
+                    <div class="task-header">
+                        <div class="task-icon daily">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="task-badge daily">يومية</span>
+                    </div>
+                    <div class="task-content">
+                        <h3 class="task-title">تحقق من استثماراتك</h3>
+                        <p class="task-description">راجع أداء محفظتك الاستثمارية</p>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            <span>+$0.50</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="completeTask(3)">
+                        <i class="fas fa-play"></i>
+                        ابدأ المهمة
+                    </button>
+                </div>
+
+                <!-- Social Tasks -->
+                <div class="task-card social">
+                    <div class="task-header">
+                        <div class="task-icon social">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <span class="task-badge social">اجتماعية</span>
+                    </div>
+                    <div class="task-content">
+                        <h3 class="task-title">انضم لقناة تليجرام</h3>
+                        <p class="task-description">انضم لقناتنا الرسمية على تليجرام</p>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            <span>+$3.00</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-accent btn-sm" onclick="completeTask(4)">
+                        <i class="fab fa-telegram"></i>
+                        انضم الآن
+                    </button>
+                </div>
+
+                <div class="task-card social completed">
+                    <div class="task-header">
+                        <div class="task-icon social">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <span class="task-badge social">اجتماعية</span>
+                    </div>
+                    <div class="task-content">
+                        <h3 class="task-title">تابعنا على تويتر</h3>
+                        <p class="task-description">تابع حسابنا الرسمي على تويتر</p>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            <span>+$2.00</span>
+                        </div>
+                    </div>
+                    <div class="task-status completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>مكتملة</span>
+                    </div>
+                </div>
+
+                <div class="task-card social">
+                    <div class="task-header">
+                        <div class="task-icon social">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <span class="task-badge social">اجتماعية</span>
+                    </div>
+                    <div class="task-content">
+                        <h3 class="task-title">شارك رابط الإحالة</h3>
+                        <p class="task-description">شارك رابط الإحالة الخاص بك على 3 منصات</p>
+                        <div class="task-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 33%"></div>
+                            </div>
+                            <span class="progress-text">1/3</span>
+                        </div>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            <span>+$5.00</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="shareReferral()">
+                        <i class="fas fa-share"></i>
+                        شارك الآن
+                    </button>
+                </div>
+
+                <!-- Special Tasks -->
+                <div class="task-card special">
+                    <div class="task-header">
+                        <div class="task-icon special">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="task-badge special">خاصة</span>
+                    </div>
+                    <div class="task-content">
+                        <h3 class="task-title">استثمار جديد</h3>
+                        <p class="task-description">قم بعمل استثمار جديد بقيمة $100 أو أكثر</p>
+                        <div class="task-reward bonus">
+                            <i class="fas fa-gift"></i>
+                            <span>+$10.00 بونص</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-accent btn-sm" onclick="location.href='investments.html'">
+                        <i class="fas fa-plus"></i>
+                        استثمر الآن
+                    </button>
+                </div>
+
+                <div class="task-card special">
+                    <div class="task-header">
+                        <div class="task-icon special">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <span class="task-badge special">خاصة</span>
+                    </div>
+                    <div class="task-content">
+                        <h3 class="task-title">ادعُ 5 أصدقاء</h3>
+                        <p class="task-description">ادعُ 5 أصدقاء للتسجيل في المنصة</p>
+                        <div class="task-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                            <span class="progress-text">3/5</span>
+                        </div>
+                        <div class="task-reward bonus">
+                            <i class="fas fa-gift"></i>
+                            <span>+$25.00 بونص</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="location.href='referral.html'">
+                        <i class="fas fa-user-plus"></i>
+                        ادعُ أصدقاء
+                    </button>
+                </div>
+
+                <div class="task-card special">
+                    <div class="task-header">
+                        <div class="task-icon special">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <span class="task-badge special">خاصة</span>
+                    </div>
+                    <div class="task-content">
+                        <h3 class="task-title">توثيق الحساب</h3>
+                        <p class="task-description">أكمل عملية التحقق من الهوية (KYC)</p>
+                        <div class="task-reward bonus">
+                            <i class="fas fa-gift"></i>
+                            <span>+$15.00 بونص</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-accent btn-sm" onclick="location.href='kyc.html'">
+                        <i class="fas fa-shield-alt"></i>
+                        ابدأ التوثيق
+                    </button>
+                </div>
+            </div>
+
+            <!-- Leaderboard -->
+            <div class="leaderboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">لوحة المتصدرين</h2>
+                    <p class="section-description">أفضل 10 مستخدمين هذا الشهر</p>
+                </div>
+
+                <div class="leaderboard-card">
+                    <div class="leaderboard-item top1">
+                        <div class="rank">
+                            <i class="fas fa-crown"></i>
+                            <span>1</span>
+                        </div>
+                        <img src="https://i.pravatar.cc/150?img=12" alt="User" class="user-img">
+                        <div class="user-info">
+                            <h4>محمد أحمد</h4>
+                            <p>مهام مكتملة: 248</p>
+                        </div>
+                        <div class="user-rewards">$780.50</div>
+                    </div>
+
+                    <div class="leaderboard-item top2">
+                        <div class="rank">
+                            <i class="fas fa-medal"></i>
+                            <span>2</span>
+                        </div>
+                        <img src="https://i.pravatar.cc/150?img=5" alt="User" class="user-img">
+                        <div class="user-info">
+                            <h4>سارة علي</h4>
+                            <p>مهام مكتملة: 235</p>
+                        </div>
+                        <div class="user-rewards">$695.00</div>
+                    </div>
+
+                    <div class="leaderboard-item top3">
+                        <div class="rank">
+                            <i class="fas fa-award"></i>
+                            <span>3</span>
+                        </div>
+                        <img src="https://i.pravatar.cc/150?img=8" alt="User" class="user-img">
+                        <div class="user-info">
+                            <h4>خالد محمود</h4>
+                            <p>مهام مكتملة: 220</p>
+                        </div>
+                        <div class="user-rewards">$650.00</div>
+                    </div>
+
+                    <div class="leaderboard-item">
+                        <div class="rank">4</div>
+                        <img src="https://i.pravatar.cc/150?img=15" alt="User" class="user-img">
+                        <div class="user-info">
+                            <h4>فاطمة حسن</h4>
+                            <p>مهام مكتملة: 198</p>
+                        </div>
+                        <div class="user-rewards">$580.00</div>
+                    </div>
+
+                    <div class="leaderboard-item current">
+                        <div class="rank">8</div>
+                        <img src="https://i.pravatar.cc/150?img=1" alt="User" class="user-img">
+                        <div class="user-info">
+                            <h4>أنت (أحمد محمد)</h4>
+                            <p>مهام مكتملة: 156</p>
+                        </div>
+                        <div class="user-rewards">$465.50</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <!-- Scripts -->
     <script src="../scripts/main.js"></script>
-    <script src="../scripts/auth.js"></script>
-    <script src="../scripts/dashboard.js"></script>
     <script src="../scripts/tasks.js"></script>
 </body>
 </html>
