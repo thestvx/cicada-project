@@ -6,33 +6,47 @@
     <title>إكمال التسجيل - Cicada</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../styles/style.css">
     <style>
-        body { background: #0B0E11; color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Inter', sans-serif; }
-        .onboarding-card { background: #1E2329; width: 100%; max-width: 600px; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
+        body { background: #0B0E11; color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Inter', sans-serif; margin: 0; }
+        .onboarding-card { background: #1E2329; width: 90%; max-width: 550px; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; border: 1px solid #2B3139; }
+        
+        /* Steps UI */
         .steps-header { display: flex; justify-content: space-between; margin-bottom: 30px; position: relative; }
-        .step-indicator { width: 30px; height: 30px; background: #2B3139; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; z-index: 2; transition: 0.3s; }
-        .step-indicator.active { background: #F0B90B; color: #000; }
+        .step-indicator { width: 35px; height: 35px; background: #2B3139; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; z-index: 2; transition: 0.3s; font-size: 0.9rem; }
+        .step-indicator.active { background: #F0B90B; color: #000; box-shadow: 0 0 10px rgba(240, 185, 11, 0.4); }
         .step-indicator.completed { background: #0ECB81; color: #fff; }
         .steps-line { position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: #2B3139; z-index: 1; transform: translateY(-50%); }
         .progress-line { position: absolute; top: 50%; left: 0; height: 2px; background: #F0B90B; z-index: 1; transform: translateY(-50%); width: 0%; transition: 0.3s; }
         
-        .step-content { display: none; animation: fadeIn 0.5s; }
+        /* Form UI */
+        .step-content { display: none; animation: fadeIn 0.4s ease-out; }
         .step-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        .form-group { margin-bottom: 20px; }
-        .form-label { display: block; margin-bottom: 8px; color: #848E9C; }
-        .form-input, .form-select { width: 100%; padding: 12px; background: #0B0E11; border: 1px solid #2B3139; color: #fff; border-radius: 8px; box-sizing: border-box; }
-        .form-input:focus { border-color: #F0B90B; outline: none; }
+        h2 { margin-top: 0; margin-bottom: 10px; font-size: 1.5rem; color: #fff; }
+        p.desc { color: #848E9C; font-size: 0.9rem; margin-bottom: 25px; line-height: 1.5; }
+
+        .form-group { margin-bottom: 15px; }
+        .form-label { display: block; margin-bottom: 8px; color: #EAECEF; font-size: 0.9rem; }
+        .form-input, .form-select { width: 100%; padding: 12px; background: #0B0E11; border: 1px solid #2B3139; color: #fff; border-radius: 8px; box-sizing: border-box; font-family: inherit; transition: 0.3s; }
+        .form-input:focus, .form-select:focus { border-color: #F0B90B; outline: none; }
         
-        .upload-box { border: 2px dashed #2B3139; padding: 30px; text-align: center; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+        /* Upload & Radio Box */
+        .radio-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+        .radio-box { background: #0B0E11; padding: 15px; border-radius: 8px; border: 1px solid #2B3139; cursor: pointer; text-align: center; transition: 0.2s; }
+        .radio-box:hover { border-color: #888; }
+        .radio-box input:checked + div { color: #F0B90B; }
+        .radio-box input:checked + div i { color: #F0B90B; }
+        
+        .upload-box { border: 2px dashed #2B3139; padding: 30px; text-align: center; border-radius: 8px; cursor: pointer; transition: 0.3s; background: rgba(255,255,255,0.02); }
         .upload-box:hover { border-color: #F0B90B; background: rgba(240, 185, 11, 0.05); }
         .upload-icon { font-size: 2rem; color: #848E9C; margin-bottom: 10px; }
         
-        .btn-action { width: 100%; padding: 14px; background: #F0B90B; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 20px; font-size: 1rem; }
-        .btn-action:disabled { background: #555; cursor: not-allowed; }
+        .btn-action { width: 100%; padding: 14px; background: #F0B90B; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 25px; font-size: 1rem; transition: 0.2s; }
+        .btn-action:hover { background: #d0a009; }
+        .btn-action:disabled { background: #444; color: #888; cursor: not-allowed; }
         .btn-prev { background: transparent; color: #848E9C; border: 1px solid #2B3139; margin-top: 10px; }
+        .btn-prev:hover { border-color: #fff; color: #fff; background: transparent; }
     </style>
 </head>
 <body>
@@ -49,21 +63,21 @@
         </div>
 
         <form id="onboardingForm">
-            <!-- Step 1: Personal & Investment Info -->
+            <!-- Step 1: Personal Info -->
             <div class="step-content active" id="step1">
-                <h2 style="margin-bottom: 10px;">معلوماتك الشخصية</h2>
-                <p style="color:#888; margin-bottom: 20px;">نحتاج لبعض المعلومات لتخصيص خطتك الاستثمارية.</p>
+                <h2>معلوماتك الشخصية</h2>
+                <p class="desc">أكمل ملفك الشخصي لنتمكن من تقديم أفضل الخطط الاستثمارية لك.</p>
 
                 <div class="form-group">
                     <label class="form-label">العنوان الكامل</label>
-                    <input type="text" class="form-input" id="address" required placeholder="المدينة، الحي، الشارع">
+                    <input type="text" class="form-input" id="address" required placeholder="المدينة، المنطقة">
                 </div>
                 <div class="form-group">
                     <label class="form-label">تاريخ الميلاد</label>
                     <input type="date" class="form-input" id="dob" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">كم المبلغ الذي ترغب باستثماره؟</label>
+                    <label class="form-label">كم المبلغ المتوقع للاستثمار؟</label>
                     <select class="form-select" id="investmentAmount">
                         <option value="50-500">$50 - $500</option>
                         <option value="500-2000">$500 - $2,000</option>
@@ -71,49 +85,48 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">هل لديك خبرة سابقة في الاستثمار؟</label>
+                    <label class="form-label">مستوى الخبرة في الاستثمار</label>
                     <select class="form-select" id="experience">
-                        <option value="none">لا، أنا مبتدئ</option>
-                        <option value="medium">لدي بعض الخبرة</option>
-                        <option value="expert">نعم، أنا خبير</option>
+                        <option value="beginner">مبتدئ</option>
+                        <option value="intermediate">متوسط</option>
+                        <option value="expert">خبير</option>
                     </select>
                 </div>
                 <button type="button" class="btn-action" onclick="nextStep(2)">التالي</button>
             </div>
 
-            <!-- Step 2: Country & Doc Type -->
+            <!-- Step 2: KYC Type -->
             <div class="step-content" id="step2">
                 <h2>توثيق الهوية (KYC)</h2>
-                <p style="color:#888; margin-bottom: 20px;">اختر وثيقة لإثبات هويتك.</p>
+                <p class="desc">الرجاء اختيار الدولة ونوع الوثيقة التي ستستخدمها للتوثيق.</p>
 
                 <div class="form-group">
                     <label class="form-label">الدولة</label>
                     <select class="form-select" id="country">
-                        <option value="SA">المملكة العربية السعودية</option>
-                        <option value="AE">الإمارات العربية المتحدة</option>
-                        <option value="KW">الكويت</option>
-                        <option value="QA">قطر</option>
-                        <option value="BH">البحرين</option>
-                        <option value="OM">عمان</option>
-                        <option value="EG">مصر</option>
-                        <option value="DZ">الجزائر</option>
+                        <option value="SA">السعودية 🇸🇦</option>
+                        <option value="AE">الإمارات 🇦🇪</option>
+                        <option value="KW">الكويت 🇰🇼</option>
+                        <option value="QA">قطر 🇶🇦</option>
+                        <option value="BH">البحرين 🇧🇭</option>
+                        <option value="EG">مصر 🇪🇬</option>
+                        <option value="DZ">الجزائر 🇩🇿</option>
                         <option value="other">أخرى</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-label">نوع الوثيقة</label>
-                    <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; margin-top:10px;">
-                        <label style="background:#0B0E11; padding:15px; border-radius:8px; border:1px solid #2B3139; cursor:pointer; text-align:center;">
-                            <input type="radio" name="docType" value="passport" checked>
-                            <div style="margin-top:5px"><i class="fas fa-passport"></i> جواز سفر</div>
+                    <div class="radio-grid">
+                        <label class="radio-box">
+                            <input type="radio" name="docType" value="passport" checked hidden>
+                            <div><i class="fas fa-passport fa-lg"></i><br><small>جواز سفر</small></div>
                         </label>
-                        <label style="background:#0B0E11; padding:15px; border-radius:8px; border:1px solid #2B3139; cursor:pointer; text-align:center;">
-                            <input type="radio" name="docType" value="id_card">
-                            <div style="margin-top:5px"><i class="fas fa-id-card"></i> هوية وطنية</div>
+                        <label class="radio-box">
+                            <input type="radio" name="docType" value="id_card" hidden>
+                            <div><i class="fas fa-id-card fa-lg"></i><br><small>هوية وطنية</small></div>
                         </label>
-                        <label style="background:#0B0E11; padding:15px; border-radius:8px; border:1px solid #2B3139; cursor:pointer; text-align:center;">
-                            <input type="radio" name="docType" value="license">
-                            <div style="margin-top:5px"><i class="fas fa-car"></i> رخصة قيادة</div>
+                        <label class="radio-box">
+                            <input type="radio" name="docType" value="license" hidden>
+                            <div><i class="fas fa-car fa-lg"></i><br><small>رخصة قيادة</small></div>
                         </label>
                     </div>
                 </div>
@@ -121,26 +134,25 @@
                 <button type="button" class="btn-action btn-prev" onclick="prevStep(1)">رجوع</button>
             </div>
 
-            <!-- Step 3: Upload Documents -->
+            <!-- Step 3: Upload -->
             <div class="step-content" id="step3">
                 <h2>رفع الوثائق</h2>
-                <p style="color:#888; margin-bottom: 20px;">الرجاء رفع صورة واضحة للوثيقة.</p>
+                <p class="desc">قم بتصوير أو رفع صورة واضحة للوثيقة المختارة.</p>
 
                 <div class="form-group">
-                    <label class="form-label">الوجه الأمامي للوثيقة</label>
+                    <label class="form-label">الوجه الأمامي</label>
                     <div class="upload-box" onclick="document.getElementById('docFront').click()">
-                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
-                        <p>اضغط للرفع أو التقاط صورة</p>
+                        <i class="fas fa-camera upload-icon"></i>
+                        <p id="docFrontText" style="margin:0; font-size:0.9rem;">اضغط للالتقاط أو الرفع</p>
                         <input type="file" id="docFront" hidden accept="image/*" capture="environment">
                     </div>
-                    <p id="docFrontName" style="color:#0ECB81; font-size:0.8rem; margin-top:5px;"></p>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">الوجه الخلفي (اختياري للجواز)</label>
                     <div class="upload-box" onclick="document.getElementById('docBack').click()">
-                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
-                        <p>اضغط للرفع أو التقاط صورة</p>
+                        <i class="fas fa-camera upload-icon"></i>
+                        <p id="docBackText" style="margin:0; font-size:0.9rem;">اضغط للالتقاط أو الرفع</p>
                         <input type="file" id="docBack" hidden accept="image/*" capture="environment">
                     </div>
                 </div>
@@ -149,19 +161,18 @@
                 <button type="button" class="btn-action btn-prev" onclick="prevStep(2)">رجوع</button>
             </div>
 
-            <!-- Step 4: Face Liveness -->
+            <!-- Step 4: Selfie -->
             <div class="step-content" id="step4">
                 <h2>التحقق من الوجه</h2>
-                <p style="color:#888; margin-bottom: 20px;">نحتاج للتأكد من أنك شخص حقيقي.</p>
+                <p class="desc">الخطوة الأخيرة! التقط صورة سيلفي للتأكد من هويتك.</p>
 
-                <div class="upload-box" style="padding: 40px;" onclick="startCamera()">
-                    <div id="cameraPreview" style="width:100%; height:200px; background:#000; border-radius:8px; display:none; margin-bottom:10px;"></div>
-                    <i class="fas fa-user-check upload-icon" id="faceIcon"></i>
-                    <p id="faceText">اضغط هنا لفتح الكاميرا والتقاط صورة سيلفي</p>
+                <div class="upload-box" style="padding: 50px 20px;" onclick="document.getElementById('selfie').click()">
+                    <i class="fas fa-user-check upload-icon" id="faceIcon" style="font-size:3rem;"></i>
+                    <p id="faceText" style="margin-top:15px;">اضغط هنا لفتح الكاميرا</p>
                     <input type="file" id="selfie" hidden accept="image/*" capture="user">
                 </div>
 
-                <button type="submit" class="btn-action" id="finishBtn">إكمال التسجيل</button>
+                <button type="submit" class="btn-action" id="finishBtn">إكمال وإرسال</button>
                 <button type="button" class="btn-action btn-prev" onclick="prevStep(3)">رجوع</button>
             </div>
         </form>
@@ -169,18 +180,31 @@
 
     <script type="module" src="../scripts/onboarding.js"></script>
     <script>
-        // Simple Logic for UI Transitions (before module loads)
+        // UI Logic (Non-Module for direct interaction)
         let currentStep = 1;
 
-        function updateProgress() {
-            document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
-            document.getElementById('step' + currentStep).classList.add('active');
+        window.nextStep = (step) => {
+            // Simple validation
+            if(step === 2) {
+                if(!document.getElementById('address').value || !document.getElementById('dob').value) {
+                    alert('الرجاء تعبئة جميع الحقول المطلوبة');
+                    return;
+                }
+            }
+            if(step === 4) {
+                 // Check if file uploaded (Optional check logic)
+                 // if(document.getElementById('docFront').files.length === 0) { alert('يجب رفع صورة الوثيقة'); return; }
+            }
 
+            document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
+            
+            // Update Indicators
             document.querySelectorAll('.step-indicator').forEach((el, idx) => {
-                if (idx + 1 < currentStep) {
+                if(idx + 1 < step) {
                     el.classList.add('completed');
                     el.innerHTML = '<i class="fas fa-check"></i>';
-                } else if (idx + 1 === currentStep) {
+                } else if(idx + 1 === step) {
                     el.classList.add('active');
                     el.classList.remove('completed');
                     el.innerHTML = idx + 1;
@@ -190,34 +214,33 @@
                 }
             });
 
-            const percent = ((currentStep - 1) / 3) * 100;
+            // Update Line
+            const percent = ((step - 1) / 3) * 100;
             document.getElementById('progressLine').style.width = percent + '%';
-        }
-
-        window.nextStep = (step) => {
             currentStep = step;
-            updateProgress();
         };
 
         window.prevStep = (step) => {
-            currentStep = step;
-            updateProgress();
+            window.nextStep(step); // Reuse same logic
         };
 
-        // File Input UX
-        document.getElementById('docFront').addEventListener('change', function() {
-            if(this.files[0]) document.getElementById('docFrontName').textContent = "تم اختيار: " + this.files[0].name;
-        });
-
-        // Camera Simulation for UX
-        window.startCamera = () => {
-             document.getElementById('selfie').click();
+        // File Input Helpers
+        function setupFileInput(id, textId) {
+            document.getElementById(id).addEventListener('change', function() {
+                if(this.files && this.files[0]) {
+                    document.getElementById(textId).textContent = "✅ تم الاختيار: " + this.files[0].name;
+                    document.getElementById(textId).style.color = "#0ECB81";
+                }
+            });
         }
+        setupFileInput('docFront', 'docFrontText');
+        setupFileInput('docBack', 'docBackText');
+        
         document.getElementById('selfie').addEventListener('change', function() {
-             if(this.files[0]) {
-                 document.getElementById('faceText').textContent = "تم التقاط الصورة بنجاح ✅";
-                 document.getElementById('faceIcon').style.color = "#0ECB81";
-             }
+            if(this.files && this.files[0]) {
+                document.getElementById('faceText').textContent = "✅ تم التقاط السيلفي";
+                document.getElementById('faceIcon').style.color = "#0ECB81";
+            }
         });
     </script>
 </body>
