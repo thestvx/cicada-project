@@ -1,10 +1,10 @@
 /**
- * Auth Guard - Protects Pages & Enforces Onboarding
+ * Auth Guard - Fixed Logic
  */
 
 import { auth, onAuthStateChanged, db, doc, getDoc } from './firebase-config.js';
 
-// 1. Create Loading Screen (Black Overlay)
+// Create Overlay
 const guard = document.createElement('div');
 guard.id = 'auth-guard';
 guard.style.cssText = `
@@ -14,49 +14,49 @@ guard.style.cssText = `
     color: #F0B90B; font-family: sans-serif; font-size: 1.2rem;
 `;
 guard.innerHTML = '<div><i class="fas fa-circle-notch fa-spin"></i> جاري التحقق...</div>';
-document.body.appendChild(guard);
+if (!document.getElementById('auth-guard')) document.body.appendChild(guard);
 
-// 2. Check Auth Status
 onAuthStateChanged(auth, async (user) => {
     if (user) {
-        console.log("✅ User Authenticated:", user.email);
+        const currentUrl = window.location.href;
+        const isOnboardingPage = currentUrl.includes('onboarding.html');
 
-        // Check if user completed onboarding
         try {
+            // جلب بيانات المستخدم للتأكد من حالة onboardingCompleted
             const userSnap = await getDoc(doc(db, "users", user.uid));
             
             if (userSnap.exists()) {
                 const userData = userSnap.data();
-                const isPageOnboarding = window.location.href.includes('onboarding.html');
-                
-                // إذا لم يكمل التسجيل وهو ليس في صفحة الـ onboarding -> اطرده للـ onboarding
-                if (!userData.onboardingCompleted && !isPageOnboarding) {
-                    console.warn("⚠️ Onboarding not complete. Redirecting...");
+                const isCompleted = userData.onboardingCompleted === true;
+
+                // الحالة 1: المستخدم لم يكمل التسجيل وهو ليس في صفحة Onboarding
+                if (!isCompleted && !isOnboardingPage) {
+                    console.warn("⚠️ Redirecting to Onboarding...");
                     window.location.replace('onboarding.html');
                     return;
                 }
                 
-                // إذا أكمل التسجيل وهو يحاول دخول صفحة onboarding -> اطرده للداشبورد
-                if (userData.onboardingCompleted && isPageOnboarding) {
-                    window.location.replace('dashboard.html');
+                // الحالة 2: المستخدم أكمل التسجيل ويحاول دخول صفحة Onboarding مرة أخرى
+                if (isCompleted && isOnboardingPage) {
+                    console.log("✅ Onboarding already done. Redirecting to Profile...");
+                    window.location.replace('profile.html'); // تغيير التوجيه للبروفايل كما طلبت
                     return;
                 }
             }
             
-            // Allow Access (Remove Guard)
+            // السماح بالدخول (إزالة الشاشة السوداء)
             const guardElement = document.getElementById('auth-guard');
             if (guardElement) guardElement.remove();
 
         } catch (error) {
             console.error("Auth Guard Error:", error);
-            // In case of error, maybe allow access or show error
+            // في حالة الخطأ، نسمح بالدخول لتجنب القفل التام
             const guardElement = document.getElementById('auth-guard');
             if (guardElement) guardElement.remove();
         }
 
     } else {
-        // Not logged in -> Redirect to Login
-        console.log("❌ No User - Redirecting to Login");
+        // ليس مسجلاً -> اذهب لصفحة الدخول
         window.location.replace('login.html');
     }
 });
