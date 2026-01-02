@@ -1,120 +1,121 @@
 import { auth, db, doc, getDoc, updateDoc } from './firebase-config.js';
 
-// 1. التحكم في النافذة المنبثقة (Modal)
-const modal = document.getElementById('editProfileModal');
+// عناصر DOM
+const modal          = document.getElementById('editProfileModal');
+const openBtn        = document.getElementById('openEditProfileBtn');
+const closeBtn       = document.getElementById('closeEditProfileBtn');
+const cancelBtn      = document.getElementById('cancelEditBtn');
+const editForm       = document.getElementById('editProfileForm');
+const saveBtn        = document.getElementById('saveProfileBtn');
 
-window.editProfile = function() {
-    if (modal) {
-        modal.style.display = 'flex';
-        // تعبئة الحقول بالبيانات الحالية
-        populateEditForm();
-    }
-};
-
-window.closeEditModal = function() {
-    if (modal) modal.style.display = 'none';
-};
-
-// إغلاق عند النقر خارج النافذة
-window.onclick = function(e) {
-    if (e.target === modal) window.closeEditModal();
-};
-
-// متغير لتخزين البيانات الحالية
 let currentUserData = {};
+let currentUserId   = null;
 
-// 2. تحميل وعرض البيانات
+// فتح المودال
+function openModal() {
+    if (!modal) return;
+    modal.style.display = 'flex';
+    populateEditForm();
+}
+
+// إغلاق المودال
+function closeModal() {
+    if (!modal) return;
+    modal.style.display = 'none';
+}
+
+// ربط الأحداث
+if (openBtn)  openBtn.addEventListener('click', openModal);
+if (closeBtn) closeBtn.addEventListener('click', closeModal);
+if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+if (modal) {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+}
+
+// تحميل بيانات المستخدم
 auth.onAuthStateChanged(async (user) => {
-    if (user) {
-        try {
-            const userDoc = await getDoc(doc(db, "users", user.uid));
-            if (userDoc.exists()) {
-                currentUserData = userDoc.data();
-                
-                // تحديث واجهة العرض (View)
-                updateView(user, currentUserData);
-            }
-        } catch (error) {
-            console.error("Error loading profile:", error);
-        }
-    } else {
+    if (!user) {
         window.location.replace('login.html');
+        return;
+    }
+    currentUserId = user.uid;
+
+    try {
+        const snap = await getDoc(doc(db, 'users', user.uid));
+        if (snap.exists()) {
+            currentUserData = snap.data();
+            updateView(user, currentUserData);
+        }
+    } catch (err) {
+        console.error('Profile load error:', err);
     }
 });
 
+// تحديث واجهة العرض
 function updateView(user, data) {
-    setText('profileFullname', data.fullname);
-    setText('profileUsername', data.username || '@' + data.email.split('@')[0]);
-    setText('profileBio', data.bio || 'لا توجد نبذة');
-    setText('infoEmail', data.email);
+    setText('profileFullname', data.fullname || 'مستخدم');
+    setText('profileUsername', data.username || '@' + (data.email || user.email).split('@')[0]);
+    setText('profileBio', data.bio || 'لا توجد نبذة حتى الآن');
+    setText('infoEmail', data.email || user.email);
     setText('infoPhone', data.phone || 'غير محدد');
     setText('infoLocation', data.location || 'غير محدد');
-    
-    // التاريخ
+
     if (data.createdAt) {
-        const date = new Date(data.createdAt.toDate ? data.createdAt.toDate() : data.createdAt);
-        setText('infoJoinDate', date.toLocaleDateString('ar-EG'));
+        const d = data.createdAt.toDate ? data.createdAt.toDate() : new Date(data.createdAt);
+        setText('infoJoinDate', d.toLocaleDateString('ar-EG'));
     }
 
-    // الصور
-    const avatarUrl = data.photoURL || `https://ui-avatars.com/api/?name=${data.fullname || 'User'}&background=F0B90B&color=fff`;
+    const avatarUrl = data.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(data.fullname || 'User')}&background=F0B90B&color=fff`;
     setImage('avatarImg', avatarUrl);
     setImage('topbarAvatar', avatarUrl);
     setText('topbarName', data.fullname || 'مستخدم');
 }
 
-// دالة لتعبئة فورم التعديل بالبيانات الموجودة
+// ملء نموذج التعديل
 function populateEditForm() {
-    const data = currentUserData;
-    setValue('editFullname', data.fullname);
-    setValue('editUsername', (data.username || '').replace('@', '')); // إزالة @
-    setValue('editBio', data.bio);
-    setValue('editPhone', data.phone);
-    setValue('editLocation', data.location);
+    const d = currentUserData || {};
+    setValue('editFullname', d.fullname || '');
+    setValue('editUsername', (d.username || '').replace('@', ''));
+    setValue('editBio', d.bio || '');
+    setValue('editPhone', d.phone || '');
+    setValue('editLocation', d.location || '');
 }
 
-// 3. معالجة الحفظ (Save Logic)
-const editForm = document.getElementById('editProfileForm');
-
+// حفظ التعديلات
 if (editForm) {
     editForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        const user = auth.currentUser;
-        if (!user) return;
+        if (!currentUserId) return;
 
-        const saveBtn = editForm.querySelector('button[type="submit"]');
-        const originalText = saveBtn.innerHTML;
-        
-        // تفعيل وضع التحميل
-        saveBtn.disabled = true;
-        saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الحفظ...';
+        const newData = {
+            fullname: getValue('editFullname'),
+            username: '@' + getValue('editUsername').replace('@', ''),
+            bio:      getValue('editBio'),
+            phone:    getValue('editPhone'),
+            location: getValue('editLocation')
+        };
+
+        const originalText = saveBtn ? saveBtn.innerHTML : '';
+        if (saveBtn) {
+            saveBtn.disabled = true;
+            saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الحفظ...';
+        }
 
         try {
-            // تجهيز البيانات الجديدة
-            const newData = {
-                fullname: document.getElementById('editFullname').value,
-                username: '@' + document.getElementById('editUsername').value.replace('@', ''), // إضافة @
-                bio: document.getElementById('editBio').value,
-                phone: document.getElementById('editPhone').value,
-                location: document.getElementById('editLocation').value
-            };
-
-            // الحفظ في قاعدة البيانات
-            await updateDoc(doc(db, "users", user.uid), newData);
-            
-            console.log("✅ Profile updated!");
-            
-            // تحديث الصفحة لرؤية النتائج
+            await updateDoc(doc(db, 'users', currentUserId), newData);
+            console.log('✅ profile updated', newData);
+            // بعد الحفظ: إغلاق المودال وتحديث الصفحة
+            closeModal();
             window.location.reload();
-
-        } catch (error) {
-            console.error("Save Error:", error);
-            alert("حدث خطأ أثناء الحفظ: " + error.message);
-            
-            // إعادة الزر لوضعه الطبيعي
-            saveBtn.disabled = false;
-            saveBtn.innerHTML = originalText;
+        } catch (err) {
+            console.error('Save error:', err);
+            alert('حدث خطأ أثناء الحفظ: ' + err.message);
+            if (saveBtn) {
+                saveBtn.disabled = false;
+                saveBtn.innerHTML = originalText;
+            }
         }
     });
 }
@@ -122,13 +123,17 @@ if (editForm) {
 // دوال مساعدة
 function setText(id, text) {
     const el = document.getElementById(id);
-    if(el) el.textContent = text || '...';
+    if (el) el.textContent = text;
 }
 function setValue(id, value) {
     const el = document.getElementById(id);
-    if(el) el.value = value || '';
+    if (el) el.value = value;
+}
+function getValue(id) {
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : '';
 }
 function setImage(id, src) {
     const el = document.getElementById(id);
-    if(el) el.src = src;
+    if (el && src) el.src = src;
 }
