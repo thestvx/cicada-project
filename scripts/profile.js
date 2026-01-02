@@ -1,103 +1,81 @@
-/**
- * Profile Page Logic - Final Fix
- * يعتمد على IDs دقيقة لتجنب البيانات الوهمية
- */
-
 import { auth, db, doc, getDoc, updateDoc } from './firebase-config.js';
 
-// ==========================================
-// 1. تعريف الدوال العامة (للمودال)
-// ==========================================
+// 1. التحكم في النافذة المنبثقة (Modal)
 const modal = document.getElementById('editProfileModal');
 
 window.editProfile = function() {
-    if (modal) modal.style.display = 'flex';
+    if (modal) {
+        modal.style.display = 'flex';
+        // تعبئة الحقول بالبيانات الحالية
+        populateEditForm();
+    }
 };
 
 window.closeEditModal = function() {
     if (modal) modal.style.display = 'none';
 };
 
-window.addEventListener('click', (e) => {
-    if (e.target === modal) modal.style.display = 'none';
-});
+// إغلاق عند النقر خارج النافذة
+window.onclick = function(e) {
+    if (e.target === modal) window.closeEditModal();
+};
 
-// ==========================================
+// متغير لتخزين البيانات الحالية
+let currentUserData = {};
+
 // 2. تحميل وعرض البيانات
-// ==========================================
 auth.onAuthStateChanged(async (user) => {
     if (user) {
         try {
-            // جلب البيانات من Firestore
             const userDoc = await getDoc(doc(db, "users", user.uid));
-            
             if (userDoc.exists()) {
-                const data = userDoc.data();
+                currentUserData = userDoc.data();
                 
-                // --- تعبئة واجهة العرض (View Mode) ---
-                
-                // 1. الاسم واليوزر
-                setText('profileFullname', data.fullname || 'مستخدم');
-                setText('profileUsername', data.username || '@' + data.email.split('@')[0]);
-                
-                // 2. البايو
-                setText('profileBio', data.bio || 'لا توجد نبذة تعريفية بعد.');
-                
-                // 3. المعلومات الشخصية
-                setText('infoEmail', data.email); // الإيميل لا يتغير
-                setText('infoPhone', data.phone || 'غير محدد');
-                setText('infoLocation', data.location || 'غير محدد');
-                setText('infoUserId', '#' + user.uid.slice(0, 8).toUpperCase());
-                
-                // 4. التاريخ
-                if (data.createdAt) {
-                    const date = data.createdAt.toDate ? data.createdAt.toDate() : new Date(data.createdAt);
-                    setText('infoJoinDate', date.toLocaleDateString('ar-EG'));
-                }
-                
-                // 5. الصورة
-                const avatarImg = document.getElementById('avatarImg');
-                const topbarAvatar = document.querySelector('.user-avatar'); // في التوب بار
-                const avatarUrl = data.photoURL || `https://ui-avatars.com/api/?name=${data.fullname || 'U'}&background=F0B90B&color=fff`;
-                
-                if (avatarImg) avatarImg.src = avatarUrl;
-                if (topbarAvatar) topbarAvatar.src = avatarUrl;
-
-                // 6. الإحصائيات (اختياري)
-                setText('statReferrals', data.referralsCount || '0');
-                setText('statEarnings', `$${(data.totalEarnings || 0).toFixed(2)}`);
-
-
-                // --- تعبئة واجهة التعديل (Edit Modal) ---
-                setValue('editFullname', data.fullname || '');
-                setValue('editUsername', (data.username || '').replace('@', ''));
-                setValue('editBio', data.bio || '');
-                setValue('editPhone', data.phone || '');
-                setValue('editLocation', data.location || '');
+                // تحديث واجهة العرض (View)
+                updateView(user, currentUserData);
             }
         } catch (error) {
-            console.error("Profile Load Error:", error);
+            console.error("Error loading profile:", error);
         }
+    } else {
+        window.location.replace('login.html');
     }
 });
 
-// دالة مساعدة لتحديث النصوص بأمان
-function setText(id, text) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = text;
+function updateView(user, data) {
+    setText('profileFullname', data.fullname);
+    setText('profileUsername', data.username || '@' + data.email.split('@')[0]);
+    setText('profileBio', data.bio || 'لا توجد نبذة');
+    setText('infoEmail', data.email);
+    setText('infoPhone', data.phone || 'غير محدد');
+    setText('infoLocation', data.location || 'غير محدد');
+    
+    // التاريخ
+    if (data.createdAt) {
+        const date = new Date(data.createdAt.toDate ? data.createdAt.toDate() : data.createdAt);
+        setText('infoJoinDate', date.toLocaleDateString('ar-EG'));
+    }
+
+    // الصور
+    const avatarUrl = data.photoURL || `https://ui-avatars.com/api/?name=${data.fullname || 'User'}&background=F0B90B&color=fff`;
+    setImage('avatarImg', avatarUrl);
+    setImage('topbarAvatar', avatarUrl);
+    setText('topbarName', data.fullname || 'مستخدم');
 }
 
-// دالة مساعدة لتحديث الحقول بأمان
-function setValue(id, value) {
-    const el = document.getElementById(id);
-    if (el) el.value = value;
+// دالة لتعبئة فورم التعديل بالبيانات الموجودة
+function populateEditForm() {
+    const data = currentUserData;
+    setValue('editFullname', data.fullname);
+    setValue('editUsername', (data.username || '').replace('@', '')); // إزالة @
+    setValue('editBio', data.bio);
+    setValue('editPhone', data.phone);
+    setValue('editLocation', data.location);
 }
 
-
-// ==========================================
-// 3. حفظ التعديلات
-// ==========================================
+// 3. معالجة الحفظ (Save Logic)
 const editForm = document.getElementById('editProfileForm');
+
 if (editForm) {
     editForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -107,32 +85,50 @@ if (editForm) {
 
         const saveBtn = editForm.querySelector('button[type="submit"]');
         const originalText = saveBtn.innerHTML;
+        
+        // تفعيل وضع التحميل
         saveBtn.disabled = true;
         saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الحفظ...';
 
         try {
-            // جلب القيم من الحقول باستخدام IDs الجديدة
-            const newFullname = document.getElementById('editFullname').value;
-            const newUsername = document.getElementById('editUsername').value;
-            const newBio = document.getElementById('editBio').value;
-            const newPhone = document.getElementById('editPhone').value;
-            const newLocation = document.getElementById('editLocation').value;
+            // تجهيز البيانات الجديدة
+            const newData = {
+                fullname: document.getElementById('editFullname').value,
+                username: '@' + document.getElementById('editUsername').value.replace('@', ''), // إضافة @
+                bio: document.getElementById('editBio').value,
+                phone: document.getElementById('editPhone').value,
+                location: document.getElementById('editLocation').value
+            };
 
-            await updateDoc(doc(db, "users", user.uid), {
-                fullname: newFullname,
-                username: '@' + newUsername.replace('@', ''), // ضمان وجود @
-                bio: newBio,
-                phone: newPhone,
-                location: newLocation
-            });
-
-            window.location.reload(); // تحديث لرؤية النتيجة
+            // الحفظ في قاعدة البيانات
+            await updateDoc(doc(db, "users", user.uid), newData);
             
+            console.log("✅ Profile updated!");
+            
+            // تحديث الصفحة لرؤية النتائج
+            window.location.reload();
+
         } catch (error) {
             console.error("Save Error:", error);
-            alert("فشل الحفظ: " + error.message);
+            alert("حدث خطأ أثناء الحفظ: " + error.message);
+            
+            // إعادة الزر لوضعه الطبيعي
             saveBtn.disabled = false;
             saveBtn.innerHTML = originalText;
         }
     });
+}
+
+// دوال مساعدة
+function setText(id, text) {
+    const el = document.getElementById(id);
+    if(el) el.textContent = text || '...';
+}
+function setValue(id, value) {
+    const el = document.getElementById(id);
+    if(el) el.value = value || '';
+}
+function setImage(id, src) {
+    const el = document.getElementById(id);
+    if(el) el.src = src;
 }
