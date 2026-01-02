@@ -47,12 +47,28 @@
         .btn-action:disabled { background: #444; color: #888; cursor: not-allowed; }
         .btn-prev { background: transparent; color: #848E9C; border: 1px solid #2B3139; margin-top: 10px; }
         .btn-prev:hover { border-color: #fff; color: #fff; background: transparent; }
+
+        /* Success Modal Styles */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); z-index: 1000;
+            display: none; justify-content: center; align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal-box {
+            background: #1E2329; width: 90%; max-width: 400px; padding: 30px;
+            border-radius: 16px; border: 1px solid #F0B90B; text-align: center;
+            box-shadow: 0 0 30px rgba(240, 185, 11, 0.2); animation: popIn 0.3s;
+        }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-icon { font-size: 3rem; color: #0ECB81; margin-bottom: 20px; }
+        .modal-title { font-size: 1.5rem; margin-bottom: 10px; color: #fff; }
+        .modal-text { color: #848E9C; margin-bottom: 25px; line-height: 1.6; }
     </style>
 </head>
 <body>
 
     <div class="onboarding-card">
-        <!-- Progress Steps -->
         <div class="steps-header">
             <div class="steps-line"></div>
             <div class="progress-line" id="progressLine"></div>
@@ -63,11 +79,10 @@
         </div>
 
         <form id="onboardingForm">
-            <!-- Step 1: Personal Info -->
+            <!-- Step 1 -->
             <div class="step-content active" id="step1">
                 <h2>معلوماتك الشخصية</h2>
                 <p class="desc">أكمل ملفك الشخصي لنتمكن من تقديم أفضل الخطط الاستثمارية لك.</p>
-
                 <div class="form-group">
                     <label class="form-label">العنوان الكامل</label>
                     <input type="text" class="form-input" id="address" required placeholder="المدينة، المنطقة">
@@ -95,19 +110,15 @@
                 <button type="button" class="btn-action" onclick="nextStep(2)">التالي</button>
             </div>
 
-            <!-- Step 2: KYC Type -->
+            <!-- Step 2 -->
             <div class="step-content" id="step2">
                 <h2>توثيق الهوية (KYC)</h2>
                 <p class="desc">الرجاء اختيار الدولة ونوع الوثيقة التي ستستخدمها للتوثيق.</p>
-
                 <div class="form-group">
                     <label class="form-label">الدولة</label>
                     <select class="form-select" id="country">
                         <option value="SA">السعودية 🇸🇦</option>
                         <option value="AE">الإمارات 🇦🇪</option>
-                        <option value="KW">الكويت 🇰🇼</option>
-                        <option value="QA">قطر 🇶🇦</option>
-                        <option value="BH">البحرين 🇧🇭</option>
                         <option value="EG">مصر 🇪🇬</option>
                         <option value="DZ">الجزائر 🇩🇿</option>
                         <option value="other">أخرى</option>
@@ -134,110 +145,94 @@
                 <button type="button" class="btn-action btn-prev" onclick="prevStep(1)">رجوع</button>
             </div>
 
-            <!-- Step 3: Upload -->
+            <!-- Step 3 -->
             <div class="step-content" id="step3">
                 <h2>رفع الوثائق</h2>
                 <p class="desc">قم بتصوير أو رفع صورة واضحة للوثيقة المختارة.</p>
-
                 <div class="form-group">
                     <label class="form-label">الوجه الأمامي</label>
                     <div class="upload-box" onclick="document.getElementById('docFront').click()">
                         <i class="fas fa-camera upload-icon"></i>
-                        <p id="docFrontText" style="margin:0; font-size:0.9rem;">اضغط للالتقاط أو الرفع</p>
+                        <p id="docFrontText">اضغط للالتقاط أو الرفع</p>
                         <input type="file" id="docFront" hidden accept="image/*" capture="environment">
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <label class="form-label">الوجه الخلفي (اختياري للجواز)</label>
+                    <label class="form-label">الوجه الخلفي</label>
                     <div class="upload-box" onclick="document.getElementById('docBack').click()">
                         <i class="fas fa-camera upload-icon"></i>
-                        <p id="docBackText" style="margin:0; font-size:0.9rem;">اضغط للالتقاط أو الرفع</p>
+                        <p id="docBackText">اضغط للالتقاط أو الرفع</p>
                         <input type="file" id="docBack" hidden accept="image/*" capture="environment">
                     </div>
                 </div>
-
                 <button type="button" class="btn-action" onclick="nextStep(4)">التالي</button>
                 <button type="button" class="btn-action btn-prev" onclick="prevStep(2)">رجوع</button>
             </div>
 
-            <!-- Step 4: Selfie -->
+            <!-- Step 4 -->
             <div class="step-content" id="step4">
                 <h2>التحقق من الوجه</h2>
                 <p class="desc">الخطوة الأخيرة! التقط صورة سيلفي للتأكد من هويتك.</p>
-
                 <div class="upload-box" style="padding: 50px 20px;" onclick="document.getElementById('selfie').click()">
                     <i class="fas fa-user-check upload-icon" id="faceIcon" style="font-size:3rem;"></i>
                     <p id="faceText" style="margin-top:15px;">اضغط هنا لفتح الكاميرا</p>
                     <input type="file" id="selfie" hidden accept="image/*" capture="user">
                 </div>
-
                 <button type="submit" class="btn-action" id="finishBtn">إكمال وإرسال</button>
                 <button type="button" class="btn-action btn-prev" onclick="prevStep(3)">رجوع</button>
             </div>
         </form>
     </div>
 
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-box">
+            <i class="fas fa-check-circle modal-icon"></i>
+            <h3 class="modal-title">تم الإرسال بنجاح!</h3>
+            <p class="modal-text">
+                شكراً لك! تم استلام بياناتك بنجاح.<br>
+                يتم الآن مراجعة هويتك والتحقق منها. تستغرق العملية عادة من <strong>24 إلى 48 ساعة</strong> حسب ضغط الطلبات.
+            </p>
+            <button class="btn-action" id="goToProfileBtn">الذهاب للملف الشخصي</button>
+        </div>
+    </div>
+
     <script type="module" src="../scripts/onboarding.js"></script>
     <script>
-        // UI Logic (Non-Module for direct interaction)
+        // UI Logic
         let currentStep = 1;
-
         window.nextStep = (step) => {
-            // Simple validation
-            if(step === 2) {
-                if(!document.getElementById('address').value || !document.getElementById('dob').value) {
-                    alert('الرجاء تعبئة جميع الحقول المطلوبة');
-                    return;
-                }
+            if(step === 2 && (!document.getElementById('address').value || !document.getElementById('dob').value)) {
+                alert('الرجاء تعبئة الحقول المطلوبة'); return;
             }
-            if(step === 4) {
-                 // Check if file uploaded (Optional check logic)
-                 // if(document.getElementById('docFront').files.length === 0) { alert('يجب رفع صورة الوثيقة'); return; }
-            }
-
             document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
             document.getElementById('step' + step).classList.add('active');
-            
-            // Update Indicators
-            document.querySelectorAll('.step-indicator').forEach((el, idx) => {
-                if(idx + 1 < step) {
-                    el.classList.add('completed');
-                    el.innerHTML = '<i class="fas fa-check"></i>';
-                } else if(idx + 1 === step) {
-                    el.classList.add('active');
-                    el.classList.remove('completed');
-                    el.innerHTML = idx + 1;
-                } else {
-                    el.classList.remove('active', 'completed');
-                    el.innerHTML = idx + 1;
-                }
-            });
-
-            // Update Line
-            const percent = ((step - 1) / 3) * 100;
-            document.getElementById('progressLine').style.width = percent + '%';
+            updateIndicators(step);
             currentStep = step;
         };
+        window.prevStep = (step) => window.nextStep(step);
+        function updateIndicators(step) {
+            document.querySelectorAll('.step-indicator').forEach((el, idx) => {
+                if(idx + 1 < step) { el.classList.add('completed'); el.innerHTML = '<i class="fas fa-check"></i>'; }
+                else if(idx + 1 === step) { el.classList.add('active'); el.classList.remove('completed'); el.innerHTML = idx + 1; }
+                else { el.classList.remove('active', 'completed'); el.innerHTML = idx + 1; }
+            });
+            document.getElementById('progressLine').style.width = (((step - 1) / 3) * 100) + '%';
+        }
 
-        window.prevStep = (step) => {
-            window.nextStep(step); // Reuse same logic
-        };
-
-        // File Input Helpers
-        function setupFileInput(id, textId) {
+        // Files Logic
+        function setupFile(id, txtId) {
             document.getElementById(id).addEventListener('change', function() {
-                if(this.files && this.files[0]) {
-                    document.getElementById(textId).textContent = "✅ تم الاختيار: " + this.files[0].name;
-                    document.getElementById(textId).style.color = "#0ECB81";
+                if(this.files[0]) {
+                    document.getElementById(txtId).textContent = "✅ تم: " + this.files[0].name;
+                    document.getElementById(txtId).style.color = "#0ECB81";
                 }
             });
         }
-        setupFileInput('docFront', 'docFrontText');
-        setupFileInput('docBack', 'docBackText');
-        
+        setupFile('docFront', 'docFrontText');
+        setupFile('docBack', 'docBackText');
         document.getElementById('selfie').addEventListener('change', function() {
-            if(this.files && this.files[0]) {
+            if(this.files[0]) {
                 document.getElementById('faceText').textContent = "✅ تم التقاط السيلفي";
                 document.getElementById('faceIcon').style.color = "#0ECB81";
             }
