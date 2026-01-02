@@ -1,38 +1,7 @@
 import { auth, db, doc, getDoc, updateDoc } from './firebase-config.js';
 
-// عناصر DOM
-const modal          = document.getElementById('editProfileModal');
-const openBtn        = document.getElementById('openEditProfileBtn');
-const closeBtn       = document.getElementById('closeEditProfileBtn');
-const cancelBtn      = document.getElementById('cancelEditBtn');
-const editForm       = document.getElementById('editProfileForm');
-const saveBtn        = document.getElementById('saveProfileBtn');
-
-let currentUserData = {};
 let currentUserId   = null;
-
-// فتح المودال
-function openModal() {
-    if (!modal) return;
-    modal.style.display = 'flex';
-    populateEditForm();
-}
-
-// إغلاق المودال
-function closeModal() {
-    if (!modal) return;
-    modal.style.display = 'none';
-}
-
-// ربط الأحداث
-if (openBtn)  openBtn.addEventListener('click', openModal);
-if (closeBtn) closeBtn.addEventListener('click', closeModal);
-if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
-if (modal) {
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-}
+let currentUserData = {};
 
 // تحميل بيانات المستخدم
 auth.onAuthStateChanged(async (user) => {
@@ -40,20 +9,25 @@ auth.onAuthStateChanged(async (user) => {
         window.location.replace('login.html');
         return;
     }
+
     currentUserId = user.uid;
 
     try {
         const snap = await getDoc(doc(db, 'users', user.uid));
         if (snap.exists()) {
             currentUserData = snap.data();
+            console.log('🔹 Profile data loaded:', currentUserData);
             updateView(user, currentUserData);
+            populateEditForm();
+        } else {
+            console.warn('No user document found for', user.uid);
         }
     } catch (err) {
         console.error('Profile load error:', err);
     }
 });
 
-// تحديث واجهة العرض
+// تحديث عناصر العرض
 function updateView(user, data) {
     setText('profileFullname', data.fullname || 'مستخدم');
     setText('profileUsername', data.username || '@' + (data.email || user.email).split('@')[0]);
@@ -73,7 +47,7 @@ function updateView(user, data) {
     setText('topbarName', data.fullname || 'مستخدم');
 }
 
-// ملء نموذج التعديل
+// تعبئة نموذج التعديل
 function populateEditForm() {
     const d = currentUserData || {};
     setValue('editFullname', d.fullname || '');
@@ -84,6 +58,9 @@ function populateEditForm() {
 }
 
 // حفظ التعديلات
+const editForm = document.getElementById('editProfileForm');
+const saveBtn  = document.getElementById('saveProfileBtn');
+
 if (editForm) {
     editForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -105,9 +82,7 @@ if (editForm) {
 
         try {
             await updateDoc(doc(db, 'users', currentUserId), newData);
-            console.log('✅ profile updated', newData);
-            // بعد الحفظ: إغلاق المودال وتحديث الصفحة
-            closeModal();
+            console.log('✅ profile updated:', newData);
             window.location.reload();
         } catch (err) {
             console.error('Save error:', err);
