@@ -19,104 +19,157 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <a href="../index.html" class="sidebar-logo"><i class="fas fa-circle-notch"></i><span>CICADA</span></a>
-            <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+            <a href="../index.html" class="sidebar-logo">
+                <i class="fas fa-circle-notch"></i>
+                <span>CICADA</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
+
         <nav class="sidebar-nav">
-            <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>الرئيسية</span></a>
-            <a href="investments.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>استثماراتي</span></a>
-            <a href="wallet.html" class="nav-item"><i class="fas fa-wallet"></i><span>المحفظة</span></a>
-            <a href="profile.html" class="nav-item active"><i class="fas fa-user"></i><span>الملف الشخصي</span></a>
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="investments.html" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>استثماراتي</span>
+            </a>
+            <a href="wallet.html" class="nav-item">
+                <i class="fas fa-wallet"></i>
+                <span>المحفظة</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <i class="fas fa-user"></i>
+                <span>الملف الشخصي</span>
+            </a>
         </nav>
+
         <div class="sidebar-footer">
-             <button class="nav-item logout" style="background:none; border:none; width:100%; text-align:right; cursor:pointer; color:#848E9C;">
-                <i class="fas fa-sign-out-alt"></i><span>تسجيل الخروج</span>
+            <button class="nav-item logout" style="background:none; border:none; width:100%; text-align:right; cursor:pointer; color:#848E9C;">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>تسجيل الخروج</span>
             </button>
         </div>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
+        <!-- Topbar -->
         <header class="topbar">
             <div class="topbar-left">
-                <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <h1 class="page-title">الملف الشخصي</h1>
             </div>
+
             <div class="topbar-right">
                 <div class="topbar-item">
                     <button class="user-menu-btn">
                         <img src="https://ui-avatars.com/api/?name=User&background=F0B90B&color=fff" alt="User" class="user-avatar" id="topbarAvatar">
                         <span class="user-name" id="topbarName">...</span>
+                        <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
             </div>
         </header>
 
+        <!-- Profile Content -->
         <div class="dashboard-content">
             <!-- Profile Header -->
             <div class="profile-header-card">
                 <div class="profile-cover"></div>
+                
                 <div class="profile-header-content">
                     <div class="profile-avatar-section">
                         <div class="profile-avatar">
-                            <img src="" alt="Avatar" id="avatarImg">
+                            <img src="" alt="User Avatar" id="avatarImg">
                         </div>
                         <div class="profile-info">
                             <div class="profile-name-section">
                                 <h2 id="profileFullname">...</h2>
-                                <span class="verified-badge" id="verifiedBadge" style="display:none"><i class="fas fa-check-circle"></i> موثق</span>
+                                <span class="verified-badge" id="verifiedBadge" style="display:none">
+                                    <i class="fas fa-check-circle"></i> موثق
+                                </span>
                             </div>
                             <p class="profile-username" id="profileUsername">@...</p>
                             <p class="profile-bio" id="profileBio">...</p>
                         </div>
                     </div>
+
                     <div class="profile-actions">
-                        <!-- زر فتح النافذة -->
-                        <button class="btn btn-primary" onclick="window.editProfile()">
-                            <i class="fas fa-edit"></i> تعديل الملف
+                        <!-- بدون onclick – نستخدم id فقط -->
+                        <button class="btn btn-primary" id="openEditProfileBtn">
+                            <i class="fas fa-edit"></i>
+                            تعديل الملف
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Info Grid -->
+            <!-- Profile Content Grid -->
             <div class="profile-content-grid">
                 <div class="profile-left-column">
                     <div class="profile-section">
-                        <div class="section-header"><h3 class="section-title">المعلومات الشخصية</h3></div>
+                        <div class="section-header">
+                            <h3 class="section-title">المعلومات الشخصية</h3>
+                        </div>
+
                         <div class="info-list">
                             <div class="info-item">
                                 <div class="info-icon"><i class="fas fa-envelope"></i></div>
-                                <div class="info-details"><span class="info-label">البريد الإلكتروني</span><span class="info-value" id="infoEmail">...</span></div>
+                                <div class="info-details">
+                                    <span class="info-label">البريد الإلكتروني</span>
+                                    <span class="info-value" id="infoEmail">...</span>
+                                </div>
                             </div>
+
                             <div class="info-item">
                                 <div class="info-icon"><i class="fas fa-phone"></i></div>
-                                <div class="info-details"><span class="info-label">رقم الهاتف</span><span class="info-value" id="infoPhone">...</span></div>
+                                <div class="info-details">
+                                    <span class="info-label">رقم الهاتف</span>
+                                    <span class="info-value" id="infoPhone">...</span>
+                                </div>
                             </div>
+
                             <div class="info-item">
                                 <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                                <div class="info-details"><span class="info-label">الموقع</span><span class="info-value" id="infoLocation">...</span></div>
+                                <div class="info-details">
+                                    <span class="info-label">الموقع</span>
+                                    <span class="info-value" id="infoLocation">...</span>
+                                </div>
                             </div>
+
                             <div class="info-item">
                                 <div class="info-icon"><i class="fas fa-calendar"></i></div>
-                                <div class="info-details"><span class="info-label">تاريخ الانضمام</span><span class="info-value" id="infoJoinDate">...</span></div>
+                                <div class="info-details">
+                                    <span class="info-label">تاريخ الانضمام</span>
+                                    <span class="info-value" id="infoJoinDate">...</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- يمين ممكن تضيف فيه أي شيء لاحقاً -->
+                <div class="profile-right-column"></div>
             </div>
         </div>
     </main>
 
-    <!-- Edit Profile Modal (النافذة المنبثقة) -->
-    <div class="modal-overlay" id="editProfileModal" style="display: none;">
+    <!-- Edit Profile Modal -->
+    <div class="modal-overlay" id="editProfileModal" style="display:none;">
         <div class="modal-content profile-modal">
             <div class="modal-header">
                 <h2>تعديل الملف الشخصي</h2>
-                <button class="modal-close" onclick="window.closeEditModal()"><i class="fas fa-times"></i></button>
+                <button class="modal-close" id="closeEditProfileBtn">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
             <div class="modal-body">
-                <!-- الفورم -->
                 <form id="editProfileForm">
                     <div class="form-group">
                         <label class="form-label">الاسم الكامل</label>
@@ -127,7 +180,7 @@
                         <label class="form-label">اسم المستخدم</label>
                         <div class="input-wrapper">
                             <span class="input-prefix">@</span>
-                            <input type="text" id="editUsername" class="form-input" style="padding-right: 2.5rem;">
+                            <input type="text" id="editUsername" class="form-input" style="padding-right:2.5rem;">
                         </div>
                     </div>
 
@@ -147,8 +200,8 @@
                     </div>
 
                     <div class="modal-actions">
-                        <button type="button" class="btn btn-outline" onclick="window.closeEditModal()">إلغاء</button>
-                        <button type="submit" class="btn btn-accent">حفظ التغييرات</button>
+                        <button type="button" class="btn btn-outline" id="cancelEditBtn">إلغاء</button>
+                        <button type="submit" class="btn btn-accent" id="saveProfileBtn">حفظ التغييرات</button>
                     </div>
                 </form>
             </div>
