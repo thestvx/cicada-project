@@ -1,8 +1,9 @@
-import { auth, db, doc, setDoc } from './firebase-config.js'; 
-// لاحظ: أزلت serverTimestamp من الاستيراد لتجنب المشاكل
+import { auth, db, doc, setDoc } from './firebase-config.js';
 
 const form = document.getElementById('onboardingForm');
 const finishBtn = document.getElementById('finishBtn');
+const successModal = document.getElementById('successModal');
+const goToProfileBtn = document.getElementById('goToProfileBtn');
 
 // 1. التأكد من تسجيل الدخول
 auth.onAuthStateChanged((user) => {
@@ -13,20 +14,15 @@ auth.onAuthStateChanged((user) => {
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    console.log("🚀 بدأنا عملية الحفظ...");
-
     const user = auth.currentUser;
-    if (!user) {
-        alert("يرجى تسجيل الدخول أولاً!");
-        return;
-    }
+    if (!user) return;
 
-    // قفل الزر وتشغيل التحميل
+    // تغيير حالة الزر لمنع التكرار
     finishBtn.disabled = true;
-    finishBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> جاري الحفظ...';
+    finishBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> جاري المعالجة...';
 
     try {
-        // جمع البيانات (مع حماية ضد الحقول الفارغة)
+        // جمع البيانات
         const formData = {
             address: document.getElementById('address')?.value || '',
             dob: document.getElementById('dob')?.value || '',
@@ -35,31 +31,38 @@ form.addEventListener('submit', async (e) => {
             country: document.getElementById('country')?.value || 'SA',
             kycDocType: document.querySelector('input[name="docType"]:checked')?.value || 'passport',
             
-            // المفاتيح الأساسية
+            // بيانات النظام
             onboardingCompleted: true,
             kycStatus: 'pending',
-            
-            // 🔥 التعديل المهم هنا: استخدام تاريخ الجافاسكريبت العادي بدلاً من Firebase
-            updatedAt: new Date().toISOString() 
+            updatedAt: new Date().toISOString()
         };
 
-        console.log("📦 جاري إرسال البيانات لقاعدة البيانات:", formData);
-
-        // الحفظ في Firestore
+        // الحفظ في قاعدة البيانات
         await setDoc(doc(db, "users", user.uid), formData, { merge: true });
         
-        console.log("✅ تم الحفظ! جاري الانتقال...");
+        // إخفاء التحميل على الزر
+        finishBtn.innerHTML = 'تم الحفظ!';
         
-        // الانتقال للصفحة التالية
-        window.location.replace('profile.html');
+        // 🔥 إظهار النافذة المنبثقة بدلاً من الانتقال المباشر
+        if (successModal) {
+            successModal.style.display = 'flex';
+        } else {
+            // حل احتياطي لو النافذة لم تظهر لسبب ما
+            alert("تم إرسال البيانات بنجاح! سيتم التحقق خلال 24 ساعة.");
+            window.location.replace('profile.html');
+        }
         
     } catch (error) {
-        // هذا الكود سيعمل فقط إذا حدثت مصيبة في الاتصال
-        console.error("❌ الخطأ بالتفصيل:", error);
-        alert("فشل الحفظ: " + error.message);
-        
-        // إعادة الزر للعمل
+        console.error("Save Error:", error);
+        alert("حدث خطأ: " + error.message);
         finishBtn.disabled = false;
         finishBtn.innerHTML = 'إكمال وإرسال';
     }
 });
+
+// 3. زر الانتقال داخل النافذة المنبثقة
+if (goToProfileBtn) {
+    goToProfileBtn.addEventListener('click', () => {
+        window.location.replace('profile.html');
+    });
+}
