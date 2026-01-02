@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الملف الشخصي - Cicada</title>
     
-    <!-- Fonts -->
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- CSS -->
@@ -21,234 +19,88 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <a href="../index.html" class="sidebar-logo">
-                <i class="fas fa-circle-notch"></i>
-                <span>CICADA</span>
-            </a>
-            <button class="sidebar-toggle" id="sidebarToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <a href="../index.html" class="sidebar-logo"><i class="fas fa-circle-notch"></i><span>CICADA</span></a>
+            <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
         </div>
-
         <nav class="sidebar-nav">
-            <a href="dashboard.html" class="nav-item">
-                <i class="fas fa-home"></i>
-                <span>الرئيسية</span>
-            </a>
-            <a href="investments.html" class="nav-item">
-                <i class="fas fa-chart-pie"></i>
-                <span>استثماراتي</span>
-            </a>
-            <a href="tasks.html" class="nav-item">
-                <i class="fas fa-tasks"></i>
-                <span>المهام اليومية</span>
-            </a>
-            <a href="transactions.html" class="nav-item">
-                <i class="fas fa-exchange-alt"></i>
-                <span>المعاملات</span>
-            </a>
-            <a href="referral.html" class="nav-item">
-                <i class="fas fa-users"></i>
-                <span>برنامج الإحالة</span>
-            </a>
-            <a href="wallet.html" class="nav-item">
-                <i class="fas fa-wallet"></i>
-                <span>المحفظة</span>
-            </a>
-            <a href="profile.html" class="nav-item active">
-                <i class="fas fa-user"></i>
-                <span>الملف الشخصي</span>
-            </a>
-            <a href="settings.html" class="nav-item">
-                <i class="fas fa-cog"></i>
-                <span>الإعدادات</span>
-            </a>
+            <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+            <a href="investments.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>استثماراتي</span></a>
+            <a href="wallet.html" class="nav-item"><i class="fas fa-wallet"></i><span>المحفظة</span></a>
+            <a href="profile.html" class="nav-item active"><i class="fas fa-user"></i><span>الملف الشخصي</span></a>
         </nav>
-
         <div class="sidebar-footer">
-            <a href="support.html" class="nav-item">
-                <i class="fas fa-headset"></i>
-                <span>الدعم الفني</span>
-            </a>
-            <button class="nav-item logout" style="background:none; border:none; width:100%; text-align:right; cursor:pointer; color:#848E9C;">
-                <i class="fas fa-sign-out-alt"></i>
-                <span>تسجيل الخروج</span>
+             <button class="nav-item logout" style="background:none; border:none; width:100%; text-align:right; cursor:pointer; color:#848E9C;">
+                <i class="fas fa-sign-out-alt"></i><span>تسجيل الخروج</span>
             </button>
         </div>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Topbar -->
         <header class="topbar">
             <div class="topbar-left">
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
                 <h1 class="page-title">الملف الشخصي</h1>
             </div>
-
             <div class="topbar-right">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="ابحث...">
-                </div>
-
-                <div class="topbar-item">
-                    <button class="icon-btn">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-badge">3</span>
-                    </button>
-                </div>
-
                 <div class="topbar-item">
                     <button class="user-menu-btn">
-                        <!-- صورة واسم المستخدم في التوب بار سيتم تحديثهما عبر JS -->
-                        <img src="https://ui-avatars.com/api/?name=User&background=F0B90B&color=fff" alt="User" class="user-avatar">
-                        <span class="user-name">جاري التحميل...</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <img src="https://ui-avatars.com/api/?name=User&background=F0B90B&color=fff" alt="User" class="user-avatar" id="topbarAvatar">
+                        <span class="user-name" id="topbarName">...</span>
                     </button>
                 </div>
             </div>
         </header>
 
-        <!-- Profile Content -->
         <div class="dashboard-content">
             <!-- Profile Header -->
             <div class="profile-header-card">
-                <div class="profile-cover">
-                    <!-- Cover Photo -->
-                </div>
-                
+                <div class="profile-cover"></div>
                 <div class="profile-header-content">
                     <div class="profile-avatar-section">
                         <div class="profile-avatar">
-                            <!-- Default Placeholder Image -->
-                            <img src="https://ui-avatars.com/api/?name=User&background=333&color=fff" alt="User Avatar" id="avatarImg">
-                            <button class="edit-avatar-btn">
-                                <i class="fas fa-camera"></i>
-                            </button>
+                            <img src="" alt="Avatar" id="avatarImg">
                         </div>
-                        
                         <div class="profile-info">
                             <div class="profile-name-section">
-                                <h2 id="profileFullname">جاري التحميل...</h2>
-                                <span class="verified-badge" id="verifiedBadge" style="display:none">
-                                    <i class="fas fa-check-circle"></i> موثق
-                                </span>
+                                <h2 id="profileFullname">...</h2>
+                                <span class="verified-badge" id="verifiedBadge" style="display:none"><i class="fas fa-check-circle"></i> موثق</span>
                             </div>
                             <p class="profile-username" id="profileUsername">@...</p>
                             <p class="profile-bio" id="profileBio">...</p>
                         </div>
                     </div>
-
                     <div class="profile-actions">
+                        <!-- زر فتح النافذة -->
                         <button class="btn btn-primary" onclick="window.editProfile()">
-                            <i class="fas fa-edit"></i>
-                            تعديل الملف
+                            <i class="fas fa-edit"></i> تعديل الملف
                         </button>
-                    </div>
-                </div>
-
-                <div class="profile-stats">
-                    <div class="stat-box">
-                        <span class="stat-value" id="statReferrals">0</span>
-                        <span class="stat-label">إحالات</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-value" id="statEarnings">$0.00</span>
-                        <span class="stat-label">أرباح</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-value">3</span>
-                        <span class="stat-label">استثمارات نشطة</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-value">Level 1</span>
-                        <span class="stat-label">المستوى</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Profile Content Grid -->
+            <!-- Info Grid -->
             <div class="profile-content-grid">
-                <!-- Left Column -->
                 <div class="profile-left-column">
-                    <!-- Personal Information -->
                     <div class="profile-section">
-                        <div class="section-header">
-                            <h3 class="section-title">المعلومات الشخصية</h3>
-                        </div>
-
+                        <div class="section-header"><h3 class="section-title">المعلومات الشخصية</h3></div>
                         <div class="info-list">
                             <div class="info-item">
-                                <div class="info-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="info-details">
-                                    <span class="info-label">البريد الإلكتروني</span>
-                                    <span class="info-value" id="infoEmail">...</span>
-                                </div>
+                                <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="info-details"><span class="info-label">البريد الإلكتروني</span><span class="info-value" id="infoEmail">...</span></div>
                             </div>
-
                             <div class="info-item">
-                                <div class="info-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div class="info-details">
-                                    <span class="info-label">رقم الهاتف</span>
-                                    <span class="info-value" id="infoPhone">...</span>
-                                </div>
+                                <div class="info-icon"><i class="fas fa-phone"></i></div>
+                                <div class="info-details"><span class="info-label">رقم الهاتف</span><span class="info-value" id="infoPhone">...</span></div>
                             </div>
-
                             <div class="info-item">
-                                <div class="info-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="info-details">
-                                    <span class="info-label">الموقع</span>
-                                    <span class="info-value" id="infoLocation">...</span>
-                                </div>
+                                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="info-details"><span class="info-label">الموقع</span><span class="info-value" id="infoLocation">...</span></div>
                             </div>
-
                             <div class="info-item">
-                                <div class="info-icon">
-                                    <i class="fas fa-calendar"></i>
-                                </div>
-                                <div class="info-details">
-                                    <span class="info-label">تاريخ الانضمام</span>
-                                    <span class="info-value" id="infoJoinDate">...</span>
-                                </div>
+                                <div class="info-icon"><i class="fas fa-calendar"></i></div>
+                                <div class="info-details"><span class="info-label">تاريخ الانضمام</span><span class="info-value" id="infoJoinDate">...</span></div>
                             </div>
-
-                            <div class="info-item">
-                                <div class="info-icon">
-                                    <i class="fas fa-id-card"></i>
-                                </div>
-                                <div class="info-details">
-                                    <span class="info-label">معرف المستخدم (ID)</span>
-                                    <span class="info-value" id="infoUserId">...</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column (Stats / Activity) -->
-                <div class="profile-right-column">
-                    <!-- Account Level -->
-                    <div class="profile-section account-level-section">
-                        <div class="section-header">
-                            <h3 class="section-title">حالة الحساب</h3>
-                        </div>
-                        <div class="account-level-card">
-                            <div class="level-badge basic">
-                                <i class="fas fa-star"></i>
-                                <span>مستوى أساسي</span>
-                            </div>
-                            <p style="margin-top: 15px; color: #888; font-size: 0.9rem;">
-                                قم بالترقية لزيادة نسبة أرباحك وعمولات الإحالة.
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -256,43 +108,42 @@
         </div>
     </main>
 
-    <!-- Edit Profile Modal -->
+    <!-- Edit Profile Modal (النافذة المنبثقة) -->
     <div class="modal-overlay" id="editProfileModal" style="display: none;">
         <div class="modal-content profile-modal">
             <div class="modal-header">
                 <h2>تعديل الملف الشخصي</h2>
-                <button class="modal-close" onclick="window.closeEditModal()">
-                    <i class="fas fa-times"></i>
-                </button>
+                <button class="modal-close" onclick="window.closeEditModal()"><i class="fas fa-times"></i></button>
             </div>
             <div class="modal-body">
+                <!-- الفورم -->
                 <form id="editProfileForm">
                     <div class="form-group">
                         <label class="form-label">الاسم الكامل</label>
-                        <input type="text" id="editFullname" class="form-input" placeholder="الاسم">
+                        <input type="text" id="editFullname" class="form-input" required>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">اسم المستخدم</label>
                         <div class="input-wrapper">
                             <span class="input-prefix">@</span>
-                            <input type="text" id="editUsername" class="form-input" placeholder="username" style="padding-right: 2.5rem;">
+                            <input type="text" id="editUsername" class="form-input" style="padding-right: 2.5rem;">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">نبذة عنك</label>
-                        <textarea id="editBio" class="form-input" rows="3" placeholder="اكتب نبذة..."></textarea>
+                        <textarea id="editBio" class="form-input" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">رقم الهاتف</label>
-                        <input type="tel" id="editPhone" class="form-input" placeholder="رقم الهاتف">
+                        <input type="tel" id="editPhone" class="form-input">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">الموقع</label>
-                        <input type="text" id="editLocation" class="form-input" placeholder="المدينة، الدولة">
+                        <input type="text" id="editLocation" class="form-input">
                     </div>
 
                     <div class="modal-actions">
@@ -305,9 +156,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="../scripts/main.js"></script>
-    
-    <!-- Firebase Scripts (Modules) -->
     <script type="module" src="../scripts/auth-guard.js"></script>
     <script type="module" src="../scripts/common.js"></script>
     <script type="module" src="../scripts/profile.js"></script>
