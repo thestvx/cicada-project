@@ -81,7 +81,7 @@
         <div class="dashboard-content">
             <!-- Profile Header -->
             <div class="profile-header-card">
-                <div class="profile-cover"></div>
+                <div class="profile-cover" id="profileCover"></div>
                 
                 <div class="profile-header-content">
                     <div class="profile-avatar-section">
@@ -101,7 +101,6 @@
                     </div>
 
                     <div class="profile-actions">
-                        <!-- بدون onclick – نستخدم id فقط -->
                         <button class="btn btn-primary" id="openEditProfileBtn">
                             <i class="fas fa-edit"></i>
                             تعديل الملف
@@ -110,7 +109,7 @@
                 </div>
             </div>
 
-            <!-- Profile Content Grid -->
+            <!-- Info -->
             <div class="profile-content-grid">
                 <div class="profile-left-column">
                     <div class="profile-section">
@@ -154,7 +153,6 @@
                     </div>
                 </div>
 
-                <!-- يمين ممكن تضيف فيه أي شيء لاحقاً -->
                 <div class="profile-right-column"></div>
             </div>
         </div>
@@ -212,5 +210,31 @@
     <script type="module" src="../scripts/auth-guard.js"></script>
     <script type="module" src="../scripts/common.js"></script>
     <script type="module" src="../scripts/profile.js"></script>
+
+    <!-- سكربت بسيط للمودال (بدون Modules) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal   = document.getElementById('editProfileModal');
+            const openBtn = document.getElementById('openEditProfileBtn');
+            const closeBtn= document.getElementById('closeEditProfileBtn');
+            const cancel  = document.getElementById('cancelEditBtn');
+
+            function openModal()  { if (modal) modal.style.display = 'flex'; }
+            function closeModal() { if (modal) modal.style.display = 'none'; }
+
+            if (openBtn)  openBtn.addEventListener('click', openModal);
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            if (cancel)   cancel.addEventListener('click', closeModal);
+
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeModal();
+                });
+            }
+
+            // للتشخيص السريع
+            console.log('💡 Profile modal JS connected (HTML inline).');
+        });
+    </script>
 </body>
 </html>
